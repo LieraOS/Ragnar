@@ -1,0 +1,2018 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# rexhent 1, 2023
+# green <usergreen@users.osdn.me>, 2026
+# Joshua Strobl <joshua.strobl@outlook.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 15:27+0300\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Joshua Strobl <joshua.strobl@outlook.com>, 2026\n"
+"Language-Team: Japanese (https://app.transifex.com/buddiesofragnar/teams/129844/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "その他"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr "アクセサリ"
+
+msgid "Education"
+msgstr "教育"
+
+msgid "Games"
+msgstr "ゲーム"
+
+msgid "Graphics"
+msgstr "グラフィックス"
+
+msgid "Internet"
+msgstr "インターネット"
+
+msgid "Office"
+msgstr "オフィス"
+
+msgid "Programming"
+msgstr "プログラミング"
+
+msgid "Science"
+msgstr "科学"
+
+msgid "Sound & Video"
+msgstr "サウンド＆ビデオ"
+
+msgid "System Tools"
+msgstr "システムツール"
+
+msgid "Universal Access"
+msgstr "ユニバーサルアクセス"
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr "新しいカテゴリ"
+
+msgid "Log out"
+msgstr "ログアウト"
+
+msgid "Restart device"
+msgstr "デバイスの再起動"
+
+#: src/daemon/endsession.ui:47
+msgid "Power Off"
+msgstr "電源オフ"
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr "未読通知"
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] "すべて調べたところ、%d 件の通知があります。"
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr "通知の表示"
+
+msgid "Caps Lock is on"
+msgstr "Caps Lock がオンです"
+
+msgid "Caps Lock is off"
+msgstr "Caps Lock がオフです"
+
+msgid "Num Lock is on"
+msgstr "Num Lock がオンです"
+
+msgid "Num Lock is off"
+msgstr "Num Lock がオフです"
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "カフェインブースト ON"
+
+msgid "Turned off Caffeine Boost"
+msgstr "カフェインブースト OFF"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] "%d 分で電源を切る"
+
+msgid "Authentication failed"
+msgstr "認証に失敗"
+
+msgid "Group:"
+msgstr "グループ:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr "ロック(_L)"
+
+msgid "L_og Out"
+msgstr "ログアウト(_O)"
+
+msgid "_Suspend"
+msgstr "サスペンド(_S)"
+
+msgid "_Hibernate"
+msgstr "ハイバネート(_H)"
+
+msgid "_Reboot"
+msgstr "再起動(_R)"
+
+msgid "Shut_down"
+msgstr "シャットダウン(_D)"
+
+msgid "This system does not support hibernation."
+msgstr "このシステムではハイバネートをサポートしません。"
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:3
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:3
+msgid "Ragnar Screenshot"
+msgstr "Ragnar スクリーンショット"
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr "画面全体を撮影"
+
+msgid "Screenshot active window"
+msgstr "アクティブな画面のみ撮影"
+
+msgid "Screenshot selected area"
+msgstr "選択部分を撮影"
+
+#. translate
+msgid "Cancel screenshot"
+msgstr "スクリーンショットの取り消し"
+
+msgid "Save screenshot to the selected directory"
+msgstr "スクリーンショットを選択したディレクトリへ保存"
+
+msgid "Copy screenshot to the clipboard"
+msgstr "スクリーンショットをクリップボードへ貼り付け"
+
+msgid "Open screenshot in default application"
+msgstr "スクリーンショットを既定のアプリケーションで開く"
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr "その他..."
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr "フォルダを開く"
+
+#: src/daemon/endsession.ui:92 src/dialogs/polkit/dialog.ui:321
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Open"
+msgstr "開く"
+
+msgid "Files to send"
+msgstr "送信するファイル"
+
+msgid "_Cancel"
+msgstr "キャンセル(_C)"
+
+msgid "_Open"
+msgstr "開く(_O)"
+
+msgid "Send Files via Bluetooth"
+msgstr "Bluetooth 経由でファイルを送信する"
+
+msgid "Send files to device…"
+msgstr "ファイルをデバイスに送信する…"
+
+msgid "Rejected file"
+msgstr "拒否されたファイル"
+
+#, c-format
+msgid "File already exists: %s"
+msgstr "すでに存在するファイル: %s"
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr "ファイルを受信中"
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr "デバイス '%s' が次のファイルを送信しようとしています: %s %s"
+
+msgid "Accept"
+msgstr "了解"
+
+msgid "Reject"
+msgstr "拒否"
+
+msgid "File name"
+msgstr "ファイル名"
+
+msgid "Transfer rate"
+msgstr "転送速度"
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr "閉じる"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr "<b>転送速度:</b> %s / s"
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr "%s / %s: 残り時間: %s"
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] "%u 時間"
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] "%u 分"
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] "%u 秒"
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d 秒"
+
+msgid "Send"
+msgstr "送信"
+
+msgid "Speaker"
+msgstr "スピーカ"
+
+msgid "Controller"
+msgstr "コントローラ"
+
+msgid "Keyboard"
+msgstr "キーボード"
+
+msgid "Mouse"
+msgstr "マウス"
+
+msgid "Tablet"
+msgstr "タブレット端末"
+
+msgid "Touchpad"
+msgstr "タッチパッド"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Bluetooth File Transfer"
+msgstr "Bluetooth でのファイル転送"
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr "<b>発信元</b>: %s"
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr "<b>宛先</b>: %s"
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr "<b>ファイル名</b>: %s"
+
+msgid "File transfer failed"
+msgstr "ファイルの転送に失敗"
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr "'%s' ファイルは %s より受信できませんでした"
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr "%s よりの '%s' ファイルは受信できませんでした: %s"
+
+msgid "File transferred successfully"
+msgstr "ファイルを正しく転送しました"
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr "%s よりのファイルを '%s' へ保存しました"
+
+msgid "From"
+msgstr "発信元"
+
+msgid "To"
+msgstr "宛先"
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr "次のところへ接続を試しています %s…"
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr "'%s' への接続は失敗しました"
+
+msgid "The file has not been transferred."
+msgstr "ファイルは転送できませんでした。"
+
+msgid "Retry"
+msgstr "再実行"
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr "次の受け入れを待機しています：%s"
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr "'%s' の転送は失敗しました"
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr "%s は転送を中断または拒否しました。"
+
+msgid "Select a Bluetooth device to send files to"
+msgstr "ファイルの送り先の Bluetooth デバイスを選択する"
+
+msgid "Discovering…"
+msgstr "検索中…"
+
+msgid "<b>No devices found</b>"
+msgstr "<b>デバイスが見つかりません</b>"
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr "デバイスが視認可能で、ペアリングが準備できていることを確認してください"
+
+msgid "Available Devices"
+msgstr "利用可能なデバイス"
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "カフェインモード"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:2
+msgid "Ragnar Desktop Settings"
+msgstr "Ragnar デスクトップの設定"
+
+msgid "System Settings"
+msgstr "システムの設定"
+
+msgid "Power"
+msgstr "電源"
+
+msgid "Set menu icon from file"
+msgstr "ファイルからメニューアイコンを設定する"
+
+msgid "Image files"
+msgstr "画像ファイル"
+
+msgid "Any file"
+msgstr "すべてのファイル"
+
+msgid "Set icon"
+msgstr "アイコンの設定"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "All"
+msgstr "すべて"
+
+msgid "Remove from favorites"
+msgstr ""
+
+msgid "Add to favorites"
+msgstr ""
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "アイテムが見つかりませんでした"
+
+msgid "Timer (minutes)"
+msgstr "タイマー（分）"
+
+msgid "System time and date settings"
+msgstr "システムの時刻と日付の設定"
+
+msgid "Unfavorite"
+msgstr "パネルから削除"
+
+msgid "Favorite"
+msgstr "パネルへ追加"
+
+msgid "Close all windows"
+msgstr "すべてのウィンドウを閉じる"
+
+msgid "Launch new instance"
+msgstr "新しいインスタンスを開始"
+
+msgid "Minimize"
+msgstr "ウィンドウを最小化"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr "%s へ移動"
+
+msgid "Unmaximize"
+msgstr "最大化しない"
+
+msgid "Maximize"
+msgstr "ウィンドウを最大化"
+
+msgid "Close window"
+msgstr "ウィンドウを閉じる"
+
+msgid "Show window controls"
+msgstr "ウィンドウコントロールを表示"
+
+msgid "Caps lock is active"
+msgstr "Caps Lock が有効です"
+
+msgid "Caps lock is not active"
+msgstr "Caps Lock が無効です"
+
+msgid "Num lock is active"
+msgstr "Num Lock が有効です"
+
+msgid "Num lock is not active"
+msgstr "Num Lock が無効です"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] "%u 件の未読通知"
+
+msgid "No unread notifications"
+msgstr "未読通知はありません"
+
+msgid "Volume is in use by other processes"
+msgstr "ボリュームは他のプロセスで使用中です"
+
+msgid "Operation aborted"
+msgstr "操作を中断しました"
+
+msgid "Type your password"
+msgstr "パスワードを入力してください"
+
+msgid "Removable devices"
+msgstr "リムーバブルデバイス"
+
+msgid "Local volumes"
+msgstr "ローカルボリューム"
+
+msgid "Network folders"
+msgstr "ネットワークフォルダ"
+
+msgid "Eject"
+msgstr "取り出し"
+
+msgid "Unmount"
+msgstr "アンマウント"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "\"%s\" を開く"
+
+msgid "You can now safely remove"
+msgstr "安全に取り外せます"
+
+msgid "Unknown Device"
+msgstr "不明なデバイス"
+
+msgid "Error while ejecting device"
+msgstr "デバイスの取り出し中にエラーが発生しました"
+
+msgid "Error while unmounting volume"
+msgstr "ボリュームのアンマウント中にエラーが発生しました"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:4
+msgid "Places"
+msgstr "場所"
+
+msgid "Nothing to display right now"
+msgstr "表示可能なものはありません"
+
+msgid "Mount some drives"
+msgstr "ドライブをマウントしました"
+
+msgid "Enable more sections"
+msgstr "ほかのセクションも有効にする"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "マウントして \"%s\" を開く"
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr "このボリュームのロックを解除するには、暗号化パスフレーズを入力してください"
+
+msgid "The password you entered is incorrect"
+msgstr "入力したパスワードは正しくありません"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr "このボリュームをマウントしている最中に不明なエラーが発生しました"
+
+msgid "Toggle the desktop"
+msgstr "デスクトップの切り替え"
+
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+msgid "Bluetooth Settings"
+msgstr "Bluetooth の設定"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr "Bluetooth のオン/オフ"
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr "機内モードがオンです。"
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr "機内モードがオンのとき、Bluetooth は無効になります。"
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr "ペアリング済みの Bluetooth デバイスはありません。"
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr "デバイスをペアリングするには Bluetooth の設定を行ってください。"
+
+msgid "Send file"
+msgstr "ファイルを送信する"
+
+msgid "Disconnect"
+msgstr "切断する"
+
+msgid "Disconnecting…"
+msgstr "接続を解除しています…"
+
+msgid "Connecting…"
+msgstr "接続中です…"
+
+msgid "Failed to disconnect"
+msgstr "接続の解除に失敗しました"
+
+msgid "Failed to connect"
+msgstr "接続に失敗しました"
+
+msgid "Connected"
+msgstr "接続済み"
+
+msgid "Disconnected"
+msgstr "未接続"
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr "<b>ファイル名</b>: %s"
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr "受信中… %s / %s"
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr "送信中… %s / %s"
+
+msgid "Battery fully charged."
+msgstr "バッテリは満充電です。"
+
+msgid "Unknown"
+msgstr "不明"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "バッテリ充電中"
+
+msgid "Battery remaining"
+msgstr "バッテリの残り時間"
+
+msgid "Performance Mode"
+msgstr "性能優先モード"
+
+msgid "Power Saver"
+msgstr "電力節約"
+
+msgid "Balanced"
+msgstr "バランス優先"
+
+msgid "Performance"
+msgstr "パフォーマンス"
+
+msgid "Power settings"
+msgstr "電源設定"
+
+#: src/panel/applets/trash/trash_applet.c:228
+#: src/panel/applets/trash/trash_item_row.c:332
+#: src/panel/applets/trash/trash_item_row.c:363
+msgid "Trash Error"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:155
+msgid "Permanently delete this item"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:162
+msgid "Are you sure you want to delete this item?"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:168
+#: src/panel/applets/trash/trash_popover.c:320
+msgid "No"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:169
+#: src/panel/applets/trash/trash_popover.c:321
+msgid "Yes"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:333
+#, c-format
+msgid "Unable to delete '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:364
+#, c-format
+msgid "Unable to restore '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:119
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:4
+msgid "Trash Bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:125
+msgid "Settings"
+msgstr "設定"
+
+#. Header label
+#. Switcher to show or hide a shortcut to Trash
+#: src/panel/applets/trash/trash_popover.c:274
+msgid "Trash"
+msgstr "ゴミ箱"
+
+#: src/panel/applets/trash/trash_popover.c:283
+msgid "Trash Applet Settings"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:300
+msgid "Restore"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:301
+msgid "Restore selected items"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:303
+msgid "Empty"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:304
+msgid "Empty the trash bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:311
+msgid "Are you sure you want to empty the trash bin?"
+msgstr ""
+
+#. User Menu Creation
+msgid "User"
+msgstr "ユーザ"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "画面のロック"
+
+msgid "Suspend"
+msgstr "サスペンド"
+
+msgid "Hibernate"
+msgstr "ハイバネート"
+
+#: src/daemon/endsession.ui:124
+msgid "Restart"
+msgstr "再起動"
+
+#: src/daemon/endsession.ui:142
+msgid "Shutdown"
+msgstr "シャットダウン"
+
+#: src/daemon/endsession.ui:106
+msgid "Logout"
+msgstr "ログアウト"
+
+msgid "Rename"
+msgstr "名前の変更"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid "Not able to create new workspaces"
+msgstr "新規ワークスペースを作成できません"
+
+msgid "Create a new workspace"
+msgstr "新規ワークスペースを作成"
+
+msgid "Untitled"
+msgstr "タイトルがありません"
+
+msgid "No description"
+msgstr "説明がありません"
+
+msgid "running"
+msgstr "実行中"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid "Add"
+msgstr "追加"
+
+msgid "Command"
+msgstr "コマンド"
+
+msgid "An entry with that title already exists"
+msgstr "そのタイトルのエントリはすでに存在します"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "Required"
+msgstr "必須"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Optional"
+msgstr "オプション"
+
+msgid "Autostart"
+msgstr "自動起動"
+
+msgid "Autostart apps"
+msgstr "自動起動するアプリ"
+
+msgid "Add Application"
+msgstr "アプリケーションの追加"
+
+msgid "Add Command"
+msgstr "コマンドを追加"
+
+msgid "Desktop"
+msgstr "デスクトップ"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "デスクトップアイコン"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr "デスクトップにアイコンを表示するかどうかを制御します。"
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr "アクティブなマウント"
+
+msgid "Show all active mounts on the desktop."
+msgstr "デスクトップ上に有効なマウントすべて表示します。"
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "ホームディレクトリ"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "デスクトップにホームディレクトリへのショートカットを追加します。"
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "デスクトップにゴミ箱へのショートカットを追加します。"
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr "アイコンの大きさ"
+
+msgid "Set the desired size of icons on the desktop."
+msgstr "デスクトップ上に任意の大きさのアイコンを設定します。"
+
+msgid "Number of virtual desktops"
+msgstr "仮想デスクトップの数"
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr "起動時に自動的に作成する仮想デスクトップまたはワークスペースの個数です。"
+
+msgid "Single"
+msgstr "シングル"
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr "ダブル"
+
+msgid "Click Policy"
+msgstr "マウスをクリックした時の振る舞い"
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr "クリックポリシーでは、一回のクリックでアイテムを開くか、二回のクリックでアイテムを開くかを決定します。"
+
+msgid "Normal"
+msgstr "標準"
+
+#. Small
+msgid "Small"
+msgstr "小さい"
+
+#. Large
+msgid "Large"
+msgstr "大きい"
+
+#. Massive
+msgid "Massive"
+msgstr "特大"
+
+msgid "Displays"
+msgstr ""
+
+msgid "Connected Monitors"
+msgstr ""
+
+msgid "Panel Placement"
+msgstr ""
+
+msgid ""
+"Select which monitor should be the primary display for panel placement."
+msgstr ""
+
+msgid "Use Automatic Selection"
+msgstr ""
+
+msgid "Clear Primary Monitor"
+msgstr ""
+
+msgid "Remove manual primary monitor selection."
+msgstr ""
+
+msgid "Fallback Monitors"
+msgstr ""
+
+msgid "Order used when primary is disconnected"
+msgstr ""
+
+msgid "No monitors detected"
+msgstr ""
+
+msgid "No fallback monitors configured"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Unknown model"
+msgstr ""
+
+msgid "Set as Primary"
+msgstr ""
+
+msgid "(last known)"
+msgstr ""
+
+msgid "No cached information"
+msgstr ""
+
+msgid "Fonts"
+msgstr "フォント"
+
+msgid "Window Titles"
+msgstr "ウィンドウのタイトル"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "アプリケーションのタイトルバーに使用するフォントを設定します。"
+
+msgid "Documents"
+msgstr "文書"
+
+msgid "Set the display font used by for documents."
+msgstr "文書作成時に表示するフォントを設定します。"
+
+msgid "Interface"
+msgstr "インタフェース"
+
+msgid "Set the primary font used by application controls."
+msgstr "アプリケーションの操作で優先的に使用するフォントを設定します。"
+
+msgid "Monospace"
+msgstr "固定幅のフォント"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr "主にテキスト主体のアプリケーションで使用する固定幅フォントを設定します。"
+
+msgid "Text scaling"
+msgstr "テキストの拡大縮小"
+
+msgid "Set the text scaling factor."
+msgstr "テキストの表示倍率を設定します。"
+
+msgid "Full"
+msgstr "最大"
+
+msgid "Medium"
+msgstr "中間"
+
+msgid "Slight"
+msgstr "最小"
+
+msgid "None"
+msgstr "なし"
+
+msgid "Hinting"
+msgstr "ヒンティング"
+
+msgid "Set the type of hinting to use."
+msgstr "使用するヒンティングの種類を設定します。"
+
+msgid "Subpixel (for LCD screens)"
+msgstr "サブピクセル (液晶ディスプレイ向け)"
+
+msgid "Standard (grayscale)"
+msgstr "標準 (グレースケール)"
+
+msgid "Antialiasing"
+msgstr "アンチエイリアス"
+
+msgid "Set the type of antialiasing to use."
+msgstr "アンチエイリアスの処理方法を設定します。"
+
+msgid "Appearance"
+msgstr "外観"
+
+msgid "Panels"
+msgstr "パネル"
+
+msgid "Session"
+msgstr "セッション"
+
+msgid "Create new panel"
+msgstr "新しいパネルの作成"
+
+msgid "Applets"
+msgstr "アプレット"
+
+msgid "Remove Panel"
+msgstr "パネルを削除する"
+
+msgid "Remove this panel from the screen"
+msgstr "画面上からこのパネルを削除します。"
+
+msgid "Top Dock"
+msgstr "上部のドック"
+
+msgid "Right Dock"
+msgstr "右端のドック"
+
+msgid "Left Dock"
+msgstr "左端のドック"
+
+msgid "Bottom Dock"
+msgstr "下部のドック"
+
+msgid "Top Panel"
+msgstr "トップパネル"
+
+msgid "Right Panel"
+msgstr "右端パネル"
+
+msgid "Left Panel"
+msgstr "左端パネル"
+
+msgid "Bottom Panel"
+msgstr "ボトムパネル"
+
+msgid "Top"
+msgstr "上"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Bottom"
+msgstr "下"
+
+msgid "Always"
+msgstr "常時"
+
+msgid "Dynamic"
+msgstr "動的"
+
+msgid "Automatic"
+msgstr "自動"
+
+msgid "Intelligent"
+msgstr "おまかせ"
+
+msgid "Never"
+msgstr "なし"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "このパネルを表示する画面の端を設定します。"
+
+msgid "Size"
+msgstr "大きさ"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr "パネルの大きさ（幅か高さかは向きによります）を設定します。"
+
+msgid "Spacing"
+msgstr "余白"
+
+msgid "Set the spacing between applets for this panel"
+msgstr "パネル上のアプレット同士の間隔を設定"
+
+msgid "Automatically hide"
+msgstr "自動的に隠す"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr "この設定で、ウィンドウを最大限に表示するためパネルを自動的に隠します。"
+
+msgid "Transparency"
+msgstr "透過度"
+
+msgid "Control when this panel should have a solid background"
+msgstr "このパネルが単一色の背景と調和するように設定します。"
+
+msgid "Shadow"
+msgstr "シャドウ（影）"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr "不透明なパネルに適した装飾的なドロップシャドウを追加します。"
+
+msgid "Stylize regions"
+msgstr "領域に合わせる"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr "パネルにヒントを追加して、パネルの3つの主要エリアに各々異なるテーマが設定できるようにします。"
+
+msgid "Dock mode"
+msgstr "ドックモード"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr "ドックモードではパネルが最小限の大きさとなり、利用可能な画面領域が広くなります。"
+
+msgid "Applet Settings"
+msgstr "アプレットの設定"
+
+msgid "Add applet"
+msgstr "アプレットの追加"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "このパネルに追加する新しいアプレットを選択します"
+
+msgid "No settings available"
+msgstr "設定がありません"
+
+msgid "Start"
+msgstr "パネルの先頭"
+
+msgid "Center"
+msgstr "パネルの中央"
+
+msgid "End"
+msgstr "パネルの後尾"
+
+msgid "Confirm panel removal"
+msgstr "パネル削除の確認"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr "本当にこのパネルを削除しますか？ この操作は元に戻せません。"
+
+msgid "Remove panel"
+msgstr "パネルを削除する"
+
+msgid "Keep panel"
+msgstr "パネルを保持する"
+
+msgid "Confirm applet removal"
+msgstr "アプレットの削除確認"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr "本当にアプレットを削除しますか？ この操作は元に戻せません。"
+
+msgid "Don't ask me again"
+msgstr "再び同じ質問を表示しない"
+
+msgid "Remove applet"
+msgstr "アプレットを削除する"
+
+msgid "Keep applet"
+msgstr "アプレットを保持する"
+
+msgid "Confirm widget removal"
+msgstr "アプレット削除の確認"
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr "本当にこのアプレットを削除しますか？この操作は元に戻せません。"
+
+msgid "Built-in"
+msgstr "ビルトイン"
+
+msgid "Choose a plugin"
+msgstr "プラグインの選択"
+
+msgid "No description."
+msgstr "説明なし"
+
+#, c-format
+msgid "by %s"
+msgstr "by %s"
+
+msgid "No authors listed"
+msgstr "作者名なし"
+
+msgctxt "Raven"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set Raven position"
+msgstr "Raven の表示場所をセット"
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr "Raven を画面のどちら側で開くかを設定します。自動に設定すると、親パネルのある場所で開きます。"
+
+msgid "Set notification sort order"
+msgstr "通知の並び順を設定"
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr "通知を古いもの順で並べるか、新しいもの順で並べるかの設定を行います。"
+
+msgid "Widget Settings"
+msgstr "ウィジェット（アプレット）の設定"
+
+msgid "Add widget"
+msgstr "ウィジェットの追加"
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr "ウィジェット一覧に追加する新しいウィジェットを選択してください"
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr "ウィジェットのインスタンス作成に失敗しました。プラグインエンジンは、このプラグインの情報を見つけることができません。"
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr "ウィジェットのインスタンス作成に失敗しました。プラグインエンジンがディスクからのロードに失敗しました。"
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+"ウィジェットのインスタンス作成に失敗しました。プラグインは設定をサポートしますが、同名の設定スキーマをインストールしません。\n"
+"\n"
+"スキーマ名はモジュール名と同じでなくてはなりませんが、拡張子を付けず、（Python の場合には）下線記号はピリオドに置き換えます。"
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr "不明な障害によって、ウィジェットのインスタンス作成に失敗しました。"
+
+msgid "Style"
+msgstr "スタイル"
+
+msgctxt "Styling"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "ウィンドウの装飾や操作部分などの外観を設定します。"
+
+msgid "Icons"
+msgstr "アイコン"
+
+msgid "Set the globally used icon theme"
+msgstr "全体で使用するアイコンのテーマを設定します。"
+
+msgid "Cursors"
+msgstr "カーソル"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "全体で使用するカーソルのテーマを設定します。"
+
+msgid "Notification Position"
+msgstr "通知の表示場所"
+
+msgid "Set the location for notification popups"
+msgstr "通知ポップアップを表示する場所を設定します。"
+
+msgid "Dark theme"
+msgstr "ダークテーマ"
+
+msgid "Built-in theme"
+msgstr "ビルドインテーマ"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr "この機能を有効にすると、ビルトインテーマがデスクトップコンポーネントのスタイルを上書きします。"
+
+msgid "Animations"
+msgstr "アニメーション"
+
+msgid "Control whether windows and controls use animations"
+msgstr "ウィンドウとコントールでアニメーション表示するかどうかを設定します。"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr "テーマを使用する"
+
+msgid "Labwc Compositor Theme"
+msgstr ""
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme"
+msgstr ""
+
+msgid "Top Left"
+msgstr "左上"
+
+msgid "Bottom Left"
+msgstr "左下"
+
+msgid "Bottom Right"
+msgstr "右下"
+
+msgid "Top Right"
+msgstr "右上"
+
+msgid "Windows"
+msgstr "ウィンドウ"
+
+msgid "Button layout"
+msgstr "ボタンの位置"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "アプリケーションの見出しにあるボタンの場所を変更します。"
+
+msgid "Center new windows on screen"
+msgstr "新規ウィンドウを画面中央に表示"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "新しく起動したウィンドウを現在ある画面の中央部に配置します。"
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr "ウィンドウが全画面表示のとき、夜間照明モードを無効化"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr "ウィンドウが全画面表示のとき、夜間照明モードを無効にします。全画面表示をを解除すると、再び有効になります。"
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr "全画面表示のとき、通知を一時停止"
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr "全画面表示のとき、通知を表示しないようにします。全画面表示を止めると一時停止を解除します。"
+
+msgid "Automatic tiling"
+msgstr "自動的にタイル化"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr "画面の上部や四隅へドラッグすると、ウィンドウが自動的にタイル状になります。"
+
+msgid "Window focus mode"
+msgstr "ウィンドウのフォーカスモード"
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr ""
+"ウィンドウのフォーカス取得方法を選択します: "
+"クリックでフォーカス、スロッピー（ウィンドウを前面に出さずにフォーカス）、マウスでフォーカス（ウィンドウを前面に出してフォーカス）。"
+
+msgid "Show all windows in tab switcher"
+msgstr "タブスイッチですべてのウィンドウを表示"
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr "利用中のワークスペースが何であっても、タブスイッチですべてのタブを表示します。"
+
+msgid "Right (standard)"
+msgstr "右（標準）"
+
+msgid "Click"
+msgstr "クリック"
+
+msgid "Sloppy"
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:4
+msgid "Notifications"
+msgstr "通知"
+
+msgid "No widgets added."
+msgstr "追加したアプリはありません。"
+
+msgid "Nothing to see here"
+msgstr "表示可能なものはありません"
+
+msgid "No new notifications"
+msgstr "新しい通知はありません"
+
+msgid "Oldest to newest"
+msgstr "古いもの順に"
+
+msgid "Newest to oldest"
+msgstr "最新の順で"
+
+msgid "No apps are currently playing audio."
+msgstr "現在、演奏中のアプリはありません。"
+
+msgid "Play some music"
+msgstr "音楽を再生する"
+
+msgid "Unknown Title"
+msgstr "タイトル不詳"
+
+msgid "Unknown Artist"
+msgstr "作者不詳"
+
+msgid "Unknown Album"
+msgstr "アルバム名不詳"
+
+#, c-format
+msgid "Playing - %s"
+msgstr "%s を再生"
+
+#, c-format
+msgid "Paused - %s"
+msgstr "%s の一時停止"
+
+msgid "No apps are playing audio."
+msgstr "オーディオ再生中のアプリは存在しません。"
+
+msgid "Apps"
+msgstr "アプリ"
+
+msgid "Devices"
+msgstr "デバイス"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:4
+msgid "Usage Monitor"
+msgstr "使用状況モニタ"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Swap"
+msgstr "Swap"
+
+#: src/daemon/endsession.ui:71
+msgid "Are you sure you want to end your session?"
+msgstr "本当にこのセッションを終了しますか？"
+
+#: src/dialogs/polkit/dialog.ui:12 src/dialogs/polkit/dialog.ui:49
+msgid "Authentication Required"
+msgstr "認証が必要です"
+
+#: src/dialogs/polkit/dialog.ui:71
+msgid "Password:"
+msgstr "パスワード:"
+
+#: src/dialogs/polkit/dialog.ui:103
+msgid "Username:"
+msgstr "ユーザネーム:"
+
+#: src/dialogs/polkit/dialog.ui:131
+msgid "Authentication is required"
+msgstr "認証が必要です"
+
+#: src/dialogs/polkit/dialog.ui:184
+msgid "Details"
+msgstr "詳細"
+
+#: src/dialogs/polkit/dialog.ui:224
+msgid "Action:"
+msgstr "アクション:"
+
+#: src/dialogs/polkit/dialog.ui:259
+msgid "ID:"
+msgstr "ID:"
+
+#: src/dialogs/polkit/dialog.ui:335
+msgid "Authenticate"
+msgstr "認証"
+
+#: src/dialogs/screenshot/aftershot.ui:48
+msgid "Name:"
+msgstr "名前:"
+
+#: src/dialogs/screenshot/aftershot.ui:85
+msgid "Folder:"
+msgstr "フォルダ:"
+
+#: src/dialogs/screenshot/screenshothome.ui:35
+msgid "Delay in seconds"
+msgstr "遅延時間（秒）"
+
+#: src/dialogs/screenshot/screenshothome.ui:91
+msgid "Show Pointer"
+msgstr "ポインタ表示"
+
+#: src/dialogs/screenshot/screenshothome.ui:141
+msgid "Play sound when capturing"
+msgstr "キャプチャ時に音を鳴らす"
+
+#: src/panel/applets/ragnar-menu/settings.ui:23
+msgid "Show Menu Label"
+msgstr "メニューラベルの表示"
+
+#: src/panel/applets/ragnar-menu/settings.ui:48
+msgid "Menu Label"
+msgstr "メニューラベル"
+
+#: src/panel/applets/ragnar-menu/settings.ui:72
+msgid "Use Default Menu Icon"
+msgstr "既定のメニューアイコンを使用"
+
+#: src/panel/applets/ragnar-menu/settings.ui:97
+msgid "Menu Icon"
+msgstr "メニューアイコン"
+
+#: src/panel/applets/ragnar-menu/settings.ui:148
+msgid "Compact Mode"
+msgstr "簡易モード"
+
+#: src/panel/applets/ragnar-menu/settings.ui:172
+msgid "Show Headers"
+msgstr "ヘッダの表示"
+
+#: src/panel/applets/ragnar-menu/settings.ui:196
+msgid "Roll-over mouse"
+msgstr "マウスのロールオーバー"
+
+#: src/panel/applets/ragnar-menu/settings.ui:221
+msgid "Show settings items"
+msgstr "設定項目を表示"
+
+#: src/panel/applets/caffeine/settings.ui:23
+msgid "Enable notification"
+msgstr "通知を有効化"
+
+#: src/panel/applets/caffeine/settings.ui:35
+msgid "Maximize brightness"
+msgstr "明るさを最大にする"
+
+#: src/panel/applets/caffeine/settings.ui:47
+msgid "Brightness Level"
+msgstr "明るさの度合い"
+
+#: src/panel/applets/clock/settings.ui:15
+msgid "Show date"
+msgstr "日付を表示する"
+
+#: src/panel/applets/clock/settings.ui:38
+msgid "Show seconds"
+msgstr "秒を表示する"
+
+#: src/panel/applets/clock/settings.ui:61
+msgid "Use 24 hour time"
+msgstr "24時間制を使用する"
+
+#: src/panel/applets/clock/settings.ui:84
+msgid "Custom Format"
+msgstr "カスタム形式"
+
+#: src/panel/applets/clock/settings.ui:107
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr "%Y年%b%d日 %H:%M:%S"
+
+#: src/panel/applets/clock/settings.ui:120
+msgid "Custom Timezone"
+msgstr "独自の時刻帯"
+
+#: src/panel/applets/clock/settings.ui:143
+msgid "UTC"
+msgstr "世界標準時"
+
+#: src/panel/applets/icon-tasklist/settings.ui:15
+msgid "Show all windows on click"
+msgstr "クリックですべてのウィンドウを表示"
+
+#: src/panel/applets/icon-tasklist/settings.ui:39
+msgid "Only show favorited"
+msgstr "お気に入りだけを表示"
+
+#: src/panel/applets/icon-tasklist/settings.ui:63
+msgid "Lock icons"
+msgstr "アイコンをロック"
+
+#: src/panel/applets/icon-tasklist/settings.ui:88
+msgid "Restrict to Workspace"
+msgstr "ワークスペースに限定する"
+
+#: src/panel/applets/icon-tasklist/settings.ui:112
+msgid "Middle click to launch new window"
+msgstr "中クリックで新規ウィンドウを起動"
+
+#: src/panel/applets/icon-tasklist/settings.ui:136
+msgid "Require a double-click to launch new window"
+msgstr "新しいウィンドウを起動するにはダブルクリックが必要"
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:28
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:4
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:44
+msgid "Keyboard Layout Settings"
+msgstr ""
+
+#: src/panel/applets/night-light/indicator_window.ui:37
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:4
+msgid "Night Light"
+msgstr "夜間モード"
+
+#: src/panel/applets/night-light/indicator_window.ui:85
+msgid "Temperature"
+msgstr "気温"
+
+#: src/panel/applets/night-light/indicator_window.ui:110
+msgid "Schedule"
+msgstr "スケジュール"
+
+#: src/panel/applets/night-light/indicator_window.ui:124
+msgid "Sunset to Sunrise"
+msgstr "日の入りから日の出まで"
+
+#: src/panel/applets/night-light/indicator_window.ui:125
+msgid "Manual"
+msgstr "マニュアル"
+
+#: src/panel/applets/night-light/indicator_window.ui:144
+msgid "Display Settings"
+msgstr "ディスプレイの設定"
+
+#: src/panel/applets/places-indicator/settings.ui:19
+msgid "Show label"
+msgstr "ラベルの表示"
+
+#: src/panel/applets/places-indicator/settings.ui:55
+msgid "Show places"
+msgstr "場所の表示"
+
+#: src/panel/applets/places-indicator/settings.ui:79
+msgid "Show network folders"
+msgstr "ネットワークフォルダの表示"
+
+#: src/panel/applets/places-indicator/settings.ui:103
+msgid "Show removable drives"
+msgstr "リムーバブルドライブの表示"
+
+#: src/panel/applets/places-indicator/settings.ui:127
+msgid "Always expand places"
+msgstr "常に場所を広げる"
+
+#: src/panel/applets/spacer/settings.ui:21
+msgid "Spacer size"
+msgstr "余白の間隔"
+
+#: src/panel/applets/status/settings.ui:22
+#: src/panel/applets/tray/settings.ui:22
+msgid "Icon Spacing"
+msgstr "アイコンの間隔"
+
+#: src/panel/applets/status/settings.ui:48
+msgid "Show battery percentage"
+msgstr "バッテリ容量をパーセントで表示"
+
+#: src/panel/applets/tasklist/settings.ui:16
+msgid "Show button icons"
+msgstr "ボタンのアイコンを表示する"
+
+#: src/panel/applets/tasklist/settings.ui:41
+msgid "Show button labels"
+msgstr "ボタンのラベルを表示する"
+
+#: src/panel/applets/trash/settings.ui:16
+msgid "Sort Mode"
+msgstr "並べ替えモード"
+
+#: src/panel/applets/trash/settings.ui:28
+msgid "Sort by type"
+msgstr "種類別"
+
+#: src/panel/applets/trash/settings.ui:43
+msgid "Sort alphabetically"
+msgstr "アルファベットの昇順"
+
+#: src/panel/applets/trash/settings.ui:58
+msgid "Sort reverse alphabetically"
+msgstr "アルファベットの降順"
+
+#: src/panel/applets/trash/settings.ui:73
+msgid "Sort by date ascending"
+msgstr "日付の昇順"
+
+#: src/panel/applets/trash/settings.ui:88
+msgid "Sort by date descending"
+msgstr "日付の降順"
+
+#: src/panel/applets/tray/settings.ui:48
+msgid "Scale icons with panel size"
+msgstr "パネルの大きさに合わせてアイコンを拡大縮小する"
+
+#: src/panel/applets/workspaces/settings.ui:17
+msgid "\"Add\" button visibility"
+msgstr "「追加」ボタンの視認性"
+
+#: src/panel/applets/workspaces/settings.ui:31
+msgid "Item Size Multiplier"
+msgstr "アイテムの拡大率"
+
+#: src/panel/applets/workspaces/settings.ui:45
+msgid "Don't show"
+msgstr "表示しない"
+
+#: src/panel/applets/workspaces/settings.ui:46
+msgid "Show on mouseover"
+msgstr "マウスオーバー時に表示する"
+
+#: src/panel/applets/workspaces/settings.ui:47
+msgid "Always show"
+msgstr "常に表示する"
+
+#: src/panel/applets/workspaces/settings.ui:65
+msgid "0.5x"
+msgstr "50 %"
+
+#: src/panel/applets/workspaces/settings.ui:66
+msgid "0.75x"
+msgstr "75 %"
+
+#: src/panel/applets/workspaces/settings.ui:67
+msgid "1.0x"
+msgstr "100 %"
+
+#: src/panel/applets/workspaces/settings.ui:68
+msgid "1.5x"
+msgstr "150 %"
+
+#: src/panel/applets/workspaces/settings.ui:69
+msgid "2.0x"
+msgstr "200 %"
+
+#: src/raven/widgets/calendar/settings.ui:17
+msgid "Show Week Numbers"
+msgstr "週番号を表示"
+
+#: src/raven/widgets/calendar/settings.ui:43
+msgid "Show Day Names"
+msgstr "日表示"
+
+#: src/raven/widgets/sound-input/settings.ui:17
+#: src/raven/widgets/sound-output/settings.ui:17
+msgid "Allow Volume Overdrive"
+msgstr "ボリュームの上書きを許可する"
+
+#: src/raven/widgets/usage-monitor/settings.ui:17
+msgid "Show Swap Usage"
+msgstr "スワップ領域を表示"
+
+#: src/daemon/ragnar-daemon.desktop.in:3
+msgid "Ragnar Background Services"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:4
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:4
+msgid "Ragnar screenshot app"
+msgstr "Ragnar 用の画面撮影アプリ"
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:8
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:8
+msgid "Screenshot;Snip;"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:3
+msgid "Ragnar PolicyKit UI"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:4
+msgid "Ragnar PolicyKit Authorisation UI"
+msgstr ""
+
+#: src/dialogs/screenshot/ragnar-screenshot-dialog.desktop.in.in:3
+msgid "Ragnar Screenshot UI"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:4
+msgid "Ragnar Menu"
+msgstr "Ragnar メニュー"
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:5
+msgid "Search for and start up applications."
+msgstr "アプリケーションの検索と起動"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:4
+msgid "Caffeine"
+msgstr "カフェイン"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:5
+msgid "Prevent the system and screen from sleeping."
+msgstr "システムと画面がスリープしないようにする"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:4
+msgid "Clock"
+msgstr "時計"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:5
+msgid "A digital clock with a customizable format."
+msgstr "カスタマイズ可能なデジタル時計"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:4
+msgid "Icon Task List"
+msgstr "アイコンのタスクリスト"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:5
+msgid "A configurable application task list."
+msgstr "設定可能なアプリケーションのタスクリスト"
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:5
+msgid "Indicates which keyboard layout is currently in use."
+msgstr "現在使用中のキーボード配列を表示"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:4
+msgid "Lock Keys Indicator"
+msgstr "ロックキーの表示"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:5
+msgid "Show status of lock keys."
+msgstr "ロックキーの状態を表示"
+
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:5
+msgid "Toggle and modify Night Light settings."
+msgstr "夜間モードの切り替えや設定変更"
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:5
+msgid "Open the Raven notifications view."
+msgstr "Raven の通知ビューを開きます。"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:5
+msgid "Show drives and favorite folders."
+msgstr "ドライブとお気に入りのフォルダを表示"
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:4
+msgid "Raven Trigger"
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:5
+msgid "Open the Raven sidebar."
+msgstr "Raven サイドバーを開きます。"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:4
+msgid "Separator"
+msgstr "セパレーター（区切り）"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:5
+msgid "Visual separator between applets."
+msgstr "アプレット同士の視覚的な区切り"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:4
+msgid "Show Desktop Button"
+msgstr "デスクトップボタンの表示"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:5
+msgid "A button that toggles visibility of the desktop."
+msgstr "デスクトップでの表示の切り替えボタン"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:4
+msgid "Spacer"
+msgstr "スペーサー"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:5
+msgid "Adjustable spacer to put between other applets."
+msgstr "アプレット間に挟むことができる調整可能な余白"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:4
+msgid "Status Indicator"
+msgstr "状態の表示"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:5
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr "サウンドやバッテリ、Bluetooth などのシステム情報を表示"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:4
+msgid "Task List"
+msgstr "タスクリスト"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:5
+msgid "An application task list with icons and labels."
+msgstr "アイコンとラベルがあるアプリケーションのタスク一覧"
+
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:5
+msgid "Manage your trash from the Ragnar panel"
+msgstr "Ragnar パネルでゴミ箱を管理する"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:4
+msgid "System Tray"
+msgstr "システムトレイ"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:5
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr "Freedesktop のステータス通知の仕様を実装したシステムトレイです。"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:4
+msgid "User Indicator"
+msgstr "ユーザーの表示"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:5
+msgid "Opens the power dialog."
+msgstr "電源に関するダイアログを開きます。"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:4
+msgid "Workspace Switcher"
+msgstr "ワークスペースの切替え"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:5
+msgid "Display workspaces and switch between them."
+msgstr "ワークスペースの表示と切替"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:3
+msgid "Change desktop appearance and behavior"
+msgstr "デスクトップの外観と振る舞いを変更"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:12
+msgid "Preferences;Settings;"
+msgstr ""
+
+#: src/panel/ragnar-panel.desktop.in:3
+msgid "Ragnar Panel"
+msgstr "Ragnar パネル"
+
+#: src/panel/ragnar-panel.desktop.in:4
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr "色々なアプリケーションの起動やウィンドウの管理、時間の表示といった様々なユーティリティを提供します。"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:4
+msgid "Calendar"
+msgstr "カレンダー"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:5
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr "組込み Gtk.Calendar ウィジェットを使う、月表示のシンプルなカレンダーです。カレンダーは既定で現在の日付を表示します。"
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:4
+msgid "Media Controls"
+msgstr "メディアのコントロール"
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:5
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+"このウィジェットはMpris APIを使用して、オーディオとビデオをサポートします。再生中、メディアのメタデータと再生コントロールを表示します。"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:4
+msgid "Sound Input"
+msgstr "音声入力"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:5
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr "音声入力の音量を調整し、使用可能な音声入力デバイスの一覧を表示します。"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:4
+msgid "Sound Output"
+msgstr "音声出力"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:5
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr "全体およびアプリ毎のオーディオ出力ん音量調節を可能にし、利用できる音声出力のデバイス一覧を表示します。"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:5
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr "システムリソースの使用状況を棒グラフで表示します。これには、CPU、RAM、スワップ消費量が含まれます。"
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:2
+msgid "Ragnar Desktop (magpie)"
+msgstr "Ragnar Desktop (magpie)"
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:3
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr "このセッションでは、ウィンドウマネージャに magpie を使用して Ragnar Desktop にログインします"
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:2
+msgid "Network (Ragnar Desktop)"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:3
+msgid "Manage your network connections"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:3
+msgid "Ragnar Power Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:4
+msgid "A button dialog to lock the screen, reboot, shutdown, etc."
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:3
+msgid "Ragnar Screenshot Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:4
+msgid "Screenshot interface"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in:3
+#: src/session/ragnar-desktop.session.desktop.in.in:2
+msgid "Ragnar Desktop"
+msgstr "Ragnar デスクトップ"
+
+#: src/session/ragnar-desktop.desktop.in.in:4
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr "このセッションでは、ウィンドウマネージャに labwce を使用して Ragnar Desktop にログインします"
+

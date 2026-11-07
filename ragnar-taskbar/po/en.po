@@ -1,0 +1,272 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-taskbar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "Eigenschaften …"
+msgstr "Properties …"
+
+msgid "Taskbar-Einstellungen"
+msgstr "Taskbar settings"
+
+msgid "+  Neue Leiste hinzufügen"
+msgstr "+  Add new bar"
+
+msgid "Startmenü"
+msgstr "Start menu"
+
+msgid "Leiste {}"
+msgstr "Bar {}"
+
+msgid "Leiste entfernen"
+msgstr "Remove bar"
+
+msgid "Keine Termine"
+msgstr "No appointments"
+
+msgid "Datums- und Zeiteinstellungen"
+msgstr "Date and time settings"
+
+msgid "Datum (JJJJ-MM-TT)"
+msgstr "Date (YYYY-MM-DD)"
+
+msgid "Uhrzeit (SS:MM:SS)"
+msgstr "Time (HH:MM:SS)"
+
+msgid "Zeitzone"
+msgstr "Timezone"
+
+msgid "Netzwerkzeit (NTP)"
+msgstr "Network time (NTP)"
+
+msgid "Kein NTP-Dienst auf dem System installiert"
+msgstr "No NTP service installed on this system"
+
+msgid "Wochentag anzeigen"
+msgstr "Show weekday"
+
+msgid "Übernehmen"
+msgstr "Apply"
+
+msgid "Alle Anwendungen"
+msgstr "All applications"
+
+msgid "Einstellungen"
+msgstr "Settings"
+
+msgid "Ragnar-Einstellungen"
+msgstr "Ragnar settings"
+
+msgid "Benachrichtigungen"
+msgstr "Notifications"
+
+msgid "{} ungelesene Benachrichtigungen"
+msgstr "{} unread notifications"
+
+msgid "Keine Benachrichtigungen"
+msgstr "No notifications"
+
+msgid "Alle löschen"
+msgstr "Clear all"
+
+msgid "Fenster schließen"
+msgstr "Close window"
+
+msgid "{}-Temperatur"
+msgstr "{} temperature"
+
+msgid "Stumm"
+msgstr "Muted"
+
+msgid "Lautstärke {}%"
+msgstr "Volume {}%"
+
+msgid "Kein Audio"
+msgstr "No audio"
+
+msgid "Minimieren"
+msgstr "Minimize"
+
+msgid "Maximieren"
+msgstr "Maximize"
+
+msgid "Schließen"
+msgstr "Close"
+
+msgid "Arbeitsfläche {}"
+msgstr "Workspace {}"
+
+msgid "0 = flexibel"
+msgstr "0 = flexible"
+
+msgid "Entfernen"
+msgstr "Remove"
+
+msgid "Ausrichtung"
+msgstr "Alignment"
+
+msgid "Farbe"
+msgstr "Colour"
+
+msgid "Standard"
+msgstr "Default"
+
+msgid "Monitor"
+msgstr "Monitor"
+
+msgid "Automatisch"
+msgstr "Automatic"
+
+msgid "+ Füllraum"
+msgstr "+ Spacer"
+
+msgid "Verhalten"
+msgstr "Behaviour"
+
+msgid "Bei Mauskontakt wechseln"
+msgstr "Switch on hover"
+
+msgid "Beim Klicken wechseln"
+msgstr "Switch on click"
+
+msgid "Kategorien anzeigen"
+msgstr "Show categories"
+
+msgid "Kategorien & Apps"
+msgstr "Categories & apps"
+
+msgid "+"
+msgstr "+"
+
+msgid "Umbenennen …"
+msgstr "Rename …"
+
+msgid "Arbeitsflächen"
+msgstr "Workspaces"
+
+msgid "Anzeigen"
+msgstr "Show"
+
+msgid "0 = alle anzeigen"
+msgstr "0 = show all"
+
+msgid "Verstecken"
+msgstr "Hide"
+
+msgid "Wieder anzeigen"
+msgstr "Show again"
+
+msgid "Oben"
+msgstr "Top"
+
+msgid "Unten"
+msgstr "Bottom"
+
+msgid "Links"
+msgstr "Left"
+
+msgid "Rechts"
+msgstr "Right"
+
+msgid "Mitte"
+msgstr "Center"
+
+msgid "Position"
+msgstr "Position"
+
+msgid "Geometrie"
+msgstr "Geometry"
+
+msgid "Darstellung"
+msgstr "Appearance"
+
+msgid "Inhalte"
+msgstr "Contents"
+
+msgid "Höhe"
+msgstr "Height"
+
+msgid "Breite %"
+msgstr "Width %"
+
+msgid "Höhe %"
+msgstr "Height %"
+
+msgid "Icon-Größe"
+msgstr "Icon size"
+
+msgid "Transparenz"
+msgstr "Transparency"
+
+msgid "Taskliste"
+msgstr "Task list"
+
+msgid "Benachrichtigungsfeld"
+msgstr "Notification area"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Uhr"
+msgstr "Clock"
+
+msgid "CPU-Temperatur"
+msgstr "CPU temperature"
+
+msgid "GPU-Temperatur"
+msgstr "GPU temperature"
+
+msgid "RAM-Temperatur"
+msgstr "RAM temperature"
+
+msgid "Mainboard-Temperatur"
+msgstr "Motherboard temperature"
+
+msgid "Ausschalten"
+msgstr "Power off"
+
+msgid "Entwicklung"
+msgstr "Development"
+
+msgid "Bildung"
+msgstr "Education"
+
+msgid "Spiele"
+msgstr "Games"
+
+msgid "Grafik"
+msgstr "Graphics"
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "Büro"
+msgstr "Office"
+
+msgid "System"
+msgstr "System"
+
+msgid "Zubehör"
+msgstr "Accessories"
+
+msgid "Sonstige"
+msgstr "Other"
+
+msgid "Termin eintragen"
+msgstr "Add appointment"
+
+msgid "Benachrichtigungen ausschalten"
+msgstr "Turn notifications off"
+
+msgid "Benachrichtigungen einschalten"
+msgstr "Turn notifications on"
+
+msgid "Keine Anwendung spielt Audio"
+msgstr "No application is playing audio"
+
+msgid "Skald öffnen"
+msgstr "Open Skald"
+
+msgid "Effekte aktivieren"
+msgstr "Enable effects"

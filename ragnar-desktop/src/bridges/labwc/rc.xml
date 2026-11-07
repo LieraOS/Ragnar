@@ -1,0 +1,121 @@
+<labwc_config version="5">
+	<core>
+		<autoEnableOutputs>no</autoEnableOutputs>
+	</core>
+	<desktops number="2">
+		<popupTime>1000</popupTime>
+	</desktops>
+	<keyboard>
+		<numlock>off</numlock>
+
+		<!-- bridged keybinds merged from keybinds.xml(.example) and current gsettings bridged keys. -->
+
+		<keybind key="XF86AudioNext">
+			<action name="Execute" command="dbus-send --type=method_call --dest=org.lieraos.ragnar.MprisController /org/lieraos/ragnar/MprisController org.lieraos.ragnar.MprisController.Next" />
+		</keybind>
+		<keybind key="XF86AudioPause">
+			<action name="Execute" command="dbus-send --type=method_call --dest=org.lieraos.ragnar.MprisController /org/lieraos/ragnar/MprisController org.lieraos.ragnar.MprisController.Pause" />
+		</keybind>
+		<keybind key="XF86AudioPlay">
+			<action name="Execute" command="dbus-send --type=method_call --dest=org.lieraos.ragnar.MprisController /org/lieraos/ragnar/MprisController org.lieraos.ragnar.MprisController.PlayPause" />
+		</keybind>
+		<keybind key="XF86AudioPrev">
+			<action name="Execute" command="dbus-send --type=method_call --dest=org.lieraos.ragnar.MprisController /org/lieraos/ragnar/MprisController org.lieraos.ragnar.MprisController.Previous" />
+		</keybind>
+		<keybind key="XF86AudioStop">
+			<action name="Execute" command="dbus-send --type=method_call --dest=org.lieraos.ragnar.MprisController /org/lieraos/ragnar/MprisController org.lieraos.ragnar.MprisController.Stop" />
+		</keybind>
+
+		<keybind key="Print">
+			<action name="Execute" command="ragnar-screenshot" />
+		</keybind>
+	</keyboard>
+	<theme>
+		<name>Pocillo-dark</name>
+		<dropShadows>yes</dropShadows>
+		<font place="ActiveWindow" name="Noto Sans" weight="Bold" size="11" slant="Normal" />
+		<font place="InactiveWindow" name="Noto Sans" weight="Bold" size="11" slant="Normal" />
+		<titlebar>
+			<layout>:iconify,max,close:</layout>
+		</titlebar>
+		<icon>Pocillo</icon>
+	</theme>
+	<windowRules>
+		<!-- Picture-in-Picture windows stay on top, like they did under
+		     X11. labwc matches titles with case-insensitive globs, so each
+		     localized/browser-specific title needs its own rule:
+		     Firefox en + Chromium ("Picture-in-Picture" / "Picture in
+		     picture") and Firefox de ("Bild-im-Bild"). -->
+		<windowRule title="Picture-in-Picture" allowAlwaysOnTop="yes">
+			<action name="ToggleAlwaysOnTop" />
+		</windowRule>
+		<windowRule title="Picture in picture" allowAlwaysOnTop="yes">
+			<action name="ToggleAlwaysOnTop" />
+		</windowRule>
+		<windowRule title="Bild-im-Bild" allowAlwaysOnTop="yes">
+			<action name="ToggleAlwaysOnTop" />
+		</windowRule>
+		<windowRule identifier="Nemo-desktop" title="Desktop" skipTaskbar="yes" skipWindowSwitcher="yes">
+			<action name="ToggleAlwaysOnBottom" />
+		</windowRule>
+		<windowRule identifier="nemo-desktop" title="nemo-desktop" skipTaskbar="yes" skipWindowSwitcher="yes">
+			<action name="ToggleAlwaysOnBottom" />
+		</windowRule>
+		<windowRule identifier="ragnar-power-dialog" title="ragnar-power-dialog" skipTaskbar="yes" skipWindowSwitcher="yes">
+			<action name="AutoPlace" policy="center" />
+		</windowRule>
+		<windowRule identifier="ragnar-daemon" title="ragnar-daemon" skipTaskbar="yes" skipWindowSwitcher="yes">
+			<action name="AutoPlace" policy="center" />
+		</windowRule>
+	</windowRules>
+	<placement>
+		<policy>center</policy>
+	</placement>
+	<focus>
+		<followMouse>no</followMouse>
+		<raiseOnFocus>no</raiseOnFocus>
+	</focus>
+	<snapping>
+		<range inner="10" outer="10">10</range>
+	</snapping>
+	<windowSwitcher style="thumbnail" allWorkspaces="no" />
+	<mouse>
+		<doubleClickTime>400</doubleClickTime>
+		<default />
+		<context name="Desktop">
+    		<!-- Left click: Closes open menus, does not open anything -->
+    		<mousebind button="Left" action="Press">
+        		<action name="Focus" />
+    		</mousebind>
+
+    		<!-- Right click: Opens the desktop menu -->
+    		<mousebind button="Right" action="Press">
+        		<action name="ShowMenu" menu="root-menu" />
+    		</mousebind>
+		</context>
+	</mouse>
+	<libinput>
+		<device category="touchpad">
+			<naturalScroll>no</naturalScroll>
+			<leftHanded>no</leftHanded>
+			<pointerSpeed>0.0</pointerSpeed>
+			<accelProfile>flat</accelProfile>
+			<tap>yes</tap>
+			<tapButtonMap>default</tapButtonMap>
+			<tapAndDrag>yes</tapAndDrag>
+			<dragLock>no</dragLock>
+			<middleEmulation>no</middleEmulation>
+			<disableWhileTyping>yes</disableWhileTyping>
+			<scrollMethod>twofinger</scrollMethod>
+			<clickMethod>clickfinger</clickMethod>
+			<sendEventsMode>yes</sendEventsMode>
+		</device>
+		<device category="non-touch">
+			<naturalScroll>no</naturalScroll>
+			<leftHanded>no</leftHanded>
+			<pointerSpeed>0.0</pointerSpeed>
+			<accelProfile>adaptive</accelProfile>
+			<middleEmulation>yes</middleEmulation>
+		</device>
+	</libinput>
+</labwc_config>

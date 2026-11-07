@@ -1,0 +1,2081 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# pomon pl, 2026
+# Joshua Strobl <joshua.strobl@outlook.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 15:27+0300\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Joshua Strobl <joshua.strobl@outlook.com>, 2026\n"
+"Language-Team: Polish (https://app.transifex.com/buddiesofragnar/teams/129844/pl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "Inne"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr "Akcesoria"
+
+msgid "Education"
+msgstr "Edukacja"
+
+msgid "Games"
+msgstr "Gry"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "Office"
+msgstr "Biuro"
+
+msgid "Programming"
+msgstr "Programowanie"
+
+msgid "Science"
+msgstr "Nauka"
+
+msgid "Sound & Video"
+msgstr "Dźwięk i obraz"
+
+msgid "System Tools"
+msgstr "Narzędzia systemowe"
+
+msgid "Universal Access"
+msgstr "Ustawienie dostępu"
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr "Nowa kategoria"
+
+msgid "Log out"
+msgstr "Wyloguj"
+
+msgid "Restart device"
+msgstr "Uruchom ponownie"
+
+#: src/daemon/endsession.ui:47
+msgid "Power Off"
+msgstr "Wyłącz"
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr "Nieprzeczytane powiadomienia"
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr "Wyświetl powiadomienia"
+
+msgid "Caps Lock is on"
+msgstr "Caps Lock jest włączony"
+
+msgid "Caps Lock is off"
+msgstr "Caps Lock jest wyłączony"
+
+msgid "Num Lock is on"
+msgstr "Num Lock jest włączony"
+
+msgid "Num Lock is off"
+msgstr "Num Lock jest wyłączony"
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "Włączono tryb Caffeine Boost"
+
+msgid "Turned off Caffeine Boost"
+msgstr "Wyłączono tryb kofeinowy"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Authentication failed"
+msgstr "Uwierzytelnianie nieudane"
+
+msgid "Group:"
+msgstr "Grupa:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr "_Zablokuj"
+
+msgid "L_og Out"
+msgstr "Wyl_oguj"
+
+msgid "_Suspend"
+msgstr "_Uśpij"
+
+msgid "_Hibernate"
+msgstr "Hibernuj"
+
+msgid "_Reboot"
+msgstr "_Uruchom ponownie"
+
+msgid "Shut_down"
+msgstr "Wył_ącz"
+
+msgid "This system does not support hibernation."
+msgstr "Ten system nie obsługuje hibernacji."
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:3
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:3
+msgid "Ragnar Screenshot"
+msgstr "Zrzut ekranu Ragnar"
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr "Zrzut całego ekranu"
+
+msgid "Screenshot active window"
+msgstr "Zrzut aktywnego okna"
+
+msgid "Screenshot selected area"
+msgstr "Zrzut wybranego obszaru ekranu"
+
+#. translate
+msgid "Cancel screenshot"
+msgstr "Anuluj zrzut ekranu"
+
+msgid "Save screenshot to the selected directory"
+msgstr "Zapisz zrzut ekranu w wybranym katalogu"
+
+msgid "Copy screenshot to the clipboard"
+msgstr "Skopiuj zrzut ekranu do schowka"
+
+msgid "Open screenshot in default application"
+msgstr "Otwórz zrzut ekranu w domyślnej aplikacji"
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr "Inny..."
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr "Otwórz folder"
+
+#: src/daemon/endsession.ui:92 src/dialogs/polkit/dialog.ui:321
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Open"
+msgstr "Otwórz"
+
+msgid "Files to send"
+msgstr "Pliki do wysłania"
+
+msgid "_Cancel"
+msgstr "_Anuluj"
+
+msgid "_Open"
+msgstr "_Otwórz"
+
+msgid "Send Files via Bluetooth"
+msgstr "Wyślij pliki przez Bluetooth"
+
+msgid "Send files to device…"
+msgstr "Wyślij pliki na urządzenie…"
+
+msgid "Rejected file"
+msgstr "Plik został odrzucony"
+
+#, c-format
+msgid "File already exists: %s"
+msgstr "Plik już istnieje: %s"
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr "Odbieranie pliku"
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr "Urządzenie '%s' chce wysłać plik: %s %s"
+
+msgid "Accept"
+msgstr "Akceptuj"
+
+msgid "Reject"
+msgstr "Odrzuć"
+
+msgid "File name"
+msgstr "Nazwa pliku"
+
+msgid "Transfer rate"
+msgstr "Szybkość transmisji"
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr "Zamknij"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr "<b>Szybkość transmisji:</b> %s / s"
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr "%s / %s: Pozostały czas: %s"
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Send"
+msgstr "Wyślij"
+
+msgid "Speaker"
+msgstr "Głośnik"
+
+msgid "Controller"
+msgstr "Kontroler"
+
+msgid "Keyboard"
+msgstr "Klawiatura"
+
+msgid "Mouse"
+msgstr "Mysz"
+
+msgid "Tablet"
+msgstr "Tablet"
+
+msgid "Touchpad"
+msgstr "Panel dotykowy"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Bluetooth File Transfer"
+msgstr "Przesyłanie plików przez Bluetooth"
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr "<b>z</b>: %s"
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr "<b>do</b>: %s"
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr "<b>nazwa pliku</b>: %s"
+
+msgid "File transfer failed"
+msgstr "Przesyłanie pliku nie powiodło się"
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr "Plik '%s' nie został odebrany z %s"
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr "Plik '%s' z %s nie został odebrany: %s"
+
+msgid "File transferred successfully"
+msgstr "Pomyślnie przesłano plik"
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr "Zapisano plik z %s do  '%s'"
+
+msgid "From"
+msgstr "Z"
+
+msgid "To"
+msgstr "Do"
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr "Próbuję się połączyć z %s... "
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr "Łączenie z '%s' nie powiodło się"
+
+msgid "The file has not been transferred."
+msgstr "Plik nie został przesłany."
+
+msgid "Retry"
+msgstr "Ponów próbę"
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr "Czekam na akceptację %s..."
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr "Przesyłanie '%s' nie powiodło się"
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr "Przesyłanie zostało przerwane lub odrzucone przez %s."
+
+msgid "Select a Bluetooth device to send files to"
+msgstr "Wybierz urządzenie Bluetooth, do którego chcesz wysłać pliki"
+
+msgid "Discovering…"
+msgstr "Odkrywanie…"
+
+msgid "<b>No devices found</b>"
+msgstr "<b>Nie znaleziono urządzeń</b>"
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr "Upewnij się, że Twoje urządzenia są widoczne i gotowe do parowania"
+
+msgid "Available Devices"
+msgstr "Dostępne urządzenia"
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "Tryb kofeinowy"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:2
+msgid "Ragnar Desktop Settings"
+msgstr "Ustawienia Pulpitu Ragnar"
+
+msgid "System Settings"
+msgstr "Ustawienia"
+
+msgid "Power"
+msgstr "Power"
+
+msgid "Set menu icon from file"
+msgstr "Ustaw ikonę menu z pliku"
+
+msgid "Image files"
+msgstr "Pliki graficzne"
+
+msgid "Any file"
+msgstr "Wszystkie pliki"
+
+msgid "Set icon"
+msgstr "Ustaw ikonę"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "All"
+msgstr "Wszystkie"
+
+msgid "Remove from favorites"
+msgstr ""
+
+msgid "Add to favorites"
+msgstr ""
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "Przepraszamy, nie znaleziono plików"
+
+msgid "Timer (minutes)"
+msgstr "Minutnik (minuty)"
+
+msgid "System time and date settings"
+msgstr "Ustawienia czasu i daty systemu"
+
+msgid "Unfavorite"
+msgstr "Usuń z ulubionych"
+
+msgid "Favorite"
+msgstr "Ulubiony"
+
+msgid "Close all windows"
+msgstr "Zamknij wszystkie okna"
+
+msgid "Launch new instance"
+msgstr "Uruchom nową instancję"
+
+msgid "Minimize"
+msgstr "Minimalizuj"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr ""
+
+msgid "Unmaximize"
+msgstr "Cofnij maksymalizację"
+
+msgid "Maximize"
+msgstr "Maksymalizuj"
+
+msgid "Close window"
+msgstr "Zamknij okno"
+
+msgid "Show window controls"
+msgstr "Pokaż przyciski okna"
+
+msgid "Caps lock is active"
+msgstr "Klawisz Caps lock jest włączony"
+
+msgid "Caps lock is not active"
+msgstr "Klawisz Caps lock jest wyłączony"
+
+msgid "Num lock is active"
+msgstr "Klawiatura numeryczna jest włączona"
+
+msgid "Num lock is not active"
+msgstr "Klawiatura numeryczna jest wyłączona"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "No unread notifications"
+msgstr "Brak nieprzeczytanych powiadomień"
+
+msgid "Volume is in use by other processes"
+msgstr "Wolumin jest używany przez inne procesy"
+
+msgid "Operation aborted"
+msgstr "Działanie przerwane"
+
+msgid "Type your password"
+msgstr "Podaj swoje hasło"
+
+msgid "Removable devices"
+msgstr "Urządzenie przenośne"
+
+msgid "Local volumes"
+msgstr "Lokalne wolumeny"
+
+msgid "Network folders"
+msgstr "Katalogi sieciowe"
+
+msgid "Eject"
+msgstr "Wysuń"
+
+msgid "Unmount"
+msgstr "Odmontuj"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "Otwórz „%s”"
+
+msgid "You can now safely remove"
+msgstr "Można teraz bezpiecznie wysunąć nośnik"
+
+msgid "Unknown Device"
+msgstr "Nieznane urządzenie"
+
+msgid "Error while ejecting device"
+msgstr "Błąd podczas wysuwania urządzenia"
+
+msgid "Error while unmounting volume"
+msgstr "Błąd podczas odmontowywania woluminu"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:4
+msgid "Places"
+msgstr "Miejsca"
+
+msgid "Nothing to display right now"
+msgstr "Nie ma nic do wyświetlenia"
+
+msgid "Mount some drives"
+msgstr "Zamontuj jakiś nośnik"
+
+msgid "Enable more sections"
+msgstr "Włącz więcej sekcji"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "Zamontuj i otwórz „%s”"
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr "Podaj frazę szyfrującą, aby odblokować ten wolumin"
+
+msgid "The password you entered is incorrect"
+msgstr "Podane hasło jest nieprawidłowe"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr "Wystąpił nieznany błąd podczas montowania tego woluminu"
+
+msgid "Toggle the desktop"
+msgstr "Wyświetl pulpit"
+
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+msgid "Bluetooth Settings"
+msgstr "Ustawienia Bluetooth"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr "Włącz lub wyłącz Bluetooth"
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr "Tryb samolotowy jest włączony."
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr "Bluetooth jest wyłączony, gdy włączony jest tryb samolotowy."
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr "Nie znaleziono sparowanych urządzeń Bluetooth."
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr "Przejdź do ustawień Bluetooth, aby sparować urządzenie."
+
+msgid "Send file"
+msgstr "Wyślij plik"
+
+msgid "Disconnect"
+msgstr "Rozłącz"
+
+msgid "Disconnecting…"
+msgstr "Rozłączanie..."
+
+msgid "Connecting…"
+msgstr "Łączenie..."
+
+msgid "Failed to disconnect"
+msgstr "Rozłączanie nie powiodło się"
+
+msgid "Failed to connect"
+msgstr "Połączenie nie powiodło się"
+
+msgid "Connected"
+msgstr "Połączony"
+
+msgid "Disconnected"
+msgstr "Rozłączony"
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr "<b>nazwa pliku</b>: %s"
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr "Odbieranie...%s z %s"
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr "Wysyłanie… %s z %s"
+
+msgid "Battery fully charged."
+msgstr "Bateria w pełni naładowana."
+
+msgid "Unknown"
+msgstr "Status nieznany"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "Ładowanie"
+
+msgid "Battery remaining"
+msgstr "Pozostały czas działania"
+
+msgid "Performance Mode"
+msgstr "Tryb wydajności"
+
+msgid "Power Saver"
+msgstr "Oszczędzanie energii"
+
+msgid "Balanced"
+msgstr "Zrównoważony"
+
+msgid "Performance"
+msgstr "Wydajność"
+
+msgid "Power settings"
+msgstr "Ustawienia zasilania"
+
+#: src/panel/applets/trash/trash_applet.c:228
+#: src/panel/applets/trash/trash_item_row.c:332
+#: src/panel/applets/trash/trash_item_row.c:363
+msgid "Trash Error"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:155
+msgid "Permanently delete this item"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:162
+msgid "Are you sure you want to delete this item?"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:168
+#: src/panel/applets/trash/trash_popover.c:320
+msgid "No"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:169
+#: src/panel/applets/trash/trash_popover.c:321
+msgid "Yes"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:333
+#, c-format
+msgid "Unable to delete '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:364
+#, c-format
+msgid "Unable to restore '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:119
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:4
+msgid "Trash Bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:125
+msgid "Settings"
+msgstr "Ustawienia"
+
+#. Header label
+#. Switcher to show or hide a shortcut to Trash
+#: src/panel/applets/trash/trash_popover.c:274
+msgid "Trash"
+msgstr "Kosz"
+
+#: src/panel/applets/trash/trash_popover.c:283
+msgid "Trash Applet Settings"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:300
+msgid "Restore"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:301
+msgid "Restore selected items"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:303
+msgid "Empty"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:304
+msgid "Empty the trash bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:311
+msgid "Are you sure you want to empty the trash bin?"
+msgstr ""
+
+#. User Menu Creation
+msgid "User"
+msgstr "Użytkownik"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "Zablokuj"
+
+msgid "Suspend"
+msgstr "Wstrzymaj"
+
+msgid "Hibernate"
+msgstr "Zahibernuj"
+
+#: src/daemon/endsession.ui:124
+msgid "Restart"
+msgstr "Uruchom ponownie"
+
+#: src/daemon/endsession.ui:142
+msgid "Shutdown"
+msgstr "Wyłącz"
+
+#: src/daemon/endsession.ui:106
+msgid "Logout"
+msgstr "Wyloguj"
+
+msgid "Rename"
+msgstr "Zmień nazwę"
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Not able to create new workspaces"
+msgstr "Nie można tworzyć nowych obszarów roboczych"
+
+msgid "Create a new workspace"
+msgstr "Utwórz nową przestrzeń roboczą"
+
+msgid "Untitled"
+msgstr "Bez nazwy"
+
+msgid "No description"
+msgstr "Brak opisu"
+
+msgid "running"
+msgstr "uruchomiony"
+
+msgid "Applications"
+msgstr "Aplikacje"
+
+msgid "Add"
+msgstr "Dodaj"
+
+msgid "Command"
+msgstr "Polecenie"
+
+msgid "An entry with that title already exists"
+msgstr "Wpis z taką nazwą już istnieje"
+
+msgid "Title"
+msgstr "Nazwa"
+
+msgid "Required"
+msgstr "Wymagany"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Optional"
+msgstr "Opcjonalny"
+
+msgid "Autostart"
+msgstr "Autostart"
+
+msgid "Autostart apps"
+msgstr "Autostartujące aplikacje"
+
+msgid "Add Application"
+msgstr "Dodaj aplikację"
+
+msgid "Add Command"
+msgstr "Dodaj komendę"
+
+msgid "Desktop"
+msgstr "Pulpit"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "Ikony pulpitu"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr "Zezwól na ikony na pulpicie."
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr "Zamontowane dyski"
+
+msgid "Show all active mounts on the desktop."
+msgstr "Pokaż wszystkie zamontowane dyski na pulpicie."
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "Katalog domowy"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "Dodaj skrót do katalogu domowego na pulpicie."
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "Dodaj skrót do Kosza na pulpicie."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr "Rozmiar ikon"
+
+msgid "Set the desired size of icons on the desktop."
+msgstr "Dostosuj wielkość ikon na pulpicie."
+
+msgid "Number of virtual desktops"
+msgstr "Liczba wirtualnych pulpitów"
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr ""
+"Liczba wirtualnych pulpitów / przestrzeni roboczych tworzonych automatycznie"
+" przy starcie systemu."
+
+msgid "Single"
+msgstr "Pojedyncze"
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr "Podwójne"
+
+msgid "Click Policy"
+msgstr "Polityka kliknięć"
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr ""
+"Polityka kliknięć określa czy dany obiekt otwierać pojedynczym czy podwójnym"
+" kliknięciem myszy."
+
+msgid "Normal"
+msgstr "Normalne"
+
+#. Small
+msgid "Small"
+msgstr "Małe"
+
+#. Large
+msgid "Large"
+msgstr "Duże"
+
+#. Massive
+msgid "Massive"
+msgstr "Ogromne"
+
+msgid "Displays"
+msgstr ""
+
+msgid "Connected Monitors"
+msgstr ""
+
+msgid "Panel Placement"
+msgstr ""
+
+msgid ""
+"Select which monitor should be the primary display for panel placement."
+msgstr ""
+
+msgid "Use Automatic Selection"
+msgstr ""
+
+msgid "Clear Primary Monitor"
+msgstr ""
+
+msgid "Remove manual primary monitor selection."
+msgstr ""
+
+msgid "Fallback Monitors"
+msgstr ""
+
+msgid "Order used when primary is disconnected"
+msgstr ""
+
+msgid "No monitors detected"
+msgstr ""
+
+msgid "No fallback monitors configured"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Unknown model"
+msgstr ""
+
+msgid "Set as Primary"
+msgstr ""
+
+msgid "(last known)"
+msgstr ""
+
+msgid "No cached information"
+msgstr ""
+
+msgid "Fonts"
+msgstr "Czcionki"
+
+msgid "Window Titles"
+msgstr "Nagłówki okien"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "Ustaw czcionkę używaną w paskach tytułowych aplikacji."
+
+msgid "Documents"
+msgstr "Dokumenty"
+
+msgid "Set the display font used by for documents."
+msgstr "Ustaw czcionkę używaną dla dokumentów."
+
+msgid "Interface"
+msgstr "Interfejs"
+
+msgid "Set the primary font used by application controls."
+msgstr "Ustaw główną czcionkę używaną przez przyciski aplikacji."
+
+msgid "Monospace"
+msgstr "Czcionka o stałej szerokości"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr "Ustaw czcionkę o stałej szerokości używanej przez aplikacje tekstowe."
+
+msgid "Text scaling"
+msgstr "Skalowanie tekstu"
+
+msgid "Set the text scaling factor."
+msgstr "Ustaw współczynnik skalowania tekstu."
+
+msgid "Full"
+msgstr "Pełny"
+
+msgid "Medium"
+msgstr "Średni"
+
+msgid "Slight"
+msgstr "Drobny"
+
+msgid "None"
+msgstr "Żaden"
+
+msgid "Hinting"
+msgstr "Hinting czcionek"
+
+msgid "Set the type of hinting to use."
+msgstr "Ustaw typ hintingu czcionek."
+
+msgid "Subpixel (for LCD screens)"
+msgstr "Subpiksel (dla wyświetlaczy LCD)"
+
+msgid "Standard (grayscale)"
+msgstr "Standardowe (skala szarości)"
+
+msgid "Antialiasing"
+msgstr "Wygładzanie krawędzi"
+
+msgid "Set the type of antialiasing to use."
+msgstr "Ustaw typ wygładzania krawędzi."
+
+msgid "Appearance"
+msgstr "Wygląd"
+
+msgid "Panels"
+msgstr "Panele"
+
+msgid "Session"
+msgstr "Sesja"
+
+msgid "Create new panel"
+msgstr "Stwórz nowy panel"
+
+msgid "Applets"
+msgstr "Aplety"
+
+msgid "Remove Panel"
+msgstr "Usuń panel"
+
+msgid "Remove this panel from the screen"
+msgstr "Usuń ten panel z ekranu"
+
+msgid "Top Dock"
+msgstr "Górny Dock"
+
+msgid "Right Dock"
+msgstr "Prawy Dock"
+
+msgid "Left Dock"
+msgstr "Lewy Dock"
+
+msgid "Bottom Dock"
+msgstr "Dolny Dock"
+
+msgid "Top Panel"
+msgstr "Górny panel"
+
+msgid "Right Panel"
+msgstr "Prawy panel"
+
+msgid "Left Panel"
+msgstr "Lewy panel"
+
+msgid "Bottom Panel"
+msgstr "Dolny panel"
+
+msgid "Top"
+msgstr "Góra"
+
+msgid "Right"
+msgstr "Prawy"
+
+msgid "Left"
+msgstr "Lewy"
+
+msgid "Bottom"
+msgstr "Dół"
+
+msgid "Always"
+msgstr "Zawsze"
+
+msgid "Dynamic"
+msgstr "Dynamiczny"
+
+msgid "Automatic"
+msgstr "Automatyczny"
+
+msgid "Intelligent"
+msgstr "Inteligentny"
+
+msgid "Never"
+msgstr "Nigdy"
+
+msgid "Position"
+msgstr "Położenie"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "Wybierz krawędź ekranu, na której umieszczony zostanie ten panel"
+
+msgid "Size"
+msgstr "Rozmiar"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr ""
+"Ustaw rozmiar (szerokość lub wysokość, w zależności od orientacji) tego "
+"panelu"
+
+msgid "Spacing"
+msgstr "Odstępy"
+
+msgid "Set the spacing between applets for this panel"
+msgstr "Ustaw odstępy między apletami dla tego panelu"
+
+msgid "Automatically hide"
+msgstr "Ukryj automatycznie"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr ""
+"Kiedy aktywne, ten panel zniknie z widoku, by zmaksymalizować powierzchnię "
+"pulpitu"
+
+msgid "Transparency"
+msgstr "Przezroczystość"
+
+msgid "Control when this panel should have a solid background"
+msgstr "Kontroluj, kiedy ten panel powinien mieć jednolite tło"
+
+msgid "Shadow"
+msgstr "Cień"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr "Dodaje ozdobny cień, idealny dla nieprzejrzystych okien"
+
+msgid "Stylize regions"
+msgstr "Stylizowanie obszarów"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr ""
+"Dodaje podpowiedź do panelu, dzięki której każdy z trzech głównych obszarów "
+"panelu może mieć inny motyw."
+
+msgid "Dock mode"
+msgstr "Tryb doku"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr ""
+"Kiedy w trybie doku, ten panel będzie używał możliwie najmniej miejsca, "
+"zwalniając cenną przestrzeń pulpitu"
+
+msgid "Applet Settings"
+msgstr "Ustawienia apletu"
+
+msgid "Add applet"
+msgstr "Dodaj aplet"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "Wybierz nowy aplet do dodania do tego panelu"
+
+msgid "No settings available"
+msgstr "Brak dostępnych ustawień"
+
+msgid "Start"
+msgstr "Początek"
+
+msgid "Center"
+msgstr "Środek"
+
+msgid "End"
+msgstr "Koniec"
+
+msgid "Confirm panel removal"
+msgstr "Potwierdź usunięcie panelu"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr "Czy na pewno chcesz usunąć ten panel? Tej czynności nie można cofnąć."
+
+msgid "Remove panel"
+msgstr "Usuń panel"
+
+msgid "Keep panel"
+msgstr "Zachowaj panel"
+
+msgid "Confirm applet removal"
+msgstr "Potwierdź usunięcie apletu"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr "Czy na pewno chcesz usunąć ten aplet? Tej czynności nie można cofnąć."
+
+msgid "Don't ask me again"
+msgstr "Nie pytaj ponownie"
+
+msgid "Remove applet"
+msgstr "Usuń aplet"
+
+msgid "Keep applet"
+msgstr "Zachowaj aplet"
+
+msgid "Confirm widget removal"
+msgstr "Potwierdź usunięcie widżetu"
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr "Czy naprawdę chcesz usunąć ten widget? Tej akcji nie można cofnąć."
+
+msgid "Built-in"
+msgstr "Wbudowany"
+
+msgid "Choose a plugin"
+msgstr "Wybierz wtyczkę"
+
+msgid "No description."
+msgstr "Brak opisu."
+
+#, c-format
+msgid "by %s"
+msgstr "przez %s"
+
+msgid "No authors listed"
+msgstr "Nie podano autorów"
+
+msgctxt "Raven"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set Raven position"
+msgstr "Ustaw pozycję panelu Raven"
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr ""
+"Ustaw stronę ekranu na której będzie pojawiał się panel Raven. Jeśli wybrano"
+" opcję 'Automatycznie'- otworzy się w miejscu położenia panelu nadrzędnego."
+
+msgid "Set notification sort order"
+msgstr "Ustaw kolejność sortowania powiadomień"
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr ""
+"Ustaw, czy powiadomienia mają być sortowane od najstarszych do najnowszych, "
+"czy od najnowszych donajstarszych."
+
+msgid "Widget Settings"
+msgstr "Ustawienia widżetu"
+
+msgid "Add widget"
+msgstr "Dodaj widżet"
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr "Wybierz nowy widget, który chcesz dodać do widoku Widgetów"
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr ""
+"Nie udało się utworzyć instancji widgetu. Silnik wtyczki nie mógł znaleźć "
+"informacjidla tej wtyczki."
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr ""
+"Nie udało się utworzyć instancji widgetu. Silnik wtyczki nie mógł znaleźć "
+"informacjidla tej wtyczki."
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+"Nie udało się utworzyć instancji widżetu. Wtyczka obsługuje ustawienia, ale nie instaluje schematu ustawień o tej samej nazwie.\n"
+"\n"
+"Nazwa schematu powinna być identyczna z nazwą modułu, ale bez rozszerzenia i (w przypadku Pythona) podkreślenia zastąpione kropkami."
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr "Nie udało się utworzyć instancji widżetu z powodu nieznanego błędu."
+
+msgid "Style"
+msgstr "Styl"
+
+msgctxt "Styling"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "Ustaw wygląd dekoratorów i przycisków okna"
+
+msgid "Icons"
+msgstr "Ikony"
+
+msgid "Set the globally used icon theme"
+msgstr "Ustaw globalny motyw ikon"
+
+msgid "Cursors"
+msgstr "Kursory"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "Ustaw globalny motyw kursora"
+
+msgid "Notification Position"
+msgstr "Umiejscowienie powiadomień"
+
+msgid "Set the location for notification popups"
+msgstr "Ustaw umiejscowienie powiadomień"
+
+msgid "Dark theme"
+msgstr "Ciemny styl"
+
+msgid "Built-in theme"
+msgstr "Wbudowany styl"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr ""
+"Kiedy aktywne, styl komponentów pulpitu zostanie zastąpiony wbudowanym"
+
+msgid "Animations"
+msgstr "Animacje"
+
+msgid "Control whether windows and controls use animations"
+msgstr "Kontroluj, czy okna i przyciski mają używać animacji"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr "Użyj motywu"
+
+msgid "Labwc Compositor Theme"
+msgstr "Motyw kompozytora Labwc"
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme"
+msgstr ""
+
+msgid "Top Left"
+msgstr "Lewy górny"
+
+msgid "Bottom Left"
+msgstr "Lewy dolny"
+
+msgid "Bottom Right"
+msgstr "Prawy dolny"
+
+msgid "Top Right"
+msgstr "Prawy górny"
+
+msgid "Windows"
+msgstr "Okna"
+
+msgid "Button layout"
+msgstr "Układ przycisków"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "Zmień układ przycisków na pasku tytułowym aplikacji."
+
+msgid "Center new windows on screen"
+msgstr "Wyśrodkuj nowe okna na ekranie"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "Wyśrodkuj nowo otwarte okna na bieżącym ekranie."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr "Wyłącz tryb Nocnego Światła gdy okna są w trybie pełnoekranowym"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr ""
+"Wyłącza tryb Nocnego Światła gdy okno jest w trybie pełnoekranowym. Włącza "
+"go ponownie przy opuszczaniu trybu pełnoekranowego."
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr "Wstrzymaj powiadomienia gdy okna są w trybie pełnoekranowym"
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr ""
+"Wstrzymuje powiadomienia gdy okno jest w trybie pełnoekranowym. Przywraca je"
+" po opuszczeniu trybu pełnoekranowego."
+
+msgid "Automatic tiling"
+msgstr "Automatyczne kafelkowanie"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr ""
+"Okna będą automatycznie kafelkowane, kiedy zostaną przeciągnięte do górnej "
+"lub skrajnej krawędzi ekranu."
+
+msgid "Window focus mode"
+msgstr "Tryb ostrości okien"
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr ""
+"Wybierz sposób aktywacji okien: kliknięcie aktywuje; najechanie kursorem "
+"aktywuje bez wysuwania; najechanie kursorem aktywuje i wysuwa."
+
+msgid "Show all windows in tab switcher"
+msgstr "Pokaż wszystkie okna w widoku przełącznika kart"
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr ""
+"Wszystkie karty będą wyświetlone w widoku przełącznika kart, niezależnie od "
+"używanego obszaru roboczego."
+
+msgid "Right (standard)"
+msgstr "Prawy (standard)"
+
+msgid "Click"
+msgstr "Kliknięcie"
+
+msgid "Sloppy"
+msgstr "Najechanie kursorem"
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:4
+msgid "Notifications"
+msgstr "Powiadomienia"
+
+msgid "No widgets added."
+msgstr "Nie dodano żadnych widżetów."
+
+msgid "Nothing to see here"
+msgstr "Nie ma nic do wyświetlenia"
+
+msgid "No new notifications"
+msgstr "Brak nowych powiadomień"
+
+msgid "Oldest to newest"
+msgstr "Od najstarszych do najnowszych"
+
+msgid "Newest to oldest"
+msgstr "Od najnowszych do najstarszych"
+
+msgid "No apps are currently playing audio."
+msgstr "Żadne aplikacje nie odtwarzają obecnie dźwięku."
+
+msgid "Play some music"
+msgstr "Odtwórz muzykę"
+
+msgid "Unknown Title"
+msgstr "Nieznany tytuł"
+
+msgid "Unknown Artist"
+msgstr "Nieznany artysta"
+
+msgid "Unknown Album"
+msgstr "Nieznany album"
+
+#, c-format
+msgid "Playing - %s"
+msgstr "Odtwarzanie — %s"
+
+#, c-format
+msgid "Paused - %s"
+msgstr "Wstrzymano — %s"
+
+msgid "No apps are playing audio."
+msgstr "Żadna aplikacja nie odtwarza dźwięku."
+
+msgid "Apps"
+msgstr "Aplikacje"
+
+msgid "Devices"
+msgstr "Urządzenia"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:4
+msgid "Usage Monitor"
+msgstr "Monitor wykorzystania"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Swap"
+msgstr "Swap"
+
+#: src/daemon/endsession.ui:71
+msgid "Are you sure you want to end your session?"
+msgstr "Jesteś pewien, że chcesz zakończyć sesję?"
+
+#: src/dialogs/polkit/dialog.ui:12 src/dialogs/polkit/dialog.ui:49
+msgid "Authentication Required"
+msgstr "Wymagane uwierzytelnienie"
+
+#: src/dialogs/polkit/dialog.ui:71
+msgid "Password:"
+msgstr "Hasło:"
+
+#: src/dialogs/polkit/dialog.ui:103
+msgid "Username:"
+msgstr "Nazwa użytkownika:"
+
+#: src/dialogs/polkit/dialog.ui:131
+msgid "Authentication is required"
+msgstr "Uwierzytelnienie jest wymagane"
+
+#: src/dialogs/polkit/dialog.ui:184
+msgid "Details"
+msgstr "Detale"
+
+#: src/dialogs/polkit/dialog.ui:224
+msgid "Action:"
+msgstr "Działanie:"
+
+#: src/dialogs/polkit/dialog.ui:259
+msgid "ID:"
+msgstr "ID:"
+
+#: src/dialogs/polkit/dialog.ui:335
+msgid "Authenticate"
+msgstr "Uwierzytelnij"
+
+#: src/dialogs/screenshot/aftershot.ui:48
+msgid "Name:"
+msgstr "Nazwa"
+
+#: src/dialogs/screenshot/aftershot.ui:85
+msgid "Folder:"
+msgstr "Folder"
+
+#: src/dialogs/screenshot/screenshothome.ui:35
+msgid "Delay in seconds"
+msgstr "Opóźnienie w sekundach"
+
+#: src/dialogs/screenshot/screenshothome.ui:91
+msgid "Show Pointer"
+msgstr "Pokaż wskaźnik"
+
+#: src/dialogs/screenshot/screenshothome.ui:141
+msgid "Play sound when capturing"
+msgstr "Odtwarzaj dźwięk podczas przechwytywania"
+
+#: src/panel/applets/ragnar-menu/settings.ui:23
+msgid "Show Menu Label"
+msgstr "Pokaż etykietę menu"
+
+#: src/panel/applets/ragnar-menu/settings.ui:48
+msgid "Menu Label"
+msgstr "Etykieta menu"
+
+#: src/panel/applets/ragnar-menu/settings.ui:72
+msgid "Use Default Menu Icon"
+msgstr "Użyj domyślnej ikony menu"
+
+#: src/panel/applets/ragnar-menu/settings.ui:97
+msgid "Menu Icon"
+msgstr "Ikona menu"
+
+#: src/panel/applets/ragnar-menu/settings.ui:148
+msgid "Compact Mode"
+msgstr "Tryb kompaktowy"
+
+#: src/panel/applets/ragnar-menu/settings.ui:172
+msgid "Show Headers"
+msgstr "Pokaż nagłówki"
+
+#: src/panel/applets/ragnar-menu/settings.ui:196
+msgid "Roll-over mouse"
+msgstr "Najechanie myszką"
+
+#: src/panel/applets/ragnar-menu/settings.ui:221
+msgid "Show settings items"
+msgstr "Pokaż elementy ustawień"
+
+#: src/panel/applets/caffeine/settings.ui:23
+msgid "Enable notification"
+msgstr "Włącz powiadomienie"
+
+#: src/panel/applets/caffeine/settings.ui:35
+msgid "Maximize brightness"
+msgstr "Maksymalizuj jasność"
+
+#: src/panel/applets/caffeine/settings.ui:47
+msgid "Brightness Level"
+msgstr "Poziom jasności"
+
+#: src/panel/applets/clock/settings.ui:15
+msgid "Show date"
+msgstr "Pokaż datę"
+
+#: src/panel/applets/clock/settings.ui:38
+msgid "Show seconds"
+msgstr "Pokaż sekundy"
+
+#: src/panel/applets/clock/settings.ui:61
+msgid "Use 24 hour time"
+msgstr "Używaj zegara 24-godzinnego"
+
+#: src/panel/applets/clock/settings.ui:84
+msgid "Custom Format"
+msgstr "Format niestandardowy"
+
+#: src/panel/applets/clock/settings.ui:107
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr "%H:%M:%S %d.%m.%Y"
+
+#: src/panel/applets/clock/settings.ui:120
+msgid "Custom Timezone"
+msgstr "Niestandardowa strefa czasowa"
+
+#: src/panel/applets/clock/settings.ui:143
+msgid "UTC"
+msgstr "UTC"
+
+#: src/panel/applets/icon-tasklist/settings.ui:15
+msgid "Show all windows on click"
+msgstr "Pokaż wszystkie okna poprzez kliknięcie"
+
+#: src/panel/applets/icon-tasklist/settings.ui:39
+msgid "Only show favorited"
+msgstr "Pokaż tylko ulubione"
+
+#: src/panel/applets/icon-tasklist/settings.ui:63
+msgid "Lock icons"
+msgstr "Zablokuj ikony"
+
+#: src/panel/applets/icon-tasklist/settings.ui:88
+msgid "Restrict to Workspace"
+msgstr "Ogranicz do obszaru roboczego"
+
+#: src/panel/applets/icon-tasklist/settings.ui:112
+msgid "Middle click to launch new window"
+msgstr "Środkowy przycisk myszy otwiera nowe okno"
+
+#: src/panel/applets/icon-tasklist/settings.ui:136
+msgid "Require a double-click to launch new window"
+msgstr "Wymagaj podwójnego kliknięcia aby otworzyć nowe okno"
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:28
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:4
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:44
+msgid "Keyboard Layout Settings"
+msgstr ""
+
+#: src/panel/applets/night-light/indicator_window.ui:37
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:4
+msgid "Night Light"
+msgstr "Światło Nocne"
+
+#: src/panel/applets/night-light/indicator_window.ui:85
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: src/panel/applets/night-light/indicator_window.ui:110
+msgid "Schedule"
+msgstr "Harmonogram"
+
+#: src/panel/applets/night-light/indicator_window.ui:124
+msgid "Sunset to Sunrise"
+msgstr "Od zachodu do wschodu słońca"
+
+#: src/panel/applets/night-light/indicator_window.ui:125
+msgid "Manual"
+msgstr "Ręczny"
+
+#: src/panel/applets/night-light/indicator_window.ui:144
+msgid "Display Settings"
+msgstr "Ustawienia wyświetlacza"
+
+#: src/panel/applets/places-indicator/settings.ui:19
+msgid "Show label"
+msgstr "Pokaż etykietę"
+
+#: src/panel/applets/places-indicator/settings.ui:55
+msgid "Show places"
+msgstr "Pokaż miejsca"
+
+#: src/panel/applets/places-indicator/settings.ui:79
+msgid "Show network folders"
+msgstr "Pokaż katalogi sieciowe"
+
+#: src/panel/applets/places-indicator/settings.ui:103
+msgid "Show removable drives"
+msgstr "Pokaż urządzenia przenośne"
+
+#: src/panel/applets/places-indicator/settings.ui:127
+msgid "Always expand places"
+msgstr "Zawsze powiększaj miejsca"
+
+#: src/panel/applets/spacer/settings.ui:21
+msgid "Spacer size"
+msgstr "Rozmiar odstępu"
+
+#: src/panel/applets/status/settings.ui:22
+#: src/panel/applets/tray/settings.ui:22
+msgid "Icon Spacing"
+msgstr "Odstępy między ikonami"
+
+#: src/panel/applets/status/settings.ui:48
+msgid "Show battery percentage"
+msgstr "Pokaż procent baterii"
+
+#: src/panel/applets/tasklist/settings.ui:16
+msgid "Show button icons"
+msgstr "Pokaż ikony przycisków"
+
+#: src/panel/applets/tasklist/settings.ui:41
+msgid "Show button labels"
+msgstr "Pokaż etykiety przycisków"
+
+#: src/panel/applets/trash/settings.ui:16
+msgid "Sort Mode"
+msgstr "Tryb sortowania"
+
+#: src/panel/applets/trash/settings.ui:28
+msgid "Sort by type"
+msgstr "Sortuj według typu"
+
+#: src/panel/applets/trash/settings.ui:43
+msgid "Sort alphabetically"
+msgstr "Sortuj alfabetycznie"
+
+#: src/panel/applets/trash/settings.ui:58
+msgid "Sort reverse alphabetically"
+msgstr "Sortuj alfabetycznie w odwrotnej kolejności"
+
+#: src/panel/applets/trash/settings.ui:73
+msgid "Sort by date ascending"
+msgstr "Sortuj według daty rosnąco"
+
+#: src/panel/applets/trash/settings.ui:88
+msgid "Sort by date descending"
+msgstr "Sortuj według daty malejąco"
+
+#: src/panel/applets/tray/settings.ui:48
+msgid "Scale icons with panel size"
+msgstr "Skaluj ikony w zależności od rozmiaru panelu"
+
+#: src/panel/applets/workspaces/settings.ui:17
+msgid "\"Add\" button visibility"
+msgstr "Widoczność przycisku \"Dodaj\""
+
+#: src/panel/applets/workspaces/settings.ui:31
+msgid "Item Size Multiplier"
+msgstr "Mnożnik rozmiaru obiektu"
+
+#: src/panel/applets/workspaces/settings.ui:45
+msgid "Don't show"
+msgstr "Nie pokazuj"
+
+#: src/panel/applets/workspaces/settings.ui:46
+msgid "Show on mouseover"
+msgstr "Pokaż po najechaniu myszką"
+
+#: src/panel/applets/workspaces/settings.ui:47
+msgid "Always show"
+msgstr "Zawsze pokazuj"
+
+#: src/panel/applets/workspaces/settings.ui:65
+msgid "0.5x"
+msgstr "0.5x"
+
+#: src/panel/applets/workspaces/settings.ui:66
+msgid "0.75x"
+msgstr "0.75x"
+
+#: src/panel/applets/workspaces/settings.ui:67
+msgid "1.0x"
+msgstr "1.0x"
+
+#: src/panel/applets/workspaces/settings.ui:68
+msgid "1.5x"
+msgstr "1.5x"
+
+#: src/panel/applets/workspaces/settings.ui:69
+msgid "2.0x"
+msgstr "2.0x"
+
+#: src/raven/widgets/calendar/settings.ui:17
+msgid "Show Week Numbers"
+msgstr "Pokaż numery tygodni"
+
+#: src/raven/widgets/calendar/settings.ui:43
+msgid "Show Day Names"
+msgstr "Pokaż nazwy dni"
+
+#: src/raven/widgets/sound-input/settings.ui:17
+#: src/raven/widgets/sound-output/settings.ui:17
+msgid "Allow Volume Overdrive"
+msgstr "Zezwól na przesterowanie głośności"
+
+#: src/raven/widgets/usage-monitor/settings.ui:17
+msgid "Show Swap Usage"
+msgstr "Pokaż użycie pamięci wymiany"
+
+#: src/daemon/ragnar-daemon.desktop.in:3
+msgid "Ragnar Background Services"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:4
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:4
+msgid "Ragnar screenshot app"
+msgstr "Aplikacja Ragnar do zrzutów ekranu"
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:8
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:8
+msgid "Screenshot;Snip;"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:3
+msgid "Ragnar PolicyKit UI"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:4
+msgid "Ragnar PolicyKit Authorisation UI"
+msgstr ""
+
+#: src/dialogs/screenshot/ragnar-screenshot-dialog.desktop.in.in:3
+msgid "Ragnar Screenshot UI"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:4
+msgid "Ragnar Menu"
+msgstr "Menu Ragnar"
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:5
+msgid "Search for and start up applications."
+msgstr "Wyszukaj i uruchom aplikacje."
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:4
+msgid "Caffeine"
+msgstr "Kofeina"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:5
+msgid "Prevent the system and screen from sleeping."
+msgstr "Zapobiegaj uśpieniu systemu i ekranu"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:4
+msgid "Clock"
+msgstr "Zegar"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:5
+msgid "A digital clock with a customizable format."
+msgstr "Zegar cyfrowy z możliwością dostosowania formatu."
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:4
+msgid "Icon Task List"
+msgstr "Ikona listy zadań"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:5
+msgid "A configurable application task list."
+msgstr "Konfigurowalna lista zadań aplikacji."
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:5
+msgid "Indicates which keyboard layout is currently in use."
+msgstr "Wskazuje, który układ klawiatury jest aktualnie używany."
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:4
+msgid "Lock Keys Indicator"
+msgstr "Wskaźnik klawiszy przełączających"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:5
+msgid "Show status of lock keys."
+msgstr "Pokaż status klawiszy blokady."
+
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:5
+msgid "Toggle and modify Night Light settings."
+msgstr "Przełączaj i modyfikuj ustawienia oświetlenia nocnego."
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:5
+msgid "Open the Raven notifications view."
+msgstr "Otwórz widok powiadomień Raven."
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:5
+msgid "Show drives and favorite folders."
+msgstr "Pokaż dyski i ulubione foldery."
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:4
+msgid "Raven Trigger"
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:5
+msgid "Open the Raven sidebar."
+msgstr "Otwórz pasek boczny Raven."
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:4
+msgid "Separator"
+msgstr "Oddzielacz"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:5
+msgid "Visual separator between applets."
+msgstr "Wizualny separator między apletami."
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:4
+msgid "Show Desktop Button"
+msgstr "Pokaż przycisk wyświetlania pulpitu"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:5
+msgid "A button that toggles visibility of the desktop."
+msgstr "Przycisk, który przełącza widoczność pulpitu."
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:4
+msgid "Spacer"
+msgstr "Odstęp"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:5
+msgid "Adjustable spacer to put between other applets."
+msgstr "Regulowana przekładka do umieszczenia między innymi apletami."
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:4
+msgid "Status Indicator"
+msgstr "Wskaźnik stanu"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:5
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr "Pokaż wskaźniki stanu systemu, takie jak dźwięk, bateria i Bluetooth."
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:4
+msgid "Task List"
+msgstr "Lista okien"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:5
+msgid "An application task list with icons and labels."
+msgstr "Lista zadań aplikacji z ikonami i etykietami."
+
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:5
+msgid "Manage your trash from the Ragnar panel"
+msgstr "Zarządzaj koszem z panelu Ragnar"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:4
+msgid "System Tray"
+msgstr "Zasobnik Systemowy"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:5
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr "Zasobnik systemowy zgodny ze specyfikacją Freedesktop Status Notifier"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:4
+msgid "User Indicator"
+msgstr "Wskaźnik użytkownik"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:5
+msgid "Opens the power dialog."
+msgstr "Otwiera okno zasilania."
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:4
+msgid "Workspace Switcher"
+msgstr "Przełącznik obszarów roboczych"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:5
+msgid "Display workspaces and switch between them."
+msgstr "Wyświetlanie obszarów roboczych i przełączanie się między nimi."
+
+#: src/panel/ragnar-desktop-settings.desktop.in:3
+msgid "Change desktop appearance and behavior"
+msgstr "Zmień wygląd i zachowanie pulpitu"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:12
+msgid "Preferences;Settings;"
+msgstr ""
+
+#: src/panel/ragnar-panel.desktop.in:3
+msgid "Ragnar Panel"
+msgstr "Panel Ragnar"
+
+#: src/panel/ragnar-panel.desktop.in:4
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr ""
+"Uruchom inne aplikacje i udostępnij różne narzędzia do zarządzania oknami, "
+"pokazywania czasu, itd."
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:4
+msgid "Calendar"
+msgstr "Kalendarz"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:5
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr ""
+"Prosty kalendarz z widokiem miesiąca, wykorzystujący wbudowany widżet "
+"Gtk.Calendar.Kalendarz domyślnie pokazuje bieżącą datę."
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:4
+msgid "Media Controls"
+msgstr "Sterowanie multimediami"
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:5
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+"Ten widżet wykorzystuje API Mpris do wyświetlania aktywnie odtwarzanych "
+"mediów z metadanymi.i kontrolkami odtwarzania, z obsługą audio i wideo."
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:4
+msgid "Sound Input"
+msgstr "Wejście dźwięku"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:5
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr ""
+"Umożliwia regulację głośności wejścia audio i wyświetla listę "
+"dostępnychurządzeń wejściowych audio."
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:4
+msgid "Sound Output"
+msgstr "Wyjście dźwięku"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:5
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr ""
+"Umożliwia globalną i indywidualną kontrolę głośności wyjścia audio oraz "
+"wyświetla listędostępnych urządzeń wyjściowych audio."
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:5
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr ""
+"Widok wykorzystania zasobów systemowych w formie wykresu słupkowego. "
+"Domyślnie zawiera użycie CPU, RAM i Swap."
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:2
+msgid "Ragnar Desktop (magpie)"
+msgstr "Ragnar Desktop (magpie)"
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:3
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr ""
+"Ta sesja loguje Cię do pulpitu Ragnar, używając programu magpie jako "
+"menedżera okien"
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:2
+msgid "Network (Ragnar Desktop)"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:3
+msgid "Manage your network connections"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:3
+msgid "Ragnar Power Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:4
+msgid "A button dialog to lock the screen, reboot, shutdown, etc."
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:3
+msgid "Ragnar Screenshot Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:4
+msgid "Screenshot interface"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in:3
+#: src/session/ragnar-desktop.session.desktop.in.in:2
+msgid "Ragnar Desktop"
+msgstr "Środowisko graficzne Ragnar"
+
+#: src/session/ragnar-desktop.desktop.in.in:4
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr ""
+"Ta sesja loguje Cię do pulpitu Ragnar, używając labwc jako menedżera okien"
+

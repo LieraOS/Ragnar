@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Screenshot
+Name[de]=Ragnar Bildschirmfoto
+Comment=Take screenshots — full screen, monitor or area
+Comment[de]=Bildschirmfotos aufnehmen — Vollbild, Monitor oder Bereich
+Exec=/usr/bin/ragnar-screenshot
+Icon=applets-screenshooter
+Categories=GTK;Utility;
+Keywords=screenshot;snapshot;bildschirmfoto;

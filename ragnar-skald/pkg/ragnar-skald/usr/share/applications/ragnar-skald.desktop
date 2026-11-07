@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Skald
+GenericName=Audio Settings
+GenericName[de]=Audio-Einstellungen
+Comment=PipeWire audio control: devices, volume, effects
+Comment[de]=PipeWire-Audioeinstellungen: Geräte, Lautstärke, Effekte
+Exec=ragnar-skald
+Icon=multimedia-volume-control
+Categories=Settings;AudioVideo;Audio;
+Keywords=audio;sound;volume;pipewire;
+Keywords[de]=audio;klang;lautstärke;pipewire;
+StartupNotify=true

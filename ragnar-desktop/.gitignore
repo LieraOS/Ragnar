@@ -1,0 +1,14 @@
+/*build*/
+*.tar.*
+
+*.out
+*.vgcore
+
+justfile
+/.fleet/
+/.idea/
+/.cache/
+
+subprojects/.wraplock
+
+__pycache__/

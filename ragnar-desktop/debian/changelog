@@ -1,0 +1,9 @@
+ragnar-desktop (1.0-37) forky; urgency=medium
+
+  * Source tree reduced to the session glue: launcher scripts,
+    labwc bridge, schemas, icons, data — no compiled code
+  * meson build rewritten for the glue package
+  * debian/control: minimal dependencies, no GNOME desktop deps
+  * Legacy branding and upstream references removed
+
+ -- LieraOS Project <projekt@lieraos.local>  Thu, 05 Nov 2026 00:30:00 +0100

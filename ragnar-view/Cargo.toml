@@ -1,0 +1,22 @@
+[package]
+name = "ragnar-view"
+version = "0.1.0"
+edition = "2021"
+description = "Ragnar desktop icons layer (LieraOS)"
+
+[dependencies]
+gtk4 = { version = "0.9", features = ["v4_16"] }
+gtk4-layer-shell = "0.5"
+libadwaita = { version = "0.7", features = ["v1_5"] }
+gio = "0.20"
+glib = "0.20"
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+
+[profile.release]
+lto = true
+
+[package.metadata.deb]
+maintainer = "LieraOS Project <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"

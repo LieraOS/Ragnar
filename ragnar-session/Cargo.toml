@@ -1,0 +1,20 @@
+[package]
+name = "ragnar-session"
+version = "0.1.0"
+edition = "2021"
+description = "Ragnar session manager (Rust port of the gnome-session fork)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+zbus = { version = "5", features = ["tokio"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+futures-util = "0.3"
+
+[package.metadata.deb]
+maintainer = "LieraOS"
+section = "x11"
+priority = "optional"
+assets = [
+    ["target/release/ragnar-session", "usr/libexec/", "755"],
+]

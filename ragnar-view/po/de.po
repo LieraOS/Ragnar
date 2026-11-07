@@ -1,0 +1,101 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Home"
+msgstr "Persönlicher Ordner"
+
+msgid "Trash"
+msgstr "Papierkorb"
+
+msgid "New"
+msgstr "Neu"
+
+msgid "Folder"
+msgstr "Ordner"
+
+msgid "Empty Document"
+msgstr "Leeres Dokument"
+
+msgid "New Folder"
+msgstr "Neuer Ordner"
+
+msgid "New Document"
+msgstr "Neues Dokument"
+
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Modification Date"
+msgstr "Änderungsdatum"
+
+msgid "Size"
+msgstr "Größe"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Icon Arrangement"
+msgstr "Symbolanordnung"
+
+msgid "Snap to Grid"
+msgstr "Am Raster ausrichten"
+
+msgid "Free Placement"
+msgstr "Frei platzieren"
+
+msgid "Auto Arrange"
+msgstr "Automatisch anordnen"
+
+msgid "Open in File Manager"
+msgstr "Im Dateimanager öffnen"
+
+msgid "Background"
+msgstr "Hintergrund"
+
+msgid "Display Settings"
+msgstr "Anzeigeeinstellungen"
+
+msgid "System Settings"
+msgstr "Systemeinstellungen"
+
+msgid "Open"
+msgstr "Öffnen"
+
+msgid "Open With…"
+msgstr "Öffnen mit…"
+
+msgid "Open With"
+msgstr "Öffnen mit"
+
+msgid "Open in Terminal"
+msgstr "Im Terminal öffnen"
+
+msgid "Rename…"
+msgstr "Umbenennen…"
+
+msgid "Rename"
+msgstr "Umbenennen"
+
+msgid "Move to Trash"
+msgstr "In den Papierkorb verschieben"
+
+msgid "Delete Permanently"
+msgstr "Endgültig löschen"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Other applications"
+msgstr "Andere Anwendungen"
+
+msgid "This permanently deletes and cannot be undone:"
+msgstr "Dies löscht endgültig und kann nicht rückgängig gemacht werden:"

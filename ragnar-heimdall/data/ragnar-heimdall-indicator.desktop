@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Heimdall Indicator
+Comment=Network status indicator for the Ragnar panel
+Icon=network-workgroup
+Exec=ragnar-heimdall-indicator
+Terminal=false
+NoDisplay=true
+OnlyShowIn=Ragnar
+X-GNOME-Autostart-enabled=true

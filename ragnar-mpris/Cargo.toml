@@ -1,0 +1,22 @@
+[package]
+name = "ragnar-mpris"
+version = "0.1.0"
+edition = "2021"
+description = "MPRIS media-key controller for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# gio/glib only: session-bus service + calls to player bus names —
+# headless daemon, no GUI.
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "LieraOS Project <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/ragnar-mpris", "usr/bin/ragnar-mpris", "755"],
+    ["data/org.lieraos.ragnar.MprisController.desktop", "etc/xdg/autostart/", "644"],
+]

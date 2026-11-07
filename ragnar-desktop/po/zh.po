@@ -1,0 +1,2017 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Yazi Tian, 2023
+# Gavin Zhao, 2023
+# Dwong33, 2026
+# Wenyin Root <ruojiner@hotmail.com>, 2026
+# Joshua Strobl <joshua.strobl@outlook.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 15:27+0300\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Joshua Strobl <joshua.strobl@outlook.com>, 2026\n"
+"Language-Team: Chinese (https://app.transifex.com/buddiesofragnar/teams/129844/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "其他"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr "应用程序"
+
+msgid "Education"
+msgstr "教育"
+
+msgid "Games"
+msgstr "游戏"
+
+msgid "Graphics"
+msgstr "图形图像"
+
+msgid "Internet"
+msgstr "互联网"
+
+msgid "Office"
+msgstr "办公"
+
+msgid "Programming"
+msgstr "编程"
+
+msgid "Science"
+msgstr "科技"
+
+msgid "Sound & Video"
+msgstr "多媒体"
+
+msgid "System Tools"
+msgstr "系统工具"
+
+msgid "Universal Access"
+msgstr "通用访问"
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr "新的类别"
+
+msgid "Log out"
+msgstr "注销"
+
+msgid "Restart device"
+msgstr "重新启动设备"
+
+#: src/daemon/endsession.ui:47
+msgid "Power Off"
+msgstr "关机"
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr "未读通知"
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] "在运行全屏应用时你收到了 %d 个通知"
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr "查看通知"
+
+msgid "Caps Lock is on"
+msgstr "已開啟大寫鎖定鍵（Caps lock）"
+
+msgid "Caps Lock is off"
+msgstr "已關閉大寫鎖定鍵（Caps lock）"
+
+msgid "Num Lock is on"
+msgstr "已開啟數字鎖定鍵（Num lock）"
+
+msgid "Num Lock is off"
+msgstr "已關閉數字鎖定鍵（Num lock）"
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "开启 Caffeine Boost 模式"
+
+msgid "Turned off Caffeine Boost"
+msgstr "关闭 Caffeine Boost 模式"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] "将在 %d 分钟后关闭"
+
+msgid "Authentication failed"
+msgstr "认证失败"
+
+msgid "Group:"
+msgstr "组："
+
+#. Create our buttons
+msgid "_Lock"
+msgstr "_锁定"
+
+msgid "L_og Out"
+msgstr "注_销"
+
+msgid "_Suspend"
+msgstr "_睡眠"
+
+msgid "_Hibernate"
+msgstr "_休眠"
+
+msgid "_Reboot"
+msgstr "_重启"
+
+msgid "Shut_down"
+msgstr "关_机"
+
+msgid "This system does not support hibernation."
+msgstr "此系统不支持休眠。"
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:3
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:3
+msgid "Ragnar Screenshot"
+msgstr "Ragnar 截图"
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr "全屏幕截图"
+
+msgid "Screenshot active window"
+msgstr "活动窗口截图"
+
+msgid "Screenshot selected area"
+msgstr "选定区域截图"
+
+#. translate
+msgid "Cancel screenshot"
+msgstr "取消截图"
+
+msgid "Save screenshot to the selected directory"
+msgstr "保存截图到指定目录"
+
+msgid "Copy screenshot to the clipboard"
+msgstr "复制截图到剪贴板"
+
+msgid "Open screenshot in default application"
+msgstr "用默认应用打开截图"
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr "其他..."
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr "打开文件夹"
+
+#: src/daemon/endsession.ui:92 src/dialogs/polkit/dialog.ui:321
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Open"
+msgstr "打开"
+
+msgid "Files to send"
+msgstr "要发送的文件"
+
+msgid "_Cancel"
+msgstr "_取消"
+
+msgid "_Open"
+msgstr "_打开"
+
+msgid "Send Files via Bluetooth"
+msgstr "通过蓝牙发送文件"
+
+msgid "Send files to device…"
+msgstr "发送文件到设备..."
+
+msgid "Rejected file"
+msgstr "被拒绝的文件"
+
+#, c-format
+msgid "File already exists: %s"
+msgstr "文件已存在：%s"
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr "接收文件"
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr "设备 '%s' 想要发送一个文件：%s %s"
+
+msgid "Accept"
+msgstr "接受"
+
+msgid "Reject"
+msgstr "拒绝"
+
+msgid "File name"
+msgstr "文件名"
+
+msgid "Transfer rate"
+msgstr "传输速率"
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr "关闭"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr "<b>传输速率：</b> %s / s"
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr "%s / %s：剩余时间：%s"
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] "%u小时"
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] "%u分钟"
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] "%u 秒"
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d 秒"
+
+msgid "Send"
+msgstr "发送"
+
+msgid "Speaker"
+msgstr "扬声器"
+
+msgid "Controller"
+msgstr "控制器"
+
+msgid "Keyboard"
+msgstr "键盘"
+
+msgid "Mouse"
+msgstr "鼠标"
+
+msgid "Tablet"
+msgstr "触控屏"
+
+msgid "Touchpad"
+msgstr "触摸板"
+
+msgid "Phone"
+msgstr "手机"
+
+msgid "Bluetooth File Transfer"
+msgstr "蓝牙文件传输"
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr "<b>从</b>: %s"
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr "<b>去</b>: %s"
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr "<b>文件名</b>: %s"
+
+msgid "File transfer failed"
+msgstr "文件传输失败"
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr "並未從 %s 收到 '%s' 檔案"
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr "並未從 %s 收到 %s' 檔案： %s"
+
+msgid "File transferred successfully"
+msgstr "文件传输已完成"
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr "由 %s 儲存檔案到 %s"
+
+msgid "From"
+msgstr "從"
+
+msgid "To"
+msgstr "到"
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr "嘗試連接到 %s"
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr "連接 %s 失敗"
+
+msgid "The file has not been transferred."
+msgstr "並未傳輸此檔案"
+
+msgid "Retry"
+msgstr "重試"
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr "正等待 %s 接受"
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr "傳輸 %s 失敗"
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr "%s 中止或拒絕了傳輸"
+
+msgid "Select a Bluetooth device to send files to"
+msgstr "選擇一個藍牙裝置送出檔案"
+
+msgid "Discovering…"
+msgstr "尋覓中"
+
+msgid "<b>No devices found</b>"
+msgstr "<b>沒有發現裝置</b>"
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr "請確保裝置能夠被找到及已準備配對"
+
+msgid "Available Devices"
+msgstr "可用裝置"
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "Caffeine 模式"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:2
+msgid "Ragnar Desktop Settings"
+msgstr "Ragnar桌面设置"
+
+msgid "System Settings"
+msgstr "系统设置"
+
+msgid "Power"
+msgstr "电源"
+
+msgid "Set menu icon from file"
+msgstr "从文件中加载菜单图标"
+
+msgid "Image files"
+msgstr "图像文件"
+
+msgid "Any file"
+msgstr "任何文件"
+
+msgid "Set icon"
+msgstr "设置图标"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "All"
+msgstr "所有"
+
+msgid "Remove from favorites"
+msgstr ""
+
+msgid "Add to favorites"
+msgstr ""
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "抱歉，这里空空如也"
+
+msgid "Timer (minutes)"
+msgstr "计时器（分钟）"
+
+msgid "System time and date settings"
+msgstr "系统时间和日期设置"
+
+msgid "Unfavorite"
+msgstr "丢弃收藏"
+
+msgid "Favorite"
+msgstr "收藏"
+
+msgid "Close all windows"
+msgstr "關閉所有視窗"
+
+msgid "Launch new instance"
+msgstr "啟動新的實例"
+
+msgid "Minimize"
+msgstr "最小化"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr "移動至 %s"
+
+msgid "Unmaximize"
+msgstr "还原"
+
+msgid "Maximize"
+msgstr "最大化"
+
+msgid "Close window"
+msgstr "關閉視窗"
+
+msgid "Show window controls"
+msgstr "顯示視窗設定"
+
+msgid "Caps lock is active"
+msgstr "大写锁定已开启"
+
+msgid "Caps lock is not active"
+msgstr "大写锁定已关闭"
+
+msgid "Num lock is active"
+msgstr "数字锁定已开启"
+
+msgid "Num lock is not active"
+msgstr "数字锁定已关闭"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] " %u 条未读通知"
+
+msgid "No unread notifications"
+msgstr "没有未读的通知"
+
+msgid "Volume is in use by other processes"
+msgstr "其他进程正在使用该卷"
+
+msgid "Operation aborted"
+msgstr "操作被取消"
+
+msgid "Type your password"
+msgstr "输入您的密码"
+
+msgid "Removable devices"
+msgstr "可移动设备"
+
+msgid "Local volumes"
+msgstr "本地卷"
+
+msgid "Network folders"
+msgstr "网络文件夹"
+
+msgid "Eject"
+msgstr "弹出"
+
+msgid "Unmount"
+msgstr "卸载"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "打开“%s”"
+
+msgid "You can now safely remove"
+msgstr "您现在可以安全地移除"
+
+msgid "Unknown Device"
+msgstr "未知设备"
+
+msgid "Error while ejecting device"
+msgstr "弹出设备时遇到了错误"
+
+msgid "Error while unmounting volume"
+msgstr "卸载卷时遇到了错误"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:4
+msgid "Places"
+msgstr "位置"
+
+msgid "Nothing to display right now"
+msgstr "目前空空如也"
+
+msgid "Mount some drives"
+msgstr "挂载一些驱动器"
+
+msgid "Enable more sections"
+msgstr "启用更多内容"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "挂载并打开“%s”"
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr "输入用于加密的密码来解锁该卷"
+
+msgid "The password you entered is incorrect"
+msgstr "您输入的密码不正确"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr "尝试挂载该卷时遇到了一个未知错误"
+
+msgid "Toggle the desktop"
+msgstr "切换桌面"
+
+msgid "Bluetooth"
+msgstr "蓝牙"
+
+msgid "Bluetooth Settings"
+msgstr "蓝牙设置"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr "蓝牙开关"
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr "飞行模式开启"
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr "蓝牙在飞行模式下被禁用。"
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr "没有找到配对的蓝牙设备。"
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr "访问蓝牙设置以配对设备。"
+
+msgid "Send file"
+msgstr "发送文件"
+
+msgid "Disconnect"
+msgstr "断开连接"
+
+msgid "Disconnecting…"
+msgstr "断开连接中..."
+
+msgid "Connecting…"
+msgstr "连接中..."
+
+msgid "Failed to disconnect"
+msgstr "断开连接失败"
+
+msgid "Failed to connect"
+msgstr "连接失败"
+
+msgid "Connected"
+msgstr "已连接"
+
+msgid "Disconnected"
+msgstr "已断开连接"
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr "<b>文件名</b>: %s"
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr "接收中... %s 的 %s"
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr "发送中... %s 的 %s"
+
+msgid "Battery fully charged."
+msgstr "电池已充满。"
+
+msgid "Unknown"
+msgstr "未知"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "电池正在充电"
+
+msgid "Battery remaining"
+msgstr "电池剩余电量"
+
+msgid "Performance Mode"
+msgstr "性能模式"
+
+msgid "Power Saver"
+msgstr "省电模式"
+
+msgid "Balanced"
+msgstr "平衡模式"
+
+msgid "Performance"
+msgstr "性能"
+
+msgid "Power settings"
+msgstr "电源设置"
+
+#: src/panel/applets/trash/trash_applet.c:228
+#: src/panel/applets/trash/trash_item_row.c:332
+#: src/panel/applets/trash/trash_item_row.c:363
+msgid "Trash Error"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:155
+msgid "Permanently delete this item"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:162
+msgid "Are you sure you want to delete this item?"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:168
+#: src/panel/applets/trash/trash_popover.c:320
+msgid "No"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:169
+#: src/panel/applets/trash/trash_popover.c:321
+msgid "Yes"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:333
+#, c-format
+msgid "Unable to delete '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:364
+#, c-format
+msgid "Unable to restore '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:119
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:4
+msgid "Trash Bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:125
+msgid "Settings"
+msgstr "设置"
+
+#. Header label
+#. Switcher to show or hide a shortcut to Trash
+#: src/panel/applets/trash/trash_popover.c:274
+msgid "Trash"
+msgstr "回收站"
+
+#: src/panel/applets/trash/trash_popover.c:283
+msgid "Trash Applet Settings"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:300
+msgid "Restore"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:301
+msgid "Restore selected items"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:303
+msgid "Empty"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:304
+msgid "Empty the trash bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:311
+msgid "Are you sure you want to empty the trash bin?"
+msgstr ""
+
+#. User Menu Creation
+msgid "User"
+msgstr "用户"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "锁定"
+
+msgid "Suspend"
+msgstr "挂起"
+
+msgid "Hibernate"
+msgstr "休眠"
+
+#: src/daemon/endsession.ui:124
+msgid "Restart"
+msgstr "重新启动"
+
+#: src/daemon/endsession.ui:142
+msgid "Shutdown"
+msgstr "关机"
+
+#: src/daemon/endsession.ui:106
+msgid "Logout"
+msgstr "注销"
+
+msgid "Rename"
+msgstr "重命名"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Not able to create new workspaces"
+msgstr "無法新增工作區"
+
+msgid "Create a new workspace"
+msgstr "新增工作區"
+
+msgid "Untitled"
+msgstr "无标题"
+
+msgid "No description"
+msgstr "没有描述"
+
+msgid "running"
+msgstr "正在运行"
+
+msgid "Applications"
+msgstr "应用程序"
+
+msgid "Add"
+msgstr "添加"
+
+msgid "Command"
+msgstr "命令"
+
+msgid "An entry with that title already exists"
+msgstr "具有相同标题的项目已存在"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Required"
+msgstr "必须"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Optional"
+msgstr "可选"
+
+msgid "Autostart"
+msgstr "自动启动"
+
+msgid "Autostart apps"
+msgstr "自动启动应用"
+
+msgid "Add Application"
+msgstr "添加程序"
+
+msgid "Add Command"
+msgstr "添加命令"
+
+msgid "Desktop"
+msgstr "桌面"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "桌面图标"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr "是否允许图标出現在桌面上。"
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr "激活挂载"
+
+msgid "Show all active mounts on the desktop."
+msgstr "在桌面上显示所有活动的挂载."
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "主目录"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "在桌面上添加指向主目录的快捷方式。"
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "向桌面上添加回收站目录的快捷方式."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr "图标大小"
+
+msgid "Set the desired size of icons on the desktop."
+msgstr "设置桌面图标的大小"
+
+msgid "Number of virtual desktops"
+msgstr "虚拟桌面的数量"
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr "启动时会自动创建的虚拟桌面/工作区的数量。"
+
+msgid "Single"
+msgstr "单击"
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr "双击"
+
+msgid "Click Policy"
+msgstr "打开项目的方式"
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr "使用单击或双击以打开桌面项目"
+
+msgid "Normal"
+msgstr "中"
+
+#. Small
+msgid "Small"
+msgstr "小"
+
+#. Large
+msgid "Large"
+msgstr "大"
+
+#. Massive
+msgid "Massive"
+msgstr "超大"
+
+msgid "Displays"
+msgstr ""
+
+msgid "Connected Monitors"
+msgstr ""
+
+msgid "Panel Placement"
+msgstr ""
+
+msgid ""
+"Select which monitor should be the primary display for panel placement."
+msgstr ""
+
+msgid "Use Automatic Selection"
+msgstr ""
+
+msgid "Clear Primary Monitor"
+msgstr ""
+
+msgid "Remove manual primary monitor selection."
+msgstr ""
+
+msgid "Fallback Monitors"
+msgstr ""
+
+msgid "Order used when primary is disconnected"
+msgstr ""
+
+msgid "No monitors detected"
+msgstr ""
+
+msgid "No fallback monitors configured"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Unknown model"
+msgstr ""
+
+msgid "Set as Primary"
+msgstr ""
+
+msgid "(last known)"
+msgstr ""
+
+msgid "No cached information"
+msgstr ""
+
+msgid "Fonts"
+msgstr "字体"
+
+msgid "Window Titles"
+msgstr "窗口标题"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "设置应用程序标题栏的字体。"
+
+msgid "Documents"
+msgstr "文档"
+
+msgid "Set the display font used by for documents."
+msgstr "设置文档使用的字体。"
+
+msgid "Interface"
+msgstr "界面"
+
+msgid "Set the primary font used by application controls."
+msgstr "设置应用程序控件的基本字体。"
+
+msgid "Monospace"
+msgstr "等宽字体"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr "设置由文本主导的应用程序所使用的等宽字体。"
+
+msgid "Text scaling"
+msgstr "文字缩放"
+
+msgid "Set the text scaling factor."
+msgstr "设置文字缩放的系数。"
+
+msgid "Full"
+msgstr "完全"
+
+msgid "Medium"
+msgstr "中等"
+
+msgid "Slight"
+msgstr "轻微"
+
+msgid "None"
+msgstr "无"
+
+msgid "Hinting"
+msgstr "微调"
+
+msgid "Set the type of hinting to use."
+msgstr "设置要使用的微调类型。"
+
+msgid "Subpixel (for LCD screens)"
+msgstr "子像素（用于 LCD 屏幕）"
+
+msgid "Standard (grayscale)"
+msgstr "标准（灰阶）"
+
+msgid "Antialiasing"
+msgstr "抗锯齿"
+
+msgid "Set the type of antialiasing to use."
+msgstr "设置需要使用的抗锯齿类型。"
+
+msgid "Appearance"
+msgstr "外观"
+
+msgid "Panels"
+msgstr "面板"
+
+msgid "Session"
+msgstr "会话"
+
+msgid "Create new panel"
+msgstr "创建新面板"
+
+msgid "Applets"
+msgstr "小程序"
+
+msgid "Remove Panel"
+msgstr "移除面板"
+
+msgid "Remove this panel from the screen"
+msgstr "从屏幕中移除该面板"
+
+msgid "Top Dock"
+msgstr "顶部停靠"
+
+msgid "Right Dock"
+msgstr "右侧停靠"
+
+msgid "Left Dock"
+msgstr "左侧停靠"
+
+msgid "Bottom Dock"
+msgstr "底部停靠"
+
+msgid "Top Panel"
+msgstr "顶部面板"
+
+msgid "Right Panel"
+msgstr "右侧面板"
+
+msgid "Left Panel"
+msgstr "左侧面板"
+
+msgid "Bottom Panel"
+msgstr "底部面板"
+
+msgid "Top"
+msgstr "顶部"
+
+msgid "Right"
+msgstr "右侧"
+
+msgid "Left"
+msgstr "左侧"
+
+msgid "Bottom"
+msgstr "底部"
+
+msgid "Always"
+msgstr "总是"
+
+msgid "Dynamic"
+msgstr "动态"
+
+msgid "Automatic"
+msgstr "自动"
+
+msgid "Intelligent"
+msgstr "智能"
+
+msgid "Never"
+msgstr "从不"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "设置该面板停靠的屏幕边缘"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr "设置此面板的尺寸（宽度或高度，取决于窗口方向）"
+
+msgid "Spacing"
+msgstr "间距"
+
+msgid "Set the spacing between applets for this panel"
+msgstr "为这个面板设置控件之间的间距"
+
+msgid "Automatically hide"
+msgstr "自动隐藏"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr "设置之后，该面板将自动隐藏以便能最大化利用屏幕资源"
+
+msgid "Transparency"
+msgstr "透明度"
+
+msgid "Control when this panel should have a solid background"
+msgstr "控制该面板何时具有实心背景"
+
+msgid "Shadow"
+msgstr "阴影"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr "添加有助于美化的阴影，该选项适合不透明的面板"
+
+msgid "Stylize regions"
+msgstr "区域风格化"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr "给面板做个标记以便面板的三块主要区域可以采用不同的主题。"
+
+msgid "Dock mode"
+msgstr "停靠模式"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr "启用停靠模式时，面板可以尽可能地使用最少的空间从而节省宝贵的屏幕区域"
+
+msgid "Applet Settings"
+msgstr "小程序设定"
+
+msgid "Add applet"
+msgstr "添加小程序"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "选择一个新的小程序添加到该面板"
+
+msgid "No settings available"
+msgstr "无可用设置"
+
+msgid "Start"
+msgstr "头部"
+
+msgid "Center"
+msgstr "中间"
+
+msgid "End"
+msgstr "尾部"
+
+msgid "Confirm panel removal"
+msgstr "确认面板移除"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr "您真的想要移除该面板吗？此操作无法撤销。"
+
+msgid "Remove panel"
+msgstr "移除面板"
+
+msgid "Keep panel"
+msgstr "保留面板"
+
+msgid "Confirm applet removal"
+msgstr "确认移除小程序"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr "您真的想要移除该小程序吗？此操作无法撤销。"
+
+msgid "Don't ask me again"
+msgstr "不再询问"
+
+msgid "Remove applet"
+msgstr "移除小程序"
+
+msgid "Keep applet"
+msgstr "保留小程序"
+
+msgid "Confirm widget removal"
+msgstr "确认移除小部件"
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr "您真的想要移除该小部件吗？此操作无法撤销。"
+
+msgid "Built-in"
+msgstr "内建的"
+
+msgid "Choose a plugin"
+msgstr "选择一个插件"
+
+msgid "No description."
+msgstr "无描述"
+
+#, c-format
+msgid "by %s"
+msgstr "通过 %s"
+
+msgid "No authors listed"
+msgstr "未列出的作者"
+
+msgctxt "Raven"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set Raven position"
+msgstr "设置乌夜啼的位置"
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr "设置 Raven 将打开屏幕的哪一边。如果设置为自动，Raven 将在其父面板所在的位置打开."
+
+msgid "Set notification sort order"
+msgstr "设置通知排列顺序"
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr "设置通知是从最旧的到最新的，还是从最新的到最旧的排序"
+
+msgid "Widget Settings"
+msgstr "小部件设置"
+
+msgid "Add widget"
+msgstr "添加小部件"
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr "选择一个新的小部件添加到小部件视图"
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr "创建小部件实例失败。插件引擎无法找到此插件的信息。"
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr "创建小部件实例失败。插件引擎无法从磁盘加载插件。"
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+"创建小部件实例失败。插件支持设置，但不安装具有相同名称的设置模式。\n"
+"\n"
+"模式名称应该与模块名称相同，但没有扩展名（在Python的情况下）下划线应替换为句号。"
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr "由于未知错误，无法创建小部件实例。"
+
+msgid "Style"
+msgstr "样式"
+
+msgctxt "Styling"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "设置窗口美化和控制器的外观"
+
+msgid "Icons"
+msgstr "图标"
+
+msgid "Set the globally used icon theme"
+msgstr "设置全局使用的图标主题"
+
+msgid "Cursors"
+msgstr "光标"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "设置全局使用的鼠标光标主题"
+
+msgid "Notification Position"
+msgstr "通知位置"
+
+msgid "Set the location for notification popups"
+msgstr "设置通知弹出的位置"
+
+msgid "Dark theme"
+msgstr "暗色主题"
+
+msgid "Built-in theme"
+msgstr "内置主题"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr "开启后，内置主题将覆盖桌面组件的样式"
+
+msgid "Animations"
+msgstr "动画"
+
+msgid "Control whether windows and controls use animations"
+msgstr "控制是否对窗口和控制条使用动画"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr "用户主题"
+
+msgid "Labwc Compositor Theme"
+msgstr "Labwc 合成器主题"
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme"
+msgstr ""
+
+msgid "Top Left"
+msgstr "左上"
+
+msgid "Bottom Left"
+msgstr "左下"
+
+msgid "Bottom Right"
+msgstr "右下"
+
+msgid "Top Right"
+msgstr "右上"
+
+msgid "Windows"
+msgstr "窗口"
+
+msgid "Button layout"
+msgstr "按钮布局"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "更改应用程序标题栏内的按钮布局。"
+
+msgid "Center new windows on screen"
+msgstr "在屏幕上居中显示新窗口"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "在当前屏幕上居中显示新启动的窗口."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr "当窗口处于全屏时禁用夜间模式"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr "当窗口处于全屏时禁用夜间模式。窗口退出全屏后将重新启用。"
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr "当窗口处于全屏时禁止通知提醒"
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr "当窗口处于全屏时禁止通知提醒。窗口退出全屏后将重新启用。"
+
+msgid "Automatic tiling"
+msgstr "自动平铺"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr "将窗口拖曳到屏幕顶部或远角时会自动平铺窗口。"
+
+msgid "Window focus mode"
+msgstr "視窗聚焦方式"
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr "選擇視窗取得焦點的方式：點擊以取得焦點；滑鼠移入即可取得焦點（不會將視窗置前）；滑鼠移入即可取得焦點並將視窗置前。"
+
+msgid "Show all windows in tab switcher"
+msgstr "在 tab 切换器中显示所有窗口"
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr "所有选项卡都将显示在选项卡切换器中，无论使用的工作区是什么."
+
+msgid "Right (standard)"
+msgstr "右侧（标准）"
+
+msgid "Click"
+msgstr "點選"
+
+msgid "Sloppy"
+msgstr "移入"
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:4
+msgid "Notifications"
+msgstr "通知"
+
+msgid "No widgets added."
+msgstr "未添加小部件。"
+
+msgid "Nothing to see here"
+msgstr "这里空空如也"
+
+msgid "No new notifications"
+msgstr "没有新的通知"
+
+msgid "Oldest to newest"
+msgstr "从最久到最新"
+
+msgid "Newest to oldest"
+msgstr "从最新到最久"
+
+msgid "No apps are currently playing audio."
+msgstr "现在没有应用正在播放音乐。"
+
+msgid "Play some music"
+msgstr "播放音乐"
+
+msgid "Unknown Title"
+msgstr "未知标题"
+
+msgid "Unknown Artist"
+msgstr "未知艺术家"
+
+msgid "Unknown Album"
+msgstr "未知专辑"
+
+#, c-format
+msgid "Playing - %s"
+msgstr "正在播放 - %s"
+
+#, c-format
+msgid "Paused - %s"
+msgstr "已暂停 - %s"
+
+msgid "No apps are playing audio."
+msgstr "没有应用在播放音频。"
+
+msgid "Apps"
+msgstr "应用"
+
+msgid "Devices"
+msgstr "设备"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:4
+msgid "Usage Monitor"
+msgstr "用量监控"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "RAM"
+msgstr "物理内存"
+
+msgid "Swap"
+msgstr "交换空间"
+
+#: src/daemon/endsession.ui:71
+msgid "Are you sure you want to end your session?"
+msgstr "确实要结束回话吗？"
+
+#: src/dialogs/polkit/dialog.ui:12 src/dialogs/polkit/dialog.ui:49
+msgid "Authentication Required"
+msgstr "需要验证"
+
+#: src/dialogs/polkit/dialog.ui:71
+msgid "Password:"
+msgstr "密码:"
+
+#: src/dialogs/polkit/dialog.ui:103
+msgid "Username:"
+msgstr "用戶名"
+
+#: src/dialogs/polkit/dialog.ui:131
+msgid "Authentication is required"
+msgstr "需要验证"
+
+#: src/dialogs/polkit/dialog.ui:184
+msgid "Details"
+msgstr "詳情"
+
+#: src/dialogs/polkit/dialog.ui:224
+msgid "Action:"
+msgstr "動作："
+
+#: src/dialogs/polkit/dialog.ui:259
+msgid "ID:"
+msgstr "ID:"
+
+#: src/dialogs/polkit/dialog.ui:335
+msgid "Authenticate"
+msgstr "认证"
+
+#: src/dialogs/screenshot/aftershot.ui:48
+msgid "Name:"
+msgstr "名称："
+
+#: src/dialogs/screenshot/aftershot.ui:85
+msgid "Folder:"
+msgstr "文件夹："
+
+#: src/dialogs/screenshot/screenshothome.ui:35
+msgid "Delay in seconds"
+msgstr "以秒为单位的延迟"
+
+#: src/dialogs/screenshot/screenshothome.ui:91
+msgid "Show Pointer"
+msgstr "显示鼠标指针"
+
+#: src/dialogs/screenshot/screenshothome.ui:141
+msgid "Play sound when capturing"
+msgstr "截图时播放声音"
+
+#: src/panel/applets/ragnar-menu/settings.ui:23
+msgid "Show Menu Label"
+msgstr "显示菜单标签"
+
+#: src/panel/applets/ragnar-menu/settings.ui:48
+msgid "Menu Label"
+msgstr "菜单标签"
+
+#: src/panel/applets/ragnar-menu/settings.ui:72
+msgid "Use Default Menu Icon"
+msgstr "使用默认的菜单图标"
+
+#: src/panel/applets/ragnar-menu/settings.ui:97
+msgid "Menu Icon"
+msgstr "菜单图标"
+
+#: src/panel/applets/ragnar-menu/settings.ui:148
+msgid "Compact Mode"
+msgstr "紧凑模式"
+
+#: src/panel/applets/ragnar-menu/settings.ui:172
+msgid "Show Headers"
+msgstr "显示标头"
+
+#: src/panel/applets/ragnar-menu/settings.ui:196
+msgid "Roll-over mouse"
+msgstr "滚动鼠标"
+
+#: src/panel/applets/ragnar-menu/settings.ui:221
+msgid "Show settings items"
+msgstr "显示设置项"
+
+#: src/panel/applets/caffeine/settings.ui:23
+msgid "Enable notification"
+msgstr "启用通知"
+
+#: src/panel/applets/caffeine/settings.ui:35
+msgid "Maximize brightness"
+msgstr "最大化亮度"
+
+#: src/panel/applets/caffeine/settings.ui:47
+msgid "Brightness Level"
+msgstr "亮度等级"
+
+#: src/panel/applets/clock/settings.ui:15
+msgid "Show date"
+msgstr "显示日期"
+
+#: src/panel/applets/clock/settings.ui:38
+msgid "Show seconds"
+msgstr "显示秒"
+
+#: src/panel/applets/clock/settings.ui:61
+msgid "Use 24 hour time"
+msgstr "使用 24 小时制"
+
+#: src/panel/applets/clock/settings.ui:84
+msgid "Custom Format"
+msgstr "自定义格式"
+
+#: src/panel/applets/clock/settings.ui:107
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr "%H:%M:%S %d.%m.%Y"
+
+#: src/panel/applets/clock/settings.ui:120
+msgid "Custom Timezone"
+msgstr "自定义时区"
+
+#: src/panel/applets/clock/settings.ui:143
+msgid "UTC"
+msgstr "UTC"
+
+#: src/panel/applets/icon-tasklist/settings.ui:15
+msgid "Show all windows on click"
+msgstr "点击时显示全部窗口"
+
+#: src/panel/applets/icon-tasklist/settings.ui:39
+msgid "Only show favorited"
+msgstr "只显示喜欢的"
+
+#: src/panel/applets/icon-tasklist/settings.ui:63
+msgid "Lock icons"
+msgstr "锁定图标"
+
+#: src/panel/applets/icon-tasklist/settings.ui:88
+msgid "Restrict to Workspace"
+msgstr "限制在工作区"
+
+#: src/panel/applets/icon-tasklist/settings.ui:112
+msgid "Middle click to launch new window"
+msgstr "中击以打开新窗口"
+
+#: src/panel/applets/icon-tasklist/settings.ui:136
+msgid "Require a double-click to launch new window"
+msgstr "双击以打开新窗口"
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:28
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:4
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:44
+msgid "Keyboard Layout Settings"
+msgstr ""
+
+#: src/panel/applets/night-light/indicator_window.ui:37
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:4
+msgid "Night Light"
+msgstr "夜光"
+
+#: src/panel/applets/night-light/indicator_window.ui:85
+msgid "Temperature"
+msgstr "色温"
+
+#: src/panel/applets/night-light/indicator_window.ui:110
+msgid "Schedule"
+msgstr "计划"
+
+#: src/panel/applets/night-light/indicator_window.ui:124
+msgid "Sunset to Sunrise"
+msgstr "日落到日出"
+
+#: src/panel/applets/night-light/indicator_window.ui:125
+msgid "Manual"
+msgstr "手动"
+
+#: src/panel/applets/night-light/indicator_window.ui:144
+msgid "Display Settings"
+msgstr "显示设置"
+
+#: src/panel/applets/places-indicator/settings.ui:19
+msgid "Show label"
+msgstr "显示标签"
+
+#: src/panel/applets/places-indicator/settings.ui:55
+msgid "Show places"
+msgstr "显示区域"
+
+#: src/panel/applets/places-indicator/settings.ui:79
+msgid "Show network folders"
+msgstr "显示网络文件夹"
+
+#: src/panel/applets/places-indicator/settings.ui:103
+msgid "Show removable drives"
+msgstr "显示可移动设备"
+
+#: src/panel/applets/places-indicator/settings.ui:127
+msgid "Always expand places"
+msgstr "总是扩展区域"
+
+#: src/panel/applets/spacer/settings.ui:21
+msgid "Spacer size"
+msgstr "间隔大小"
+
+#: src/panel/applets/status/settings.ui:22
+#: src/panel/applets/tray/settings.ui:22
+msgid "Icon Spacing"
+msgstr "图标间隔"
+
+#: src/panel/applets/status/settings.ui:48
+msgid "Show battery percentage"
+msgstr "显示电池电量"
+
+#: src/panel/applets/tasklist/settings.ui:16
+msgid "Show button icons"
+msgstr "顯示按鈕圖示"
+
+#: src/panel/applets/tasklist/settings.ui:41
+msgid "Show button labels"
+msgstr "顯示按鈕標籤"
+
+#: src/panel/applets/trash/settings.ui:16
+msgid "Sort Mode"
+msgstr "排序模式"
+
+#: src/panel/applets/trash/settings.ui:28
+msgid "Sort by type"
+msgstr "按檔案類別"
+
+#: src/panel/applets/trash/settings.ui:43
+msgid "Sort alphabetically"
+msgstr "按檔案名稱"
+
+#: src/panel/applets/trash/settings.ui:58
+msgid "Sort reverse alphabetically"
+msgstr "按反向檔案名稱"
+
+#: src/panel/applets/trash/settings.ui:73
+msgid "Sort by date ascending"
+msgstr "按日期（舊到新）"
+
+#: src/panel/applets/trash/settings.ui:88
+msgid "Sort by date descending"
+msgstr "按日期（新到舊）"
+
+#: src/panel/applets/tray/settings.ui:48
+msgid "Scale icons with panel size"
+msgstr "按照面板大小調節圖示"
+
+#: src/panel/applets/workspaces/settings.ui:17
+msgid "\"Add\" button visibility"
+msgstr "“添加”按钮可见"
+
+#: src/panel/applets/workspaces/settings.ui:31
+msgid "Item Size Multiplier"
+msgstr "项目大小倍数"
+
+#: src/panel/applets/workspaces/settings.ui:45
+msgid "Don't show"
+msgstr "不要显示"
+
+#: src/panel/applets/workspaces/settings.ui:46
+msgid "Show on mouseover"
+msgstr "鼠标跨越时显示"
+
+#: src/panel/applets/workspaces/settings.ui:47
+msgid "Always show"
+msgstr "总是显示"
+
+#: src/panel/applets/workspaces/settings.ui:65
+msgid "0.5x"
+msgstr "0.5 X"
+
+#: src/panel/applets/workspaces/settings.ui:66
+msgid "0.75x"
+msgstr "0.75 X"
+
+#: src/panel/applets/workspaces/settings.ui:67
+msgid "1.0x"
+msgstr "1.0 X"
+
+#: src/panel/applets/workspaces/settings.ui:68
+msgid "1.5x"
+msgstr "1.5 X"
+
+#: src/panel/applets/workspaces/settings.ui:69
+msgid "2.0x"
+msgstr "2.0 X"
+
+#: src/raven/widgets/calendar/settings.ui:17
+msgid "Show Week Numbers"
+msgstr "显示周数"
+
+#: src/raven/widgets/calendar/settings.ui:43
+msgid "Show Day Names"
+msgstr "显示星期几"
+
+#: src/raven/widgets/sound-input/settings.ui:17
+#: src/raven/widgets/sound-output/settings.ui:17
+msgid "Allow Volume Overdrive"
+msgstr "允许音量超过限制"
+
+#: src/raven/widgets/usage-monitor/settings.ui:17
+msgid "Show Swap Usage"
+msgstr "显示交换空间用量"
+
+#: src/daemon/ragnar-daemon.desktop.in:3
+msgid "Ragnar Background Services"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:4
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:4
+msgid "Ragnar screenshot app"
+msgstr "Ragnar 截图程序"
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:8
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:8
+msgid "Screenshot;Snip;"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:3
+msgid "Ragnar PolicyKit UI"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:4
+msgid "Ragnar PolicyKit Authorisation UI"
+msgstr ""
+
+#: src/dialogs/screenshot/ragnar-screenshot-dialog.desktop.in.in:3
+msgid "Ragnar Screenshot UI"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:4
+msgid "Ragnar Menu"
+msgstr "Ragnar 菜单"
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:5
+msgid "Search for and start up applications."
+msgstr "搜索并启动应用程序。"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:4
+msgid "Caffeine"
+msgstr "提神（Caffeine）"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:5
+msgid "Prevent the system and screen from sleeping."
+msgstr "防止系统和屏幕j进入休眠状态。"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:4
+msgid "Clock"
+msgstr "时钟"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:5
+msgid "A digital clock with a customizable format."
+msgstr "可定制格式的数字时钟。"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:4
+msgid "Icon Task List"
+msgstr "图标样式任务列表"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:5
+msgid "A configurable application task list."
+msgstr "可配置的应用程序列表。"
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:5
+msgid "Indicates which keyboard layout is currently in use."
+msgstr "指示当前正在使用的键盘布局。"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:4
+msgid "Lock Keys Indicator"
+msgstr "锁定键指示器"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:5
+msgid "Show status of lock keys."
+msgstr "显示切换锁定键状态。"
+
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:5
+msgid "Toggle and modify Night Light settings."
+msgstr "切换和修改夜间模式。"
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:5
+msgid "Open the Raven notifications view."
+msgstr "打开 Raven 通知视图。"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:5
+msgid "Show drives and favorite folders."
+msgstr "显示驱动器和喜欢的目录。"
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:4
+msgid "Raven Trigger"
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:5
+msgid "Open the Raven sidebar."
+msgstr "显示 Raven 侧边栏。"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:4
+msgid "Separator"
+msgstr "分隔器"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:5
+msgid "Visual separator between applets."
+msgstr "小程序之间的可视分隔符。"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:4
+msgid "Show Desktop Button"
+msgstr "显示桌面按钮"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:5
+msgid "A button that toggles visibility of the desktop."
+msgstr "切换桌面可见性的按钮。"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:4
+msgid "Spacer"
+msgstr "间隔"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:5
+msgid "Adjustable spacer to put between other applets."
+msgstr "放置在其他小程序之间的可调节间隔。"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:4
+msgid "Status Indicator"
+msgstr "状态指示器"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:5
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr "显示系统状态指示，如声音，电池和蓝牙。"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:4
+msgid "Task List"
+msgstr "任务列表"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:5
+msgid "An application task list with icons and labels."
+msgstr "带有图标和标签的应用程序任务列表。"
+
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:5
+msgid "Manage your trash from the Ragnar panel"
+msgstr "從Ragnar面板中管理回收筒"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:4
+msgid "System Tray"
+msgstr "系统托盘"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:5
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr "系統欄採用Freedesktop狀態通知模式"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:4
+msgid "User Indicator"
+msgstr "用户指示器"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:5
+msgid "Opens the power dialog."
+msgstr "打开电源选项对话框。"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:4
+msgid "Workspace Switcher"
+msgstr "工作区切换器"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:5
+msgid "Display workspaces and switch between them."
+msgstr "显示工作区并在其间切换。"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:3
+msgid "Change desktop appearance and behavior"
+msgstr "更改桌面外观和行为"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:12
+msgid "Preferences;Settings;"
+msgstr ""
+
+#: src/panel/ragnar-panel.desktop.in:3
+msgid "Ragnar Panel"
+msgstr "Ragnar 面板"
+
+#: src/panel/ragnar-panel.desktop.in:4
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr "启动其他程序并提供各种工具来管理窗口，显示时间等。"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:4
+msgid "Calendar"
+msgstr "日历"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:5
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr "一个带有月份视图的简单日历小部件，使用系统内建GTK编写。默认情况下，日历显示当前日期。"
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:4
+msgid "Media Controls"
+msgstr "多媒体控制"
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:5
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr "这个小部件通过元数据和播放控件显示正在播放的媒体，使用Mpris API，并支持音视频。"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:4
+msgid "Sound Input"
+msgstr "音频输入"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:5
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr "允许调整音频输入音量，并显示可用的音频输入设备的列表。"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:4
+msgid "Sound Output"
+msgstr "音频输出"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:5
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr "允许全局和每个应用程序音频输出音量控制，并显示可用的音频输出设备列表。"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:5
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr "以条形图形式显示系统资源使用情况。默认情况下包括CPU、物理内存和交换空间使用率。"
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:2
+msgid "Ragnar Desktop (magpie)"
+msgstr "Ragnar 桌面環境 （magpie）"
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:3
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr "此階段將使用magpie作為 Ragnar 桌面環境的視窗管理程式"
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:2
+msgid "Network (Ragnar Desktop)"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:3
+msgid "Manage your network connections"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:3
+msgid "Ragnar Power Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:4
+msgid "A button dialog to lock the screen, reboot, shutdown, etc."
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:3
+msgid "Ragnar Screenshot Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:4
+msgid "Screenshot interface"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in:3
+#: src/session/ragnar-desktop.session.desktop.in.in:2
+msgid "Ragnar Desktop"
+msgstr "Ragnar 桌面"
+
+#: src/session/ragnar-desktop.desktop.in.in:4
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr "此階段將使用labwc作為 Ragnar 桌面環境的視窗管理程式"
+

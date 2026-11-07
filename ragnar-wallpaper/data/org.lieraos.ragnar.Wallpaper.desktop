@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar Wallpaper
+Comment=Session wallpaper service for the Ragnar desktop
+Exec=/usr/bin/ragnar-wallpaper
+Terminal=false
+NoDisplay=true
+X-GNOME-AutoRestart=false

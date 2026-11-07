@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Desktop View
+Comment=Desktop icons layer for the Ragnar desktop
+Exec=/usr/bin/ragnar-view
+TryExec=/usr/bin/ragnar-view
+Terminal=false
+Categories=GNOME;GTK;System;Core;
+OnlyShowIn=Ragnar;
+StartupNotify=false
+StartupWMClass=ragnar-view
+X-GNOME-Autostart-Notify=false
+X-GNOME-Autostart-Phase=Application
+X-GNOME-AutoRestart=true
+NoDisplay=true

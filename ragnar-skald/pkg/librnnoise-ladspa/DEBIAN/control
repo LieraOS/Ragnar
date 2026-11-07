@@ -1,0 +1,13 @@
+Package: librnnoise-ladspa
+Version: 0.2-1
+Section: sound
+Priority: optional
+Architecture: amd64
+Depends: libc6
+Maintainer: LieraOS
+Description: rnnoise noise suppression LADSPA plugin
+ Real-time noise suppression LADSPA plugin built from the
+ noise-suppression-for-voice project (werman). Provides the
+ noise_suppressor_mono and noise_suppressor_stereo labels for
+ PipeWire filter-chain usage (e.g. LieraAudio mic denoise).
+Homepage: https://github.com/werman/noise-suppression-for-voice

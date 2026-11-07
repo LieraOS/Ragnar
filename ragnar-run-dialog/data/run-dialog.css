@@ -1,0 +1,56 @@
+/* Default theme for ragnar-run-dialog.
+ *
+ * The dialog loads this file's rules itself (embedded at build
+ * time). To customise the look, copy this file to
+ *   ~/.config/ragnar-desktop/run-dialog.css
+ * and edit it there — the user copy is loaded at USER priority and
+ * wins over every rule below. Ragnar Settings → Appearance can later
+ * manage that file the same way it manages wallpapers.
+ */
+
+/* The layer-shell window itself: rounded card, comfortable width.
+ * The transparent corners come from the border radius on an ARGB
+ * layer surface — do not set an opaque surface background here or
+ * the rounding disappears. */
+.run-dialog {
+    border-radius: 18px;
+}
+
+.run-content {
+    padding: 14px;
+    min-width: 540px;
+}
+
+/* The prominent search field on top. */
+.run-entry {
+    font-size: 1.15em;
+    min-height: 44px;
+    margin-bottom: 10px;
+}
+
+/* Result list: transparent so the window background shows through. */
+.run-list {
+    background: transparent;
+}
+
+/* One result row. */
+.run-row {
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.run-row-icon {
+    -gtk-icon-size: 28px;
+    margin-right: 4px;
+}
+
+.run-row-desc {
+    opacity: 0.65;
+    font-size: 0.85em;
+}
+
+/* The trailing "run command" row gets a subtle accent so it reads
+ * as an action, not a search result. */
+.run-command-row {
+    opacity: 0.85;
+}

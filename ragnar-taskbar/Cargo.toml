@@ -1,0 +1,29 @@
+[package]
+name = "ragnar-taskbar"
+version = "0.2.9"
+edition = "2021"
+description = "Ragnar taskbar — Wayland-native GTK4 panel for LieraOS"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+gtk4 = { version = "0.9", features = ["v4_10"] }
+async-channel = "2"
+gtk4-layer-shell = "0.5"
+wayland-client = "0.31"
+wayland-backend = { version = "0.3", features = ["dlopen"] }
+wayland-protocols-wlr = { version = "0.3", features = ["client"] }
+wayland-protocols = { version = "0.32.13", features = ["staging", "client"] }
+tempfile = "3.27.0"
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[package.metadata.deb]
+maintainer = "LieraOS Project <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/ragnar-taskbar", "usr/bin/", "755"],
+    ["data/org.lieraos.ragnar.Taskbar.desktop", "etc/xdg/autostart/", "644"],
+]

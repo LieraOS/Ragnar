@@ -1,0 +1,50 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-raven\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "Abbrechen"
+msgstr "Cancel"
+
+msgid "Benachrichtigungen"
+msgstr "Notifications"
+
+msgid "Erinnern"
+msgstr "Remind me"
+
+msgid "Keine Benachrichtigungen"
+msgstr "No notifications"
+
+msgid "Keine Termine"
+msgstr "No appointments"
+
+msgid "Minuten vorher"
+msgstr "minutes before"
+
+msgid "Neuer Termin"
+msgstr "New appointment"
+
+msgid "Speichern"
+msgstr "Save"
+
+msgid "Stunden vorher"
+msgstr "hours before"
+
+msgid "Tage vorher"
+msgstr "days before"
+
+msgid "Termin"
+msgstr "Appointment"
+
+msgid "Termin eintragen"
+msgstr "Add appointment"
+
+msgid "Titel des Termins"
+msgstr "Appointment title"
+
+msgid "Uhrzeit"
+msgstr "Time"
+
+msgid "Zum Terminzeitpunkt"
+msgstr "At the appointment time"

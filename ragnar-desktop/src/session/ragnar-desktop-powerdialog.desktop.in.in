@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Power Dialog
+Comment=A button dialog to lock the screen, reboot, shutdown, etc.
+Icon=system-shutdown
+Exec=@bindir@/ragnar-power-dialog --daemon
+TryExec=@bindir@/ragnar-power-dialog
+OnlyShowIn=Ragnar;
+NoDisplay=true
+X-GNOME-Autostart-Phase=Application
+X-GNOME-Autostart-Notify=true

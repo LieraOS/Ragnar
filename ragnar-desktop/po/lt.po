@@ -1,0 +1,2052 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Moo, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 15:27+0300\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Moo, 2026\n"
+"Language-Team: Lithuanian (https://app.transifex.com/buddiesofragnar/teams/129844/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "Kiti"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr "Reikmenys"
+
+msgid "Education"
+msgstr "Švietimas"
+
+msgid "Games"
+msgstr "Žaidimai"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Internet"
+msgstr "Internetas"
+
+msgid "Office"
+msgstr "Raštinė"
+
+msgid "Programming"
+msgstr "Programavimas"
+
+msgid "Science"
+msgstr "Mokslas"
+
+msgid "Sound & Video"
+msgstr "Garsas ir vaizdas"
+
+msgid "System Tools"
+msgstr "Sistemos įrankiai"
+
+msgid "Universal Access"
+msgstr "Universalioji prieiga"
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr "Nauja kategorija"
+
+msgid "Log out"
+msgstr "Atsijungti"
+
+msgid "Restart device"
+msgstr "Paleisti įrenginį iš naujo"
+
+#: src/daemon/endsession.ui:47
+msgid "Power Off"
+msgstr "Išjungti"
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr "Neskaityti pranešimai"
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr "Rodyti pranešimus"
+
+msgid "Caps Lock is on"
+msgstr "Didžiosios raidės įjungtos"
+
+msgid "Caps Lock is off"
+msgstr "Didžiosios raidės išjungtos"
+
+msgid "Num Lock is on"
+msgstr "Skaitmenų klaviatūra įjungta"
+
+msgid "Num Lock is off"
+msgstr "Skaitmenų klaviatūra išjungta"
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr ""
+
+msgid "Turned off Caffeine Boost"
+msgstr ""
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Authentication failed"
+msgstr "Nepavyko nustatyti tapatybės"
+
+msgid "Group:"
+msgstr "Grupė:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr "Už_rakinti"
+
+msgid "L_og Out"
+msgstr "A_tsijungti"
+
+msgid "_Suspend"
+msgstr "Pri_stabdyti"
+
+msgid "_Hibernate"
+msgstr "Už_migdyti"
+
+msgid "_Reboot"
+msgstr "_Paleisti iš naujo"
+
+msgid "Shut_down"
+msgstr "_Išjungti"
+
+msgid "This system does not support hibernation."
+msgstr "Ši sistema nepalaiko užmigdymo."
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:3
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:3
+msgid "Ragnar Screenshot"
+msgstr "Ragnar ekrano kopija"
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr "Fotografuoti visą ekraną"
+
+msgid "Screenshot active window"
+msgstr "Fotografuoti atkyvų langą"
+
+msgid "Screenshot selected area"
+msgstr "Fotografuoti pažymėtą sritį"
+
+#. translate
+msgid "Cancel screenshot"
+msgstr "Atsisakyti ekrano kopijos"
+
+msgid "Save screenshot to the selected directory"
+msgstr "Įrašyti ekrano kopiją į pasirinktą katalogą"
+
+msgid "Copy screenshot to the clipboard"
+msgstr "Kopijuoti ekrano kopiją į iškarpinę"
+
+msgid "Open screenshot in default application"
+msgstr "Atverti ekrano kopiją numatytojoje programoje"
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr "Kita..."
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr "Atverti aplanką"
+
+#: src/daemon/endsession.ui:92 src/dialogs/polkit/dialog.ui:321
+msgid "Cancel"
+msgstr "Atsisakyti"
+
+msgid "Open"
+msgstr "Atverti"
+
+msgid "Files to send"
+msgstr ""
+
+msgid "_Cancel"
+msgstr "_Atsisakyti"
+
+msgid "_Open"
+msgstr "A_tverti"
+
+msgid "Send Files via Bluetooth"
+msgstr "Siųsti failus per Bluetooth"
+
+msgid "Send files to device…"
+msgstr "Siųsti failus į įrenginį…"
+
+msgid "Rejected file"
+msgstr "Atmestas failas"
+
+#, c-format
+msgid "File already exists: %s"
+msgstr "Failas jau yra: %s"
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr "Gaunamas failas"
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr ""
+
+msgid "Accept"
+msgstr "Priimti"
+
+msgid "Reject"
+msgstr "Atmesti"
+
+msgid "File name"
+msgstr ""
+
+msgid "Transfer rate"
+msgstr ""
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr "Užverti"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr ""
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr ""
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] "%u minutė"
+msgstr[1] "%u minutės"
+msgstr[2] "%u minučių"
+msgstr[3] "%u minutė"
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] "%u sekundė"
+msgstr[1] "%u sekundės"
+msgstr[2] "%u sekundžių"
+msgstr[3] "%u sekundė"
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d sekundė"
+msgstr[1] "%d sekundės"
+msgstr[2] "%d sekundžių"
+msgstr[3] "%d sekundė"
+
+msgid "Send"
+msgstr "Siųsti"
+
+msgid "Speaker"
+msgstr "Garsiakalbis"
+
+msgid "Controller"
+msgstr "Pultas"
+
+msgid "Keyboard"
+msgstr "Klaviatūra"
+
+msgid "Mouse"
+msgstr "Pelė"
+
+msgid "Tablet"
+msgstr "Planšetė"
+
+msgid "Touchpad"
+msgstr "Jutiklinis kilimėlis"
+
+msgid "Phone"
+msgstr "Telefonas"
+
+msgid "Bluetooth File Transfer"
+msgstr ""
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr "<b>Failo pavadinimas</b>: %s"
+
+msgid "File transfer failed"
+msgstr ""
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr ""
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr ""
+
+msgid "File transferred successfully"
+msgstr ""
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr "Bandoma prisijungti prie %s…"
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr "Nepavyko prisijungti prie „%s“"
+
+msgid "The file has not been transferred."
+msgstr ""
+
+msgid "Retry"
+msgstr "Bandyti dar kartą"
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr ""
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr ""
+
+msgid "Select a Bluetooth device to send files to"
+msgstr ""
+
+msgid "Discovering…"
+msgstr ""
+
+msgid "<b>No devices found</b>"
+msgstr ""
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr ""
+
+msgid "Available Devices"
+msgstr "Prieinami įrenginiai"
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr ""
+
+#: src/panel/ragnar-desktop-settings.desktop.in:2
+msgid "Ragnar Desktop Settings"
+msgstr "Ragnar darbalaukio nustatymai"
+
+msgid "System Settings"
+msgstr "Sistemos nustatymai"
+
+msgid "Power"
+msgstr "Energija"
+
+msgid "Set menu icon from file"
+msgstr "Nustatyti meniu piktogramą iš failo"
+
+msgid "Image files"
+msgstr "Paveikslėlių failai"
+
+msgid "Any file"
+msgstr "Bet koks failas"
+
+msgid "Set icon"
+msgstr "Nustatyti piktogramą"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "All"
+msgstr "Visi"
+
+msgid "Remove from favorites"
+msgstr ""
+
+msgid "Add to favorites"
+msgstr ""
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "Atleiskite, nerasta jokių elementų"
+
+msgid "Timer (minutes)"
+msgstr "Laikmatis (minutės)"
+
+msgid "System time and date settings"
+msgstr "Sistemos laiko ir datos nustatymai"
+
+msgid "Unfavorite"
+msgstr ""
+
+msgid "Favorite"
+msgstr ""
+
+msgid "Close all windows"
+msgstr "Užverti visus langus"
+
+msgid "Launch new instance"
+msgstr "Paleisti naują egzempliorių"
+
+msgid "Minimize"
+msgstr "Suskleisti"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr "Perkelti į %s"
+
+msgid "Unmaximize"
+msgstr "Grąžinti iš išskleidimo"
+
+msgid "Maximize"
+msgstr "Išskleisti"
+
+msgid "Close window"
+msgstr "Užverti langą"
+
+msgid "Show window controls"
+msgstr "Rodyti lango valdiklius"
+
+msgid "Caps lock is active"
+msgstr ""
+
+msgid "Caps lock is not active"
+msgstr ""
+
+msgid "Num lock is active"
+msgstr ""
+
+msgid "Num lock is not active"
+msgstr ""
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] "%u neskaitytas pranešimas"
+msgstr[1] "%u neskaityti pranešimai"
+msgstr[2] "%u neskaitytų pranešimų"
+msgstr[3] "%u neskaitytas pranešimas"
+
+msgid "No unread notifications"
+msgstr "Nėra neskaitytų pranešimų"
+
+msgid "Volume is in use by other processes"
+msgstr ""
+
+msgid "Operation aborted"
+msgstr "Operacija nutraukta"
+
+msgid "Type your password"
+msgstr "Įrašykite slaptažodį"
+
+msgid "Removable devices"
+msgstr "Keičiamieji įrenginiai"
+
+msgid "Local volumes"
+msgstr "Vietiniai tomai"
+
+msgid "Network folders"
+msgstr "Tinklo aplankai"
+
+msgid "Eject"
+msgstr "Išstumti"
+
+msgid "Unmount"
+msgstr "Atjungti"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "Atverti „%s“"
+
+msgid "You can now safely remove"
+msgstr "Dabar galite saugiai pašalinti"
+
+msgid "Unknown Device"
+msgstr "Nežinomas įrenginys"
+
+msgid "Error while ejecting device"
+msgstr "Klaida išstumiant įrenginį"
+
+msgid "Error while unmounting volume"
+msgstr "Klaida atjungiant tomą"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:4
+msgid "Places"
+msgstr "Vietos"
+
+msgid "Nothing to display right now"
+msgstr "Šiuo metu nėra ką rodyti"
+
+msgid "Mount some drives"
+msgstr ""
+
+msgid "Enable more sections"
+msgstr "Įjungti daugiau sekcijų"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "Prijungti ir atverti „%s“"
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr "Norėdami atrakinti šį tomą, įveskite šifravimo slaptafrazę"
+
+msgid "The password you entered is incorrect"
+msgstr "Jūsų įvestas slaptažodis yra neteisingas"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr "Bandant prijungti šį tomą, įvyko nežinoma klaida"
+
+msgid "Toggle the desktop"
+msgstr "Perjungti darbalaukį"
+
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+msgid "Bluetooth Settings"
+msgstr "Bluetooth nustatymai"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr "Įjungti arba išjungti Bluetooth"
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr ""
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr ""
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr ""
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr ""
+
+msgid "Send file"
+msgstr "Siųsti failą"
+
+msgid "Disconnect"
+msgstr "Atsijungti"
+
+msgid "Disconnecting…"
+msgstr "Atsijungiama…"
+
+msgid "Connecting…"
+msgstr "Prisijungiama…"
+
+msgid "Failed to disconnect"
+msgstr "Nepavyko atsijungti"
+
+msgid "Failed to connect"
+msgstr "Nepavyko prisijungti"
+
+msgid "Connected"
+msgstr "Prisijungta"
+
+msgid "Disconnected"
+msgstr "Atsijungta"
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr "<b>Failo pavadinimas</b>: %s"
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr ""
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr ""
+
+msgid "Battery fully charged."
+msgstr "Baterija pilnai įkrauta."
+
+msgid "Unknown"
+msgstr "Nežinoma"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "Baterija įkraunama"
+
+msgid "Battery remaining"
+msgstr ""
+
+msgid "Performance Mode"
+msgstr ""
+
+msgid "Power Saver"
+msgstr ""
+
+msgid "Balanced"
+msgstr ""
+
+msgid "Performance"
+msgstr ""
+
+msgid "Power settings"
+msgstr "Energijos nustatymai"
+
+#: src/panel/applets/trash/trash_applet.c:228
+#: src/panel/applets/trash/trash_item_row.c:332
+#: src/panel/applets/trash/trash_item_row.c:363
+msgid "Trash Error"
+msgstr "Šiukšlinės klaida"
+
+#: src/panel/applets/trash/trash_item_row.c:155
+msgid "Permanently delete this item"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:162
+msgid "Are you sure you want to delete this item?"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:168
+#: src/panel/applets/trash/trash_popover.c:320
+msgid "No"
+msgstr "Ne"
+
+#: src/panel/applets/trash/trash_item_row.c:169
+#: src/panel/applets/trash/trash_popover.c:321
+msgid "Yes"
+msgstr "Taip"
+
+#: src/panel/applets/trash/trash_item_row.c:333
+#, c-format
+msgid "Unable to delete '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:364
+#, c-format
+msgid "Unable to restore '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:119
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:4
+msgid "Trash Bin"
+msgstr "Šiukšlinė"
+
+#: src/panel/applets/trash/trash_popover.c:125
+msgid "Settings"
+msgstr "Nustatymai"
+
+#. Header label
+#. Switcher to show or hide a shortcut to Trash
+#: src/panel/applets/trash/trash_popover.c:274
+msgid "Trash"
+msgstr "Šiukšlinė"
+
+#: src/panel/applets/trash/trash_popover.c:283
+msgid "Trash Applet Settings"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:300
+msgid "Restore"
+msgstr "Atkurti"
+
+#: src/panel/applets/trash/trash_popover.c:301
+msgid "Restore selected items"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:303
+msgid "Empty"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:304
+msgid "Empty the trash bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:311
+msgid "Are you sure you want to empty the trash bin?"
+msgstr "Ar tikrai norite išvalyti šiukšlinę?"
+
+#. User Menu Creation
+msgid "User"
+msgstr "Naudotojas"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "Užrakinti"
+
+msgid "Suspend"
+msgstr "Pristabdyti"
+
+msgid "Hibernate"
+msgstr "Užmigdyti"
+
+#: src/daemon/endsession.ui:124
+msgid "Restart"
+msgstr "Paleisti iš naujo"
+
+#: src/daemon/endsession.ui:142
+msgid "Shutdown"
+msgstr "Išjungti"
+
+#: src/daemon/endsession.ui:106
+msgid "Logout"
+msgstr "Atsijungti"
+
+msgid "Rename"
+msgstr "Pervadinti"
+
+msgid "Remove"
+msgstr "Šalinti"
+
+msgid "Not able to create new workspaces"
+msgstr ""
+
+msgid "Create a new workspace"
+msgstr ""
+
+msgid "Untitled"
+msgstr "Be pavadinimo"
+
+msgid "No description"
+msgstr "Be aprašo"
+
+msgid "running"
+msgstr "paleista"
+
+msgid "Applications"
+msgstr "Programos"
+
+msgid "Add"
+msgstr "Pridėti"
+
+msgid "Command"
+msgstr "Komanda"
+
+msgid "An entry with that title already exists"
+msgstr "Įrašas tokiu pavadinimu jau yra"
+
+msgid "Title"
+msgstr "Pavadinimas"
+
+msgid "Required"
+msgstr "Būtina"
+
+msgid "Description"
+msgstr "Aprašas"
+
+msgid "Optional"
+msgstr "Nebūtina"
+
+msgid "Autostart"
+msgstr "Automatinis paleidimas"
+
+msgid "Autostart apps"
+msgstr "Automatiškai paleidžiamos programos"
+
+msgid "Add Application"
+msgstr "Pridėti programą"
+
+msgid "Add Command"
+msgstr "Pridėti komandą"
+
+msgid "Desktop"
+msgstr "Darbalaukis"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "Darbalaukio piktogramos"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr "Valdyti, ar leisti rodyti darbalaukyje piktogramas."
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr "Aktyvūs prijungimai"
+
+msgid "Show all active mounts on the desktop."
+msgstr "Rodyti darbalaukyje visus aktyvius prijungimus."
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "Namų katalogas"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "Pridėti darbalaukyje šaukinį į jūsų namų katalogą."
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "Pridėti darbalaukyje šaukinį į šiukšlinės katalogą."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr "Piktogramų dydis"
+
+msgid "Set the desired size of icons on the desktop."
+msgstr "Nustatyti pageidaujamą darbalaukyje esančių piktogramų dydį."
+
+msgid "Number of virtual desktops"
+msgstr "Virtualių darbalaukių skaičius"
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr ""
+"Kiek virtualių darbalaukių / darbo sričių bus automatiškai sukuriama "
+"paleidimo metu."
+
+msgid "Single"
+msgstr "Vienkartis"
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr "Dvikartis"
+
+msgid "Click Policy"
+msgstr "Spustelėjimo politika"
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr ""
+"Spustelėjimo politika nustato, ar elementai turėtų būti atveriami vienkarčiu"
+" spustelėjimu ar dvikarčiu spustelėjimu."
+
+msgid "Normal"
+msgstr "Normalus"
+
+#. Small
+msgid "Small"
+msgstr "Mažas"
+
+#. Large
+msgid "Large"
+msgstr "Didelis"
+
+#. Massive
+msgid "Massive"
+msgstr "Didžiulis"
+
+msgid "Displays"
+msgstr ""
+
+msgid "Connected Monitors"
+msgstr ""
+
+msgid "Panel Placement"
+msgstr ""
+
+msgid ""
+"Select which monitor should be the primary display for panel placement."
+msgstr ""
+
+msgid "Use Automatic Selection"
+msgstr ""
+
+msgid "Clear Primary Monitor"
+msgstr ""
+
+msgid "Remove manual primary monitor selection."
+msgstr ""
+
+msgid "Fallback Monitors"
+msgstr ""
+
+msgid "Order used when primary is disconnected"
+msgstr ""
+
+msgid "No monitors detected"
+msgstr ""
+
+msgid "No fallback monitors configured"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Unknown model"
+msgstr "Nežinomas modelis"
+
+msgid "Set as Primary"
+msgstr ""
+
+msgid "(last known)"
+msgstr ""
+
+msgid "No cached information"
+msgstr ""
+
+msgid "Fonts"
+msgstr "Šriftai"
+
+msgid "Window Titles"
+msgstr "Langų pavadinimai"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "Nustatyti šriftą, kuris bus naudojamas programų antraštės juostose."
+
+msgid "Documents"
+msgstr "Dokumentai"
+
+msgid "Set the display font used by for documents."
+msgstr "Nustatyti šriftą, kuris bus naudojamas dokumentų atvaizdavimui."
+
+msgid "Interface"
+msgstr "Sąsaja"
+
+msgid "Set the primary font used by application controls."
+msgstr "Nustatyti pirminį šriftą, kuris bus naudojamas programų valdikliuose."
+
+msgid "Monospace"
+msgstr "Lygiaplotis"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr ""
+"Nustatyti fiksuoto pločio šriftą, skirtą naudoti programose, kuriuose "
+"dominuoja tekstas."
+
+msgid "Text scaling"
+msgstr "Teksto mastelio keitimas"
+
+msgid "Set the text scaling factor."
+msgstr "Nustatyti teksto mastelio keitimo koeficientą."
+
+msgid "Full"
+msgstr "Pilna"
+
+msgid "Medium"
+msgstr "Vidutinė"
+
+msgid "Slight"
+msgstr "Silpna"
+
+msgid "None"
+msgstr "Nėra"
+
+msgid "Hinting"
+msgstr "Taškinė korekcija"
+
+msgid "Set the type of hinting to use."
+msgstr "Nustatyti naudojamos taškinės korekcijos tipą."
+
+msgid "Subpixel (for LCD screens)"
+msgstr "Popikselinis (LCD ekranams)"
+
+msgid "Standard (grayscale)"
+msgstr "Standartinis (pilkio pustoniai)"
+
+msgid "Antialiasing"
+msgstr "Glodinimas"
+
+msgid "Set the type of antialiasing to use."
+msgstr "Nustatyti naudojamo glodinimo tipą."
+
+msgid "Appearance"
+msgstr "Išvaizda"
+
+msgid "Panels"
+msgstr "Skydeliai"
+
+msgid "Session"
+msgstr "Seansas"
+
+msgid "Create new panel"
+msgstr "Sukurti naują skydelį"
+
+msgid "Applets"
+msgstr "Programėlės"
+
+msgid "Remove Panel"
+msgstr "Šalinti skydelį"
+
+msgid "Remove this panel from the screen"
+msgstr "Šalinti šį skydelį iš ekrano"
+
+msgid "Top Dock"
+msgstr "Viršutinis dokas"
+
+msgid "Right Dock"
+msgstr "Dešinysis dokas"
+
+msgid "Left Dock"
+msgstr "Kairysis dokas"
+
+msgid "Bottom Dock"
+msgstr "Apatinis dokas"
+
+msgid "Top Panel"
+msgstr "Viršutinis skydelis"
+
+msgid "Right Panel"
+msgstr "Dešinysis skydelis"
+
+msgid "Left Panel"
+msgstr "Kairysis skydelis"
+
+msgid "Bottom Panel"
+msgstr "Apatinis skydelis"
+
+msgid "Top"
+msgstr "Viršuje"
+
+msgid "Right"
+msgstr "Dešinėje"
+
+msgid "Left"
+msgstr "Kairėje"
+
+msgid "Bottom"
+msgstr "Apačioje"
+
+msgid "Always"
+msgstr "Visada"
+
+msgid "Dynamic"
+msgstr "Dinaminis"
+
+msgid "Automatic"
+msgstr "Automatiškai"
+
+msgid "Intelligent"
+msgstr "Išmaniai"
+
+msgid "Never"
+msgstr "Niekada"
+
+msgid "Position"
+msgstr "Pozicija"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "Nustatyti ekrano kraštą, kuriame bus šis skydelis"
+
+msgid "Size"
+msgstr "Dydis"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr ""
+"Nustatyti šio skydelio dydį (plotį arba aukštį, priklausomai nuo "
+"orientacijos)"
+
+msgid "Spacing"
+msgstr "Tarpai"
+
+msgid "Set the spacing between applets for this panel"
+msgstr "Nustatyti tarpus tarp šio skydelio programėlių"
+
+msgid "Automatically hide"
+msgstr "Automatiškai slėpti"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr "Kai nustatyta, šis skydelis bus slepiamas, kad padidintų plotą ekrane"
+
+msgid "Transparency"
+msgstr "Permatomumas"
+
+msgid "Control when this panel should have a solid background"
+msgstr "Valdyti, kada šio skydelio fonas turėtų būti vientisos spalvos"
+
+msgid "Shadow"
+msgstr "Šešėlis"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr ""
+"Prideda dekoratyvinį metamą šešėlį, kuris puikiai tinka nepermatomiems "
+"skydeliams"
+
+msgid "Stylize regions"
+msgstr "Stilizuoti sritis"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr ""
+"Prideda užuominas į skydelį taip, kad kiekvieną iš trijų skydelio sričių "
+"būtų galima skirtingai apipavidalinti."
+
+msgid "Dock mode"
+msgstr "Doko veiksena"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr ""
+"Doko veiksenoje skydelis naudos kaip įmanoma mažiau vietos, atlaisvindamas "
+"vertingą ekrano plotą."
+
+msgid "Applet Settings"
+msgstr "Programėlės nustatymai"
+
+msgid "Add applet"
+msgstr "Pridėti programėlę"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "Pasirinkti naują į šį skydelį pridedamą programėlę"
+
+msgid "No settings available"
+msgstr "Neprieinami jokie nustatymai"
+
+msgid "Start"
+msgstr "Pradžia"
+
+msgid "Center"
+msgstr "Vidurys"
+
+msgid "End"
+msgstr "Pabaiga"
+
+msgid "Confirm panel removal"
+msgstr "Patvirtinti skydelio šalinimą"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr ""
+"Ar tikrai norite pašalinti šį skydelį? Šio veiksmo nebeįmanoma bus atšaukti."
+
+msgid "Remove panel"
+msgstr "Šalinti skydelį"
+
+msgid "Keep panel"
+msgstr "Palikti skydelį"
+
+msgid "Confirm applet removal"
+msgstr "Patvirtinti programėlės šalinimą"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr ""
+"Ar tikrai norite pašalinti šią programėlę? Šio veiksmo nebeįmanoma bus "
+"atšaukti."
+
+msgid "Don't ask me again"
+msgstr "Daugiau nebeklausti"
+
+msgid "Remove applet"
+msgstr "Šalinti programėlę"
+
+msgid "Keep applet"
+msgstr "Palikti programėlę"
+
+msgid "Confirm widget removal"
+msgstr "Patvirtinti valdiklio šalinimą"
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr ""
+"Ar tikrai norite pašalinti šį valdiklį? Šio veiksmo nebeįmanoma bus "
+"atšaukti."
+
+msgid "Built-in"
+msgstr "Įtaisytas"
+
+msgid "Choose a plugin"
+msgstr ""
+
+msgid "No description."
+msgstr "Nėra aprašo."
+
+#, c-format
+msgid "by %s"
+msgstr "pagal %s"
+
+msgid "No authors listed"
+msgstr "Neišvardyti jokie autoriai"
+
+msgctxt "Raven"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set Raven position"
+msgstr "Nustatyti Raven vietą"
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr ""
+"Nustatyti, kuriame ekrano krašte bus atveriama Raven. Jei nustatyta į "
+"„Automatiškai“, Raven bus atveriama ten, kur yra jos viršesnis skydelis."
+
+msgid "Set notification sort order"
+msgstr "Nustatyti pranešimų rikiavimo tvarką"
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr ""
+"Nustatyti, ar pranešimai bus rikiuojami nuo seniausių iki naujausių ar nuo "
+"naujausių iki seniausių."
+
+msgid "Widget Settings"
+msgstr "Valdiklio nustatymai"
+
+msgid "Add widget"
+msgstr "Pridėti valdiklį"
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr "Nepavyko sukurti valdiklio egzemplioriaus dėl nežinomos nesėkmės."
+
+msgid "Style"
+msgstr "Stilius"
+
+msgctxt "Styling"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "Nustatyti langų dekoracijų ir valdiklių išvaizdą"
+
+msgid "Icons"
+msgstr "Piktogramos"
+
+msgid "Set the globally used icon theme"
+msgstr "Nustatyti visuotiniu mastu naudojamą piktogramų apipavidalinimą"
+
+msgid "Cursors"
+msgstr "Žymekliai"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "Nustatyti visuotiniu mastu naudojamą pelės žymeklio apipavidalinimą"
+
+msgid "Notification Position"
+msgstr "Pranešimų vieta"
+
+msgid "Set the location for notification popups"
+msgstr "Nustatyti iškylančiųjų pranešimų vietą"
+
+msgid "Dark theme"
+msgstr "Tamsus apipavidalinimas"
+
+msgid "Built-in theme"
+msgstr "Įtaisytas apipavidalinimas"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr ""
+"Kai įjungta, įtaisytas apipavidalinimas nustelbs darbalaukio komponentų "
+"stilių"
+
+msgid "Animations"
+msgstr "Animacijos"
+
+msgid "Control whether windows and controls use animations"
+msgstr "Valdyti, ar langai ir valdikliai naudos animacijas"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr ""
+
+msgid "Labwc Compositor Theme"
+msgstr ""
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme"
+msgstr ""
+
+msgid "Top Left"
+msgstr "Viršuje kairėje"
+
+msgid "Bottom Left"
+msgstr "Apačioje kairėje"
+
+msgid "Bottom Right"
+msgstr "Apačioje dešinėje"
+
+msgid "Top Right"
+msgstr "Viršuje dešinėje"
+
+msgid "Windows"
+msgstr "Langai"
+
+msgid "Button layout"
+msgstr "Mygtukų išdėstymas"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "Keisti programos antraštės juostoje esančių mygtukų išdėstymą."
+
+msgid "Center new windows on screen"
+msgstr "Centruoti naujus langus ekrane"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "Centruoti esamame ekrane naujai paleistus langus."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr "Išjungti naktinio apšvietimo veikseną, kai langai yra visame ekrane"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr ""
+"Išjungia naktinio apšvietimo veikseną, kai langas yra visame ekrane. Kai "
+"langas nebebus visame ekrane, naktinis apšvietimas bus vėl įjungtas."
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr "Pristabdyti pranešimus, kai langas yra visame ekrane"
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr ""
+"Neleidžia pranešimams atsirasti, kai langas yra visame ekrane. Kai langas "
+"nebėra visame ekrane, pranešimai bus ir toliau rodomi."
+
+msgid "Automatic tiling"
+msgstr "Automatinis langų išklojimas"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr ""
+"Tempiant langus į ekrano viršų ar tolimus kampus, jie bus automatiškai "
+"iškloti."
+
+msgid "Window focus mode"
+msgstr ""
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr ""
+
+msgid "Show all windows in tab switcher"
+msgstr "Rodyti langų perjungiklyje visus langus"
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr ""
+"Langų perjungiklyje bus rodomi visi langai, nepriklausomai nuo to, kokioje "
+"darbo srityje jie yra."
+
+msgid "Right (standard)"
+msgstr "Dešinėje (standartinis)"
+
+msgid "Click"
+msgstr ""
+
+msgid "Sloppy"
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:4
+msgid "Notifications"
+msgstr "Pranešimai"
+
+msgid "No widgets added."
+msgstr ""
+
+msgid "Nothing to see here"
+msgstr "Čia nėra ką matyti"
+
+msgid "No new notifications"
+msgstr "Nėra naujų pranešimų"
+
+msgid "Oldest to newest"
+msgstr "Nuo seniausių iki naujausių"
+
+msgid "Newest to oldest"
+msgstr "Nuo naujausių iki seniausių"
+
+msgid "No apps are currently playing audio."
+msgstr "Šiuo metu jokios programos neatkuria garso."
+
+msgid "Play some music"
+msgstr ""
+
+msgid "Unknown Title"
+msgstr "Nežinomas pavadinimas"
+
+msgid "Unknown Artist"
+msgstr "Nežinomas atlikėjas"
+
+msgid "Unknown Album"
+msgstr "Nežinomas albumas"
+
+#, c-format
+msgid "Playing - %s"
+msgstr "Atkuriama - %s"
+
+#, c-format
+msgid "Paused - %s"
+msgstr "Pristabdyta - %s"
+
+msgid "No apps are playing audio."
+msgstr "Jokios programos neatkuria garso."
+
+msgid "Apps"
+msgstr "Programos"
+
+msgid "Devices"
+msgstr "Įrenginiai"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:4
+msgid "Usage Monitor"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "RAM"
+msgstr ""
+
+msgid "Swap"
+msgstr ""
+
+#: src/daemon/endsession.ui:71
+msgid "Are you sure you want to end your session?"
+msgstr "Ar tikrai norite užbaigti seansą?"
+
+#: src/dialogs/polkit/dialog.ui:12 src/dialogs/polkit/dialog.ui:49
+msgid "Authentication Required"
+msgstr "Reikia nustatyti tapatybę"
+
+#: src/dialogs/polkit/dialog.ui:71
+msgid "Password:"
+msgstr "Slaptažodis:"
+
+#: src/dialogs/polkit/dialog.ui:103
+msgid "Username:"
+msgstr "Naudotojo vardas:"
+
+#: src/dialogs/polkit/dialog.ui:131
+msgid "Authentication is required"
+msgstr "Reikia nustatyti tapatybę"
+
+#: src/dialogs/polkit/dialog.ui:184
+msgid "Details"
+msgstr "Išsamiau"
+
+#: src/dialogs/polkit/dialog.ui:224
+msgid "Action:"
+msgstr "Veiksmas:"
+
+#: src/dialogs/polkit/dialog.ui:259
+msgid "ID:"
+msgstr "ID:"
+
+#: src/dialogs/polkit/dialog.ui:335
+msgid "Authenticate"
+msgstr "Nustatyti tapatybę"
+
+#: src/dialogs/screenshot/aftershot.ui:48
+msgid "Name:"
+msgstr "Pavadinimas:"
+
+#: src/dialogs/screenshot/aftershot.ui:85
+msgid "Folder:"
+msgstr "Aplankas:"
+
+#: src/dialogs/screenshot/screenshothome.ui:35
+msgid "Delay in seconds"
+msgstr "Delsa, sekundėmis"
+
+#: src/dialogs/screenshot/screenshothome.ui:91
+msgid "Show Pointer"
+msgstr "Rodyti rodyklę"
+
+#: src/dialogs/screenshot/screenshothome.ui:141
+msgid "Play sound when capturing"
+msgstr "Fotografuojant atkurti garsą"
+
+#: src/panel/applets/ragnar-menu/settings.ui:23
+msgid "Show Menu Label"
+msgstr "Rodyti meniu etiketę"
+
+#: src/panel/applets/ragnar-menu/settings.ui:48
+msgid "Menu Label"
+msgstr "Meniu etiketė"
+
+#: src/panel/applets/ragnar-menu/settings.ui:72
+msgid "Use Default Menu Icon"
+msgstr "Naudoti numatytąją meniu piktogramą"
+
+#: src/panel/applets/ragnar-menu/settings.ui:97
+msgid "Menu Icon"
+msgstr "Meniu piktograma"
+
+#: src/panel/applets/ragnar-menu/settings.ui:148
+msgid "Compact Mode"
+msgstr "Kompaktiška veiksena"
+
+#: src/panel/applets/ragnar-menu/settings.ui:172
+msgid "Show Headers"
+msgstr "Rodyti kategorijų pavadinimus"
+
+#: src/panel/applets/ragnar-menu/settings.ui:196
+msgid "Roll-over mouse"
+msgstr "Keisti kategorijas užvedus pelę"
+
+#: src/panel/applets/ragnar-menu/settings.ui:221
+msgid "Show settings items"
+msgstr ""
+
+#: src/panel/applets/caffeine/settings.ui:23
+msgid "Enable notification"
+msgstr "Įjungti pranešimą"
+
+#: src/panel/applets/caffeine/settings.ui:35
+msgid "Maximize brightness"
+msgstr "Padidinti šviesumą"
+
+#: src/panel/applets/caffeine/settings.ui:47
+msgid "Brightness Level"
+msgstr "Šviesumo lygis"
+
+#: src/panel/applets/clock/settings.ui:15
+msgid "Show date"
+msgstr "Rodyti datą"
+
+#: src/panel/applets/clock/settings.ui:38
+msgid "Show seconds"
+msgstr "Rodyti sekundes"
+
+#: src/panel/applets/clock/settings.ui:84
+msgid "Custom Format"
+msgstr "Tinkintas formatas"
+
+#: src/panel/applets/clock/settings.ui:107
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui:120
+msgid "Custom Timezone"
+msgstr "Tinkinta laiko juosta"
+
+#: src/panel/applets/clock/settings.ui:143
+msgid "UTC"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui:15
+msgid "Show all windows on click"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui:39
+msgid "Only show favorited"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui:63
+msgid "Lock icons"
+msgstr "Užrakinti piktogramas"
+
+#: src/panel/applets/icon-tasklist/settings.ui:88
+msgid "Restrict to Workspace"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui:112
+msgid "Middle click to launch new window"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui:136
+msgid "Require a double-click to launch new window"
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:28
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:4
+msgid "Keyboard Layout"
+msgstr "Klaviatūros išdėstymas"
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:44
+msgid "Keyboard Layout Settings"
+msgstr "Klaviatūros išdėstymo nustatymai"
+
+#: src/panel/applets/night-light/indicator_window.ui:37
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:4
+msgid "Night Light"
+msgstr "Naktinis apšvietimas"
+
+#: src/panel/applets/night-light/indicator_window.ui:85
+msgid "Temperature"
+msgstr "Temperatūra"
+
+#: src/panel/applets/night-light/indicator_window.ui:110
+msgid "Schedule"
+msgstr "Tvarkaraštis"
+
+#: src/panel/applets/night-light/indicator_window.ui:124
+msgid "Sunset to Sunrise"
+msgstr "Nuo saulėlydžio iki saulėtekio"
+
+#: src/panel/applets/night-light/indicator_window.ui:125
+msgid "Manual"
+msgstr "Rankinis"
+
+#: src/panel/applets/night-light/indicator_window.ui:144
+msgid "Display Settings"
+msgstr "Ekrano nustatymai"
+
+#: src/panel/applets/places-indicator/settings.ui:19
+msgid "Show label"
+msgstr "Rodyti etiketę"
+
+#: src/panel/applets/places-indicator/settings.ui:55
+msgid "Show places"
+msgstr "Rodyti vietas"
+
+#: src/panel/applets/places-indicator/settings.ui:79
+msgid "Show network folders"
+msgstr "Rodyti tinklo aplankus"
+
+#: src/panel/applets/places-indicator/settings.ui:103
+msgid "Show removable drives"
+msgstr "Rodyti keičiamuosius diskus"
+
+#: src/panel/applets/places-indicator/settings.ui:127
+msgid "Always expand places"
+msgstr ""
+
+#: src/panel/applets/spacer/settings.ui:21
+msgid "Spacer size"
+msgstr ""
+
+#: src/panel/applets/status/settings.ui:22
+#: src/panel/applets/tray/settings.ui:22
+msgid "Icon Spacing"
+msgstr "Tarpai tarp piktogramų"
+
+#: src/panel/applets/status/settings.ui:48
+msgid "Show battery percentage"
+msgstr "Rodyti baterijos įkrovos procentinę reikšmę"
+
+#: src/panel/applets/tasklist/settings.ui:16
+msgid "Show button icons"
+msgstr ""
+
+#: src/panel/applets/tasklist/settings.ui:41
+msgid "Show button labels"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:16
+msgid "Sort Mode"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:28
+msgid "Sort by type"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:43
+msgid "Sort alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:58
+msgid "Sort reverse alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:73
+msgid "Sort by date ascending"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:88
+msgid "Sort by date descending"
+msgstr ""
+
+#: src/panel/applets/tray/settings.ui:48
+msgid "Scale icons with panel size"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:17
+msgid "\"Add\" button visibility"
+msgstr "Mygtuko „Pridėti“ matomumas"
+
+#: src/panel/applets/workspaces/settings.ui:31
+msgid "Item Size Multiplier"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:45
+msgid "Don't show"
+msgstr "Nerodyti"
+
+#: src/panel/applets/workspaces/settings.ui:46
+msgid "Show on mouseover"
+msgstr "Rodyti užvedus pelę"
+
+#: src/panel/applets/workspaces/settings.ui:47
+msgid "Always show"
+msgstr "Visada rodyti"
+
+#: src/panel/applets/workspaces/settings.ui:65
+msgid "0.5x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:66
+msgid "0.75x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:67
+msgid "1.0x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:68
+msgid "1.5x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:69
+msgid "2.0x"
+msgstr ""
+
+#: src/raven/widgets/calendar/settings.ui:17
+msgid "Show Week Numbers"
+msgstr "Rodyti savaičių numerius"
+
+#: src/raven/widgets/calendar/settings.ui:43
+msgid "Show Day Names"
+msgstr "Rodyti dienų pavadinimus"
+
+#: src/raven/widgets/sound-input/settings.ui:17
+#: src/raven/widgets/sound-output/settings.ui:17
+msgid "Allow Volume Overdrive"
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/settings.ui:17
+msgid "Show Swap Usage"
+msgstr ""
+
+#: src/daemon/ragnar-daemon.desktop.in:3
+msgid "Ragnar Background Services"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:4
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:4
+msgid "Ragnar screenshot app"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:8
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:8
+msgid "Screenshot;Snip;"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:3
+msgid "Ragnar PolicyKit UI"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:4
+msgid "Ragnar PolicyKit Authorisation UI"
+msgstr ""
+
+#: src/dialogs/screenshot/ragnar-screenshot-dialog.desktop.in.in:3
+msgid "Ragnar Screenshot UI"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:4
+msgid "Ragnar Menu"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:5
+msgid "Search for and start up applications."
+msgstr "Ieškoti ir paleisti programas."
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:4
+msgid "Caffeine"
+msgstr ""
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:5
+msgid "Prevent the system and screen from sleeping."
+msgstr ""
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:4
+msgid "Clock"
+msgstr ""
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:5
+msgid "A digital clock with a customizable format."
+msgstr "Tinkinamo formato skaitmeninis laikrodis."
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:4
+msgid "Icon Task List"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:5
+msgid "A configurable application task list."
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:5
+msgid "Indicates which keyboard layout is currently in use."
+msgstr "Nurodo, kuris klaviatūros išdėstymas šiuo metu yra naudojamas."
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:4
+msgid "Lock Keys Indicator"
+msgstr ""
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:5
+msgid "Show status of lock keys."
+msgstr ""
+
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:5
+msgid "Toggle and modify Night Light settings."
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:5
+msgid "Open the Raven notifications view."
+msgstr ""
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:5
+msgid "Show drives and favorite folders."
+msgstr "Rodyti diskus ir mėgstamus aplankus."
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:4
+msgid "Raven Trigger"
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:5
+msgid "Open the Raven sidebar."
+msgstr ""
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:4
+msgid "Separator"
+msgstr ""
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:5
+msgid "Visual separator between applets."
+msgstr ""
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:4
+msgid "Show Desktop Button"
+msgstr ""
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:5
+msgid "A button that toggles visibility of the desktop."
+msgstr "Mygtukas, perjungiantis darbalaukio matomumą."
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:4
+msgid "Spacer"
+msgstr ""
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:5
+msgid "Adjustable spacer to put between other applets."
+msgstr ""
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:4
+msgid "Status Indicator"
+msgstr "Būsenos indikatorius"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:5
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr ""
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:4
+msgid "Task List"
+msgstr "Užduočių sąrašas"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:5
+msgid "An application task list with icons and labels."
+msgstr ""
+
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:5
+msgid "Manage your trash from the Ragnar panel"
+msgstr ""
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:4
+msgid "System Tray"
+msgstr "Sistemos dėklas"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:5
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr ""
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:4
+msgid "User Indicator"
+msgstr "Naudotojo indikatorius"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:5
+msgid "Opens the power dialog."
+msgstr ""
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:4
+msgid "Workspace Switcher"
+msgstr "Darbo sričių perjungiklis"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:5
+msgid "Display workspaces and switch between them."
+msgstr "Rodyti ir perjungti darbo sritis."
+
+#: src/panel/ragnar-desktop-settings.desktop.in:3
+msgid "Change desktop appearance and behavior"
+msgstr "Keisti darbalaukio išvaizdą ir elgseną"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:12
+msgid "Preferences;Settings;"
+msgstr "Nuostatos;Nustatymai;Parametrai;Parinktys;"
+
+#: src/panel/ragnar-panel.desktop.in:3
+msgid "Ragnar Panel"
+msgstr "Ragnar skydelis"
+
+#: src/panel/ragnar-panel.desktop.in:4
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr ""
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:4
+msgid "Calendar"
+msgstr "Kalendorius"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:5
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:4
+msgid "Media Controls"
+msgstr "Medijos valdikliai"
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:5
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:4
+msgid "Sound Input"
+msgstr "Garso įvestis"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:5
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:4
+msgid "Sound Output"
+msgstr "Garso išvestis"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:5
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:5
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:2
+msgid "Ragnar Desktop (magpie)"
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:3
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:2
+msgid "Network (Ragnar Desktop)"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:3
+msgid "Manage your network connections"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:3
+msgid "Ragnar Power Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:4
+msgid "A button dialog to lock the screen, reboot, shutdown, etc."
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:3
+msgid "Ragnar Screenshot Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:4
+msgid "Screenshot interface"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in:3
+#: src/session/ragnar-desktop.session.desktop.in.in:2
+msgid "Ragnar Desktop"
+msgstr "Ragnar darbalaukis"
+
+#: src/session/ragnar-desktop.desktop.in.in:4
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr ""
+

@@ -1,0 +1,22 @@
+[package]
+name = "ragnar-wallpaper"
+version = "0.1.1"
+edition = "2021"
+description = "Session wallpaper service for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# gio/glib only: GSettings watch, system-bus call for AccountsService,
+# swaybg process management — headless daemon, no GUI.
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "LieraOS Project <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto, swaybg, accountsservice"
+assets = [
+    ["target/release/ragnar-wallpaper", "usr/bin/ragnar-wallpaper", "755"],
+    ["data/org.lieraos.ragnar.Wallpaper.desktop", "etc/xdg/autostart/", "644"],
+]

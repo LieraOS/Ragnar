@@ -1,0 +1,13 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// ragnar-automount: let the session automounter mount fixed/system
+// drives without an authentication dialog. udisks2 asks auth_admin
+// for HintSystem devices (internal disks); removable media mounts
+// for any active session anyway. Granting the filesystem-mount
+// family to the active local session makes every attached drive
+// mount at login — the documented behaviour of this service.
+polkit.addRule(function(action, subject) {
+    if (action.id.indexOf("org.freedesktop.udisks2.filesystem-mount") === 0 &&
+        subject.active === true) {
+        return polkit.Result.YES;
+    }
+});

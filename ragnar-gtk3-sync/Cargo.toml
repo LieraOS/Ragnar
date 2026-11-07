@@ -1,0 +1,22 @@
+[package]
+name = "ragnar-gtk3-sync"
+version = "0.1.0"
+edition = "2021"
+description = "GTK3 settings.ini synchronisation daemon for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# gio/glib only: GSettings watch + INI rewrite — headless daemon,
+# no D-Bus surface, no UI.
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "LieraOS Project <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/ragnar-gtk3-sync", "usr/bin/ragnar-gtk3-sync", "755"],
+    ["data/org.lieraos.ragnar.Gtk3Sync.desktop", "etc/xdg/autostart/", "644"],
+]

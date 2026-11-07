@@ -1,0 +1,16 @@
+[Unit]
+Description=Skald FX daemon (virtual devices, effects, routing)
+Documentation=https://github.com/lieraos/ragnar-skald
+# Chain management lives here — must survive crashes and manual kills.
+After=pipewire.service wireplumber.service pipewire-pulse.service
+Wants=wireplumber.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ragnar-skald-fx
+Restart=always
+RestartSec=2
+# Standard session environment — needs the session's PipeWire socket.
+
+[Install]
+WantedBy=default.target

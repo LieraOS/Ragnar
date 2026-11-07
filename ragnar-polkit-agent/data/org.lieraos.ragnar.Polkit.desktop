@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar PolicyKit UI
+Comment=Ragnar PolicyKit authentication agent
+Exec=/usr/libexec/ragnar-desktop/ragnar-polkit-agent
+Terminal=false
+Categories=GNOME;GTK;System;Core;
+NoDisplay=true
+StartupNotify=true
+OnlyShowIn=Ragnar

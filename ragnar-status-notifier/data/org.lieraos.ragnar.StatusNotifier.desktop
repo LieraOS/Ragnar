@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar Status Notifier Watcher
+Comment=StatusNotifierWatcher service for the Ragnar desktop
+Exec=/usr/bin/ragnar-status-notifier
+Terminal=false
+NoDisplay=true
+X-GNOME-AutoRestart=true

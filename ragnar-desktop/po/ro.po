@@ -1,0 +1,1802 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Joshua Strobl <joshua.strobl@outlook.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-07 17:28+0200\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Joshua Strobl <joshua.strobl@outlook.com>, 2023\n"
+"Language-Team: Romanian (https://app.transifex.com/buddiesofragnar/teams/129844/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "Altele"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Games"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "Internet"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Programming"
+msgstr ""
+
+msgid "Science"
+msgstr ""
+
+msgid "Sound & Video"
+msgstr ""
+
+msgid "System Tools"
+msgstr ""
+
+msgid "Universal Access"
+msgstr ""
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr ""
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr ""
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr ""
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "Caffeine Boost Activat"
+
+msgid "Turned off Caffeine Boost"
+msgstr "Caffeine Boost dezactivat"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Log out"
+msgstr "Ieșire din cont"
+
+msgid "Restart device"
+msgstr "Reporniți dispozitivul"
+
+#: src/daemon/endsession.ui.h:1
+msgid "Power Off"
+msgstr "Oprire"
+
+msgid "Caps Lock is on"
+msgstr ""
+
+msgid "Caps Lock is off"
+msgstr ""
+
+msgid "Num Lock is on"
+msgstr ""
+
+msgid "Num Lock is off"
+msgstr ""
+
+msgid "Authentication failed"
+msgstr "Autentificarea a eșuat"
+
+msgid "Group:"
+msgstr "Grup:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr ""
+
+msgid "L_og Out"
+msgstr ""
+
+msgid "_Suspend"
+msgstr ""
+
+msgid "_Hibernate"
+msgstr ""
+
+msgid "_Reboot"
+msgstr ""
+
+msgid "Shut_down"
+msgstr ""
+
+msgid "This system does not support hibernation."
+msgstr ""
+
+msgid "Files to send"
+msgstr ""
+
+msgid "_Cancel"
+msgstr ""
+
+msgid "_Open"
+msgstr ""
+
+msgid "Send Files via Bluetooth"
+msgstr ""
+
+msgid "Send files to device…"
+msgstr ""
+
+msgid "Rejected file"
+msgstr ""
+
+#, c-format
+msgid "File already exists: %s"
+msgstr ""
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr ""
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Reject"
+msgstr ""
+
+msgid "File name"
+msgstr ""
+
+msgid "Transfer rate"
+msgstr ""
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr ""
+
+#: src/daemon/endsession.ui.h:3 src/dialogs/polkit/dialog.ui.h:8
+msgid "Cancel"
+msgstr "Anulare"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr ""
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr ""
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Speaker"
+msgstr ""
+
+msgid "Controller"
+msgstr ""
+
+msgid "Keyboard"
+msgstr ""
+
+msgid "Mouse"
+msgstr ""
+
+msgid "Tablet"
+msgstr ""
+
+msgid "Touchpad"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Bluetooth File Transfer"
+msgstr ""
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr ""
+
+msgid "File transfer failed"
+msgstr ""
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr ""
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr ""
+
+msgid "File transferred successfully"
+msgstr ""
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr ""
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr ""
+
+msgid "The file has not been transferred."
+msgstr ""
+
+msgid "Retry"
+msgstr ""
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr ""
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr ""
+
+msgid "Select a Bluetooth device to send files to"
+msgstr ""
+
+msgid "Discovering…"
+msgstr ""
+
+msgid "<b>No devices found</b>"
+msgstr ""
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr ""
+
+msgid "Available Devices"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in.h:1
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in.h:1
+msgid "Ragnar Screenshot"
+msgstr ""
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr ""
+
+msgid "Screenshot active window"
+msgstr ""
+
+msgid "Screenshot selected area"
+msgstr ""
+
+#. translate
+msgid "Cancel screenshot"
+msgstr ""
+
+msgid "Save screenshot to the selected directory"
+msgstr ""
+
+msgid "Copy screenshot to the clipboard"
+msgstr ""
+
+msgid "Open screenshot in default application"
+msgstr ""
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr ""
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "Mod Cafeină"
+
+msgid "Set menu icon from file"
+msgstr "Alege pictograma de meniu din fișiere"
+
+msgid "Image files"
+msgstr "Fișiere imagine"
+
+msgid "Any file"
+msgstr "Orice fișier"
+
+msgid "Set icon"
+msgstr "Alege pictograma"
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "Ne pare rău, nu s-au găsit elemente"
+
+#: src/panel/ragnar-desktop-settings.desktop.in.h:1
+msgid "Ragnar Desktop Settings"
+msgstr "Setări desktop Ragnar"
+
+msgid "System Settings"
+msgstr ""
+
+msgid "Power"
+msgstr ""
+
+msgid "All"
+msgstr "Tot"
+
+msgid "Timer (minutes)"
+msgstr "Cronometru"
+
+msgid "System time and date settings"
+msgstr ""
+
+msgid "Unfavorite"
+msgstr "Elimină din favorite"
+
+msgid "Favorite"
+msgstr "Favorit"
+
+msgid "Close all windows"
+msgstr ""
+
+msgid "Launch new instance"
+msgstr ""
+
+msgid "Minimize"
+msgstr "Micșorează"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr ""
+
+msgid "Unmaximize"
+msgstr "Restaureaza"
+
+msgid "Maximize"
+msgstr "Mărește"
+
+msgid "Close window"
+msgstr ""
+
+msgid "Show window controls"
+msgstr ""
+
+msgid "Caps lock is active"
+msgstr "Caps lock este activ"
+
+msgid "Caps lock is not active"
+msgstr "Caps lock nu este activ"
+
+msgid "Num lock is active"
+msgstr "Num lock este activ"
+
+msgid "Num lock is not active"
+msgstr "Num lock nu este activ"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "No unread notifications"
+msgstr "Nu aveți notificări necitite"
+
+msgid "Volume is in use by other processes"
+msgstr "Volumul este folosit de alte procese"
+
+msgid "Operation aborted"
+msgstr "Operațiune anulată"
+
+msgid "Type your password"
+msgstr "Introduceți parola"
+
+msgid "Removable devices"
+msgstr "Dispozitive detașabile"
+
+msgid "Local volumes"
+msgstr "Volume locale"
+
+msgid "Network folders"
+msgstr "Directoare din rețea"
+
+msgid "Eject"
+msgstr "Scoate"
+
+msgid "Unmount"
+msgstr "Demontează"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "Deschide \"%s\""
+
+msgid "You can now safely remove"
+msgstr "Puteți scoate în siguranță"
+
+msgid "Unknown Device"
+msgstr "Dispozitiv necunoscut"
+
+msgid "Error while ejecting device"
+msgstr "Eroare la scoaterea dispozitivului"
+
+msgid "Error while unmounting volume"
+msgstr "Eroare la demontarea volumului"
+
+msgid "Places"
+msgstr "Locuri"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "Montează și deschide \"%s\""
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr "Introduceți parola de criptare pentru deblocarea acestui volum"
+
+msgid "The password you entered is incorrect"
+msgstr "Parola introdusă este incorectă"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr ""
+"S-a produs o eroare necunoscută în încercarea de montare a acestui volum"
+
+msgid "Nothing to display right now"
+msgstr "Nimic de afișat momentan"
+
+msgid "Mount some drives"
+msgstr "Montează anumite drive-uri"
+
+msgid "Enable more sections"
+msgstr "Activează mai multe secțiuni"
+
+msgid "Toggle the desktop"
+msgstr "Comută spațiul de lucru"
+
+msgid "Bluetooth"
+msgstr ""
+
+msgid "Bluetooth Settings"
+msgstr "Setări Bluetooth"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr ""
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr ""
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr ""
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr ""
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr ""
+
+msgid "Send file"
+msgstr ""
+
+msgid "Disconnect"
+msgstr ""
+
+msgid "Disconnecting…"
+msgstr ""
+
+msgid "Connecting…"
+msgstr ""
+
+msgid "Failed to disconnect"
+msgstr ""
+
+msgid "Failed to connect"
+msgstr ""
+
+msgid "Connected"
+msgstr ""
+
+msgid "Disconnected"
+msgstr ""
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr ""
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr ""
+
+msgid "Battery fully charged."
+msgstr "Baterie încărcată complet."
+
+msgid "Unknown"
+msgstr "Necunoscut"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "Încărcare baterie"
+
+msgid "Battery remaining"
+msgstr "Restul bateriei"
+
+msgid "Performance Mode"
+msgstr ""
+
+msgid "Power Saver"
+msgstr ""
+
+msgid "Balanced"
+msgstr ""
+
+msgid "Performance"
+msgstr ""
+
+msgid "Power settings"
+msgstr "Setări consum baterie"
+
+#. User Menu Creation
+msgid "User"
+msgstr "Utilizator"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "Blocare acces"
+
+msgid "Suspend"
+msgstr "Suspendă"
+
+msgid "Hibernate"
+msgstr "Hibernare"
+
+#: src/daemon/endsession.ui.h:5
+msgid "Restart"
+msgstr "Resetare"
+
+#: src/daemon/endsession.ui.h:6
+msgid "Shutdown"
+msgstr "Oprire"
+
+#: src/daemon/endsession.ui.h:4
+msgid "Logout"
+msgstr "Delogare"
+
+msgid "Rename"
+msgstr "Redenumire"
+
+msgid "Remove"
+msgstr "Îndepărtează"
+
+msgid "Not able to create new workspaces"
+msgstr ""
+
+msgid "Create a new workspace"
+msgstr ""
+
+msgid "Untitled"
+msgstr "Fără titlu"
+
+msgid "No description"
+msgstr "Fără descriere"
+
+msgid "running"
+msgstr "rulează"
+
+msgid "Applications"
+msgstr "Aplicații"
+
+msgid "Add"
+msgstr "Adaugă"
+
+msgid "Command"
+msgstr "Comandă"
+
+msgid "An entry with that title already exists"
+msgstr "O înregistrare cu acest titlu există deja"
+
+msgid "Title"
+msgstr "Titlu"
+
+msgid "Required"
+msgstr "Necesar"
+
+msgid "Description"
+msgstr "Descriere"
+
+msgid "Optional"
+msgstr "Opțional"
+
+msgid "Autostart"
+msgstr "Pornire automată"
+
+msgid "Autostart apps"
+msgstr "Aplicații care rulează automat la pornire"
+
+msgid "Add Application"
+msgstr ""
+
+msgid "Add Command"
+msgstr ""
+
+msgid "Desktop"
+msgstr "Spațiul de lucru"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "Pictograme desktop"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr ""
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr ""
+
+msgid "Show all active mounts on the desktop."
+msgstr ""
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "Directorul Acasă"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "Adăugați o comandă rapidă către directorul acasă de pe desktop."
+
+#. Switcher to show or hide a shortcut to Trash
+msgid "Trash"
+msgstr "Gunoi"
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr ""
+"Adăugați o comandă rapidă către directorul Coș de gunoi de pe desktop."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr ""
+
+msgid "Set the desired size of icons on the desktop."
+msgstr ""
+
+msgid "Number of virtual desktops"
+msgstr ""
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr ""
+
+msgid "Single"
+msgstr ""
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr ""
+
+msgid "Click Policy"
+msgstr ""
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+#. Small
+msgid "Small"
+msgstr ""
+
+#. Large
+msgid "Large"
+msgstr ""
+
+#. Massive
+msgid "Massive"
+msgstr ""
+
+msgid "Fonts"
+msgstr "Fonturi"
+
+msgid "Window Titles"
+msgstr "Titlurile ferestrelor"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "Setați fontul utilizat în barele de titlu ale aplicațiilor."
+
+msgid "Documents"
+msgstr "Documente"
+
+msgid "Set the display font used by for documents."
+msgstr "Setați fontul de afișare utilizat pentru documente."
+
+msgid "Interface"
+msgstr "Interfața"
+
+msgid "Set the primary font used by application controls."
+msgstr "Setați fontul principal utilizat de comenzile aplicației."
+
+msgid "Monospace"
+msgstr "Monospațiat"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr ""
+"Setați fontul cu lățime fixă utilizat de aplicațiile de text dominante."
+
+msgid "Text scaling"
+msgstr "Scalarea textului"
+
+msgid "Set the text scaling factor."
+msgstr "Setați factorul de scalare a textului."
+
+msgid "Full"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Slight"
+msgstr ""
+
+msgid "None"
+msgstr "Niciuna"
+
+msgid "Hinting"
+msgstr ""
+
+msgid "Set the type of hinting to use."
+msgstr ""
+
+msgid "Subpixel (for LCD screens)"
+msgstr ""
+
+msgid "Standard (grayscale)"
+msgstr ""
+
+msgid "Antialiasing"
+msgstr ""
+
+msgid "Set the type of antialiasing to use."
+msgstr ""
+
+msgid "Appearance"
+msgstr "Aspect"
+
+msgid "Panels"
+msgstr "Panouri"
+
+msgid "Session"
+msgstr "Sesiune"
+
+msgid "Create new panel"
+msgstr "Crează un nou panou"
+
+msgid "Applet Settings"
+msgstr ""
+
+msgid "Add applet"
+msgstr "Adaugă un applet"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "Alege un nou applet pentru adăugare la acest panou"
+
+msgid "No settings available"
+msgstr "Nu sunt disponibile setări"
+
+msgid "Start"
+msgstr "Partea stângă"
+
+msgid "Center"
+msgstr "Centru"
+
+msgid "End"
+msgstr "Partea dreaptă"
+
+msgid "Confirm panel removal"
+msgstr "Confirmă îndepărtarea panoului"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr ""
+"Chiar doriți să îndepărtați acest panou? Această acțiune nu poate fi anulată"
+" ulterior."
+
+msgid "Remove panel"
+msgstr "Îndepărtează panoul"
+
+msgid "Keep panel"
+msgstr "Păstrează panoul"
+
+msgid "Confirm applet removal"
+msgstr "Confirmă îndepărtarea appletului"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr ""
+"Chiar doriți să îndepărtați acest applet? Această acțiune nu poate fi "
+"anulată ulterior."
+
+msgid "Don't ask me again"
+msgstr "Nu mă mai întreba ulterior"
+
+msgid "Remove applet"
+msgstr "Îndepărtează appletul"
+
+msgid "Keep applet"
+msgstr "Păstrează appletul"
+
+msgid "Confirm widget removal"
+msgstr ""
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr ""
+
+msgid "Built-in"
+msgstr ""
+
+msgid "Choose a plugin"
+msgstr ""
+
+msgid "No description."
+msgstr ""
+
+#, c-format
+msgid "by %s"
+msgstr ""
+
+msgid "No authors listed"
+msgstr ""
+
+msgid "Widgets"
+msgstr "Widget-uri"
+
+msgid "Settings"
+msgstr "Setări"
+
+msgid "Set Raven position"
+msgstr ""
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr ""
+
+msgid "Set notification sort order"
+msgstr ""
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr ""
+
+msgid "Widget Settings"
+msgstr ""
+
+msgid "Add widget"
+msgstr ""
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr ""
+
+msgid "Applets"
+msgstr "Applet-uri"
+
+msgid "Remove Panel"
+msgstr ""
+
+msgid "Remove this panel from the screen"
+msgstr "Îndepărtează acest panou de pe ecran"
+
+msgid "Top Dock"
+msgstr "Dock sus"
+
+msgid "Right Dock"
+msgstr "Dock în dreapta"
+
+msgid "Left Dock"
+msgstr "Dock în stânga"
+
+msgid "Bottom Dock"
+msgstr "Dock jos"
+
+msgid "Top Panel"
+msgstr "Panoul de sus"
+
+msgid "Right Panel"
+msgstr "Panoul din dreapta"
+
+msgid "Left Panel"
+msgstr "Panoul din stânga"
+
+msgid "Bottom Panel"
+msgstr "Panoul de jos"
+
+msgid "Top"
+msgstr "Sus"
+
+msgid "Right"
+msgstr "Dreapta"
+
+msgid "Left"
+msgstr "Stânga"
+
+msgid "Bottom"
+msgstr "Jos"
+
+msgid "Always"
+msgstr "Întotdeauna"
+
+msgid "Dynamic"
+msgstr "Dinamic"
+
+msgid "Automatic"
+msgstr "Automat"
+
+msgid "Intelligent"
+msgstr "Inteligent"
+
+msgid "Never"
+msgstr "Niciodată"
+
+msgid "Position"
+msgstr "Poziție"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "Alege marginea ecranului unde va sta acest panou"
+
+msgid "Size"
+msgstr "Mărime"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr ""
+"Alege mărimea acestui panou (lățimea sau înălțimea, în funcție de orientare)"
+
+msgid "Spacing"
+msgstr ""
+
+msgid "Set the spacing between applets for this panel"
+msgstr ""
+
+msgid "Automatically hide"
+msgstr "Ascundere automată"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr ""
+"Odată setat, acest panou se va ascunde pentru a maximaliza spațiul "
+"disponibil"
+
+msgid "Transparency"
+msgstr "Transparență"
+
+msgid "Control when this panel should have a solid background"
+msgstr "Determină când are acest panou fundal opac"
+
+msgid "Shadow"
+msgstr "Umbră"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr "Adaugă o umbră decorativă, ideală pentru panouri opace"
+
+msgid "Stylize regions"
+msgstr "Stilizare regiuni"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr ""
+"Adaugă o nuanță panoului, astfel încât fiecare dintre cele trei zone "
+"principale ale lui pot fi tematizate diferit."
+
+msgid "Dock mode"
+msgstr "Modul dock"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr ""
+"Atâta timp cât se află în modul dock, panoul va folosi spațiu minimal, "
+"lăsând mai mult disponibil"
+
+msgid "Windows"
+msgstr "Ferestre"
+
+msgid "Button layout"
+msgstr "Configurația butoanelor"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "Modificați aspectul butoanelor din barele de titlu ale aplicațiilor."
+
+msgid "Center new windows on screen"
+msgstr "Centrează ferestrele noi pe ecran"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "Centrează ferestrele nou lansate pe ecranul curent."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr ""
+"Dezactivați modul Lumină de Noapte atunci când ferestrele sunt ecran complet"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr ""
+"Dezactivează modul Lumină de Noapte atunci când o fereastră este afișată pe "
+"tot ecranul. Re-activează la părăsirea ecranului complet."
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr ""
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr ""
+
+msgid "Automatic tiling"
+msgstr "Dispunere automată"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr ""
+"Ferestrele vor fi automat aranjate când sunt trase în partea de sus a "
+"ecranului sau în colțurile îndepărtate."
+
+msgid "Window focus mode"
+msgstr ""
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr ""
+
+msgid "Show all windows in tab switcher"
+msgstr ""
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr ""
+
+msgid "Right (standard)"
+msgstr "Dreapta (standard)"
+
+msgid "Click"
+msgstr ""
+
+msgid "Sloppy"
+msgstr ""
+
+msgid "Style"
+msgstr "Stil"
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "Alege aspectul decorațiunilor și controlorilor de ferestre"
+
+msgid "Icons"
+msgstr "Pictograme"
+
+msgid "Set the globally used icon theme"
+msgstr "Alege tema de pictograme globală"
+
+msgid "Cursors"
+msgstr "Cursoare"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "Alege tema globală a cursoarelor de mouse"
+
+msgid "Notification Position"
+msgstr "Poziția de notificare"
+
+msgid "Set the location for notification popups"
+msgstr "Setați locația pentru ferestrele de notificare"
+
+msgid "Dark theme"
+msgstr "Temă întunecată"
+
+msgid "Built-in theme"
+msgstr "Tema integrată"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr ""
+"Când este activată, tema implicită va suprascrie styling-ul componentei "
+"desktop"
+
+msgid "Animations"
+msgstr "Animații"
+
+msgid "Control whether windows and controls use animations"
+msgstr "Determină dacă ferestrele și controlorii folosesc animații"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr ""
+
+msgid "Labwc Compositor Theme"
+msgstr ""
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme."
+msgstr ""
+
+msgid "Top Left"
+msgstr "Stânga sus"
+
+msgid "Bottom Left"
+msgstr "Stânga jos"
+
+msgid "Bottom Right"
+msgstr "Dreapta jos"
+
+msgid "Top Right"
+msgstr "Dreapta sus"
+
+msgid "Notifications"
+msgstr "Notificări"
+
+msgid "No widgets added."
+msgstr ""
+
+msgid "Nothing to see here"
+msgstr "Nimic de văzut aici"
+
+msgid "No new notifications"
+msgstr "Nu aveți notificări noi"
+
+msgid "No apps are currently playing audio."
+msgstr "Nicio aplicație nu redă muzică momentan."
+
+msgid "Play some music"
+msgstr "Redă niște muzică"
+
+msgid "Unknown Title"
+msgstr ""
+
+msgid "Unknown Artist"
+msgstr ""
+
+msgid "Unknown Album"
+msgstr ""
+
+#, c-format
+msgid "Playing - %s"
+msgstr ""
+
+#, c-format
+msgid "Paused - %s"
+msgstr ""
+
+msgid "No apps are playing audio."
+msgstr ""
+
+msgid "Apps"
+msgstr "Aplicații"
+
+msgid "Devices"
+msgstr "Dispozitive"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.in.h:1
+msgid "Usage Monitor"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "RAM"
+msgstr ""
+
+msgid "Swap"
+msgstr ""
+
+msgid "Oldest to newest"
+msgstr ""
+
+msgid "Newest to oldest"
+msgstr ""
+
+#: src/daemon/endsession.ui.h:2
+msgid "Are you sure you want to end your session?"
+msgstr "Sigur doriți să terminați sesiunea?"
+
+#: src/dialogs/polkit/dialog.ui.h:1
+msgid "Authentication Required"
+msgstr "Autentificarea este necesară"
+
+#: src/dialogs/polkit/dialog.ui.h:2
+msgid "Password:"
+msgstr "Parola:"
+
+#: src/dialogs/polkit/dialog.ui.h:3
+msgid "Username:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui.h:4
+msgid "Authentication is required"
+msgstr "Autentificarea este necesară"
+
+#: src/dialogs/polkit/dialog.ui.h:5
+msgid "Details"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui.h:6
+msgid "Action:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui.h:7
+msgid "ID:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui.h:9
+msgid "Authenticate"
+msgstr "Autentifică"
+
+#: src/dialogs/screenshot/aftershot.ui.h:1
+msgid "Name:"
+msgstr ""
+
+#: src/dialogs/screenshot/aftershot.ui.h:2
+msgid "Folder:"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui.h:1
+msgid "Delay in seconds"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui.h:2
+msgid "Show Pointer"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui.h:3
+msgid "Play sound when capturing"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:1
+msgid "Show Menu Label"
+msgstr "Arată eticheta de meniu"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:2
+msgid "Menu Label"
+msgstr "Eticheta de meniu"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:3
+msgid "Use Default Menu Icon"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:4
+msgid "Menu Icon"
+msgstr "Pictograma de meniu"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:5
+msgid "Compact Mode"
+msgstr "Modul compact"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:6
+msgid "Show Headers"
+msgstr "Arată antetul"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:7
+msgid "Roll-over mouse"
+msgstr "Conținutul se arată la trecerea mouse-ului"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:8
+msgid "Show settings items"
+msgstr ""
+
+#: src/panel/applets/caffeine/settings.ui.h:1
+msgid "Enable notification"
+msgstr "Activați notificarea"
+
+#: src/panel/applets/caffeine/settings.ui.h:2
+msgid "Maximize brightness"
+msgstr "Maximizați luminozitatea"
+
+#: src/panel/applets/caffeine/settings.ui.h:3
+msgid "Brightness Level"
+msgstr "Nivelul luminozității"
+
+#: src/panel/applets/clock/settings.ui.h:1
+msgid "Show date"
+msgstr "Arată data"
+
+#: src/panel/applets/clock/settings.ui.h:2
+msgid "Show seconds"
+msgstr "Arată secundele"
+
+#: src/panel/applets/clock/settings.ui.h:3
+msgid "Use 24 hour time"
+msgstr "Folosește formatul cu 24 ore"
+
+#: src/panel/applets/clock/settings.ui.h:4
+msgid "Custom Format"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui.h:6
+#, no-c-format
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui.h:7
+msgid "Custom Timezone"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui.h:8
+msgid "UTC"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:1
+msgid "Show all windows on click"
+msgstr "Afișați toate ferestrele prin clic"
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:2
+msgid "Only show favorited"
+msgstr "Afișați doar favorite"
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:3
+msgid "Lock icons"
+msgstr "Blocați pictogramele"
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:4
+msgid "Restrict to Workspace"
+msgstr "Limitați la spațiul de lucru"
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:5
+msgid "Middle click to launch new window"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:6
+msgid "Require a double-click to launch new window"
+msgstr ""
+
+#: src/panel/applets/night-light/indicator_window.ui.h:1
+msgid "Night Light"
+msgstr "Lumină nocturnă"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:2
+msgid "Temperature"
+msgstr "Temperatură"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:3
+msgid "Schedule"
+msgstr "Program"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:4
+msgid "Sunset to Sunrise"
+msgstr "De la asfințitul până la răsăritul soarelui"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:5
+msgid "Manual"
+msgstr "Manual"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:6
+msgid "Display Settings"
+msgstr "Setări pentru ecran"
+
+#: src/panel/applets/places-indicator/settings.ui.h:1
+msgid "Show label"
+msgstr "Arată eticheta"
+
+#: src/panel/applets/places-indicator/settings.ui.h:2
+msgid "Show places"
+msgstr "Arată locuri"
+
+#: src/panel/applets/places-indicator/settings.ui.h:3
+msgid "Show network folders"
+msgstr "Arată directoarele din rețea"
+
+#: src/panel/applets/places-indicator/settings.ui.h:4
+msgid "Show removable drives"
+msgstr "Arată dispozitivele detașabile"
+
+#: src/panel/applets/places-indicator/settings.ui.h:5
+msgid "Always expand places"
+msgstr "Întotdeauna desfășoară"
+
+#: src/panel/applets/spacer/settings.ui.h:1
+msgid "Spacer size"
+msgstr "Mărime distanțier"
+
+#: src/panel/applets/status/settings.ui.h:1
+#: src/panel/applets/tray/settings.ui.h:1
+msgid "Icon Spacing"
+msgstr ""
+
+#: src/panel/applets/status/settings.ui.h:2
+msgid "Show battery percentage"
+msgstr "Arată procentajul bateriei"
+
+#: src/panel/applets/trash/settings.ui.h:1
+msgid "Sort Mode"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:2
+msgid "Sort by type"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:3
+msgid "Sort alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:4
+msgid "Sort reverse alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:5
+msgid "Sort by date ascending"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:6
+msgid "Sort by date descending"
+msgstr ""
+
+#: src/panel/applets/tray/settings.ui.h:2
+msgid "Scale icons with panel size"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:1
+msgid "\"Add\" button visibility"
+msgstr "\"Adăugați \" butonul de vizibilitate"
+
+#: src/panel/applets/workspaces/settings.ui.h:2
+msgid "Item Size Multiplier"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:3
+msgid "Don't show"
+msgstr "Nu afișați"
+
+#: src/panel/applets/workspaces/settings.ui.h:4
+msgid "Show on mouseover"
+msgstr "Afișează la trecerea mouse-ului peste"
+
+#: src/panel/applets/workspaces/settings.ui.h:5
+msgid "Always show"
+msgstr "Arătați întotdeauna"
+
+#: src/panel/applets/workspaces/settings.ui.h:6
+msgid "0.5x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:7
+msgid "0.75x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:8
+msgid "1.0x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:9
+msgid "1.5x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:10
+msgid "2.0x"
+msgstr ""
+
+#: src/panel/applets/tasklist/settings.ui.h:1
+msgid "Show button icons"
+msgstr ""
+
+#: src/panel/applets/tasklist/settings.ui.h:2
+msgid "Show button labels"
+msgstr ""
+
+#: src/raven/widgets/calendar/settings.ui.h:1
+msgid "Show Week Numbers"
+msgstr ""
+
+#: src/raven/widgets/calendar/settings.ui.h:2
+msgid "Show Day Names"
+msgstr ""
+
+#: src/raven/widgets/sound-input/settings.ui.h:1
+#: src/raven/widgets/sound-output/settings.ui.h:1
+msgid "Allow Volume Overdrive"
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/settings.ui.h:1
+msgid "Show Swap Usage"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in.h:2
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in.h:2
+msgid "Ragnar screenshot app"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.in.h:1
+msgid "Search for and start up applications."
+msgstr ""
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.in.h:1
+msgid "Prevent the system and screen from sleeping."
+msgstr ""
+
+#: src/panel/applets/clock/ClockApplet.plugin.in.h:1
+msgid "A digital clock with a customizable format."
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.in.h:1
+msgid "A configurable application task list."
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.in.h:1
+msgid "Indicates which keyboard layout is currently in use."
+msgstr ""
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.in.h:1
+msgid "Show status of lock keys."
+msgstr ""
+
+#: src/panel/applets/night-light/NightLight.plugin.in.h:1
+msgid "Toggle and modify Night Light settings."
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.in.h:1
+msgid "Open the Raven notifications view."
+msgstr ""
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.in.h:1
+msgid "Show drives and favorite folders."
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.in.h:1
+msgid "Open the Raven sidebar."
+msgstr ""
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.in.h:1
+msgid "Visual separator between applets."
+msgstr ""
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.in.h:1
+msgid "A button that toggles visibility of the desktop."
+msgstr ""
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.in.h:1
+msgid "Adjustable spacer to put between other applets."
+msgstr ""
+
+#: src/panel/applets/status/StatusApplet.plugin.in.h:1
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr ""
+
+#: src/panel/applets/trash/TrashApplet.plugin.in.h:1
+msgid "Manage your trash from the Ragnar panel"
+msgstr ""
+
+#: src/panel/applets/tray/TrayApplet.plugin.in.h:1
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr ""
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.in.h:1
+msgid "Opens the power dialog."
+msgstr ""
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.in.h:1
+msgid "Display workspaces and switch between them."
+msgstr ""
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.in.h:1
+msgid "An application task list with icons and labels."
+msgstr ""
+
+#: src/panel/ragnar-desktop-settings.desktop.in.h:2
+msgid "Change desktop appearance and behavior"
+msgstr "Modificați aspectul și comportamentul desktopului"
+
+#: src/panel/ragnar-panel.desktop.in.h:1
+msgid "Ragnar Panel"
+msgstr "Panou Ragnar"
+
+#: src/panel/ragnar-panel.desktop.in.h:2
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr ""
+"Lansează alte aplicații și furnizează utilități pentru administrarea "
+"ferestrelor, arătarea orei, etc."
+
+#: src/raven/widgets/calendar/Calendar.plugin.in.h:1
+msgid "Calendar"
+msgstr "Calendar"
+
+#: src/raven/widgets/calendar/Calendar.plugin.in.h:2
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.in.h:1
+msgid "Media Controls"
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.in.h:2
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.in.h:1
+msgid "Sound Input"
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.in.h:2
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.in.h:1
+msgid "Sound Output"
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.in.h:2
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.in.h:2
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr ""
+
+#: src/session/ragnar-desktop.session.in.in.h:1
+#: src/session/ragnar-desktop.desktop.in.in.h:1
+msgid "Ragnar Desktop"
+msgstr "Desktop Ragnar"
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in.h:1
+msgid "Ragnar Desktop (magpie)"
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in.h:2
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in.h:2
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr ""
+

@@ -1,0 +1,23 @@
+[package]
+name = "ragnar-keyboard-layout"
+version = "0.1.0"
+edition = "2021"
+description = "Keyboard-layout D-Bus broker for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# gio/glib only: session-bus service, headless daemon — the actual
+# layout application is done by the compositor bridge, which
+# consumes the signals this service emits.
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "LieraOS Project <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/ragnar-keyboard-layout", "usr/bin/ragnar-keyboard-layout", "755"],
+    ["data/org.lieraos.ragnar.KeyboardLayout.desktop", "etc/xdg/autostart/", "644"],
+]

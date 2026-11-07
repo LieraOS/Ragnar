@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar Raven
+Comment=Appointment reminder daemon and notification sidebar
+Exec=ragnar-raven
+Icon=x-office-calendar
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

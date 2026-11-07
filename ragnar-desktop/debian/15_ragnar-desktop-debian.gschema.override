@@ -1,0 +1,8 @@
+[org.gnome.settings-daemon.plugins.xsettings:Ragnar]
+overrides={'Gtk/ShellShowsAppMenu': <0>, 'Gtk/DecorationLayout': <'menu:minimize,maximize,close'>}
+
+[org.lieraos.ragnar.wm]
+desktop-type-override='ragnar'
+
+[org.blueman.general:Ragnar]
+plugin-list=['!StatusNotifierItem']

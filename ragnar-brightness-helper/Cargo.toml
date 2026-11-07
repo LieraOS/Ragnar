@@ -1,0 +1,24 @@
+[package]
+name = "ragnar-brightness-helper"
+version = "0.1.0"
+edition = "2021"
+description = "Backlight control helper for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# gio/glib only: the helper calls logind SetBrightness over the
+# system bus — no GUI, no extra D-Bus crate needed.
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "LieraOS Project <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+# The legacy legacy helper ships inside ragnar-core at the same path;
+# Replaces hands the file over to this package.
+depends = "$auto"
+replaces = "ragnar-core"
+assets = [
+    ["target/release/ragnar-brightness-helper", "usr/bin/ragnar-brightness-helper", "755"],
+]

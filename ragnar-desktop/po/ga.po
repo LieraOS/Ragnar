@@ -1,0 +1,2063 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Joshua Strobl <joshua.strobl@outlook.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 15:27+0300\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Joshua Strobl <joshua.strobl@outlook.com>, 2026\n"
+"Language-Team: Irish (https://app.transifex.com/buddiesofragnar/teams/129844/ga/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ga\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "Eile"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Games"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "Internet"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Programming"
+msgstr ""
+
+msgid "Science"
+msgstr ""
+
+msgid "Sound & Video"
+msgstr ""
+
+msgid "System Tools"
+msgstr ""
+
+msgid "Universal Access"
+msgstr ""
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr ""
+
+msgid "Log out"
+msgstr "Logáil amach"
+
+msgid "Restart device"
+msgstr "Atosaigh an gléas"
+
+#: src/daemon/endsession.ui:47
+msgid "Power Off"
+msgstr "Múch"
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr ""
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr ""
+
+msgid "Caps Lock is on"
+msgstr ""
+
+msgid "Caps Lock is off"
+msgstr ""
+
+msgid "Num Lock is on"
+msgstr ""
+
+msgid "Num Lock is off"
+msgstr ""
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "Steall Chaiféine i bhfeidhm"
+
+msgid "Turned off Caffeine Boost"
+msgstr "Steall Chaiféine as feidhm"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+msgid "Authentication failed"
+msgstr "Theip ar fíordheimhniú"
+
+msgid "Group:"
+msgstr "Grúpa:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr ""
+
+msgid "L_og Out"
+msgstr ""
+
+msgid "_Suspend"
+msgstr ""
+
+msgid "_Hibernate"
+msgstr ""
+
+msgid "_Reboot"
+msgstr ""
+
+msgid "Shut_down"
+msgstr ""
+
+msgid "This system does not support hibernation."
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:3
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:3
+msgid "Ragnar Screenshot"
+msgstr ""
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr ""
+
+msgid "Screenshot active window"
+msgstr ""
+
+msgid "Screenshot selected area"
+msgstr ""
+
+#. translate
+msgid "Cancel screenshot"
+msgstr ""
+
+msgid "Save screenshot to the selected directory"
+msgstr ""
+
+msgid "Copy screenshot to the clipboard"
+msgstr ""
+
+msgid "Open screenshot in default application"
+msgstr ""
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr ""
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr ""
+
+#: src/daemon/endsession.ui:92 src/dialogs/polkit/dialog.ui:321
+msgid "Cancel"
+msgstr "Cealaigh"
+
+msgid "Open"
+msgstr ""
+
+msgid "Files to send"
+msgstr ""
+
+msgid "_Cancel"
+msgstr ""
+
+msgid "_Open"
+msgstr ""
+
+msgid "Send Files via Bluetooth"
+msgstr ""
+
+msgid "Send files to device…"
+msgstr ""
+
+msgid "Rejected file"
+msgstr ""
+
+#, c-format
+msgid "File already exists: %s"
+msgstr ""
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr ""
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Reject"
+msgstr ""
+
+msgid "File name"
+msgstr ""
+
+msgid "Transfer rate"
+msgstr ""
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr ""
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr ""
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr ""
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Speaker"
+msgstr ""
+
+msgid "Controller"
+msgstr ""
+
+msgid "Keyboard"
+msgstr ""
+
+msgid "Mouse"
+msgstr ""
+
+msgid "Tablet"
+msgstr ""
+
+msgid "Touchpad"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Bluetooth File Transfer"
+msgstr ""
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr ""
+
+msgid "File transfer failed"
+msgstr ""
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr ""
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr ""
+
+msgid "File transferred successfully"
+msgstr ""
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr ""
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr ""
+
+msgid "The file has not been transferred."
+msgstr ""
+
+msgid "Retry"
+msgstr ""
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr ""
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr ""
+
+msgid "Select a Bluetooth device to send files to"
+msgstr ""
+
+msgid "Discovering…"
+msgstr ""
+
+msgid "<b>No devices found</b>"
+msgstr ""
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr ""
+
+msgid "Available Devices"
+msgstr ""
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "Mód Caiféine"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:2
+msgid "Ragnar Desktop Settings"
+msgstr "Socruithe Deasc Ragnar"
+
+msgid "System Settings"
+msgstr "Socruithe Córais"
+
+msgid "Power"
+msgstr ""
+
+msgid "Set menu icon from file"
+msgstr "Socraigh deilbhín don roghchlár ó chomhad"
+
+msgid "Image files"
+msgstr "Comhaid Íomhá"
+
+msgid "Any file"
+msgstr "Gach comhad"
+
+msgid "Set icon"
+msgstr "Socraigh deilbhín"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "All"
+msgstr "Gach rud"
+
+msgid "Remove from favorites"
+msgstr ""
+
+msgid "Add to favorites"
+msgstr ""
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "Brón orm, ní bhfuarthas dada"
+
+msgid "Timer (minutes)"
+msgstr "Uaineadóir (nóiméid)"
+
+msgid "System time and date settings"
+msgstr ""
+
+msgid "Unfavorite"
+msgstr "Bain de na Ceanáin"
+
+msgid "Favorite"
+msgstr "Cuir leis na Ceanáin"
+
+msgid "Close all windows"
+msgstr ""
+
+msgid "Launch new instance"
+msgstr ""
+
+msgid "Minimize"
+msgstr "Íoslaghdaigh"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr ""
+
+msgid "Unmaximize"
+msgstr "Dí-uasmhéadaigh"
+
+msgid "Maximize"
+msgstr "Uasmhéadaigh"
+
+msgid "Close window"
+msgstr ""
+
+msgid "Show window controls"
+msgstr ""
+
+msgid "Caps lock is active"
+msgstr "Caps Lock i bhfeidhm"
+
+msgid "Caps lock is not active"
+msgstr "Caps Lock as feidhm"
+
+msgid "Num lock is active"
+msgstr "Num Lock i bhfeidhm"
+
+msgid "Num lock is not active"
+msgstr "Num Lock as feidhm"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+msgid "No unread notifications"
+msgstr "Gach fógra léite"
+
+msgid "Volume is in use by other processes"
+msgstr "Tá an t-imleabhar sin in úsáid ag próisis eile"
+
+msgid "Operation aborted"
+msgstr "Thobscoireadh an oibríocht"
+
+msgid "Type your password"
+msgstr "Cuir isteach d’fhocal faire"
+
+msgid "Removable devices"
+msgstr "Gléasanna inbhainte"
+
+msgid "Local volumes"
+msgstr "Imleabhair áitiúla"
+
+msgid "Network folders"
+msgstr "Fillteáin líonra"
+
+msgid "Eject"
+msgstr "Díchuir"
+
+msgid "Unmount"
+msgstr "Dífheistigh"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "Oscail \"%s\""
+
+msgid "You can now safely remove"
+msgstr "Is féidir an gléas seo a bhaint anois gan bhaol"
+
+msgid "Unknown Device"
+msgstr "Gléas anaithnid"
+
+msgid "Error while ejecting device"
+msgstr "Tharla earráid agus an gléas á dhíchur"
+
+msgid "Error while unmounting volume"
+msgstr "Tharla earráid agus an t-imleabhar á dhífheistiú"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:4
+msgid "Places"
+msgstr "Áiteanna"
+
+msgid "Nothing to display right now"
+msgstr "Níl dada le taispeáint faoi láthair"
+
+msgid "Mount some drives"
+msgstr "Feistigh roinnt tiomantán"
+
+msgid "Enable more sections"
+msgstr "Cumasaigh tuilleadh rann"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "Feistigh agus oscail \"%s\""
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr ""
+"Cuir isteach an pasfhrása criptiúcháin chun an t-imleabhar seo a dhíghlasáil"
+
+msgid "The password you entered is incorrect"
+msgstr "Níor chuir tú isteach an focal faire ceart"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr ""
+"Tharla earráid anaithnid le linn iarracht ar fheistiú an imleabhair seo"
+
+msgid "Toggle the desktop"
+msgstr "Scoránaigh an deasc"
+
+msgid "Bluetooth"
+msgstr ""
+
+msgid "Bluetooth Settings"
+msgstr "Socruithe Bluetooth"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr ""
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr ""
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr ""
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr ""
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr ""
+
+msgid "Send file"
+msgstr ""
+
+msgid "Disconnect"
+msgstr ""
+
+msgid "Disconnecting…"
+msgstr ""
+
+msgid "Connecting…"
+msgstr ""
+
+msgid "Failed to disconnect"
+msgstr ""
+
+msgid "Failed to connect"
+msgstr ""
+
+msgid "Connected"
+msgstr ""
+
+msgid "Disconnected"
+msgstr ""
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr ""
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr ""
+
+msgid "Battery fully charged."
+msgstr "Cadhnra luchtaithe."
+
+msgid "Unknown"
+msgstr "Anaithnid"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "Cadhnra á luchtú"
+
+msgid "Battery remaining"
+msgstr "Lucht fágtha"
+
+msgid "Performance Mode"
+msgstr ""
+
+msgid "Power Saver"
+msgstr ""
+
+msgid "Balanced"
+msgstr ""
+
+msgid "Performance"
+msgstr ""
+
+msgid "Power settings"
+msgstr "Socruithe Cumhachta"
+
+#: src/panel/applets/trash/trash_applet.c:228
+#: src/panel/applets/trash/trash_item_row.c:332
+#: src/panel/applets/trash/trash_item_row.c:363
+msgid "Trash Error"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:155
+msgid "Permanently delete this item"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:162
+msgid "Are you sure you want to delete this item?"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:168
+#: src/panel/applets/trash/trash_popover.c:320
+msgid "No"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:169
+#: src/panel/applets/trash/trash_popover.c:321
+msgid "Yes"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:333
+#, c-format
+msgid "Unable to delete '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:364
+#, c-format
+msgid "Unable to restore '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:119
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:4
+msgid "Trash Bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:125
+msgid "Settings"
+msgstr "Socruithe"
+
+#. Header label
+#. Switcher to show or hide a shortcut to Trash
+#: src/panel/applets/trash/trash_popover.c:274
+msgid "Trash"
+msgstr "Bruscar"
+
+#: src/panel/applets/trash/trash_popover.c:283
+msgid "Trash Applet Settings"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:300
+msgid "Restore"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:301
+msgid "Restore selected items"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:303
+msgid "Empty"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:304
+msgid "Empty the trash bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:311
+msgid "Are you sure you want to empty the trash bin?"
+msgstr ""
+
+#. User Menu Creation
+msgid "User"
+msgstr "Úsáideoir"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "Glasáil"
+
+msgid "Suspend"
+msgstr "Cuir ar Fionraí"
+
+msgid "Hibernate"
+msgstr "Suanaigh"
+
+#: src/daemon/endsession.ui:124
+msgid "Restart"
+msgstr "Atosaigh"
+
+#: src/daemon/endsession.ui:142
+msgid "Shutdown"
+msgstr "Múch"
+
+#: src/daemon/endsession.ui:106
+msgid "Logout"
+msgstr "Logáil Amach"
+
+msgid "Rename"
+msgstr "Athainmnigh"
+
+msgid "Remove"
+msgstr "Bain"
+
+msgid "Not able to create new workspaces"
+msgstr ""
+
+msgid "Create a new workspace"
+msgstr ""
+
+msgid "Untitled"
+msgstr "Gan teideal"
+
+msgid "No description"
+msgstr "Gan cur síos"
+
+msgid "running"
+msgstr "ag rith"
+
+msgid "Applications"
+msgstr "Feidhmchláir"
+
+msgid "Add"
+msgstr "Cuir leis"
+
+msgid "Command"
+msgstr "Ordú"
+
+msgid "An entry with that title already exists"
+msgstr "Tá iontráil ann cheana leis an teideal sin"
+
+msgid "Title"
+msgstr "Teideal"
+
+msgid "Required"
+msgstr "Riachtanach"
+
+msgid "Description"
+msgstr "Cur Síos"
+
+msgid "Optional"
+msgstr "Roghnach"
+
+msgid "Autostart"
+msgstr "Uath-thosú"
+
+msgid "Autostart apps"
+msgstr "Aipeanna Uath-thosaithe"
+
+msgid "Add Application"
+msgstr "Feidhmchláir Nua"
+
+msgid "Add Command"
+msgstr "Ordú Nua"
+
+msgid "Desktop"
+msgstr "Deasc"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "Deilbhíní Deisce"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr "Rialaigh an mbeidh deilbhíní le feiceáil ar an deasc."
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr "Ionaid Ghléasta Gníomhacha"
+
+msgid "Show all active mounts on the desktop."
+msgstr "Taispeáin gach ionad gléasta gníomhach ar an deasc."
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "Fillteán Baile"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "Cuir aicearra chuig d’fhillteán baile ar an deasc."
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "Cuir aicearra chuig an fillteán Bruscair ar an deasc."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr "Méid Deilbhíní"
+
+msgid "Set the desired size of icons on the desktop."
+msgstr "Socraigh méid do dheilbhíní ar an deasc."
+
+msgid "Number of virtual desktops"
+msgstr "Líon na ndeasc fíorúil"
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr ""
+"Líon na ndeasc fíorúil / spásanna oibre fíorúla le cruthú ar am tosaithe."
+
+msgid "Single"
+msgstr "Clic amháin"
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr "Déchliceáil"
+
+msgid "Click Policy"
+msgstr "Polasaí Cliceála"
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr ""
+"Socraíonn an Polasaí Cliceála cé acu clic amháin nó déchliceáil a osclóidh "
+"míreanna."
+
+msgid "Normal"
+msgstr "Gnách"
+
+#. Small
+msgid "Small"
+msgstr "Beag"
+
+#. Large
+msgid "Large"
+msgstr "Mór"
+
+#. Massive
+msgid "Massive"
+msgstr "Ollmhór"
+
+msgid "Displays"
+msgstr ""
+
+msgid "Connected Monitors"
+msgstr ""
+
+msgid "Panel Placement"
+msgstr ""
+
+msgid ""
+"Select which monitor should be the primary display for panel placement."
+msgstr ""
+
+msgid "Use Automatic Selection"
+msgstr ""
+
+msgid "Clear Primary Monitor"
+msgstr ""
+
+msgid "Remove manual primary monitor selection."
+msgstr ""
+
+msgid "Fallback Monitors"
+msgstr ""
+
+msgid "Order used when primary is disconnected"
+msgstr ""
+
+msgid "No monitors detected"
+msgstr ""
+
+msgid "No fallback monitors configured"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Unknown model"
+msgstr ""
+
+msgid "Set as Primary"
+msgstr ""
+
+msgid "(last known)"
+msgstr ""
+
+msgid "No cached information"
+msgstr ""
+
+msgid "Fonts"
+msgstr "Clófhoirne"
+
+msgid "Window Titles"
+msgstr "Teidil Fuinneog"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "Socraigh an clófhoireann le húsáid i mbarraí teidil."
+
+msgid "Documents"
+msgstr "Cáipéisí"
+
+msgid "Set the display font used by for documents."
+msgstr "Socraigh an clófhoireann le húsáid i gcáipéisí."
+
+msgid "Interface"
+msgstr "Comhéadan"
+
+msgid "Set the primary font used by application controls."
+msgstr "Socraigh an príomhchlófhoireann le húsáid ar rialtáin feidhmchláir."
+
+msgid "Monospace"
+msgstr "Cló Aonleithid"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr "Socraigh an cló aonleithid le húsáid i bhfeidhmchláir téacs."
+
+msgid "Text scaling"
+msgstr "Scálú Téacs"
+
+msgid "Set the text scaling factor."
+msgstr "Socraigh an mhéid scálú téacs."
+
+msgid "Full"
+msgstr "Iomlán"
+
+msgid "Medium"
+msgstr "Meánach"
+
+msgid "Slight"
+msgstr "Éadrom"
+
+msgid "None"
+msgstr "As"
+
+msgid "Hinting"
+msgstr "Clóshlánú"
+
+msgid "Set the type of hinting to use."
+msgstr "Socraigh an cineál clóshlánaithe le húsáid."
+
+msgid "Subpixel (for LCD screens)"
+msgstr "Fophicteilín (le haghaidh scáileán LCD)"
+
+msgid "Standard (grayscale)"
+msgstr "Caighdeánach (liathscála)"
+
+msgid "Antialiasing"
+msgstr "Frithailiasáil"
+
+msgid "Set the type of antialiasing to use."
+msgstr "Socraigh an cineál frithailiasála le húsáid."
+
+msgid "Appearance"
+msgstr "Cuma"
+
+msgid "Panels"
+msgstr "Painéil"
+
+msgid "Session"
+msgstr "Seisiún"
+
+msgid "Create new panel"
+msgstr "Cruthaigh painéal nua"
+
+msgid "Applets"
+msgstr "Feidhmchláiríní"
+
+msgid "Remove Panel"
+msgstr "Bain painéal"
+
+msgid "Remove this panel from the screen"
+msgstr "Bain an painéal seo den scáileán"
+
+msgid "Top Dock"
+msgstr "Duga Uachtair"
+
+msgid "Right Dock"
+msgstr "Duga ar Dheis"
+
+msgid "Left Dock"
+msgstr "Duga ar Chlé"
+
+msgid "Bottom Dock"
+msgstr "Duga Íochtair"
+
+msgid "Top Panel"
+msgstr "Painéal Uachtair"
+
+msgid "Right Panel"
+msgstr "Painéal ar Dheis"
+
+msgid "Left Panel"
+msgstr "Painéal ar Chlé"
+
+msgid "Bottom Panel"
+msgstr "Painéal Íochtair"
+
+msgid "Top"
+msgstr "Uachtar"
+
+msgid "Right"
+msgstr "Deas"
+
+msgid "Left"
+msgstr "Clé"
+
+msgid "Bottom"
+msgstr "Íochtar"
+
+msgid "Always"
+msgstr "I gCónaí"
+
+msgid "Dynamic"
+msgstr "Dinimiciúil"
+
+msgid "Automatic"
+msgstr "Uathoibríoch"
+
+msgid "Intelligent"
+msgstr "Cliste"
+
+msgid "Never"
+msgstr "Ná ceil"
+
+msgid "Position"
+msgstr "Suíomh"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "Socraigh imeall den scáileán a mbeidh an painéal seo ann"
+
+msgid "Size"
+msgstr "Méid"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr ""
+"Socraigh méid an phainéil seo (leithead nó airde, de réir a threoshuímh)"
+
+msgid "Spacing"
+msgstr ""
+
+msgid "Set the spacing between applets for this panel"
+msgstr ""
+
+msgid "Automatically hide"
+msgstr "Ceil go huathoibríoch"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr ""
+"I bhfeidhm, ceilfear an painéal seo chun an méid is mó scáileáin a "
+"thaispeáint"
+
+msgid "Transparency"
+msgstr "Trédhearcacht"
+
+msgid "Control when this panel should have a solid background"
+msgstr "Rialaigh cén uair ba cheart trédhearcacht a chur ar an bpainéal seo"
+
+msgid "Shadow"
+msgstr "Scáth"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr "Cuir scáth ornáideach leis, oiriúnach le painéil theimhneacha"
+
+msgid "Stylize regions"
+msgstr "Stíligh réigiúin"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr ""
+"Cuir leid leis an bpainéal sa chaoi gur féidir stíl ar leith a chur ar na "
+"trí réigiún sa phainéal."
+
+msgid "Dock mode"
+msgstr "Mód Duga"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr ""
+"Nuair atá mód duga i bhfeidhm, úsáideann an painéal an mhéid is lú scáileáin"
+
+msgid "Applet Settings"
+msgstr ""
+
+msgid "Add applet"
+msgstr "Cuir feidhmchláirín leis"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "Roghnaigh feidhmchláirín nua le cur leis an bpainéal seo"
+
+msgid "No settings available"
+msgstr "Níl socrú ar bith le fáil"
+
+msgid "Start"
+msgstr "Tús"
+
+msgid "Center"
+msgstr "Lár"
+
+msgid "End"
+msgstr "Bun"
+
+msgid "Confirm panel removal"
+msgstr "Dearbhaigh baint painéil"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr ""
+"An bhfuil tú cinnte gur maith leat an painéal seo a bhaint? \n"
+"Ní féidir an gníomh seo a chur ar ceal."
+
+msgid "Remove panel"
+msgstr "Bain painéal"
+
+msgid "Keep panel"
+msgstr "Coinnigh painéal"
+
+msgid "Confirm applet removal"
+msgstr "Dearbhaigh baint feidhmchláirín"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr ""
+"An bhfuil tú cinnte gur maith leat an feidhmchláirín seo a bhaint? \n"
+"Ní féidir an gníomh seo a chur ar ceal."
+
+msgid "Don't ask me again"
+msgstr "Ná cuir an cheist seo orm arís"
+
+msgid "Remove applet"
+msgstr "Bain feidhmchláirín"
+
+msgid "Keep applet"
+msgstr "Coinnigh feidhmchláirín"
+
+msgid "Confirm widget removal"
+msgstr ""
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr ""
+
+msgid "Built-in"
+msgstr ""
+
+msgid "Choose a plugin"
+msgstr ""
+
+msgid "No description."
+msgstr ""
+
+#, c-format
+msgid "by %s"
+msgstr ""
+
+msgid "No authors listed"
+msgstr ""
+
+msgctxt "Raven"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set Raven position"
+msgstr "Socraigh suíomh Raven"
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr ""
+"Socraigh an taobh scáileáin ar a n-osclófar Raven. Más Uathoibríoch an "
+"rogha, osclóidh Raven san áit ina bhfuil a mháthairphainéal."
+
+msgid "Set notification sort order"
+msgstr ""
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr ""
+
+msgid "Widget Settings"
+msgstr ""
+
+msgid "Add widget"
+msgstr ""
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr ""
+
+msgid "Style"
+msgstr "Stíl"
+
+msgctxt "Styling"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "Socraigh cuma mhaisiúcháin is rialtáin fuinneog"
+
+msgid "Icons"
+msgstr "Deilbhíní"
+
+msgid "Set the globally used icon theme"
+msgstr "Socraigh an téama uilíoch deilbhíní"
+
+msgid "Cursors"
+msgstr "Cúrsóirí"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "Socraigh an téama uilíoch do chúrsóirí luch"
+
+msgid "Notification Position"
+msgstr "Suíomh Fógraí"
+
+msgid "Set the location for notification popups"
+msgstr "Socraigh an suíomh do na fógraí"
+
+msgid "Dark theme"
+msgstr "Téama dorcha"
+
+msgid "Built-in theme"
+msgstr "Téama ionsuite"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr "Sáróidh an téama ionsuite an stíl do na comhpháirteanna deisce"
+
+msgid "Animations"
+msgstr "Beochaintí"
+
+msgid "Control whether windows and controls use animations"
+msgstr "Rialaigh úsáid beochana ar fhuinneoga agus rialtáin"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr ""
+
+msgid "Labwc Compositor Theme"
+msgstr ""
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme"
+msgstr ""
+
+msgid "Top Left"
+msgstr "Barr Clé"
+
+msgid "Bottom Left"
+msgstr "Bun Clé"
+
+msgid "Bottom Right"
+msgstr "Bun Deas"
+
+msgid "Top Right"
+msgstr "Barr Deas"
+
+msgid "Windows"
+msgstr "Fuinneoga"
+
+msgid "Button layout"
+msgstr "Leagan amach Cnaipí"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "Athraigh leagan amach na gcnaipí i mbarraí teidil."
+
+msgid "Center new windows on screen"
+msgstr "Cuir fuinneoga nua i lár an scáileáin"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "Cuir fuinneoga nualainseáilte i lár an scáileáin."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr "Díchumasaigh mód Sholas Oíche nuair atá fuinneoga lánscáileáin ann"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr ""
+"Díchumasaítear mód Sholas Oíche nuair atá fuinneog i mód lánscáileáin. "
+"Cumasaítear arís é ag fágáil lánscáileán."
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr "Cuir fógraí ar sos agus fuinneoga lánscáileáin ann"
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr ""
+"Cuirtear cosc ar fhógraí agus fuinneog i mód lánscáileáin. Cuirtear i "
+"bhfeidhm iad arís ag fágáil lánscáileán."
+
+msgid "Automatic tiling"
+msgstr "Tíliú uathoibríoch"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr ""
+"Tíleofar fuinneoga go huathoibríoch nuair a tharraingíonn tú iad go barr an "
+"scáileán nó chuig a chúinní."
+
+msgid "Window focus mode"
+msgstr ""
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr ""
+
+msgid "Show all windows in tab switcher"
+msgstr "Taispeáin gach fuinneog sa mhalartóir cluaisín"
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr "Taispeánfar cluaisíní ó gach aon spás oibre."
+
+msgid "Right (standard)"
+msgstr "Deas (caighdeánach)"
+
+msgid "Click"
+msgstr ""
+
+msgid "Sloppy"
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:4
+msgid "Notifications"
+msgstr "Fógraí"
+
+msgid "No widgets added."
+msgstr ""
+
+msgid "Nothing to see here"
+msgstr "Níl dada le feiceáil anseo"
+
+msgid "No new notifications"
+msgstr "Gan fógra nua"
+
+msgid "Oldest to newest"
+msgstr ""
+
+msgid "Newest to oldest"
+msgstr ""
+
+msgid "No apps are currently playing audio."
+msgstr "Níl aip ar bith ag úsáid fuaime faoi láthair."
+
+msgid "Play some music"
+msgstr "Seinn roinnt ceoil"
+
+msgid "Unknown Title"
+msgstr ""
+
+msgid "Unknown Artist"
+msgstr ""
+
+msgid "Unknown Album"
+msgstr ""
+
+#, c-format
+msgid "Playing - %s"
+msgstr ""
+
+#, c-format
+msgid "Paused - %s"
+msgstr ""
+
+msgid "No apps are playing audio."
+msgstr ""
+
+msgid "Apps"
+msgstr "Aipeanna"
+
+msgid "Devices"
+msgstr "Gléasanna"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:4
+msgid "Usage Monitor"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "RAM"
+msgstr ""
+
+msgid "Swap"
+msgstr ""
+
+#: src/daemon/endsession.ui:71
+msgid "Are you sure you want to end your session?"
+msgstr "An bhfuil tú cinnte gur maith leat deireadh a chur le do sheisiún?"
+
+#: src/dialogs/polkit/dialog.ui:12 src/dialogs/polkit/dialog.ui:49
+msgid "Authentication Required"
+msgstr "Fíordheimhniú Riachtanach"
+
+#: src/dialogs/polkit/dialog.ui:71
+msgid "Password:"
+msgstr "Focal Faire:"
+
+#: src/dialogs/polkit/dialog.ui:103
+msgid "Username:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui:131
+msgid "Authentication is required"
+msgstr "Is riachtanach fíordheimhniú"
+
+#: src/dialogs/polkit/dialog.ui:184
+msgid "Details"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui:224
+msgid "Action:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui:259
+msgid "ID:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui:335
+msgid "Authenticate"
+msgstr "Fíordheimhnigh"
+
+#: src/dialogs/screenshot/aftershot.ui:48
+msgid "Name:"
+msgstr ""
+
+#: src/dialogs/screenshot/aftershot.ui:85
+msgid "Folder:"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui:35
+msgid "Delay in seconds"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui:91
+msgid "Show Pointer"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui:141
+msgid "Play sound when capturing"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui:23
+msgid "Show Menu Label"
+msgstr "Taispeáin Lipéad Roghchláir"
+
+#: src/panel/applets/ragnar-menu/settings.ui:48
+msgid "Menu Label"
+msgstr "Lipéad Roghchláir"
+
+#: src/panel/applets/ragnar-menu/settings.ui:72
+msgid "Use Default Menu Icon"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui:97
+msgid "Menu Icon"
+msgstr "Deilbhín Roghchláir"
+
+#: src/panel/applets/ragnar-menu/settings.ui:148
+msgid "Compact Mode"
+msgstr "Mód Néata"
+
+#: src/panel/applets/ragnar-menu/settings.ui:172
+msgid "Show Headers"
+msgstr "Taispeáin Ceannteidil"
+
+#: src/panel/applets/ragnar-menu/settings.ui:196
+msgid "Roll-over mouse"
+msgstr "Roghchlár Mear"
+
+#: src/panel/applets/ragnar-menu/settings.ui:221
+msgid "Show settings items"
+msgstr ""
+
+#: src/panel/applets/caffeine/settings.ui:23
+msgid "Enable notification"
+msgstr "Cumasaigh fógra"
+
+#: src/panel/applets/caffeine/settings.ui:35
+msgid "Maximize brightness"
+msgstr "Uasmhéadaigh an ghile"
+
+#: src/panel/applets/caffeine/settings.ui:47
+msgid "Brightness Level"
+msgstr "Leibhéal Gile"
+
+#: src/panel/applets/clock/settings.ui:15
+msgid "Show date"
+msgstr "Taispeáin an dáta"
+
+#: src/panel/applets/clock/settings.ui:38
+msgid "Show seconds"
+msgstr "Taispeáin soicindí"
+
+#: src/panel/applets/clock/settings.ui:61
+msgid "Use 24 hour time"
+msgstr "Úsáid Am 24-uair"
+
+#: src/panel/applets/clock/settings.ui:84
+msgid "Custom Format"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui:107
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui:120
+msgid "Custom Timezone"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui:143
+msgid "UTC"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui:15
+msgid "Show all windows on click"
+msgstr "Taispeáin gach fuinneog ar cliceáil"
+
+#: src/panel/applets/icon-tasklist/settings.ui:39
+msgid "Only show favorited"
+msgstr "Ná taispeáin ach ceanáin"
+
+#: src/panel/applets/icon-tasklist/settings.ui:63
+msgid "Lock icons"
+msgstr "Cuir deilbhíní faoi ghlas"
+
+#: src/panel/applets/icon-tasklist/settings.ui:88
+msgid "Restrict to Workspace"
+msgstr "Teorannaigh don Spás Oibre"
+
+#: src/panel/applets/icon-tasklist/settings.ui:112
+msgid "Middle click to launch new window"
+msgstr "Lainseáil fuinneog nua ar lárchliceáil"
+
+#: src/panel/applets/icon-tasklist/settings.ui:136
+msgid "Require a double-click to launch new window"
+msgstr "Lainseáil fuinneog nua ar déchliceáil"
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:28
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:4
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:44
+msgid "Keyboard Layout Settings"
+msgstr ""
+
+#: src/panel/applets/night-light/indicator_window.ui:37
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:4
+msgid "Night Light"
+msgstr "Solas Oíche"
+
+#: src/panel/applets/night-light/indicator_window.ui:85
+msgid "Temperature"
+msgstr "Teocht"
+
+#: src/panel/applets/night-light/indicator_window.ui:110
+msgid "Schedule"
+msgstr "Sceideal"
+
+#: src/panel/applets/night-light/indicator_window.ui:124
+msgid "Sunset to Sunrise"
+msgstr "Ó Luí go hÉirí na Gréine"
+
+#: src/panel/applets/night-light/indicator_window.ui:125
+msgid "Manual"
+msgstr "De Láimh"
+
+#: src/panel/applets/night-light/indicator_window.ui:144
+msgid "Display Settings"
+msgstr "Socruithe Taispeána"
+
+#: src/panel/applets/places-indicator/settings.ui:19
+msgid "Show label"
+msgstr "Taispeáin lipéad"
+
+#: src/panel/applets/places-indicator/settings.ui:55
+msgid "Show places"
+msgstr "Taispeáin áiteanna"
+
+#: src/panel/applets/places-indicator/settings.ui:79
+msgid "Show network folders"
+msgstr "Taispeáin fillteáin líonra"
+
+#: src/panel/applets/places-indicator/settings.ui:103
+msgid "Show removable drives"
+msgstr "Taispeáin tiomántáin inbhainte"
+
+#: src/panel/applets/places-indicator/settings.ui:127
+msgid "Always expand places"
+msgstr "Fairsingigh áiteanna i gcónaí"
+
+#: src/panel/applets/spacer/settings.ui:21
+msgid "Spacer size"
+msgstr "Méid an Spásaire"
+
+#: src/panel/applets/status/settings.ui:22
+#: src/panel/applets/tray/settings.ui:22
+msgid "Icon Spacing"
+msgstr "Spásáil Deilbhíní"
+
+#: src/panel/applets/status/settings.ui:48
+msgid "Show battery percentage"
+msgstr "Taispeáin céatadán cadhnra"
+
+#: src/panel/applets/tasklist/settings.ui:16
+msgid "Show button icons"
+msgstr ""
+
+#: src/panel/applets/tasklist/settings.ui:41
+msgid "Show button labels"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:16
+msgid "Sort Mode"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:28
+msgid "Sort by type"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:43
+msgid "Sort alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:58
+msgid "Sort reverse alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:73
+msgid "Sort by date ascending"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:88
+msgid "Sort by date descending"
+msgstr ""
+
+#: src/panel/applets/tray/settings.ui:48
+msgid "Scale icons with panel size"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:17
+msgid "\"Add\" button visibility"
+msgstr "Cnaipe Breis infheicthe"
+
+#: src/panel/applets/workspaces/settings.ui:31
+msgid "Item Size Multiplier"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:45
+msgid "Don't show"
+msgstr "Ná taispeáin"
+
+#: src/panel/applets/workspaces/settings.ui:46
+msgid "Show on mouseover"
+msgstr "Taispeáin ar ainliú luiche"
+
+#: src/panel/applets/workspaces/settings.ui:47
+msgid "Always show"
+msgstr "Taispeáin I gCónaí"
+
+#: src/panel/applets/workspaces/settings.ui:65
+msgid "0.5x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:66
+msgid "0.75x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:67
+msgid "1.0x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:68
+msgid "1.5x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:69
+msgid "2.0x"
+msgstr ""
+
+#: src/raven/widgets/calendar/settings.ui:17
+msgid "Show Week Numbers"
+msgstr ""
+
+#: src/raven/widgets/calendar/settings.ui:43
+msgid "Show Day Names"
+msgstr ""
+
+#: src/raven/widgets/sound-input/settings.ui:17
+#: src/raven/widgets/sound-output/settings.ui:17
+msgid "Allow Volume Overdrive"
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/settings.ui:17
+msgid "Show Swap Usage"
+msgstr ""
+
+#: src/daemon/ragnar-daemon.desktop.in:3
+msgid "Ragnar Background Services"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:4
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:4
+msgid "Ragnar screenshot app"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:8
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:8
+msgid "Screenshot;Snip;"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:3
+msgid "Ragnar PolicyKit UI"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:4
+msgid "Ragnar PolicyKit Authorisation UI"
+msgstr ""
+
+#: src/dialogs/screenshot/ragnar-screenshot-dialog.desktop.in.in:3
+msgid "Ragnar Screenshot UI"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:4
+msgid "Ragnar Menu"
+msgstr "Roghchlár Ragnar"
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:5
+msgid "Search for and start up applications."
+msgstr ""
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:4
+msgid "Caffeine"
+msgstr "Caiféin"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:5
+msgid "Prevent the system and screen from sleeping."
+msgstr ""
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:4
+msgid "Clock"
+msgstr "Clog"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:5
+msgid "A digital clock with a customizable format."
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:4
+msgid "Icon Task List"
+msgstr "Tascbharra Deilbhíní"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:5
+msgid "A configurable application task list."
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:5
+msgid "Indicates which keyboard layout is currently in use."
+msgstr ""
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:4
+msgid "Lock Keys Indicator"
+msgstr "Táscaire Eochracha Glasála"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:5
+msgid "Show status of lock keys."
+msgstr ""
+
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:5
+msgid "Toggle and modify Night Light settings."
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:5
+msgid "Open the Raven notifications view."
+msgstr ""
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:5
+msgid "Show drives and favorite folders."
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:4
+msgid "Raven Trigger"
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:5
+msgid "Open the Raven sidebar."
+msgstr ""
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:4
+msgid "Separator"
+msgstr "Deighilteoir"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:5
+msgid "Visual separator between applets."
+msgstr ""
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:4
+msgid "Show Desktop Button"
+msgstr "Cnaipe “Taispeáin Deasc”"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:5
+msgid "A button that toggles visibility of the desktop."
+msgstr ""
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:4
+msgid "Spacer"
+msgstr "Spásaire"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:5
+msgid "Adjustable spacer to put between other applets."
+msgstr ""
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:4
+msgid "Status Indicator"
+msgstr "Táscaire Stádais"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:5
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr ""
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:4
+msgid "Task List"
+msgstr "Tascbharra"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:5
+msgid "An application task list with icons and labels."
+msgstr ""
+
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:5
+msgid "Manage your trash from the Ragnar panel"
+msgstr ""
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:4
+msgid "System Tray"
+msgstr "Tráidire Córais"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:5
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr ""
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:4
+msgid "User Indicator"
+msgstr "Táscaire Úsáideora"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:5
+msgid "Opens the power dialog."
+msgstr ""
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:4
+msgid "Workspace Switcher"
+msgstr "Malartóir Spás Oibre"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:5
+msgid "Display workspaces and switch between them."
+msgstr ""
+
+#: src/panel/ragnar-desktop-settings.desktop.in:3
+msgid "Change desktop appearance and behavior"
+msgstr "Athraigh cuma agus iompraíocht na deisce"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:12
+msgid "Preferences;Settings;"
+msgstr ""
+
+#: src/panel/ragnar-panel.desktop.in:3
+msgid "Ragnar Panel"
+msgstr "Painéal Ragnar"
+
+#: src/panel/ragnar-panel.desktop.in:4
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr ""
+"Lainseáil feidhmchláir agus cuir áirgí ar fáil chun fuinneoga a bhainistiú, "
+"an t-am a thaispeáint, srl."
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:4
+msgid "Calendar"
+msgstr "Féilire"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:5
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:4
+msgid "Media Controls"
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:5
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:4
+msgid "Sound Input"
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:5
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:4
+msgid "Sound Output"
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:5
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:5
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:2
+msgid "Ragnar Desktop (magpie)"
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:3
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:2
+msgid "Network (Ragnar Desktop)"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:3
+msgid "Manage your network connections"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:3
+msgid "Ragnar Power Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:4
+msgid "A button dialog to lock the screen, reboot, shutdown, etc."
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:3
+msgid "Ragnar Screenshot Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:4
+msgid "Screenshot interface"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in:3
+#: src/session/ragnar-desktop.session.desktop.in.in:2
+msgid "Ragnar Desktop"
+msgstr "Deasc Ragnar"
+
+#: src/session/ragnar-desktop.desktop.in.in:4
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr ""
+

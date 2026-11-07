@@ -1,0 +1,30 @@
+[package]
+name = "ragnar-screenshot"
+version = "0.1.0"
+edition = "2021"
+description = "Ragnar screenshot tool — GTK4/adw, wlr-screencopy"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+gtk4 = { version = "0.9", package = "gtk4", features = ["v4_10"] }
+libadwaita = { version = "0.7", package = "libadwaita", features = ["v1_7"] }
+glib = "0.20"
+gio = "0.20"
+wayland-client = "0.31"
+wayland-protocols-wlr = { version = "0.3", features = ["client"] }
+wayland-protocols = { version = "0.32", features = ["client", "unstable", "staging"] }
+gtk4-layer-shell = "0.5"
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+libc = "0.2"
+
+[package.metadata.deb]
+maintainer = "LieraOS Project <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/ragnar-screenshot", "usr/bin/ragnar-screenshot", "755"],
+    ["data/org.lieraos.ragnar.Screenshot.desktop", "usr/share/applications/", "644"],
+    ["target/locale/en/LC_MESSAGES/ragnar-screenshot.mo", "usr/share/locale/en/LC_MESSAGES/ragnar-screenshot.mo", "644"],
+    ["target/locale/de/LC_MESSAGES/ragnar-screenshot.mo", "usr/share/locale/de/LC_MESSAGES/ragnar-screenshot.mo", "644"],
+]

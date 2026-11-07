@@ -1,0 +1,2058 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Μιχαήλ Στεφανής, 2025
+# Joshua Strobl <joshua.strobl@outlook.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 15:27+0300\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Joshua Strobl <joshua.strobl@outlook.com>, 2026\n"
+"Language-Team: Greek (Greece) (https://app.transifex.com/buddiesofragnar/teams/129844/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "Άλλο"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr "Εξαρτήματα"
+
+msgid "Education"
+msgstr "Εκπαίδευση"
+
+msgid "Games"
+msgstr "Παιχνίδια"
+
+msgid "Graphics"
+msgstr "Γραφικά"
+
+msgid "Internet"
+msgstr "Διαδίκτυο"
+
+msgid "Office"
+msgstr "Γραφείο"
+
+msgid "Programming"
+msgstr "Προγραμματισμός"
+
+msgid "Science"
+msgstr "Επιστήμη"
+
+msgid "Sound & Video"
+msgstr "Ήχος και Βίντεο"
+
+msgid "System Tools"
+msgstr "Εργαλεία Συστήματος"
+
+msgid "Universal Access"
+msgstr ""
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr "Νέα Κατηγορία"
+
+msgid "Log out"
+msgstr "Αποσύνδεση"
+
+msgid "Restart device"
+msgstr "Επανεκκίνηση συσκευής"
+
+#: src/daemon/endsession.ui:47
+msgid "Power Off"
+msgstr "Απενεργοποίηση"
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr "Αδιάβαστες Ειδοποιήσεις"
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] "Λάβατε %d ειδοποίηση όσο ήσασταν σε λειτουργεία πλήρους οθόνης."
+msgstr[1] "Λάβατε %d ειδοποιήσεις όσο ήσασταν σε λειτουργεία πλήρους οθόνης."
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr "Προβολή ειδοποιήσεων"
+
+msgid "Caps Lock is on"
+msgstr ""
+
+msgid "Caps Lock is off"
+msgstr ""
+
+msgid "Num Lock is on"
+msgstr ""
+
+msgid "Num Lock is off"
+msgstr ""
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "Caffeine Boost Ενεργοποιήθηκε"
+
+msgid "Turned off Caffeine Boost"
+msgstr "Caffeine Boost Απενεργοποιήθηκε"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] "Θα απενεργοποιηθεί σε ένα λεπτό"
+msgstr[1] "Θα απενεργοποιηθεί σε %d λεπτά"
+
+msgid "Authentication failed"
+msgstr "Η αυθεντικοποίηση απέτυχε"
+
+msgid "Group:"
+msgstr "Ομάδα:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr ""
+
+msgid "L_og Out"
+msgstr ""
+
+msgid "_Suspend"
+msgstr ""
+
+msgid "_Hibernate"
+msgstr ""
+
+msgid "_Reboot"
+msgstr ""
+
+msgid "Shut_down"
+msgstr ""
+
+msgid "This system does not support hibernation."
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:3
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:3
+msgid "Ragnar Screenshot"
+msgstr "Στιγμιότυπο Οθόνης Ragnar"
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr "Στιγμιότυπο ολόκληρης οθόνης "
+
+msgid "Screenshot active window"
+msgstr "Στιγμιότυπο ενεργού παραθύρου"
+
+msgid "Screenshot selected area"
+msgstr "Στιγμιότυπο επιλεγμένης περιοχής"
+
+#. translate
+msgid "Cancel screenshot"
+msgstr "Ακύρωση στιγμιότυπου οθόνης"
+
+msgid "Save screenshot to the selected directory"
+msgstr "Αποθήκευση στιγμιότυπου οθόνης στην επιλεγμένη τοποθεσία"
+
+msgid "Copy screenshot to the clipboard"
+msgstr "Αντιγραφή στιγμιότυπου οθόνης στο πρόχειρο"
+
+msgid "Open screenshot in default application"
+msgstr "Άνοιγμα στιγμιότυπου οθόνης στην προεπιλεγμένη εφαρμογή"
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr "Άλλο..."
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr "Άνοιγμα φακέλου"
+
+#: src/daemon/endsession.ui:92 src/dialogs/polkit/dialog.ui:321
+msgid "Cancel"
+msgstr "Άκυρο"
+
+msgid "Open"
+msgstr "Άνοιγμα"
+
+msgid "Files to send"
+msgstr ""
+
+msgid "_Cancel"
+msgstr ""
+
+msgid "_Open"
+msgstr ""
+
+msgid "Send Files via Bluetooth"
+msgstr ""
+
+msgid "Send files to device…"
+msgstr ""
+
+msgid "Rejected file"
+msgstr ""
+
+#, c-format
+msgid "File already exists: %s"
+msgstr ""
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr ""
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr ""
+
+msgid "Accept"
+msgstr "Αποδοχή"
+
+msgid "Reject"
+msgstr "Απόρριψη"
+
+msgid "File name"
+msgstr "Όνομα αρχείου"
+
+msgid "Transfer rate"
+msgstr "Ταχύτητα μεταφοράς"
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr "Κλείσιμο"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr "<b>Ταχύτητα μεταφοράς:</b>%s/s"
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr "%s/%s: Χρόνος που απομένει: %s"
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] "%u ώρα"
+msgstr[1] "%u ώρες"
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] "%u λεπτό "
+msgstr[1] "%u λεπτά"
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] "%u δευτερόλεπτο"
+msgstr[1] "%u δευτερόλεπτα"
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d δευτερόλεπτο"
+msgstr[1] "%d δευτερόλεπτα"
+
+msgid "Send"
+msgstr "Αποστολή"
+
+msgid "Speaker"
+msgstr "Ηχείο"
+
+msgid "Controller"
+msgstr ""
+
+msgid "Keyboard"
+msgstr "Πληκτρολόγιο"
+
+msgid "Mouse"
+msgstr "Ποντίκι"
+
+msgid "Tablet"
+msgstr ""
+
+msgid "Touchpad"
+msgstr ""
+
+msgid "Phone"
+msgstr "Τηλέφωνο"
+
+msgid "Bluetooth File Transfer"
+msgstr "Μεταφορά Αρχείου με Bluetooth"
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr "<b>Από</b>: %s"
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr "<b>Προς</b>: %s"
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr "<b>Όνομα αρχείου</b>: %s"
+
+msgid "File transfer failed"
+msgstr "Αποτυχία αποστολής αρχείου"
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr "Το αρχείο '%s' δεν λήφθηκε από %s"
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr "Το αρχείο '%s' από %s δεν λήφθηκε: %s"
+
+msgid "File transferred successfully"
+msgstr "Το αρχείο μεταφέρθηκε επιτυχώς"
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr ""
+
+msgid "From"
+msgstr "Από"
+
+msgid "To"
+msgstr "Προς"
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr ""
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr ""
+
+msgid "The file has not been transferred."
+msgstr ""
+
+msgid "Retry"
+msgstr ""
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr ""
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr ""
+
+msgid "Select a Bluetooth device to send files to"
+msgstr ""
+
+msgid "Discovering…"
+msgstr ""
+
+msgid "<b>No devices found</b>"
+msgstr "<b>Δεν βρέθηκαν συσκευές</b>"
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr ""
+
+msgid "Available Devices"
+msgstr ""
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "Κατάσταση Caffeine"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:2
+msgid "Ragnar Desktop Settings"
+msgstr "Ρυθμίσεις περιβάλλοντος εργασίας Ragnar"
+
+msgid "System Settings"
+msgstr "Ρυθμίσεις συστήματος"
+
+msgid "Power"
+msgstr ""
+
+msgid "Set menu icon from file"
+msgstr "Επιλογή εικόνας μενού από αρχείο"
+
+msgid "Image files"
+msgstr "Αρχεία εικόνας"
+
+msgid "Any file"
+msgstr "Οποιοδήποτε αρχείο"
+
+msgid "Set icon"
+msgstr "Επιλογή εικονιδίου"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "All"
+msgstr "Όλα"
+
+msgid "Remove from favorites"
+msgstr ""
+
+msgid "Add to favorites"
+msgstr ""
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "Δεν βρέθηκαν αποτελέσματα"
+
+msgid "Timer (minutes)"
+msgstr "Χρονόμετρο (λεπτά)"
+
+msgid "System time and date settings"
+msgstr "Ρυθμίσεις ώρας και ημερομηνίας"
+
+msgid "Unfavorite"
+msgstr "Αφαίρεση από τα αγαπημένα"
+
+msgid "Favorite"
+msgstr "Προσθήκη στα αγαπημένα"
+
+msgid "Close all windows"
+msgstr ""
+
+msgid "Launch new instance"
+msgstr ""
+
+msgid "Minimize"
+msgstr "Ελαχιστοποίηση"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr ""
+
+msgid "Unmaximize"
+msgstr "Σμίκρυνση"
+
+msgid "Maximize"
+msgstr "Μεγιστοποίηση"
+
+msgid "Close window"
+msgstr ""
+
+msgid "Show window controls"
+msgstr ""
+
+msgid "Caps lock is active"
+msgstr "Το Caps lock είναι ενεργό"
+
+msgid "Caps lock is not active"
+msgstr "Το Caps lock δεν είναι ενεργό"
+
+msgid "Num lock is active"
+msgstr "Το Num Lock είναι ενεργό"
+
+msgid "Num lock is not active"
+msgstr "Το Num Lock δεν είναι ενεργό"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] "%u αδιάβαστη ειδοποίηση"
+msgstr[1] "%u αδιάβαστες ειδοποιήσεις"
+
+msgid "No unread notifications"
+msgstr "Καμία αδιάβαστη ειδοποίηση"
+
+msgid "Volume is in use by other processes"
+msgstr "Ο τόμος είναι σε χρήση από άλλες διεργασίες"
+
+msgid "Operation aborted"
+msgstr "Η λειτουργία ακυρώθηκε"
+
+msgid "Type your password"
+msgstr "Πληκτρολογήστε τον κωδικό σας"
+
+msgid "Removable devices"
+msgstr "Αφαιρούμενες συσκευές"
+
+msgid "Local volumes"
+msgstr "Τοπικοί τόμοι"
+
+msgid "Network folders"
+msgstr "Φάκελοι δικτύου"
+
+msgid "Eject"
+msgstr "Εξαγωγή"
+
+msgid "Unmount"
+msgstr "Aποπροσάρτηση"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "Ανοίξτε το \"%s\""
+
+msgid "You can now safely remove"
+msgstr "Τώρα μπορείτε να το αφαιρέσετε με ασφάλεια"
+
+msgid "Unknown Device"
+msgstr "Άγνωστη συσκευή"
+
+msgid "Error while ejecting device"
+msgstr "Σφάλμα κατά την αφαίρεση της συσκευής"
+
+msgid "Error while unmounting volume"
+msgstr "Σφάλμα κατά την αποπροσάρτηση του τόμου"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:4
+msgid "Places"
+msgstr "Μέρη"
+
+msgid "Nothing to display right now"
+msgstr "Δεν υπάρχει κάτι για προβολή αυτή τη στιγμή"
+
+msgid "Mount some drives"
+msgstr "Προσάρτηση ορισμένων δίσκων"
+
+msgid "Enable more sections"
+msgstr "Ενεργοποίηση περισσότερων τόμων"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "Προσάρτηση και άνοιγμα \"%s\""
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr ""
+"Πληκτρολογήστε τον κωδικό κρυπτογράφησης για να ξεκλειδώσετε αυτόν τον τόμο"
+
+msgid "The password you entered is incorrect"
+msgstr "Ο κωδικός που εισάγατε είναι λανθασμένος"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr ""
+"Παρουσιάστηκε άγνωστο σφάλμα κατά την προσπάθεια προσάρτησης αυτού του τόμου"
+
+msgid "Toggle the desktop"
+msgstr "Ενεργοποίησε την επιφάνεια εργασίας"
+
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+msgid "Bluetooth Settings"
+msgstr "Ρυθμίσεις Bluetooth"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr "Ενεργοποίηση ή Απενεργοποίηση Bluetooth"
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr "Η Λειτουργία πτήσης είναι ενεργή."
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr ""
+"Το Bluetooth είναι απενεργοποιημένο όσο είναι ενεργή η λειτουργεία πτήσης."
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr "Δεν βρέθηκαν συζευγμένες συσκευές bluetooth."
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr "Επισκεφτείτε τις ρυθμίσεις Bluetooth για ζεύξη συσκευής. "
+
+msgid "Send file"
+msgstr "Αποστολή αρχείου"
+
+msgid "Disconnect"
+msgstr "Αποσύνδεση"
+
+msgid "Disconnecting…"
+msgstr "Αποσύνδεση..."
+
+msgid "Connecting…"
+msgstr "Σύνδεση..."
+
+msgid "Failed to disconnect"
+msgstr "Αποτυχία αποσύνδεσης"
+
+msgid "Failed to connect"
+msgstr "Αποτυχία σύνδεσης"
+
+msgid "Connected"
+msgstr "Συνδεδεμένη"
+
+msgid "Disconnected"
+msgstr "Αποσυνδεδεμένη"
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr "<b>Όνομα αρχείου</b>: %s"
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr "Λήψη... %s από %s"
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr "Αποστολή... %s από %s"
+
+msgid "Battery fully charged."
+msgstr "Η Μπαταρία είναι πλήρως φορτησμένη."
+
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "Η μπαταρία φορτίζει"
+
+msgid "Battery remaining"
+msgstr "Υπολειπόμενη μπαταρία"
+
+msgid "Performance Mode"
+msgstr "Λειτουργία βέλτιστης επίδοσης"
+
+msgid "Power Saver"
+msgstr "Εξοικονόμηση Ενέργειας"
+
+msgid "Balanced"
+msgstr "Ισορροπημένο"
+
+msgid "Performance"
+msgstr "Βέλτιστη Επίδοση"
+
+msgid "Power settings"
+msgstr "Ρυθμίσεις ενέργειας"
+
+#: src/panel/applets/trash/trash_applet.c:228
+#: src/panel/applets/trash/trash_item_row.c:332
+#: src/panel/applets/trash/trash_item_row.c:363
+msgid "Trash Error"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:155
+msgid "Permanently delete this item"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:162
+msgid "Are you sure you want to delete this item?"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:168
+#: src/panel/applets/trash/trash_popover.c:320
+msgid "No"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:169
+#: src/panel/applets/trash/trash_popover.c:321
+msgid "Yes"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:333
+#, c-format
+msgid "Unable to delete '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:364
+#, c-format
+msgid "Unable to restore '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:119
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:4
+msgid "Trash Bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:125
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#. Header label
+#. Switcher to show or hide a shortcut to Trash
+#: src/panel/applets/trash/trash_popover.c:274
+msgid "Trash"
+msgstr "Σκουπίδια"
+
+#: src/panel/applets/trash/trash_popover.c:283
+msgid "Trash Applet Settings"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:300
+msgid "Restore"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:301
+msgid "Restore selected items"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:303
+msgid "Empty"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:304
+msgid "Empty the trash bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:311
+msgid "Are you sure you want to empty the trash bin?"
+msgstr ""
+
+#. User Menu Creation
+msgid "User"
+msgstr "Χρήστης"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "Κλειδωμένο"
+
+msgid "Suspend"
+msgstr "Αναστολή"
+
+msgid "Hibernate"
+msgstr "Αδρανοποίηση"
+
+#: src/daemon/endsession.ui:124
+msgid "Restart"
+msgstr "Επανεκκίνηση"
+
+#: src/daemon/endsession.ui:142
+msgid "Shutdown"
+msgstr "Τερματισμός"
+
+#: src/daemon/endsession.ui:106
+msgid "Logout"
+msgstr "Αποσύνδεση"
+
+msgid "Rename"
+msgstr "Μετονομασία"
+
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+msgid "Not able to create new workspaces"
+msgstr ""
+
+msgid "Create a new workspace"
+msgstr ""
+
+msgid "Untitled"
+msgstr "Χωρίς τίτλο"
+
+msgid "No description"
+msgstr "Χωρίς περιγραφή"
+
+msgid "running"
+msgstr "τρέχει"
+
+msgid "Applications"
+msgstr "Εφαρμογές"
+
+msgid "Add"
+msgstr "Προσθήκη"
+
+msgid "Command"
+msgstr "Εντολή"
+
+msgid "An entry with that title already exists"
+msgstr "Υπάρχει ήδη καταχώρηση με αυτό τον τίτλο"
+
+msgid "Title"
+msgstr "Τίτλος"
+
+msgid "Required"
+msgstr "Απαιτείται"
+
+msgid "Description"
+msgstr "Περιγραφή"
+
+msgid "Optional"
+msgstr "Προαιρετικό"
+
+msgid "Autostart"
+msgstr "Αυτόματη εκκίνηση"
+
+msgid "Autostart apps"
+msgstr "Αυτόματη εκκίνηση εφαρμογών"
+
+msgid "Add Application"
+msgstr "Προσθήκη Εφαρμογής"
+
+msgid "Add Command"
+msgstr "Προσθήκη Εντολής"
+
+msgid "Desktop"
+msgstr "Επιφάνεια εργασίας"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "Εικονίδια Επιφάνειας Εργασίας"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr "Έλεγχος εμφάνισης εικονιδίων στην επιφάνεια εργασίας"
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr "Ενεργές Προσαρτήσεις"
+
+msgid "Show all active mounts on the desktop."
+msgstr "Εμφάνιση όλων των ενεργών προσαρτήσεων στην επιφάνεια εργασίας."
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "Αρχική σελίδα"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "Προσθήκη συντόμευσης του φακέλου Σκουπιδιών στην επιφάνεια εργασίας."
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "Προσθήκη συντόμευσης του φακέλου Σκουπιδιών στην επιφάνεια εργασίας."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr "Μέγεθος Εικονιδίου"
+
+msgid "Set the desired size of icons on the desktop."
+msgstr ""
+"Ρύθμιση του επιθυμητού μεγέθους των εικονιδίων στην επιφάνεια εργασίας."
+
+msgid "Number of virtual desktops"
+msgstr "Αριθμός εικονικών περιβαλλόντων"
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr "Αριθμός εικονικών περιβαλλόντων για να δημιουργηθούν στο ξεκίνημα."
+
+msgid "Single"
+msgstr "Απλό"
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr "Διπλό"
+
+msgid "Click Policy"
+msgstr "Πολιτική Κλικ"
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr ""
+"Η Πολιτική Κλικ καθορίζει εάν μπορούμε να ανοίξουμε τα αντικείμενα με απλό ή"
+" διπλό κλικ."
+
+msgid "Normal"
+msgstr "Κανονικό"
+
+#. Small
+msgid "Small"
+msgstr "Μικρό"
+
+#. Large
+msgid "Large"
+msgstr "Μεγάλο"
+
+#. Massive
+msgid "Massive"
+msgstr "Πολύ Μεγάλο"
+
+msgid "Displays"
+msgstr ""
+
+msgid "Connected Monitors"
+msgstr ""
+
+msgid "Panel Placement"
+msgstr ""
+
+msgid ""
+"Select which monitor should be the primary display for panel placement."
+msgstr ""
+
+msgid "Use Automatic Selection"
+msgstr ""
+
+msgid "Clear Primary Monitor"
+msgstr ""
+
+msgid "Remove manual primary monitor selection."
+msgstr ""
+
+msgid "Fallback Monitors"
+msgstr ""
+
+msgid "Order used when primary is disconnected"
+msgstr ""
+
+msgid "No monitors detected"
+msgstr ""
+
+msgid "No fallback monitors configured"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Unknown model"
+msgstr ""
+
+msgid "Set as Primary"
+msgstr ""
+
+msgid "(last known)"
+msgstr ""
+
+msgid "No cached information"
+msgstr ""
+
+msgid "Fonts"
+msgstr "Γραμματοσειρές"
+
+msgid "Window Titles"
+msgstr "Τίτλοι παραθύρων"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr ""
+"Ρυθμίστε τη γραμματοσειρά που θα χρησιμοποιείται στις μπάρες τίτλου "
+"εφαρμογών."
+
+msgid "Documents"
+msgstr "Έγγραφα"
+
+msgid "Set the display font used by for documents."
+msgstr "Ρυθμίστε τη γραμματοσειρά που θα χρησιμοποιείται για έγγραφα."
+
+msgid "Interface"
+msgstr "Διεπαφή"
+
+msgid "Set the primary font used by application controls."
+msgstr ""
+"Ρυθμίστε την κύρια γραμματοσειρά που θα χρησιμοποιείται από τα στοιχεία "
+"ελέγχου εφαρμογών."
+
+msgid "Monospace"
+msgstr "Monospace"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr ""
+"Ρυθμίστε τη γραμματοσειρά που θα χρησιμοποιείται στις μπάρες τίτλου "
+"εφαρμογών."
+
+msgid "Text scaling"
+msgstr "Κλιμάκωση κειμένου"
+
+msgid "Set the text scaling factor."
+msgstr "Ορίστε τον συντελεστή κλιμάκωσης κειμένου."
+
+msgid "Full"
+msgstr "Μέγιστο"
+
+msgid "Medium"
+msgstr "Μεσαίο"
+
+msgid "Slight"
+msgstr "Μικρό"
+
+msgid "None"
+msgstr "Κανένα"
+
+msgid "Hinting"
+msgstr "κλιμάκωση"
+
+msgid "Set the type of hinting to use."
+msgstr "Ορίστε τον τρόπο κλιμάκωσης κειμένου."
+
+msgid "Subpixel (for LCD screens)"
+msgstr "Subpixel (Για LCD οθόνες)"
+
+msgid "Standard (grayscale)"
+msgstr "Κανονικό (ασπρόμαυρο)"
+
+msgid "Antialiasing"
+msgstr "Άντι-αλλοίωση"
+
+msgid "Set the type of antialiasing to use."
+msgstr "Ορίστε τον τρόπο άντι-αλλοίωσης (antialiasing) του κειμένου."
+
+msgid "Appearance"
+msgstr "Εμφάνιση"
+
+msgid "Panels"
+msgstr "Πάνελ"
+
+msgid "Session"
+msgstr "Συνεδρία"
+
+msgid "Create new panel"
+msgstr "Δημιουργία νέου πάνελ"
+
+msgid "Applets"
+msgstr "Μικροεφαρμογές"
+
+msgid "Remove Panel"
+msgstr "Αφαίρεση Πάνελ"
+
+msgid "Remove this panel from the screen"
+msgstr "Αφαίρεση του πάνελ από την οθόνη"
+
+msgid "Top Dock"
+msgstr "Επάνω μπάρα"
+
+msgid "Right Dock"
+msgstr "Δεξιά μπάρα"
+
+msgid "Left Dock"
+msgstr "Αριστερή μπάρα"
+
+msgid "Bottom Dock"
+msgstr "Κάτω Μπάρα"
+
+msgid "Top Panel"
+msgstr "Πάνω Πάνελ"
+
+msgid "Right Panel"
+msgstr "Δεξιά Πάνελ"
+
+msgid "Left Panel"
+msgstr "Αριστερό Πάνελ"
+
+msgid "Bottom Panel"
+msgstr "Κάτω Πάνελ"
+
+msgid "Top"
+msgstr "Κορυφή"
+
+msgid "Right"
+msgstr "Δεξιά"
+
+msgid "Left"
+msgstr "Αριστερά"
+
+msgid "Bottom"
+msgstr "Κάτω"
+
+msgid "Always"
+msgstr "Πάντα"
+
+msgid "Dynamic"
+msgstr "Δυναμικά"
+
+msgid "Automatic"
+msgstr "Αυτόματα"
+
+msgid "Intelligent"
+msgstr "Έξυπνο"
+
+msgid "Never"
+msgstr "Ποτέ"
+
+msgid "Position"
+msgstr "Θέση"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr ""
+"Ορίστε την άκρη της οθόνης ώστε ο πίνακας αυτός να παραμείνει αναμμένος"
+
+msgid "Size"
+msgstr "Μέγεθος"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr ""
+"Ρυθμίστε το μέγεθος (πλάτος ή ύψος, ανάλογα τον προσανατολισμό) αυτού του "
+"πάνελ"
+
+msgid "Spacing"
+msgstr ""
+
+msgid "Set the spacing between applets for this panel"
+msgstr ""
+
+msgid "Automatically hide"
+msgstr "Αυτόματη απόκρυψη"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr ""
+"Όταν ρυθμιστεί, αυτό το πάνελ θα κρύβεται για να μεγιστοποιηθεί ο διαθέσιμος"
+" χώρος οθόνης"
+
+msgid "Transparency"
+msgstr "Διαφάνεια"
+
+msgid "Control when this panel should have a solid background"
+msgstr "Ελέγξτε πότε αυτό το πλαίσιο θα πρέπει να έχει ένα συμπαγές φόντο"
+
+msgid "Shadow"
+msgstr "Σκίαση"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr "Προσθέτει διακοσμητική σκιά, ιδανική για αδιαφανή πάνελ"
+
+msgid "Stylize regions"
+msgstr "Στολισμένες περιοχές"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr ""
+"Προσθέτει έναν υπαινιγμό στον πίνακα έτσι ώστε κάθε μία από τις τρεις κύριες"
+" περιοχές του πίνακα να μπορεί να είναι διαφορετική."
+
+msgid "Dock mode"
+msgstr "Κατάσταση μπάρας"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr ""
+"Όταν βρίσκεται σε κατάσταση μπάρας, ο πίνακας θα χρησιμοποιήσει το ελάχιστο "
+"δυνατό χώρο, απελευθερώνοντας πολύτιμο χώρο οθόνης"
+
+msgid "Applet Settings"
+msgstr ""
+
+msgid "Add applet"
+msgstr "Προσθήκη applet"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "Επιλέξτε ένα νέο applet για να προσθέσετε σε αυτό το πάνελ"
+
+msgid "No settings available"
+msgstr "Δεν υπάρχουν διαθέσιμες ρυθμίσεις"
+
+msgid "Start"
+msgstr "Έναρξη"
+
+msgid "Center"
+msgstr "Κέντρο"
+
+msgid "End"
+msgstr "Τέλος"
+
+msgid "Confirm panel removal"
+msgstr "Επιβεβαίωση αφαίρεσης πάνελ"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr ""
+"Θέλετε σίγουρα να αφαιρέσετε αυτό το πάνελ; Αυτή η ενέργεια δεν μπορεί να "
+"αναιρεθεί."
+
+msgid "Remove panel"
+msgstr "Αφαίρεση πάνελ"
+
+msgid "Keep panel"
+msgstr "Κρατήστε τον πίνακα"
+
+msgid "Confirm applet removal"
+msgstr "Επιβεβαίωση αφαίρεσης applet"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr ""
+"Θέλετε πραγματικά να καταργήσετε αυτό το applet; Αυτή η πράξη δε μπορεί να "
+"αναιρεθεί."
+
+msgid "Don't ask me again"
+msgstr "Μη με ρωτήσεις ξανά"
+
+msgid "Remove applet"
+msgstr "Αφαίρεση applet"
+
+msgid "Keep applet"
+msgstr "Διατήρηση applet"
+
+msgid "Confirm widget removal"
+msgstr "Επιβεβαίωση αφαίρεσης εφαρμογής"
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr ""
+"Θέλετε πραγματικά να αφαιρεθεί αυτή η εφαρμογή; Η πράξη αυτή δεν μπορεί να "
+"αναιρεθεί."
+
+msgid "Built-in"
+msgstr ""
+
+msgid "Choose a plugin"
+msgstr ""
+
+msgid "No description."
+msgstr ""
+
+#, c-format
+msgid "by %s"
+msgstr ""
+
+msgid "No authors listed"
+msgstr ""
+
+msgctxt "Raven"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set Raven position"
+msgstr ""
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr ""
+
+msgid "Set notification sort order"
+msgstr ""
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr ""
+
+msgid "Widget Settings"
+msgstr "Προβολή ρυθμίσεων"
+
+msgid "Add widget"
+msgstr "Προσθήκη εφαρμογής"
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr "Επιλογή μιας νέας εφαρμογής για προσθήκη στην προβολή Εφαρμογών"
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr ""
+"Αποτυχία δημιουργίας της μονάδας εφαρμογής. Η μηχανή προσθέτων δεν μπόρεσε "
+"να βρει πληροφορίες για αυτό το πρόσθετο."
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr ""
+
+msgid "Style"
+msgstr "Στιλ"
+
+msgctxt "Styling"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "Ρυθμίστε την εμφάνιση διακοσμήσεων και χειριστηρίων των παραθύρων"
+
+msgid "Icons"
+msgstr "Εικονίδια"
+
+msgid "Set the globally used icon theme"
+msgstr "Επιλογή του ευρέως χρησιμοποιούμενου θέματος εικονιδίων"
+
+msgid "Cursors"
+msgstr "Κέρσορες"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "Επιλογή του ευρέως χρησιμοποιούμενου θέματος κέρσορα ποντικιού"
+
+msgid "Notification Position"
+msgstr "Θέση ειδοποιήσεων"
+
+msgid "Set the location for notification popups"
+msgstr "Ορίστε τη θέση για τα αναδυόμενα παράθυρα ειδοποιήσεων"
+
+msgid "Dark theme"
+msgstr "Σκοτεινό θέμα"
+
+msgid "Built-in theme"
+msgstr "Ενσωματωμένο θέμα"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr ""
+"Όταν ενεργοποιηθεί, το ενσωματωμένο θέμα θα αντικαταστήσει αυτό της "
+"επιφάνειας εργασίας του στοιχείου"
+
+msgid "Animations"
+msgstr "Εφέ κίνησης"
+
+msgid "Control whether windows and controls use animations"
+msgstr ""
+"Επιλέξατε εάν θέλετε τα παράθυρα και τα χειριστήρια να χρησιμοποιούν "
+"κινούμενες εικόνες"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr ""
+
+msgid "Labwc Compositor Theme"
+msgstr ""
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme"
+msgstr ""
+
+msgid "Top Left"
+msgstr "Πάνω αριστερά"
+
+msgid "Bottom Left"
+msgstr "Κάτω αριστερά"
+
+msgid "Bottom Right"
+msgstr "Κάτω δεξιά"
+
+msgid "Top Right"
+msgstr "Πάνω δεξιά"
+
+msgid "Windows"
+msgstr "Παράθυρα"
+
+msgid "Button layout"
+msgstr "Διάταξη Πλήκτρων"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "Αλλάξτε τη διάταξη των κουμπιών στις γραμμές τίτλου της εφαρμογής."
+
+msgid "Center new windows on screen"
+msgstr "Κεντράρετε τα νέα παράθυρα στην οθόνη"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "Κεντράρετε νέα τοποθετημένα παράθυρα στην τρέχουσα οθόνη."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr ""
+"Απενεργοποιήστε τη λειτουργία νυχτός όταν τα παράθυρα είναι σε πλήρης οθόνη"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr ""
+"Απενεργοποιεί τη λειτουργία νυχτός όταν ένα παράθυρο είναι σε πλήρης οθόνη. "
+"Ενεργοποιείται εκ νέου κατά την αναχώρηση ολόκληρης της οθόνης."
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr ""
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr ""
+
+msgid "Automatic tiling"
+msgstr "Αυτόματη ενσωμάτωση"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr ""
+"Τα παράθυρα θα ενσωματώνονται αυτόματα όταν μετακινούνται στην άνω πλευρά "
+"της οθόνης ή στης γωνίες αυτής."
+
+msgid "Window focus mode"
+msgstr ""
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr ""
+
+msgid "Show all windows in tab switcher"
+msgstr ""
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr ""
+
+msgid "Right (standard)"
+msgstr "Δεξιά (στάνταρ)"
+
+msgid "Click"
+msgstr ""
+
+msgid "Sloppy"
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:4
+msgid "Notifications"
+msgstr "Ειδοποιήσεις"
+
+msgid "No widgets added."
+msgstr "Δεν προστέθηκαν εφαρμογές."
+
+msgid "Nothing to see here"
+msgstr "Δεν υπάρχει τίποτα να δείτε εδώ"
+
+msgid "No new notifications"
+msgstr "Καμία νέα ειδοποίηση"
+
+msgid "Oldest to newest"
+msgstr "Από παλαιότερες σε νεώτερες"
+
+msgid "Newest to oldest"
+msgstr "Από νεότερες σε παλαιότερες"
+
+msgid "No apps are currently playing audio."
+msgstr "Καμία εφαρμογή δεν αναπαράγει ήχο."
+
+msgid "Play some music"
+msgstr "Παίξε μουσική"
+
+msgid "Unknown Title"
+msgstr "Άγνωστος Τίτλος"
+
+msgid "Unknown Artist"
+msgstr "Άγνωστος Καλλιτέχνης"
+
+msgid "Unknown Album"
+msgstr "Άγνωστο Άλμπουμ"
+
+#, c-format
+msgid "Playing - %s"
+msgstr "Αναπαραγωγή - %s"
+
+#, c-format
+msgid "Paused - %s"
+msgstr "Σε παύση - %s"
+
+msgid "No apps are playing audio."
+msgstr "Καμία εφαρμογή δεν αναπαράγει ήχο."
+
+msgid "Apps"
+msgstr "Εφαρμογές"
+
+msgid "Devices"
+msgstr "Συσκευές"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:4
+msgid "Usage Monitor"
+msgstr "Παρακολούθηση Χρήσης"
+
+msgid "CPU"
+msgstr "Επεξεργαστής"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Swap"
+msgstr "Swap"
+
+#: src/daemon/endsession.ui:71
+msgid "Are you sure you want to end your session?"
+msgstr "Είστε σίγουροι για τον τερματισμό της συνεδρίας;"
+
+#: src/dialogs/polkit/dialog.ui:12 src/dialogs/polkit/dialog.ui:49
+msgid "Authentication Required"
+msgstr "Απαιτείται πιστοποίηση"
+
+#: src/dialogs/polkit/dialog.ui:71
+msgid "Password:"
+msgstr "Κωδικός:"
+
+#: src/dialogs/polkit/dialog.ui:103
+msgid "Username:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui:131
+msgid "Authentication is required"
+msgstr "Απαιτείται πιστοποίηση"
+
+#: src/dialogs/polkit/dialog.ui:184
+msgid "Details"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui:224
+msgid "Action:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui:259
+msgid "ID:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui:335
+msgid "Authenticate"
+msgstr "Πιστοποιήστε"
+
+#: src/dialogs/screenshot/aftershot.ui:48
+msgid "Name:"
+msgstr "Όνομα:"
+
+#: src/dialogs/screenshot/aftershot.ui:85
+msgid "Folder:"
+msgstr "Φάκελος:"
+
+#: src/dialogs/screenshot/screenshothome.ui:35
+msgid "Delay in seconds"
+msgstr "Καθυστέρηση σε δευτερόλεπτα:"
+
+#: src/dialogs/screenshot/screenshothome.ui:91
+msgid "Show Pointer"
+msgstr "Εμφάνιση Ποντικιού"
+
+#: src/dialogs/screenshot/screenshothome.ui:141
+msgid "Play sound when capturing"
+msgstr "Ήχος κατά την καταγραφή"
+
+#: src/panel/applets/ragnar-menu/settings.ui:23
+msgid "Show Menu Label"
+msgstr "Προβολή Ετικέτας Μενού"
+
+#: src/panel/applets/ragnar-menu/settings.ui:48
+msgid "Menu Label"
+msgstr "Ετικέτα Μενού"
+
+#: src/panel/applets/ragnar-menu/settings.ui:72
+msgid "Use Default Menu Icon"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui:97
+msgid "Menu Icon"
+msgstr "Εικονίδιο Μενού"
+
+#: src/panel/applets/ragnar-menu/settings.ui:148
+msgid "Compact Mode"
+msgstr "Συμπαγής λειτουργία"
+
+#: src/panel/applets/ragnar-menu/settings.ui:172
+msgid "Show Headers"
+msgstr "Προβολή Κεφαλίδων"
+
+#: src/panel/applets/ragnar-menu/settings.ui:196
+msgid "Roll-over mouse"
+msgstr "Κύλινδρος ποντικιού"
+
+#: src/panel/applets/ragnar-menu/settings.ui:221
+msgid "Show settings items"
+msgstr ""
+
+#: src/panel/applets/caffeine/settings.ui:23
+msgid "Enable notification"
+msgstr "Ενεργοποίηση ειδοποιήσεων"
+
+#: src/panel/applets/caffeine/settings.ui:35
+msgid "Maximize brightness"
+msgstr "Μεγιστοποίηση φωτεινότητας"
+
+#: src/panel/applets/caffeine/settings.ui:47
+msgid "Brightness Level"
+msgstr "Επίπεδο Φωτεινότητας"
+
+#: src/panel/applets/clock/settings.ui:15
+msgid "Show date"
+msgstr "Εμφάνιση ημερομηνίας"
+
+#: src/panel/applets/clock/settings.ui:38
+msgid "Show seconds"
+msgstr "Προβολή δευτερολέπτων"
+
+#: src/panel/applets/clock/settings.ui:61
+msgid "Use 24 hour time"
+msgstr "Χρήση 24ωρου ρολογιού"
+
+#: src/panel/applets/clock/settings.ui:84
+msgid "Custom Format"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui:107
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui:120
+msgid "Custom Timezone"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui:143
+msgid "UTC"
+msgstr "UTC"
+
+#: src/panel/applets/icon-tasklist/settings.ui:15
+msgid "Show all windows on click"
+msgstr "Εμφάνιση όλων των παραθύρων με κλικ"
+
+#: src/panel/applets/icon-tasklist/settings.ui:39
+msgid "Only show favorited"
+msgstr "Εμφάνιση μόνο των αγαπημένων"
+
+#: src/panel/applets/icon-tasklist/settings.ui:63
+msgid "Lock icons"
+msgstr "Κλείδωμα εικονιδίων"
+
+#: src/panel/applets/icon-tasklist/settings.ui:88
+msgid "Restrict to Workspace"
+msgstr "Περιορίστε στο χώρο εργασίας"
+
+#: src/panel/applets/icon-tasklist/settings.ui:112
+msgid "Middle click to launch new window"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui:136
+msgid "Require a double-click to launch new window"
+msgstr "Απαίτηση διπλού κλικ για άνοιγμα νέου παραθύρου"
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:28
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:4
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:44
+msgid "Keyboard Layout Settings"
+msgstr ""
+
+#: src/panel/applets/night-light/indicator_window.ui:37
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:4
+msgid "Night Light"
+msgstr "Βραδινό φως"
+
+#: src/panel/applets/night-light/indicator_window.ui:85
+msgid "Temperature"
+msgstr "Θερμοκρασία"
+
+#: src/panel/applets/night-light/indicator_window.ui:110
+msgid "Schedule"
+msgstr "Πρόγραμμα"
+
+#: src/panel/applets/night-light/indicator_window.ui:124
+msgid "Sunset to Sunrise"
+msgstr "Από την ανατολή του ηλίου μέχρι τη δύση"
+
+#: src/panel/applets/night-light/indicator_window.ui:125
+msgid "Manual"
+msgstr "Χειροκίνητα"
+
+#: src/panel/applets/night-light/indicator_window.ui:144
+msgid "Display Settings"
+msgstr "Προβολή ρυθμίσεων"
+
+#: src/panel/applets/places-indicator/settings.ui:19
+msgid "Show label"
+msgstr "Εμφάνιση ετικέτας"
+
+#: src/panel/applets/places-indicator/settings.ui:55
+msgid "Show places"
+msgstr "Εμφάνιση τοποθεσιών"
+
+#: src/panel/applets/places-indicator/settings.ui:79
+msgid "Show network folders"
+msgstr "Δείξε φακέλους δικτύου"
+
+#: src/panel/applets/places-indicator/settings.ui:103
+msgid "Show removable drives"
+msgstr "Προβολή αφαιρούμενων δίσκων"
+
+#: src/panel/applets/places-indicator/settings.ui:127
+msgid "Always expand places"
+msgstr "Πάντα να επεκτείνετε τα μέρη"
+
+#: src/panel/applets/spacer/settings.ui:21
+msgid "Spacer size"
+msgstr "Μέγεθος κενού"
+
+#: src/panel/applets/status/settings.ui:22
+#: src/panel/applets/tray/settings.ui:22
+msgid "Icon Spacing"
+msgstr ""
+
+#: src/panel/applets/status/settings.ui:48
+msgid "Show battery percentage"
+msgstr "Προβολή ποσοστού μπαταρίας"
+
+#: src/panel/applets/tasklist/settings.ui:16
+msgid "Show button icons"
+msgstr ""
+
+#: src/panel/applets/tasklist/settings.ui:41
+msgid "Show button labels"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:16
+msgid "Sort Mode"
+msgstr "Τρόπος Ταξινόμησης"
+
+#: src/panel/applets/trash/settings.ui:28
+msgid "Sort by type"
+msgstr "Ταξινόμηση κατά τύπο"
+
+#: src/panel/applets/trash/settings.ui:43
+msgid "Sort alphabetically"
+msgstr "Αλφαβητική Ταξινόμηση"
+
+#: src/panel/applets/trash/settings.ui:58
+msgid "Sort reverse alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:73
+msgid "Sort by date ascending"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:88
+msgid "Sort by date descending"
+msgstr ""
+
+#: src/panel/applets/tray/settings.ui:48
+msgid "Scale icons with panel size"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:17
+msgid "\"Add\" button visibility"
+msgstr "Ορατότητα του κουμπιού \"Προσθήκη\""
+
+#: src/panel/applets/workspaces/settings.ui:31
+msgid "Item Size Multiplier"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:45
+msgid "Don't show"
+msgstr "Μην εμφανίζετε"
+
+#: src/panel/applets/workspaces/settings.ui:46
+msgid "Show on mouseover"
+msgstr "Εμφάνιση κατά το πέρασμα του ποντικιού"
+
+#: src/panel/applets/workspaces/settings.ui:47
+msgid "Always show"
+msgstr "Εμφάνιση πάντα"
+
+#: src/panel/applets/workspaces/settings.ui:65
+msgid "0.5x"
+msgstr "0,5x"
+
+#: src/panel/applets/workspaces/settings.ui:66
+msgid "0.75x"
+msgstr "0,75x"
+
+#: src/panel/applets/workspaces/settings.ui:67
+msgid "1.0x"
+msgstr "1,0x"
+
+#: src/panel/applets/workspaces/settings.ui:68
+msgid "1.5x"
+msgstr "1,5x"
+
+#: src/panel/applets/workspaces/settings.ui:69
+msgid "2.0x"
+msgstr "2,0x"
+
+#: src/raven/widgets/calendar/settings.ui:17
+msgid "Show Week Numbers"
+msgstr ""
+
+#: src/raven/widgets/calendar/settings.ui:43
+msgid "Show Day Names"
+msgstr ""
+
+#: src/raven/widgets/sound-input/settings.ui:17
+#: src/raven/widgets/sound-output/settings.ui:17
+msgid "Allow Volume Overdrive"
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/settings.ui:17
+msgid "Show Swap Usage"
+msgstr ""
+
+#: src/daemon/ragnar-daemon.desktop.in:3
+msgid "Ragnar Background Services"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:4
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:4
+msgid "Ragnar screenshot app"
+msgstr "Εφαρμογή καταγραφής οθόνης Ragnar"
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:8
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:8
+msgid "Screenshot;Snip;"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:3
+msgid "Ragnar PolicyKit UI"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:4
+msgid "Ragnar PolicyKit Authorisation UI"
+msgstr ""
+
+#: src/dialogs/screenshot/ragnar-screenshot-dialog.desktop.in.in:3
+msgid "Ragnar Screenshot UI"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:4
+msgid "Ragnar Menu"
+msgstr "Μενού Ragnar"
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:5
+msgid "Search for and start up applications."
+msgstr ""
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:4
+msgid "Caffeine"
+msgstr "Καφεΐνη"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:5
+msgid "Prevent the system and screen from sleeping."
+msgstr ""
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:4
+msgid "Clock"
+msgstr "Ρολόι"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:5
+msgid "A digital clock with a customizable format."
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:4
+msgid "Icon Task List"
+msgstr "Εικονίδιο Λίστας Εργασιών"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:5
+msgid "A configurable application task list."
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:5
+msgid "Indicates which keyboard layout is currently in use."
+msgstr ""
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:4
+msgid "Lock Keys Indicator"
+msgstr "Ένδειξη Κλειδώματος Πλήκτρων"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:5
+msgid "Show status of lock keys."
+msgstr ""
+
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:5
+msgid "Toggle and modify Night Light settings."
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:5
+msgid "Open the Raven notifications view."
+msgstr ""
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:5
+msgid "Show drives and favorite folders."
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:4
+msgid "Raven Trigger"
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:5
+msgid "Open the Raven sidebar."
+msgstr ""
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:4
+msgid "Separator"
+msgstr "Διαχωριστής"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:5
+msgid "Visual separator between applets."
+msgstr ""
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:4
+msgid "Show Desktop Button"
+msgstr "Πλήκτρο Εμφάνισης Επιφάνειας Εργασίας"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:5
+msgid "A button that toggles visibility of the desktop."
+msgstr "Ένα κουμπί που αλλάζει την ορατότητα της επιφάνειας εργασίας."
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:4
+msgid "Spacer"
+msgstr "Κενό"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:5
+msgid "Adjustable spacer to put between other applets."
+msgstr ""
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:4
+msgid "Status Indicator"
+msgstr "Δείκτης κατάστασης"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:5
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr ""
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:4
+msgid "Task List"
+msgstr "Λίστα εργασιών"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:5
+msgid "An application task list with icons and labels."
+msgstr ""
+
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:5
+msgid "Manage your trash from the Ragnar panel"
+msgstr ""
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:4
+msgid "System Tray"
+msgstr "Εικονίδια Συστήματος"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:5
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr ""
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:4
+msgid "User Indicator"
+msgstr "Δείκτης Χρήστη"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:5
+msgid "Opens the power dialog."
+msgstr ""
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:4
+msgid "Workspace Switcher"
+msgstr "Εναλλαγή Χώρου Εργασίας"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:5
+msgid "Display workspaces and switch between them."
+msgstr ""
+
+#: src/panel/ragnar-desktop-settings.desktop.in:3
+msgid "Change desktop appearance and behavior"
+msgstr "Αλλάξτε την εμφάνιση και συμπεριφορά της επιφάνειας εργασίας"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:12
+msgid "Preferences;Settings;"
+msgstr ""
+
+#: src/panel/ragnar-panel.desktop.in:3
+msgid "Ragnar Panel"
+msgstr "Ragnar Πάνελ"
+
+#: src/panel/ragnar-panel.desktop.in:4
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr ""
+"Εκτέλεση άλλων εφαρμογών και παροχή διάφορων εργαλείων για τη διαχείριση "
+"παραθύρων, εμφάνιση της ώρας, κλπ."
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:4
+msgid "Calendar"
+msgstr "Ημερολόγιο"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:5
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:4
+msgid "Media Controls"
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:5
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:4
+msgid "Sound Input"
+msgstr "Είσοδος Ήχου"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:5
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:4
+msgid "Sound Output"
+msgstr "Έξοδος Ήχου"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:5
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:5
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:2
+msgid "Ragnar Desktop (magpie)"
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:3
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:2
+msgid "Network (Ragnar Desktop)"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:3
+msgid "Manage your network connections"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:3
+msgid "Ragnar Power Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:4
+msgid "A button dialog to lock the screen, reboot, shutdown, etc."
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:3
+msgid "Ragnar Screenshot Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:4
+msgid "Screenshot interface"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in:3
+#: src/session/ragnar-desktop.session.desktop.in.in:2
+msgid "Ragnar Desktop"
+msgstr "Επιφάνεια Εργασίας Ragnar"
+
+#: src/session/ragnar-desktop.desktop.in.in:4
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr ""
+

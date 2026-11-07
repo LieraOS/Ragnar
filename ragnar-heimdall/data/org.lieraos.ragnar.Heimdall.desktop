@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Heimdall
+Comment=Network manager and configuration tool for the Ragnar desktop
+Icon=network-workgroup
+Exec=ragnar-heimdall
+Categories=System;Settings;Network;
+Terminal=false
+StartupNotify=true
+Keywords=network;settings;connection;wifi;ethernet;vpn;dns;firewall;

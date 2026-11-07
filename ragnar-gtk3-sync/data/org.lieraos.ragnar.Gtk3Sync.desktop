@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar GTK3 Settings Sync
+Comment=Mirrors theme GSettings into the GTK3 settings.ini
+Exec=/usr/bin/ragnar-gtk3-sync
+Terminal=false
+NoDisplay=true
+X-GNOME-AutoRestart=true

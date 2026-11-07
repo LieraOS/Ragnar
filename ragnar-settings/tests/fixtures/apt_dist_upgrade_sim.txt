@@ -1,0 +1,57 @@
+HINWEIS: Dies ist nur eine Simulation!
+         apt-get benötigt root-Privilegien für die reale Ausführung.
+         Behalten Sie ebenfalls in Hinterkopf, dass die Sperren deaktiviert
+         sind, verlassen Sie sich also bezüglich des reellen aktuellen
+         Status der Sperre nicht darauf!
+Paketlisten werden gelesen…
+Abhängigkeitsbaum wird aufgebaut…
+Statusinformationen werden eingelesen…
+Paketaktualisierung (Upgrade) wird berechnet…
+Die folgenden Pakete wurden automatisch installiert und werden nicht mehr benötigt:
+  gnome-accessibility-themes gnome-themes-extra gtk2-engines-pixbuf
+  libfarmhash0 liblrdf0 libopenni2-0 libsrt1.5-gnutls libtensorflow-lite2.14.1
+  libthrift-0.23.0
+Verwenden Sie »apt autoremove«, um sie zu entfernen.
+Die folgenden Pakete werden ENTFERNT:
+  libmjpegutils-2.2-0 libmpeg2encpp-2.2-0 libmplex2-2.2-0
+Die folgenden NEUEN Pakete werden installiert:
+  libmjpegutils-2.2-0t64 libmpeg2encpp-2.2-0t64 libmplex2-2.2-0t64
+  libopenaptx0 libwebrtc-audio-coding-1-3 libwpe-1.0-1 libwpewebkit-2.0-1
+Die folgenden Pakete werden aktualisiert (Upgrade):
+  gstreamer1.0-gtk3 gstreamer1.0-plugins-bad gstreamer1.0-plugins-good
+  libfreezethaw-perl libgstreamer-plugins-bad1.0-0 libmimalloc3 libvmaf3
+  libvmaf3:i386
+8 aktualisiert, 7 neu installiert, 3 zu entfernen und 0 nicht aktualisiert.
+Remv libmplex2-2.2-0 [1:2.2.1-3+b1] [gstreamer1.0-plugins-bad:amd64 ]
+Inst libmplex2-2.2-0t64 (2:2.2.1-dmo10 Unofficial Multimedia Packages:testing [amd64]) []
+Remv libmjpegutils-2.2-0 [1:2.2.1-3+b1] [libmpeg2encpp-2.2-0:amd64 gstreamer1.0-plugins-bad:amd64 ]
+Inst libmjpegutils-2.2-0t64 (2:2.2.1-dmo10 Unofficial Multimedia Packages:testing [amd64])
+Inst gstreamer1.0-plugins-bad [1.28.8-1] (1:1.28.8-dmo1 Unofficial Multimedia Packages:testing [amd64]) []
+Inst gstreamer1.0-plugins-good [1.28.8-1] (1.28.8-dmo1 Unofficial Multimedia Packages:testing [amd64]) []
+Inst gstreamer1.0-gtk3 [1.28.8-1] (1.28.8-dmo1 Unofficial Multimedia Packages:testing [amd64]) []
+Remv libmpeg2encpp-2.2-0 [1:2.2.1-3+b1] []
+Inst libmpeg2encpp-2.2-0t64 (2:2.2.1-dmo10 Unofficial Multimedia Packages:testing [amd64]) []
+Inst libgstreamer-plugins-bad1.0-0 [1.28.8-1] (1:1.28.8-dmo1 Unofficial Multimedia Packages:testing [amd64]) []
+Inst libopenaptx0 (0.2.0-6+b3 Debian:testing [amd64]) []
+Inst libvmaf3 [3.2.1-dmo1] (3.2.1-dmo3 Unofficial Multimedia Packages:testing [amd64]) [libvmaf3:amd64 on libvmaf3:i386] [libvmaf3:i386 on libvmaf3:amd64] [libvmaf3:i386 ]
+Inst libvmaf3:i386 [3.2.1-dmo1] (3.2.1-dmo3 Unofficial Multimedia Packages:testing [i386]) []
+Inst libwebrtc-audio-coding-1-3 (1.3-3+b3 Debian:testing [amd64]) []
+Inst libwpe-1.0-1 (1.16.3-2 Debian:testing [amd64]) []
+Inst libwpewebkit-2.0-1 (2.54.2-1 Debian:testing [amd64])
+Inst libfreezethaw-perl [0.5001-3] (1.00-1 Debian:testing [all])
+Inst libmimalloc3 [3.5.3+ds-1] (3.6.0+ds-1 Debian:testing [amd64])
+Conf libmplex2-2.2-0t64 (2:2.2.1-dmo10 Unofficial Multimedia Packages:testing [amd64])
+Conf libmjpegutils-2.2-0t64 (2:2.2.1-dmo10 Unofficial Multimedia Packages:testing [amd64])
+Conf gstreamer1.0-plugins-bad (1:1.28.8-dmo1 Unofficial Multimedia Packages:testing [amd64])
+Conf gstreamer1.0-plugins-good (1.28.8-dmo1 Unofficial Multimedia Packages:testing [amd64])
+Conf gstreamer1.0-gtk3 (1.28.8-dmo1 Unofficial Multimedia Packages:testing [amd64])
+Conf libmpeg2encpp-2.2-0t64 (2:2.2.1-dmo10 Unofficial Multimedia Packages:testing [amd64])
+Conf libgstreamer-plugins-bad1.0-0 (1:1.28.8-dmo1 Unofficial Multimedia Packages:testing [amd64])
+Conf libopenaptx0 (0.2.0-6+b3 Debian:testing [amd64])
+Conf libvmaf3 (3.2.1-dmo3 Unofficial Multimedia Packages:testing [amd64])
+Conf libvmaf3:i386 (3.2.1-dmo3 Unofficial Multimedia Packages:testing [i386])
+Conf libwebrtc-audio-coding-1-3 (1.3-3+b3 Debian:testing [amd64])
+Conf libwpe-1.0-1 (1.16.3-2 Debian:testing [amd64])
+Conf libwpewebkit-2.0-1 (2.54.2-1 Debian:testing [amd64])
+Conf libfreezethaw-perl (1.00-1 Debian:testing [all])
+Conf libmimalloc3 (3.6.0+ds-1 Debian:testing [amd64])

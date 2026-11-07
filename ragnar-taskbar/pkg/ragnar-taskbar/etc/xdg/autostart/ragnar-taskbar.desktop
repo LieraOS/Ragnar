@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Taskbar
+Comment=Native Wayland taskbar for the Ragnar desktop
+Exec=/usr/bin/ragnar-taskbar
+OnlyShowIn=Ragnar;

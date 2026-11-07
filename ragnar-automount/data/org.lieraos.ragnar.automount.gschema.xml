@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- GSettings schema for ragnar-automount. Installed to
+     /usr/share/glib-2.0/schemas/ by the ragnar-settings package and
+     toggled live by the "Removable media" panel in Ragnar Settings. -->
+<schemalist>
+  <schema id="org.lieraos.ragnar.automount" path="/org/lieraos/ragnar/automount/">
+    <key name="enabled" type="b">
+      <default>true</default>
+      <summary>Automatically mount removable media</summary>
+      <description>
+        Whether ragnar-automount mounts removable volumes (USB drives,
+        optical discs, memory cards) as soon as they are plugged in.
+        The key is re-read on every hot-plug event, so changes made in
+        Ragnar Settings take effect immediately.
+      </description>
+    </key>
+  </schema>
+</schemalist>

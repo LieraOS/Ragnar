@@ -1,0 +1,9 @@
+Package: ragnar-raven
+Version: 0.1.0
+Architecture: amd64
+Maintainer: LieraOS
+Depends: libgtk-4-1, libgtk4-layer-shell0, libc6, libglib2.0-0t64
+Description: Ragnar sidebar: appointments, reminders and notifications
+ Rust/GTK4 reimplementation of Raven. Runs as a background reminder
+ daemon (autostart) and opens a compact day window on demand.
+ Notification sidebar for the Ragnar desktop.

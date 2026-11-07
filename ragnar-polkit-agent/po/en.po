@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-polkit-agent 0.1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "Authentifizierung erforderlich"
+msgstr "Authentication required"
+
+msgid "Passwort:"
+msgstr "Password:"
+
+msgid "Benutzer"
+msgstr "User"
+
+msgid "Abbrechen"
+msgstr "Cancel"
+
+msgid "Authentifizieren"
+msgstr "Authenticate"
+
+msgid "Authentifizierung fehlgeschlagen"
+msgstr "Authentication failed"
+
+msgid "Administrator rights required for"
+msgstr "Administrator rights required for"
