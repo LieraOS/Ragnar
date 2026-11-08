@@ -1,0 +1,143 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "Abbrechen"
+msgstr "Cancel"
+
+msgid "Alle"
+msgstr "All"
+
+msgid "Alle auswählen"
+msgstr "Select all"
+
+msgid "Arbeite …"
+msgstr "Working …"
+
+msgid "Ausgewählte installieren"
+msgstr "Install selected"
+
+msgid "Beenden"
+msgstr "Close"
+
+msgid "Das System ist aktuell."
+msgstr "Das System ist aktuell."
+
+msgid "Debian"
+msgstr "Debian"
+
+msgid "Deinstallieren"
+msgstr "Uninstall"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Details konnten nicht geladen werden: %s"
+msgstr "Details konnten nicht geladen werden: %s"
+
+msgid "Einstellungen"
+msgstr "Settings"
+
+msgid "Flathub"
+msgstr "Flathub"
+
+msgid "Flathub-Apps im Katalog anzeigen"
+msgstr "Show Flathub apps in the catalogue"
+
+msgid "Installation abgeschlossen."
+msgstr "Installation finished."
+
+msgid "Installation fehlgeschlagen: %s"
+msgstr "Installation failed: %s"
+
+msgid "Installiere …"
+msgstr "Installing …"
+
+msgid "Installiere … %d %%"
+msgstr "Installiere … %d %%"
+
+msgid "Installieren"
+msgstr "Install"
+
+msgid "Installiere: %s"
+msgstr "Installiere: %s"
+
+msgid "Installiert: %s — PackageKit hat benötigte Abhängigkeiten automatisch mitinstalliert."
+msgstr "Installiert: %s — PackageKit hat benötigte Abhängigkeiten automatisch mitinstalliert."
+
+msgid "Kategorien"
+msgstr "Kategorien"
+
+msgid "Keine Änderungsbeschreibung verfügbar."
+msgstr "Keine Änderungsbeschreibung verfügbar."
+
+msgid "Keine App ausgewählt"
+msgstr "No app selected"
+
+msgid "Keine Beschreibung verfügbar."
+msgstr "No description available."
+
+msgid "Kein Update ausgewählt"
+msgstr "Kein Update ausgewählt"
+
+msgid "Lade Verlauf …"
+msgstr "Loading history …"
+
+msgid "Paket"
+msgstr "Package"
+
+msgid "Pakete suchen"
+msgstr "Search packages"
+
+msgid "Paket installieren"
+msgstr "Install package"
+
+msgid "Paketverwaltung"
+msgstr "Package management"
+
+msgid "Ragnar Software"
+msgstr "Ragnar Software"
+
+msgid "Schweregrad"
+msgstr "Severity"
+
+msgid "Software"
+msgstr "Software"
+
+msgid "Software-Quellen"
+msgstr "Software sources"
+
+msgid "Statusabfrage fehlgeschlagen: %s"
+msgstr "Statusabfrage fehlgeschlagen: %s"
+
+msgid "Suche"
+msgstr "Suche"
+
+msgid "Systemupdates und Software-Verwaltung"
+msgstr "Systemupdates und Software-Verwaltung"
+
+msgid "Transaktionen"
+msgstr "transactions"
+
+msgid "Transaktion läuft …"
+msgstr "Transaction running …"
+
+msgid "Updates"
+msgstr "Updates"
+
+msgid "Updates installieren?"
+msgstr "Updates installieren?"
+
+msgid "Update-Status wird ermittelt …"
+msgstr "Checking update status …"
+
+msgid "Verlauf"
+msgstr "History"
+
+msgid "Verlauf nicht verfügbar"
+msgstr "History not available"
+
+msgid "Willkommen"
+msgstr "Welcome"
+

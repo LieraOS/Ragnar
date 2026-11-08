@@ -1,0 +1,11 @@
+Package: ragnar-software
+Version: 0.0.1
+Section: admin
+Priority: optional
+Architecture: amd64
+Depends: packagekit, flatpak, libadwaita-1-0, libgtk-4-1
+Maintainer: LieraOS Project <projekt@lieraos.local>
+Description: Updates and package management for the Ragnar desktop
+ Welcome page with live update status, selective update installer,
+ software catalogue (Debian + Flathub), local .deb/.flatpakref
+ install and transaction history. PackageKit backend over D-Bus.
