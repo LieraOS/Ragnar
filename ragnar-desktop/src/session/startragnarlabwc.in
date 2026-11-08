@@ -49,6 +49,25 @@ if [ ! -e "${XDG_RUNTIME_DIR}" ]; then
     }
 fi
 
+# Login shells add ~/bin and ~/.local/bin to PATH via ~/.profile, but
+# display managers start wayland sessions through a plain `sh`, so the
+# profile never runs inside the graphical session. Apply the same
+# convention here or user-installed binaries (npm -g, pip --user, …)
+# are unresolvable for every program in the session.
+# Deliberately not sourcing ~/.profile itself: arbitrary user code
+# must not run inside the session launcher, and a non-POSIX profile
+# would break login entirely.
+for _dir in "${HOME}/bin" "${HOME}/.local/bin"; do
+    if [ -d "${_dir}" ]; then
+        case ":${PATH}:" in
+            *":${_dir}:"*) ;;
+            *) PATH="${_dir}:${PATH}" ;;
+        esac
+    fi
+done
+export PATH
+unset _dir
+
 # Fix desktop file override precedence
 if [ -z "$XDG_DATA_DIRS" ]; then
     export XDG_DATA_DIRS="@datadir@/ragnar-desktop:@datadir@"

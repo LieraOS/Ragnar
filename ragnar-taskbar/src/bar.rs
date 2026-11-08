@@ -94,7 +94,20 @@ pub fn spawn(
     {
         let (w, st) = (window.clone(), state.clone());
         gtk4::glib::timeout_add_local(std::time::Duration::from_millis(300), move || {
-            let fs = st.borrow().store.tops.borrow().iter().any(|t| t.fullscreen);
+            // Hide only when a fullscreen toplevel covers THIS bar's
+            // output — a fullscreen on the other monitor must not
+            // drop the bar over there.
+            let conn = w
+                .surface()
+                .and_then(|s| s.display().monitor_at_surface(&s))
+                .and_then(|m| m.connector().map(|c| c.to_string()));
+            let fs = st.borrow().store.tops.borrow().iter().any(|t| {
+                t.fullscreen
+                    && conn
+                        .as_ref()
+                        .map(|c| t.outputs.iter().any(|o| o == c))
+                        .unwrap_or(false)
+            });
             w.set_visible(!fs);
             gtk4::glib::ControlFlow::Continue
         });
@@ -283,11 +296,39 @@ async fn primary_connector() -> Option<String> {
     None
 }
 
+/// Resolve the target monitor SYNCHRONOUSLY and pin the window —
+/// must run before the first present so the layer surface's initial
+/// commit already carries the right wl_output. A later async pass
+/// (pin_monitor) still corrects when DisplayServices answers late.
+fn pin_monitor_now(window: &gtk4::Window, configured: &str, index: usize) {
+    let Some(disp) = gtk4::gdk::Display::default() else {
+        return;
+    };
+    let mons = disp.monitors();
+    let pick = if configured.is_empty() {
+        // empty = this bar's own index — not blindly the first
+        // monitor, or every bar would pile onto one output
+        mons.item(index as u32)
+    } else {
+        (0..mons.n_items()).find_map(|i| {
+            mons.item(i).and_then(|m| {
+                m.downcast::<gtk4::gdk::Monitor>().ok().and_then(|mm| {
+                    (mm.connector().map(|c| c.to_string()).as_deref() == Some(configured))
+                        .then_some(mm.upcast::<gtk4::glib::Object>())
+                })
+            })
+        })
+    };
+    if let Some(m) = pick.and_then(|m| m.downcast::<gtk4::gdk::Monitor>().ok()) {
+        window.set_monitor(Some(&m));
+    }
+}
+
 /// Resolve the target monitor asynchronously, then pin the window.
 /// Runs off the call path so apply() stays non-blocking; with the
 /// service up this lands in the same main-loop iteration, well before
 /// the first frame.
-fn pin_monitor(window: &gtk4::Window, configured: String) {
+fn pin_monitor(window: &gtk4::Window, configured: String, index: usize) {
     let w = window.clone();
     gtk4::glib::spawn_future_local(async move {
         // Explicit config wins; otherwise Ragnar's PRIMARY via
@@ -303,7 +344,7 @@ fn pin_monitor(window: &gtk4::Window, configured: String) {
         };
         let mons = disp.monitors();
         let pick = if want.is_empty() {
-            mons.item(0)
+            mons.item(index as u32)
         } else {
             (0..mons.n_items()).find_map(|i| {
                 mons.item(i).and_then(|m| {
@@ -325,7 +366,7 @@ pub fn apply(window: &gtk4::Window, state: &State) {
 
     // Pin to an output — without this the compositor picks one
     // arbitrarily (the bar landed on the wrong monitor).
-    pin_monitor(window, cfg.monitor.clone());
+    pin_monitor(window, cfg.monitor.clone(), cfg.index);
 
     // Horizontal bars stretch across top/bottom edges; vertical bars
     // (left/right edge) stretch along the monitor's side instead.

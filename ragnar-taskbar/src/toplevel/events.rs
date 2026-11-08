@@ -5,7 +5,7 @@ use crate::toplevel::TopInfo;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 use wayland_client::backend::ObjectId;
-use wayland_client::protocol::{wl_registry, wl_seat};
+use wayland_client::protocol::{wl_output, wl_registry, wl_seat};
 use wayland_client::{delegate_noop, Connection, Dispatch, Proxy, QueueHandle};
 use wayland_protocols_wlr::foreign_toplevel::v1::client::{
     zwlr_foreign_toplevel_handle_v1::{self, ZwlrForeignToplevelHandleV1},
@@ -22,6 +22,9 @@ pub struct Shared {
     pub seat: Arc<Mutex<Option<wl_seat::WlSeat>>>,
     /// Handle lookup by protocol object id — stable across removals.
     pub handles: Arc<Mutex<HashMap<ObjectId, ZwlrForeignToplevelHandleV1>>>,
+    /// wl_output object id → connector name ("HDMI-A-1") for
+    /// resolving OutputEnter/Leave events.
+    pub output_names: Arc<Mutex<HashMap<ObjectId, String>>>,
     /// Arrival order for stable button placement.
     pub order: Arc<Mutex<Vec<ObjectId>>>,
 }
@@ -36,6 +39,9 @@ pub struct Top {
     pub maximized: bool,
     /// zwlr fullscreen state — bars hide while any toplevel is fullscreen.
     pub fullscreen: bool,
+    /// Output names (connectors) this toplevel currently sits on —
+    /// filled by OutputEnter/Leave so bars hide per-monitor only.
+    pub outputs: Vec<String>,
 }
 
 pub struct State {
@@ -67,6 +73,9 @@ impl Dispatch<wl_registry::WlRegistry, ()> for State {
         match interface.as_str() {
             "zwlr_foreign_toplevel_manager_v1" => {
                 registry.bind::<ZwlrForeignToplevelManagerV1, _, _>(name, version, qh, ());
+            }
+            "wl_output" => {
+                registry.bind::<wl_output::WlOutput, _, _>(name, version.min(4), qh, ());
             }
             "wl_seat" => {
                 let seat = registry.bind::<wl_seat::WlSeat, _, _>(name, 1, qh, ());
@@ -104,6 +113,7 @@ impl Dispatch<ZwlrForeignToplevelManagerV1, ()> for State {
                 minimized: false,
                 maximized: false,
                 fullscreen: false,
+                outputs: Vec::new(),
             });
             state
                 .shared
@@ -157,6 +167,25 @@ impl Dispatch<ZwlrForeignToplevelHandleV1, ()> for State {
                     t.fullscreen = st.contains(&3);
                 }
             }
+            E::OutputEnter { output } => {
+                if let Some(t) = state.tops.iter_mut().find(|t| t.id == id) {
+                    let names = state.shared.output_names.lock().unwrap();
+                    if let Some(n) = names.get(&output.id()) {
+                        t.outputs.push(n.clone());
+                    } else {
+                        // name may arrive later — keep the object id
+                        t.outputs.push(format!("output-{:?}", output.id()));
+                    }
+                }
+            }
+            E::OutputLeave { output } => {
+                if let Some(t) = state.tops.iter_mut().find(|t| t.id == id) {
+                    let names = state.shared.output_names.lock().unwrap();
+                    if let Some(n) = names.get(&output.id()) {
+                        t.outputs.retain(|o| o != n);
+                    }
+                }
+            }
             E::Closed => {
                 state.tops.retain(|t| t.id != id);
                 state.shared.handles.lock().unwrap().remove(&id);
@@ -176,6 +205,7 @@ impl Dispatch<ZwlrForeignToplevelHandleV1, ()> for State {
                         minimized: t.minimized,
                         maximized: t.maximized,
                         fullscreen: t.fullscreen,
+                        outputs: t.outputs.clone(),
                     })
                     .collect();
                 drop(order);
@@ -195,6 +225,7 @@ impl Dispatch<ZwlrForeignToplevelHandleV1, ()> for State {
                         minimized: t.minimized,
                         maximized: t.maximized,
                         fullscreen: t.fullscreen,
+                        outputs: t.outputs.clone(),
                     })
                     .collect();
                 let _ = state.notify.try_send(snap);
@@ -205,3 +236,23 @@ impl Dispatch<ZwlrForeignToplevelHandleV1, ()> for State {
 }
 
 delegate_noop!(State: ignore wl_seat::WlSeat);
+
+impl Dispatch<wl_output::WlOutput, ()> for State {
+    fn event(
+        state: &mut Self,
+        proxy: &wl_output::WlOutput,
+        event: wl_output::Event,
+        _: &(),
+        _: &Connection,
+        _: &QueueHandle<State>,
+    ) {
+        if let wl_output::Event::Name { name } = event {
+            state
+                .shared
+                .output_names
+                .lock()
+                .unwrap()
+                .insert(proxy.id(), name);
+        }
+    }
+}

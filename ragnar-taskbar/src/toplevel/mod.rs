@@ -26,6 +26,8 @@ pub struct TopInfo {
     pub maximized: bool,
     /// zwlr fullscreen state — bars hide while a toplevel is fullscreen.
     pub fullscreen: bool,
+    /// Connector names the toplevel currently covers.
+    pub outputs: Vec<String>,
 }
 
 /// Live store the tasklist applet renders from.

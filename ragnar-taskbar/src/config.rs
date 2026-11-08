@@ -51,6 +51,10 @@ pub struct BarConfig {
     /// Cap on workspace buttons the workspace applet renders;
     /// 0 = show every workspace the compositor reports.
     pub workspace_max: i32,
+    /// Position of the [bar-N] section — picks monitor N when
+    /// `monitor` is empty, so each bar lands on a different output
+    /// instead of all piling onto the first one.
+    pub index: usize,
 }
 
 impl Default for BarConfig {
@@ -66,6 +70,7 @@ impl Default for BarConfig {
             color: String::new(),
             monitor: String::new(),
             workspace_max: 0,
+            index: 0,
         }
     }
 }
@@ -169,6 +174,10 @@ pub fn load() -> Vec<BarConfig> {
                 color,
                 monitor,
                 workspace_max,
+                index: g
+                    .strip_prefix("bar-")
+                    .and_then(|s| s.parse::<usize>().ok())
+                    .unwrap_or(0),
             })
         })
         .collect()

@@ -27,24 +27,35 @@ const HANDOVER_MS: u64 = 850;
 /// that fails (unknown output, no compositor) exits inside this
 /// window.
 const SPAWN_CHECK_MS: u64 = 1500;
-/// Watchdog interval: re-applies when no tracked swaybg is alive.
+/// Watchdog interval: re-applies when any tracked swaybg is gone.
 const WATCHDOG_S: u32 = 15;
-/// Consecutive failed spawn checks — caps the retry so a permanently
-/// failing swaybg does not loop (the watchdog still retries slowly).
+/// Fast retries after a spawn check finds dead children — covers a
+/// multi-second compositor startup window; the slow watchdog keeps
+/// retrying afterwards either way.
+const MAX_FAST_RETRIES: u32 = 10;
+/// Consecutive failed spawn checks — caps the fast retry so a
+/// permanently failing swaybg does not loop at full speed (the
+/// watchdog still retries every WATCHDOG_S).
 static FAILS: AtomicU32 = AtomicU32::new(0);
 
-/// What to do with the last choice after the watchdog finds all
-/// swaybg dead.
+/// True when the tracked set cannot render anything: empty (all
+/// spawns failed) or at least one child already exited. A partial
+/// loss counts too — a monitor must never stay without wallpaper.
+fn set_is_broken() -> bool {
+    let mut current = CURRENT.lock().unwrap();
+    current.is_empty()
+        || current
+            .iter_mut()
+            .any(|c| !matches!(c.try_wait(), Ok(None)))
+}
+
+/// What to do with the last choice after the watchdog finds any
+/// tracked swaybg dead or missing.
 pub fn watch_last() {
     glib::timeout_add_local(
         std::time::Duration::from_secs(WATCHDOG_S as u64),
         move || {
-            let alive = CURRENT
-                .lock()
-                .unwrap()
-                .iter_mut()
-                .any(|c| matches!(c.try_wait(), Ok(None)));
-            if !alive {
+            if set_is_broken() {
                 if let Some(c) = LAST.lock().unwrap().clone() {
                     apply(&c);
                 }
@@ -73,22 +84,17 @@ pub fn apply(choice: &Choice) {
 }
 
 /// Verifies the freshly spawned children after the grace window;
-/// if any died already (compositor race), retries the whole apply
-/// once — a single retry covers the session-start race where the
-/// outputs are not yet advertised.
+/// if any died already (compositor race), retries the whole apply.
+/// The retry budget covers a slow compositor startup; afterwards
+/// the watchdog keeps applying at WATCHDOG_S intervals.
 fn check_spawned() {
     glib::timeout_add_local_once(
         std::time::Duration::from_millis(SPAWN_CHECK_MS),
         move || {
-            let any_dead = CURRENT
-                .lock()
-                .unwrap()
-                .iter_mut()
-                .any(|c| !matches!(c.try_wait(), Ok(None)));
-            if any_dead {
-                // One automatic retry; after that the 15s watchdog
-                // keeps applying — no tight respawn loop.
-                if FAILS.fetch_add(1, Ordering::Relaxed) < 1 {
+            if set_is_broken() {
+                // Bounded fast retries; the watchdog heals beyond
+                // that at its slower pace — no tight respawn loop.
+                if FAILS.fetch_add(1, Ordering::Relaxed) < MAX_FAST_RETRIES {
                     if let Some(c) = LAST.lock().unwrap().clone() {
                         apply(&c);
                     }

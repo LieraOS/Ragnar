@@ -46,13 +46,15 @@ pub fn init(
 ) {
     let bars: Bars = Rc::new(RefCell::new(Vec::new()));
     let mut first = true;
-    for cfg in crate::config::load() {
+    for (i, cfg) in crate::config::load().into_iter().enumerate() {
         let (r, tr, wr) = if first {
             (Some(rx.clone()), Some(tray_rx.clone()), Some(ws_rx.clone()))
         } else {
             (None, None, None)
         };
         first = false;
+        let mut cfg = cfg;
+        cfg.index = i;
         spawn(&bars, app, cfg, &store, r, &tray, tr, &ws_store, wr);
     }
     CTX.with(|c| {

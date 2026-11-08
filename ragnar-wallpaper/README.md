@@ -19,6 +19,13 @@ AccountsService (`User.SetBackgroundFile` + DisplayManager-
 Extension, LightDM-Konvention) — der Login-Screen zeigt dasselbe
 Bild. Best-effort, nie fatal.
 
+**Startrobustheit:** Vor dem ersten Spawn wartet der Dienst, bis der
+Wayland-Socket tatsächlich Verbindungen annimmt (Compositor-Race beim
+Session-Start, z. B. Re-Login über LightDM). Danach decken begrenzte
+Schnell-Retries plus ein Watchdog den Rest ab — ein toter `swaybg`
+pro Output wird erkannt und neu angewendet, nicht nur ein Komplett-
+Ausfall.
+
 **Start:** XDG-Autostart (`org.lieraos.ragnar.Wallpaper.desktop`).
 Der legacy Daemon übernimmt den Job ab `ragnar-core 1.0-23` nicht mehr.
 
@@ -44,5 +51,11 @@ Best-effort, never fatal.
 
 **Startup:** XDG autostart (`org.lieraos.ragnar.Wallpaper.desktop`).
 The legacy daemon no longer does this job as of `ragnar-core 1.0-23`.
+
+**Startup robustness:** before the first spawn the service waits
+until the Wayland socket actually accepts connections (compositor
+race at session start, e.g. re-login via LightDM). Bounded fast
+retries plus a watchdog cover the rest — a dead `swaybg` on any
+output is detected and re-applied, not only a total loss.
 
 **Package:** `packaging/build-deb.sh` → cargo-deb.
