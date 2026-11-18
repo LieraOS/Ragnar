@@ -34,6 +34,14 @@ pub struct BarState {
     /// as the tasklist.
     pub ws_store: WsStore,
     pub ws_zone: Option<applets::workspace::WsZone>,
+    /// Set by bars::remove before window.destroy() — every timer that
+    /// still holds this bar must stop instead of resurrecting a
+    /// destroyed surface via set_visible/apply.
+    pub dead: bool,
+    /// Gradient cycle position 0.0..1.0 for the animated background —
+    /// lives here (not in the paint layer) so layout rebuilds keep
+    /// the flow seamless instead of restarting the gradient.
+    pub anim_phase: std::cell::Cell<f64>,
 }
 
 pub type State = Rc<RefCell<BarState>>;
@@ -75,6 +83,8 @@ pub fn spawn(
         tray_zone,
         ws_store: ws_store.clone(),
         ws_zone,
+        dead: false,
+        anim_phase: std::cell::Cell::new(0.0),
     }));
     let window = gtk4::Window::builder().application(app).build();
     // The bar's visible background is painted by the root box —
@@ -94,6 +104,11 @@ pub fn spawn(
     {
         let (w, st) = (window.clone(), state.clone());
         gtk4::glib::timeout_add_local(std::time::Duration::from_millis(300), move || {
+            // Bar was removed — die with it instead of resurrecting
+            // the destroyed window via set_visible.
+            if st.borrow().dead {
+                return gtk4::glib::ControlFlow::Break;
+            }
             // Hide only when a fullscreen toplevel covers THIS bar's
             // output — a fullscreen on the other monitor must not
             // drop the bar over there.
@@ -142,7 +157,9 @@ pub fn spawn(
     {
         let (w, st) = (window.clone(), state.clone());
         gtk4::glib::timeout_add_seconds_local_once(5, move || {
-            apply(&w, &st);
+            if !st.borrow().dead {
+                apply(&w, &st);
+            }
         });
     }
     window.present();
@@ -234,7 +251,17 @@ pub fn rebuild_root(window: &gtk4::Window, state: &State) {
         };
         root.append(&widget);
     }
-    window.set_child(Some(&root));
+    // Animated background: the gradient layer sits UNDER the applets
+    // in an overlay; the bar's own CSS background is transparent in
+    // that mode (see apply), so the gradient shines through.
+    if st.cfg.anim {
+        let over = gtk4::Overlay::new();
+        over.set_child(Some(&crate::bar_anim::paint_layer(state)));
+        over.add_overlay(&root);
+        window.set_child(Some(&over));
+    } else {
+        window.set_child(Some(&root));
+    }
 }
 
 /// Small popover menu anchored at the pointer: the entry points for
@@ -294,34 +321,6 @@ async fn primary_connector() -> Option<String> {
         }
     }
     None
-}
-
-/// Resolve the target monitor SYNCHRONOUSLY and pin the window —
-/// must run before the first present so the layer surface's initial
-/// commit already carries the right wl_output. A later async pass
-/// (pin_monitor) still corrects when DisplayServices answers late.
-fn pin_monitor_now(window: &gtk4::Window, configured: &str, index: usize) {
-    let Some(disp) = gtk4::gdk::Display::default() else {
-        return;
-    };
-    let mons = disp.monitors();
-    let pick = if configured.is_empty() {
-        // empty = this bar's own index — not blindly the first
-        // monitor, or every bar would pile onto one output
-        mons.item(index as u32)
-    } else {
-        (0..mons.n_items()).find_map(|i| {
-            mons.item(i).and_then(|m| {
-                m.downcast::<gtk4::gdk::Monitor>().ok().and_then(|mm| {
-                    (mm.connector().map(|c| c.to_string()).as_deref() == Some(configured))
-                        .then_some(mm.upcast::<gtk4::glib::Object>())
-                })
-            })
-        })
-    };
-    if let Some(m) = pick.and_then(|m| m.downcast::<gtk4::gdk::Monitor>().ok()) {
-        window.set_monitor(Some(&m));
-    }
 }
 
 /// Resolve the target monitor asynchronously, then pin the window.
@@ -417,7 +416,11 @@ pub fn apply(window: &gtk4::Window, state: &State) {
     // background or the user's custom colour — GTK CSS `alpha()`
     // does the blending, so no colour parsing is needed.
     let alpha = (cfg.opacity.clamp(10, 100) as f64) / 100.0;
-    let bg = if cfg.color.is_empty() {
+    // Animated bars paint their background in the gradient layer —
+    // the root box must stay transparent or it would cover it.
+    let bg = if cfg.anim {
+        "transparent".to_string()
+    } else if cfg.color.is_empty() {
         format!("alpha(@theme_bg_color, {alpha:.2})")
     } else if let Ok(c) = gtk4::gdk::RGBA::parse(&cfg.color) {
         let (r, g, b) = (c.red(), c.green(), c.blue());

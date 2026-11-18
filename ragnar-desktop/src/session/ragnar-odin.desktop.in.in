@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Ragnar (Odin, experimental)
+Comment=RagnarOS session on the Odin compositor — experimental
+Exec=@bindir@/startragnarodin ragnar-desktop
+Type=Application
+DesktopNames=Ragnar

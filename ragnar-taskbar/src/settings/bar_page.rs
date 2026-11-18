@@ -51,12 +51,13 @@ pub fn build(ui: &Rc<Ui>, index: usize) -> gtk4::Widget {
     col.append(&position_section(ui, index, &cfg));
     col.append(&geometry_section(index, &cfg));
     col.append(&style_section(index, &cfg));
+    col.append(&super::anim_section::section(ui, index, &cfg));
     col.append(&content_section(ui, index, &cfg));
     col.upcast()
 }
 
 /// Section header label, left-aligned, bold.
-fn head(text: &str) -> gtk4::Label {
+pub(super) fn head(text: &str) -> gtk4::Label {
     let l = gtk4::Label::new(Some(text));
     l.set_halign(gtk4::Align::Start);
     l.add_css_class("heading");
@@ -196,7 +197,7 @@ fn geometry_section(index: usize, cfg: &BarConfig) -> gtk4::Widget {
 }
 
 /// One labelled slider that commits on every change.
-fn slider(
+pub(super) fn slider(
     index: usize,
     name: &str,
     min: f64,
@@ -216,6 +217,23 @@ fn slider(
     s.connect_value_changed(move |s| {
         commit(index, |c| mutate(c, s.value()));
     });
+    // The wheel must scroll the PAGE, not change the value: a
+    // capture-phase controller sees the event before the scale's own
+    // scroll handling and hands the delta to the enclosing scroller.
+    let wheel = gtk4::EventControllerScroll::new(gtk4::EventControllerScrollFlags::VERTICAL);
+    wheel.set_propagation_phase(gtk4::PropagationPhase::Capture);
+    let w = s.clone();
+    wheel.connect_scroll(move |_, _dx, dy| {
+        let scroller = std::iter::successors(w.parent(), |w| w.parent())
+            .find_map(|w| w.downcast::<gtk4::ScrolledWindow>().ok());
+        if let Some(sw) = scroller {
+            let adj = sw.vadjustment();
+            let upper = (adj.upper() - adj.page_size()).max(adj.lower());
+            adj.set_value((adj.value() + dy * 60.0).clamp(adj.lower(), upper));
+        }
+        gtk4::glib::Propagation::Stop
+    });
+    s.add_controller(wheel);
     row.append(&s);
     row.upcast()
 }
@@ -345,20 +363,59 @@ fn content_section(ui: &Rc<Ui>, index: usize, cfg: &BarConfig) -> gtk4::Widget {
         sec.append(&super::workspace_ctl::row(index, cfg));
     }
 
-    // Chip strip — drag to reorder, spacer chips click-edit width.
-    let strip = gtk4::Box::new(gtk4::Orientation::Horizontal, 4);
-    strip.add_css_class("layout-preview");
-    strip.set_size_request(-1, 34);
-    for (i, item) in cfg.layout.iter().enumerate() {
-        strip.append(&super::bar_chip::chip(ui, index, item, i));
-    }
-    let spacer = gtk4::Button::with_label(&crate::i18n::tr("+ Füllraum"));
+    // Miniature arrangement strip — chips in layout order, gaps as
+    // stretchy dashed segments; "+" slots insert a gap in place.
+    let cap = gtk4::Label::new(Some(&crate::i18n::tr(
+        "Anordnung — Einträge ziehen zum Verschieben, + fügt einen Abstand ein",
+    )));
+    cap.add_css_class("dim-label");
+    cap.set_halign(gtk4::Align::Start);
+    sec.append(&cap);
+    sec.append(&super::bar_chip::strip(ui, index, cfg));
+
+    // Reset restores the default order and gaps for the applets this
+    // bar owns — it never pulls applets off other bars.
+    let reset = gtk4::Button::with_label(&crate::i18n::tr("Anordnung zurücksetzen"));
     let u = ui.clone();
-    spacer.connect_clicked(move |_| {
-        commit(index, |c| c.layout.push("spacer".into()));
+    reset.connect_clicked(move |_| {
+        reset_layout(index);
         super::rebuild_all(&u);
     });
-    sec.append(&strip);
-    sec.append(&spacer);
+    sec.append(&reset);
     sec.upcast()
+}
+
+/// Restore the default arrangement for the bar's current applets:
+/// entries keep their set, get the default order, and default gaps;
+/// custom applets absent from the default keep their order at the
+/// end. Never touches other bars — no applet stealing.
+fn reset_layout(index: usize) {
+    commit(index, |c| {
+        let owned: Vec<String> = c
+            .layout
+            .iter()
+            .filter(|i| !i.starts_with("spacer"))
+            .cloned()
+            .collect();
+        let mut out: Vec<String> = crate::config::LAYOUT_DEFAULT
+            .iter()
+            .filter(|d| **d == "spacer" || owned.iter().any(|o| o == *d))
+            .map(|s| s.to_string())
+            .collect();
+        out.extend(
+            owned
+                .iter()
+                .filter(|o| !crate::config::LAYOUT_DEFAULT.contains(&o.as_str()))
+                .cloned(),
+        );
+        // Collapse doubled gaps and drop edge gaps — cosmetic only.
+        out.dedup();
+        while out.first().is_some_and(|i| i == "spacer") {
+            out.remove(0);
+        }
+        while out.last().is_some_and(|i| i == "spacer") {
+            out.pop();
+        }
+        c.layout = out;
+    });
 }

@@ -8,6 +8,7 @@
 // right-click properties dialog.
 mod applets;
 mod bar;
+mod bar_anim;
 mod bars;
 mod config;
 mod i18n;

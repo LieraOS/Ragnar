@@ -130,6 +130,17 @@ configure_file(
     install_dir: join_paths(get_option('prefix'), get_option('bindir')),
 )
 
+# Write /usr/bin/startragnarodin script — the Ragnar session
+# bootstrap on the Odin compositor, selectable via the
+# RAGNAR_SESSION_COMPOSITOR hook. Session-layer integration
+# lives here; Odin itself stays ragnar-free.
+configure_file(
+    input: 'startragnarodin.in',
+    output: 'startragnarodin',
+    configuration: session_data,
+    install_dir: join_paths(get_option('prefix'), get_option('bindir')),
+)
+
 # Configure the default wayland-session file
 waylandsession_conf = configure_file(
     input: 'ragnar-desktop.desktop.in.in',
@@ -141,6 +152,23 @@ waylandsession_conf = configure_file(
 i18n.merge_file(
     input : waylandsession_conf,
     output : 'ragnar-desktop.desktop',
+    type : 'desktop',
+    po_dir : podir,
+    install : true,
+    install_dir : join_paths(datadir, 'wayland-sessions'),
+)
+
+# Configure the experimental Odin wayland-session file
+odin_waylandsession_conf = configure_file(
+    input: 'ragnar-odin.desktop.in.in',
+    output: 'ragnar-odin.desktop.in',
+    configuration: session_data,
+)
+
+# Now merge the translations of the .desktop.in to a .desktop
+i18n.merge_file(
+    input : odin_waylandsession_conf,
+    output : 'ragnar-odin.desktop',
     type : 'desktop',
     po_dir : podir,
     install : true,

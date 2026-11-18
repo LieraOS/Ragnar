@@ -248,7 +248,7 @@ pub fn menu_popover(anchor: &impl IsA<gtk4::Widget>) -> gtk4::Popover {
     list.set_margin_start(8);
     list.set_margin_end(8);
 
-    let open = gtk4::Button::with_label(&crate::i18n::tr("Skald öffnen"));
+    let open = gtk4::Button::with_label(&crate::i18n::tr("Lautstärke öffnen"));
     let fx = gtk4::CheckButton::with_label(&crate::i18n::tr("Effekte aktivieren"));
     list.append(&open);
     list.append(&fx);

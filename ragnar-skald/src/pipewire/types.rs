@@ -46,7 +46,7 @@ pub struct AppStream {
     /// Application display name (`application.name` /
     /// `media.name` fallback to node name).
     pub app_name: String,
-    /// Stream volume in linear gain (1.0 = 100 %).
+    /// Stream volume in cubic scale — the value wpctl, pavucontrol and the taskbar show (1.0 = 100 %).
     pub volume: f32,
     /// Mute state.
     pub muted: bool,
@@ -54,7 +54,7 @@ pub struct AppStream {
 
 /// Snapshot of a single audio endpoint (sink or source node).
 ///
-/// `volume` is linear gain: 1.0 = 100 %. Values above 1.0 are only
+/// `volume` is cubic scale: 1.0 = 100 %. Values above 1.0 are only
 /// reachable when the user enables boost in the UI.
 #[derive(Debug, Clone)]
 pub struct AudioEndpoint {
@@ -66,7 +66,7 @@ pub struct AudioEndpoint {
     pub description: String,
     /// Direction of this endpoint.
     pub direction: Direction,
-    /// Master volume in linear gain (1.0 = 100 %).
+    /// Master volume in cubic scale (1.0 = 100 %) — same convention as wpctl/pavucontrol.
     pub volume: f32,
     /// Per-channel volumes; length == channel count once known.
     pub channel_volumes: Vec<f32>,
@@ -311,7 +311,7 @@ impl LadspaPlugin {
 /// Commands the GUI sends into the PipeWire worker thread.
 #[derive(Debug)]
 pub enum BackendCommand {
-    /// Set volume on a node (linear gain, clamped to `0.0..=MAX_VOLUME`).
+    /// Set volume on a node (cubic scale, clamped to `0.0..=MAX_VOLUME`).
     SetVolume { id: u32, volume: f32 },
     /// Set mute on a node.
     SetMute { id: u32, muted: bool },

@@ -21,7 +21,11 @@ impl Tracker {
         if let Some(stream) = self.streams.get_mut(&id) {
             let mut changed = false;
             if let Some(volumes) = state.channel_volumes {
-                let v = volumes.iter().sum::<f32>() / volumes.len().max(1) as f32;
+                // channelVolumes arrive LINEAR — the model holds the
+                // cubic display convention (wpctl/pavucontrol/taskbar),
+                // so the average gets converted with cbrt.
+                let avg = volumes.iter().sum::<f32>() / volumes.len().max(1) as f32;
+                let v = avg.cbrt();
                 if (stream.volume - v).abs() > f32::EPSILON {
                     stream.volume = v;
                     changed = true;
@@ -79,9 +83,10 @@ impl Tracker {
 
         if let Some(volumes) = state.channel_volumes {
             if ep.channel_volumes != volumes {
-                // Master volume is the channel average — same convention
-                // pavucontrol uses for multi-channel devices.
-                ep.volume = volumes.iter().sum::<f32>() / volumes.len().max(1) as f32;
+                // channelVolumes are LINEAR; `volume` is the cubic
+                // master (same convention as pavucontrol/wpctl/the
+                // taskbar) — display the cbrt of the channel average.
+                ep.volume = (volumes.iter().sum::<f32>() / volumes.len().max(1) as f32).cbrt();
                 ep.channel_volumes = volumes;
                 changed = true;
             }
@@ -115,12 +120,17 @@ impl Tracker {
             return;
         };
         let volume = volume.clamp(0.0, MAX_VOLUME);
+        // Callers pass the CUBIC display value (GUI sliders, carry-over
+        // restores) — channelVolumes are LINEAR gains, so each channel
+        // gets volume³; the scalar prop keeps the cubic value via
+        // build_volume_pod's own derivation.
+        let linear = volume * volume * volume;
         let channels = self
             .endpoints
             .get(&id)
             .map(|ep| ep.channel_volumes.len().max(1))
             .unwrap_or(2);
-        let channel_volumes = vec![volume; channels];
+        let channel_volumes = vec![linear; channels];
 
         match props::build_volume_pod(&channel_volumes, None) {
             Ok(bytes) => {

@@ -7,6 +7,7 @@ use gtk4::prelude::*;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
+mod anim_section;
 mod bar_chip;
 mod bar_page;
 mod launcher_dlg;
@@ -25,6 +26,15 @@ pub struct Ui {
     pub menu_sel: Rc<RefCell<String>>,
     /// The settings window itself — transient parent for dialogs.
     pub win: gtk4::Window,
+    /// Draggable divider between the bar column and the detail pane —
+    /// the user sizes the column freely instead of a fixed width.
+    pub paned: gtk4::Paned,
+    /// Sidebar swapper: "full" = bar cards, "back" = slim back strip
+    /// shown while the menu manager owns the window's width.
+    pub side_stack: gtk4::Stack,
+    /// Paned position remembered when the menu page collapses the
+    /// sidebar — restored on the way back to the bars.
+    pub saved_pos: Rc<Cell<i32>>,
 }
 
 /// Open (or focus) the settings window.
@@ -37,8 +47,18 @@ pub fn open(parent: &gtk4::Window) {
         .default_height(520)
         .build();
 
-    let outer = gtk4::Box::new(gtk4::Orientation::Horizontal, 0);
-    win.set_child(Some(&outer));
+    // Draggable divider — the column width is the user's choice,
+    // not a hard-coded constant.
+    let paned = gtk4::Paned::new(gtk4::Orientation::Horizontal);
+    paned.set_wide_handle(true);
+    paned.set_shrink_start_child(true);
+    paned.set_shrink_end_child(true);
+    win.set_child(Some(&paned));
+
+    // Sidebar swapper — "full" shows the bar cards, "back" is the
+    // slim strip the menu page collapses to.
+    let side_stack = gtk4::Stack::new();
+    paned.set_start_child(Some(&side_stack));
 
     // Left column — bar cards in a scroller plus the add card.
     let left = gtk4::Box::new(gtk4::Orientation::Vertical, 8);
@@ -58,13 +78,38 @@ pub fn open(parent: &gtk4::Window) {
     let add = gtk4::Button::with_label(&crate::i18n::tr("+  Neue Leiste hinzufügen"));
     add.add_css_class("settings-add");
     left.append(&add);
-    outer.append(&left);
-    outer.append(&gtk4::Separator::new(gtk4::Orientation::Vertical));
+    side_stack.add_named(&left, Some("full"));
 
-    // Right column — the selected bar's detail page.
+    // "back" strip — the only navigation back to the bars while the
+    // menu manager fills the window.
+    let back = gtk4::Box::new(gtk4::Orientation::Vertical, 6);
+    back.set_margin_top(14);
+    back.set_margin_start(6);
+    back.set_margin_end(6);
+    let back_btn = gtk4::Button::new();
+    back_btn.set_tooltip_text(Some(&crate::i18n::tr("Zurück zu den Leisten")));
+    let back_inner = gtk4::Box::new(gtk4::Orientation::Vertical, 4);
+    back_inner.append(&gtk4::Image::from_icon_name("go-previous-symbolic"));
+    back_inner.append(&gtk4::Label::new(Some(&crate::i18n::tr("Leisten"))));
+    back_btn.set_child(Some(&back_inner));
+    back.append(&back_btn);
+    side_stack.add_named(&back, Some("back"));
+    side_stack.set_visible_child_name("full");
+
+    // Right column — the selected bar's detail page inside a
+    // scroller: the bar page grew taller than a monitor once the
+    // animation section landed, and without scrolling the window
+    // would overflow the screen edge with no way to reach the
+    // lower controls.
     let detail = gtk4::Box::new(gtk4::Orientation::Vertical, 0);
     detail.set_hexpand(true);
-    outer.append(&detail);
+    let dscroll = gtk4::ScrolledWindow::builder()
+        .hscrollbar_policy(gtk4::PolicyType::Never)
+        .vscrollbar_policy(gtk4::PolicyType::Automatic)
+        .child(&detail)
+        .build();
+    paned.set_end_child(Some(&dscroll));
+    paned.set_position(240);
 
     // Menu settings card below the bar list — a real settings
     // destination, not a bar, so it lives outside the card list.
@@ -81,13 +126,17 @@ pub fn open(parent: &gtk4::Window) {
         selected: Rc::new(Cell::new(0)),
         menu_page: Rc::new(Cell::new(false)),
         menu_sel: Rc::new(RefCell::new("Audio & Video".to_string())),
+        paned,
+        side_stack,
+        saved_pos: Rc::new(Cell::new(240)),
     });
     {
         let u = ui.clone();
-        menu_card.connect_clicked(move |_| {
-            u.menu_page.set(true);
-            rebuild_all(&u);
-        });
+        menu_card.connect_clicked(move |_| set_page(&u, true));
+    }
+    {
+        let u = ui.clone();
+        back_btn.connect_clicked(move |_| set_page(&u, false));
     }
     {
         let u = ui.clone();
@@ -104,6 +153,27 @@ pub fn open(parent: &gtk4::Window) {
 pub fn rebuild_all(ui: &Rc<Ui>) {
     rebuild_list(ui);
     rebuild_detail(ui);
+}
+
+/// Switch between bar pages and the start-menu page. Going to the
+/// menu collapses the sidebar to the slim back strip and gives the
+/// manager the window's width; coming back restores the divider
+/// position the user had before.
+fn set_page(ui: &Rc<Ui>, menu: bool) {
+    if ui.menu_page.get() == menu {
+        rebuild_all(ui);
+        return;
+    }
+    ui.menu_page.set(menu);
+    if menu {
+        ui.saved_pos.set(ui.paned.position().max(120));
+        ui.side_stack.set_visible_child_name("back");
+        ui.paned.set_position(56);
+    } else {
+        ui.side_stack.set_visible_child_name("full");
+        ui.paned.set_position(ui.saved_pos.get());
+    }
+    rebuild_all(ui);
 }
 
 /// One card per live bar: name + edge hint + delete affordance.
@@ -150,8 +220,7 @@ fn rebuild_list(ui: &Rc<Ui>) {
         let u = ui.clone();
         sel.connect_pressed(move |_, _, _, _| {
             u.selected.set(i);
-            u.menu_page.set(false);
-            rebuild_all(&u);
+            set_page(&u, false);
         });
         card.add_controller(sel);
 

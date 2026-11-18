@@ -118,8 +118,17 @@ msgstr "Monitor"
 msgid "Automatisch"
 msgstr "Automatic"
 
-msgid "+ Füllraum"
-msgstr "+ Spacer"
+msgid "Abstand einfügen"
+msgstr "Insert gap"
+
+msgid "Abstand — klicken für Breite, ziehen zum Verschieben"
+msgstr "Gap — click for width, drag to move"
+
+msgid "Anordnung — Einträge ziehen zum Verschieben, + fügt einen Abstand ein"
+msgstr "Arrangement — drag items to reorder, + inserts a gap"
+
+msgid "Anordnung zurücksetzen"
+msgstr "Reset arrangement"
 
 msgid "Verhalten"
 msgstr "Behaviour"
@@ -265,8 +274,41 @@ msgstr "Turn notifications on"
 msgid "Keine Anwendung spielt Audio"
 msgstr "No application is playing audio"
 
-msgid "Skald öffnen"
-msgstr "Open Skald"
+msgid "Lautstärke öffnen"
+msgstr "Open Volume"
 
 msgid "Effekte aktivieren"
 msgstr "Enable effects"
+
+msgid "Animation"
+msgstr "Animation"
+
+msgid "Aktiviert"
+msgstr "Enabled"
+
+msgid "Farben"
+msgstr "Colours"
+
+msgid "+ Farbe"
+msgstr "+ Colour"
+
+msgid "Richtung"
+msgstr "Direction"
+
+msgid "Tempo"
+msgstr "Speed"
+
+msgid "Glätte"
+msgstr "Smoothness"
+
+msgid "Rotierend"
+msgstr "Spinning"
+
+msgid "Sparsam (15 FPS)"
+msgstr "Saver (15 FPS)"
+
+msgid "Normal (30 FPS)"
+msgstr "Normal (30 FPS)"
+
+msgid "Flüssig (60 FPS)"
+msgstr "Fluid (60 FPS)"

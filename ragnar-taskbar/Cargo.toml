@@ -1,6 +1,6 @@
 [package]
 name = "ragnar-taskbar"
-version = "0.2.9"
+version = "0.3.9"
 edition = "2021"
 description = "Ragnar taskbar — Wayland-native GTK4 panel for LieraOS"
 license = "GPL-3.0-or-later"

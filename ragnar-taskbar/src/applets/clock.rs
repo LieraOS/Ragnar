@@ -2,13 +2,10 @@
 // sits in the tooltip. Cinnamon-style interaction: LEFT click opens
 // the calendar panel (date header, appointment area, month calendar,
 // settings entry); RIGHT click opens the applet context menu
-// (Über / Einrichten / entfernen).
+// (Einrichten).
 use crate::bar::State;
 use gtk4::glib;
 use gtk4::prelude::*;
-
-/// The applet id as stored in the bar layout — removal filters it.
-const APPLET_ID: &str = "clock";
 
 thread_local! {
     /// Whether the bar label shows the weekday — loaded once from
@@ -35,7 +32,7 @@ pub fn weekday_saved() -> bool {
     kf.boolean("clock", "weekday").unwrap_or(false)
 }
 
-pub fn build(state: &State, vertical: bool) -> gtk4::Widget {
+pub fn build(_state: &State, vertical: bool) -> gtk4::Widget {
     let label = gtk4::Label::new(None);
     // On vertical bars the HH:MM string overflows the thin bar —
     // stack hour over minute instead. Weekday shows as the
@@ -78,37 +75,23 @@ pub fn build(state: &State, vertical: bool) -> gtk4::Widget {
     }
     label.add_controller(left);
 
-    // Right click → applet context menu (Cinnamon pattern).
+    // Right click → applet context menu — a single entry point into
+    // the clock's own settings; applet management lives in the bar
+    // settings, not per-applet.
     let right = gtk4::GestureClick::new();
     right.set_button(3);
     {
-        let (l, st) = (label.clone(), std::rc::Rc::clone(state));
+        let l = label.clone();
         right.connect_pressed(move |_, _, _, _| {
             let (lft, rgt, sw, h) = crate::menu::widget_span(&l);
             let win = crate::menu::shell(lft, rgt, sw, h);
-            let items: Vec<(String, Box<dyn Fn() + 'static>)> = vec![
-                (
-                    "Über …".into(),
-                    Box::new({
-                        let l = l.clone();
-                        move || about(&l)
-                    }),
-                ),
-                (
-                    "Einrichten …".into(),
-                    Box::new({
-                        let l = l.clone();
-                        move || crate::applets::clock_settings::open_settings(&l)
-                    }),
-                ),
-                (
-                    "»Kalender« entfernen".into(),
-                    Box::new({
-                        let (l, st) = (l.clone(), st.clone());
-                        move || remove_applet(&l, &st)
-                    }),
-                ),
-            ];
+            let items: Vec<(String, Box<dyn Fn() + 'static>)> = vec![(
+                "Einrichten …".into(),
+                Box::new({
+                    let l = l.clone();
+                    move || crate::applets::clock_settings::open_settings(&l)
+                }),
+            )];
             crate::menu::show(&win, &crate::menu::item_list(items, &win));
         });
     }
@@ -174,39 +157,6 @@ fn calendar_panel(anchor: &gtk4::Label) -> gtk4::Widget {
     root.append(&settings);
 
     root.upcast()
-}
-
-/// Small "Über" dialog for the calendar applet.
-fn about(anchor: &gtk4::Label) {
-    let d = gtk4::AboutDialog::builder()
-        .program_name("Ragnar-Kalender")
-        .version(env!("CARGO_PKG_VERSION"))
-        .comments("Kalender-Applet der Ragnar-Taskbar (LieraOS)")
-        .modal(false)
-        .build();
-    if let Some(w) = anchor
-        .root()
-        .and_then(|r| r.downcast::<gtk4::Window>().ok())
-    {
-        d.set_transient_for(Some(&w));
-    }
-    d.present();
-}
-
-/// Remove this applet from the owning bar's layout, persist the
-/// change and rebuild the bar so the slot disappears immediately.
-fn remove_applet(anchor: &gtk4::Label, state: &State) {
-    {
-        let mut st = state.borrow_mut();
-        st.cfg.layout.retain(|e| e != APPLET_ID);
-        crate::config::save(0, &st.cfg);
-    }
-    if let Some(win) = anchor
-        .root()
-        .and_then(|r| r.downcast::<gtk4::Window>().ok())
-    {
-        crate::bar::rebuild_root(&win, state);
-    }
 }
 
 /// Path of the shared Raven appointment file. The taskbar only reads

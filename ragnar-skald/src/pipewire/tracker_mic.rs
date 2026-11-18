@@ -48,12 +48,13 @@ impl Tracker {
     }
 
     /// Hardware capture level the real source gets pinned to while
-    /// the chain runs — ~0.22 lands near +15 dB on typical ACP
-    /// mixers, loud enough for mixer-fed mics while staying well
-    /// below the +30 dB clip zone (which begins around 0.3). All
-    /// user-visible loudness then happens in software on
-    /// `skald.mic.out` instead of the ADC.
-    const SAFE_CAPTURE_VOLUME: f32 = 0.22;
+    /// the chain runs — a LINEAR gain of ~0.22 lands near +15 dB on
+    /// typical ACP mixers, loud enough for mixer-fed mics while
+    /// staying well below the +30 dB clip zone (which begins around
+    /// 0.3). All user-visible loudness then happens in software on
+    /// `skald.mic.out` instead of the ADC. `set_volume` expects the
+    /// cubic display convention, so the constant holds cbrt(0.22).
+    const SAFE_CAPTURE_VOLUME: f32 = 0.604;
 
     /// Enable the chain if wanted and possible; defers via
     /// `mic_pending` while the registry is still incomplete (no

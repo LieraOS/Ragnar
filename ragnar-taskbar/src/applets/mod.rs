@@ -41,7 +41,10 @@ pub fn init_css() {
          .edge-btn { border-radius: 15px; } \
          .edge-btn:checked { background: @theme_selected_bg_color; color: @theme_selected_fg_color; } \
          .layout-preview { background: alpha(@theme_fg_color, 0.05); border-radius: 6px; padding: 4px; } \
-         .layout-chip { min-height: 0; padding: 2px 10px; }",
+         .layout-chip { min-height: 0; padding: 2px 10px; } \
+         .layout-spacer { border: 1px dashed alpha(@theme_fg_color, 0.45); background: alpha(@theme_fg_color, 0.07); color: alpha(@theme_fg_color, 0.6); min-width: 26px; padding: 2px 4px; } \
+         .layout-gap-slot { min-height: 0; min-width: 0; padding: 0 1px; opacity: 0.4; } \
+         .layout-gap-slot:hover { opacity: 1; }",
     );
     if let Some(d) = Display::default() {
         gtk4::style_context_add_provider_for_display(

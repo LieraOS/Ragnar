@@ -55,6 +55,18 @@ pub struct BarConfig {
     /// `monitor` is empty, so each bar lands on a different output
     /// instead of all piling onto the first one.
     pub index: usize,
+    /// Animated gradient background — off by default; when on, the
+    /// bar paints a flowing colour gradient instead of a solid fill.
+    pub anim: bool,
+    /// Gradient colours as "#rrggbb" — at least two for a gradient.
+    pub anim_colors: Vec<String>,
+    /// Flow direction: "ltr" | "rtl" | "down" | "up" | "spin".
+    pub anim_dir: String,
+    /// Flow speed 1–10 — a full colour cycle takes `13 - speed`
+    /// seconds, so higher means faster.
+    pub anim_speed: i32,
+    /// Repaint rate preset: 15 | 30 | 60 fps.
+    pub anim_fps: i32,
 }
 
 impl Default for BarConfig {
@@ -71,6 +83,11 @@ impl Default for BarConfig {
             monitor: String::new(),
             workspace_max: 0,
             index: 0,
+            anim: false,
+            anim_colors: vec!["#3584e4".into(), "#9141ac".into(), "#e01b24".into()],
+            anim_dir: "ltr".into(),
+            anim_speed: 4,
+            anim_fps: 30,
         }
     }
 }
@@ -163,6 +180,22 @@ pub fn load() -> Vec<BarConfig> {
                 Some("right") => Align::Right,
                 _ => Align::Center,
             };
+            let anim = kf.boolean(g, "anim").unwrap_or(false);
+            let anim_colors: Vec<String> = kf
+                .string(g, "anim-colors")
+                .map(|raw| {
+                    raw.split(';')
+                        .filter(|e| gtk4::gdk::RGBA::parse(*e).is_ok())
+                        .map(str::to_string)
+                        .collect()
+                })
+                .unwrap_or_else(|_| BarConfig::default().anim_colors);
+            let anim_dir = kf
+                .string(g, "anim-dir")
+                .map(|s| s.to_string())
+                .unwrap_or_else(|_| "ltr".into());
+            let anim_speed = kf.int64(g, "anim-speed").unwrap_or(4) as i32;
+            let anim_fps = kf.int64(g, "anim-fps").unwrap_or(30) as i32;
             Some(BarConfig {
                 edge,
                 height,
@@ -178,6 +211,11 @@ pub fn load() -> Vec<BarConfig> {
                     .strip_prefix("bar-")
                     .and_then(|s| s.parse::<usize>().ok())
                     .unwrap_or(0),
+                anim,
+                anim_colors,
+                anim_dir,
+                anim_speed,
+                anim_fps,
             })
         })
         .collect()
@@ -206,6 +244,11 @@ pub fn save(index: usize, cfg: &BarConfig) {
     kf.set_string(&group, "color", &cfg.color);
     kf.set_string(&group, "monitor", &cfg.monitor);
     kf.set_int64(&group, "workspace-max", cfg.workspace_max as i64);
+    kf.set_boolean(&group, "anim", cfg.anim);
+    kf.set_string(&group, "anim-colors", &cfg.anim_colors.join(";"));
+    kf.set_string(&group, "anim-dir", &cfg.anim_dir);
+    kf.set_int64(&group, "anim-speed", cfg.anim_speed as i64);
+    kf.set_int64(&group, "anim-fps", cfg.anim_fps as i64);
     let dir = path().parent().unwrap().to_path_buf();
     let _ = std::fs::create_dir_all(&dir);
     let _ = kf.save_to_file(path());

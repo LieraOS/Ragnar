@@ -8,6 +8,13 @@ Written in Rust; rendered through `wlr-layer-shell` via gtk4-layer-shell.
 - Classic taskbar layout: start menu left, task list centre,
   tray + clock right — as a freely ordered applet sequence with
   flexible or fixed-width spacers (`menu;spacer;tasklist;spacer;tray;status;clock`)
+  edited as a live miniature of the bar: gaps render as dashed
+  stretchy segments, "+" slots insert gaps in place, chips reorder
+  via drag & drop, one click resets the arrangement
+- Optional animated gradient background per bar (off by default):
+  user-picked colour list, flow direction (→/←/↓/↑/spinning), speed
+  and a 15/30/60 fps smoothness preset — painted as a Cairo gradient
+  layer under the applets, zero overhead while disabled
 - Task list: real running windows via `zwlr_foreign_toplevel_manager_v1`
   (activate/minimize on left-click; right-click → minimize /
   maximize / close)
@@ -22,10 +29,11 @@ Written in Rust; rendered through `wlr-layer-shell` via gtk4-layer-shell.
   `com.canonical.dbusmenu` menu with real cascading submenus, item
   icons (icon-name + icon-data), check/radio toggles, separators
   and live layout updates via LayoutUpdated
-- Clock: left-click → Cinnamon-style calendar panel (date, upcoming
-  events placeholder, month calendar, "Datums- und
-  Zeiteinstellungen"); right-click → applet context menu
-  (Über / Einrichten / »Kalender« entfernen)
+- Clock: left-click → Cinnamon-style calendar panel (date, live
+  clock, month calendar, "Datums- und Zeiteinstellungen");
+  right-click → "Einrichten …"; appointment days are marked
+  straight from Raven's appointments.ics and double-click or
+  right-click on a day opens the Raven editor
 - Task-button hover → live window thumbnail preview via
   ext-image-copy-capture (title + scaled texture over the applet)
 - Multi-bar: bars are spawned/managed at runtime from a registry;
@@ -46,10 +54,17 @@ Written in Rust; rendered through `wlr-layer-shell` via gtk4-layer-shell.
   settings window: bars on four edges incl. vertical, height,
   width, alignment, icon size, opacity + colour per bar,
   drag-and-drop applet ordering, per-bar applet checkboxes,
-  custom cmd: applets
+  custom cmd: applets; the bar column is a draggable GtkPaned
+  divider, and the start-menu page collapses it to a slim
+  back strip so the menu manager gets the full width; the detail
+  page scrolls vertically, and the wheel over a slider scrolls the
+  page instead of changing the value
+- Notification bell: pure reader of ragnar-raven's shared
+  history.jsonl — visible only while unread entries exist, opening
+  the list marks them seen
 - Per-bar config in `~/.config/ragnar-taskbar/bars.ini` — one
   `[bar-N]` section per bar; built for multiple bars
-- The standalone Ragnar panel
+- The standalone panel of the Ragnar desktop
 
 ## i18n
 
@@ -70,51 +85,3 @@ Runtime dependency: `libgtk4-layer-shell0`.
 `wayland-client` uses runtime loading (`dlopen`) so libwayland never
 precedes gtk4-layer-shell in link order — that order would silently
 break layer-shell support.
-
-## German
-
-# ragnar-taskbar
-
-Wayland-native Taskbar für den Ragnar-Desktop (LieraOS), in Rust mit
-GTK4, über `wlr-layer-shell` gerendert.
-
-- Klassisches Layout: Startmenü links, Taskliste Mitte, Tray + Uhr
-  rechts — als frei sortierbare Applet-Reihenfolge mit flexiblen oder
-  festen Abstandshaltern
-- Taskliste: echte laufende Fenster über
-  `zwlr_foreign_toplevel_manager_v1` (Linksklick aktiviert;
-  Rechtsklick → Minimieren/Maximieren/Schließen)
-- Arbeitsflächen-Umschalter: echte Workspaces via
-  `ext-workspace-v1` (Zahlen-Buttons, aktive markiert, Klick →
-  Umschalten); die Einstellungen steuern sowohl die Gesamtzahl
-  (schreibt labwcs `<desktops number>` + lädt live neu) als auch
-  die pro Leiste angezeigte Höchstzahl
-- System-Tray: StatusNotifier-Host am Watcher von ragnar-daemon —
-  echte Items inkl. ayatana-Pfaden und IconThemePath-Icons;
-  Rechtsklick → das eigene `com.canonical.dbusmenu`-Menü der App
-  mit echten kaskadierenden Untermenüs, Item-Icons (icon-name +
-  icon-data), Check-/Radio-Toggles, Separatoren und Live-Updates
-  über LayoutUpdated
-- Uhr: Linksklick → Kalender-Panel im Cinnamon-Stil; Rechtsklick →
-  Applet-Kontextmenü (Über / Einrichten / entfernen)
-- Hover über Task-Buttons → Live-Fenster-Vorschau (Thumbnail) via
-  ext-image-copy-capture
-- Multi-Leiste: Leisten werden zur Laufzeit aus einer Registry
-  verwaltet; das Einstellungsfenster bearbeitet jede Leiste getrennt
-  (Kante inkl. vertikal, Geometrie, Applets, Transparenz, Farbe)
-- Kategorisiertes Startmenü (Hover-Stack, Suche, Session-Aktionen,
-  Ragnar-Logo) — Kategorien und App-Zuordnung sind in menu.ini und
-  über die Einstellungsseite frei bearbeitbar (Drag&Drop auf
-- Sensor-Applets (CPU/GPU/RAM/Mainboard) lesen sysfs-hwmon direkt —
-  nvidia-smi-Fallback für proprietäre GPUs; eigene cmd:-Applets
-  führen Shell-Befehle aus und zeigen deren Ausgabe
-  Kategorien, App umbenennen/ausblenden, Hover-/Klick-Modus,
-  eigene Kategorien)
-- Menüs sind einzelne Fullscreen-Layer-Shell-Overlay-Surfaces —
-  Außenklick oder ESC schließt, keine Input-Grabs
-- Rechtsklick auf freie Leistenfläche → Leistenmenü mit
-  Live-Eigenschaften: Kante, Höhe, Breite, Ausrichtung,
-  Icon-Größe, visuelle Drag-and-Drop-Layout-Vorschau
-- Pro Leiste eine `[bar-N]`-Sektion in
-  `~/.config/ragnar-taskbar/bars.ini`
-- Die Ragnar-Leiste

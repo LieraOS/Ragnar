@@ -1,6 +1,6 @@
 [package]
 name = "ragnar-wallpaper"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "Session wallpaper service for the Ragnar desktop (Liera)"
 license = "GPL-3.0-or-later"

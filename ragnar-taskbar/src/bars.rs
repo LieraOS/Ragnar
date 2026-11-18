@@ -133,6 +133,10 @@ pub fn remove(index: usize) {
     let b = bars();
     if index < b.borrow().len() {
         let e = b.borrow_mut().remove(index);
+        // Mark dead before destroy: the fullscreen-hide timer and the
+        // deferred apply still hold this bar and would re-present the
+        // destroyed window otherwise.
+        e.state.borrow_mut().dead = true;
         e.window.destroy();
     }
     persist();

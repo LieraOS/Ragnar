@@ -18,9 +18,11 @@ use libspa::utils::SpaTypes;
 /// Parsed subset of a `Props` param relevant for volume control.
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct PropsState {
-    /// Master volume (`volume` prop) — linear gain, 1.0 = 100 %.
+    /// Master volume (`volume` prop) — CUBIC scale, the value wpctl,
+    /// pavucontrol and the taskbar display as "percent" (1.0 = 100 %).
     pub volume: Option<f32>,
-    /// Per-channel volumes (`channelVolumes` prop).
+    /// Per-channel volumes (`channelVolumes` prop) — LINEAR gains;
+    /// PipeWire keeps the two in sync (linear = cubic³).
     pub channel_volumes: Option<Vec<f32>>,
     /// Mute flag (`mute` prop).
     pub mute: Option<bool>,
@@ -40,10 +42,15 @@ pub fn build_volume_pod(
         Value::ValueArray(ValueArray::Float(channel_volumes.to_vec())),
     )];
 
-    // The scalar `volume` mirrors the channel average for tools that
-    // display it and for single-volume nodes.
-    let master = channel_volumes.iter().sum::<f32>() / channel_volumes.len().max(1) as f32;
-    properties.push(Property::new(sys::SPA_PROP_volume, Value::Float(master)));
+    // The scalar `volume` prop is CUBIC while channelVolumes are
+    // LINEAR — mirror PipeWire's own derivation (master = cbrt of the
+    // linear channel average) so both props agree and simple
+    // single-volume nodes read the right value.
+    let linear_avg = channel_volumes.iter().sum::<f32>() / channel_volumes.len().max(1) as f32;
+    properties.push(Property::new(
+        sys::SPA_PROP_volume,
+        Value::Float(linear_avg.cbrt()),
+    ));
 
     if let Some(mute) = mute {
         properties.push(Property::new(sys::SPA_PROP_mute, Value::Bool(mute)));
@@ -126,7 +133,9 @@ mod tests {
     fn volume_pod_roundtrips_stereo() {
         let state = roundtrip(&[0.5, 0.75], None);
         assert_eq!(state.channel_volumes.as_deref(), Some(&[0.5f32, 0.75][..]));
-        assert_eq!(state.volume, Some(0.625));
+        // Scalar master is cubic: cbrt of the linear channel average.
+        let expect = (0.625f32).cbrt();
+        assert!((state.volume.unwrap() - expect).abs() < 1e-6);
         assert_eq!(state.mute, None);
     }
 
@@ -134,7 +143,8 @@ mod tests {
     fn volume_pod_roundtrips_mono() {
         let state = roundtrip(&[1.5], None);
         assert_eq!(state.channel_volumes.as_deref(), Some(&[1.5f32][..]));
-        assert_eq!(state.volume, Some(1.5));
+        let expect = (1.5f32).cbrt();
+        assert!((state.volume.unwrap() - expect).abs() < 1e-6);
     }
 
     #[test]

@@ -79,7 +79,12 @@ pub fn apply(choice: &Choice) {
     *CURRENT.lock().unwrap() = spawned;
     check_spawned();
     if let Choice::Image { path, .. } = choice {
-        accounts::set_background(path);
+        // Greeter sync must never stall wallpaper management: a slow
+        // or hanging AccountsService would park the main loop before
+        // the watchdog timers are armed — seen as a futex-blocked
+        // daemon, dead swaybg children and a missing wallpaper.
+        let p = path.clone();
+        std::thread::spawn(move || accounts::set_background(&p));
     }
 }
 

@@ -68,6 +68,14 @@ done
 export PATH
 unset _dir
 
+# Publish the login-convention PATH to the systemd user manager and
+# the D-Bus activation environment: labwc only exports its own
+# whitelist later, so without this step every autostart unit and
+# dbus-activated service (terminals, portals, …) inherits the
+# minimal default PATH and cannot find user-installed binaries.
+systemctl --user import-environment PATH 2>/dev/null || true
+dbus-update-activation-environment --systemd PATH 2>/dev/null || true
+
 # Fix desktop file override precedence
 if [ -z "$XDG_DATA_DIRS" ]; then
     export XDG_DATA_DIRS="@datadir@/ragnar-desktop:@datadir@"
@@ -185,7 +193,11 @@ fi
 # Ragnar will use its own config directory and config file to avoid
 # conflict with current labwc setup and avoid launching anything
 # from ~/.config/labwc/autostart
-RAGNAR_SESSION_COMPOSITOR="${OPTS:-labwc --config-dir ${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc} -S ragnar-desktop"
+# A preset RAGNAR_SESSION_COMPOSITOR (e.g. by a wrapper like
+# startragnarcomp) is the full compositor command and wins over the
+# labwc default — this is what makes alternative Ragnar compositors
+# (ragnar-comp) selectable without touching this script.
+RAGNAR_SESSION_COMPOSITOR="${RAGNAR_SESSION_COMPOSITOR:-${OPTS:-labwc --config-dir ${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc} -S ragnar-desktop}"
 
 # Start a D-Bus session if there isn't one already.
 if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
