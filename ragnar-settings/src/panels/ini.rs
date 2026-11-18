@@ -6,8 +6,8 @@
 // unknown line, section and comment — the files we touch
 // (gammastep's config.ini, future per-daemon settings) are also
 // edited by power users by hand, so dropping their keys is a bug.
-// notifications.rs carries a similar private implementation; the
-// generic version lives here for new panels.
+// Every panel that touches these files goes through this module —
+// private copies were removed after one produced malformed headers.
 
 use std::collections::BTreeMap;
 use std::io;

@@ -18,6 +18,7 @@ pub mod language;
 pub mod media;
 pub mod nightlight;
 pub mod notifications;
+pub mod osd;
 pub mod placeholder;
 pub mod power;
 pub mod printers;

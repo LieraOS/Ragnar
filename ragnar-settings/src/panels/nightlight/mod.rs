@@ -74,11 +74,8 @@ pub fn build() -> gtk4::Widget {
             if let Some(id) = debounce.borrow_mut().take() {
                 id.remove();
             }
-            let (settings, cell, pend) = (
-                settings.clone(),
-                Rc::clone(&debounce),
-                Rc::clone(&pending),
-            );
+            let (settings, cell, pend) =
+                (settings.clone(), Rc::clone(&debounce), Rc::clone(&pending));
             let id = gtk4::glib::timeout_add_local_once(
                 std::time::Duration::from_millis(DEBOUNCE_MS as u64),
                 move || {
@@ -139,7 +136,11 @@ pub fn build() -> gtk4::Widget {
     ));
 
     let from = gtk4::DropDown::from_strings(&times.iter().map(String::as_str).collect::<Vec<_>>());
-    from.set_selected(if always { 40 } else { hours_to_idx(from_hours, &times) });
+    from.set_selected(if always {
+        40
+    } else {
+        hours_to_idx(from_hours, &times)
+    });
     from.set_valign(gtk4::Align::Center);
     let from_row = common::row(
         &gettext("From"),
@@ -149,7 +150,11 @@ pub fn build() -> gtk4::Widget {
     option_rows.push(from_row.clone());
 
     let until = gtk4::DropDown::from_strings(&times.iter().map(String::as_str).collect::<Vec<_>>());
-    until.set_selected(if always { 12 } else { hours_to_idx(to_hours, &times) });
+    until.set_selected(if always {
+        12
+    } else {
+        hours_to_idx(to_hours, &times)
+    });
     until.set_valign(gtk4::Align::Center);
     let until_row = common::row(
         &gettext("Until"),
@@ -198,7 +203,11 @@ pub fn build() -> gtk4::Widget {
 
     // -- Signal wiring ------------------------------------------------------
     {
-        let (opt, sync, st) = (option_rows.clone(), sync_time_rows.clone(), settings.clone());
+        let (opt, sync, st) = (
+            option_rows.clone(),
+            sync_time_rows.clone(),
+            settings.clone(),
+        );
         sw.connect_state_set(move |_, on| {
             let _ = st.set_boolean("night-light-enabled", on);
             for r in &opt {
@@ -267,7 +276,9 @@ pub fn build() -> gtk4::Widget {
 /// The color schema, or None when missing.
 fn settings() -> Option<gio::Settings> {
     let source = gio::SettingsSchemaSource::default()?;
-    source.lookup(SCHEMA, true).map(|_| gio::Settings::new(SCHEMA))
+    source
+        .lookup(SCHEMA, true)
+        .map(|_| gio::Settings::new(SCHEMA))
 }
 
 /// Whether gammastep is installed — the row stays a hint only.

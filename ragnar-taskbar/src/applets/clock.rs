@@ -244,29 +244,96 @@ fn wire_calendar(cal: &gtk4::Calendar) {
 /// Launch ragnar-raven for the given day. The `--day` argument is
 /// delivered over D-Bus to a running instance (single-instance
 /// GApplication); a cold start simply opens it directly.
+///
+/// The fullscreen calendar overlay must close first: while mapped
+/// it swallows every pointer event above Layer::Top — Raven opens
+/// below it and the first click on its window would be eaten by the
+/// dismiss test instead of reaching the button.
 fn open_raven(day: &glib::DateTime) {
-    let _ = std::process::Command::new("ragnar-raven")
-        .arg(format!("--day={}", day.format("%Y%m%d").unwrap()))
-        .spawn();
+    crate::menu::close_current();
+    // glib's async spawn reaps the child automatically — a plain
+    // Command::spawn left a zombie behind for every --day launch.
+    let _ = glib::spawn_command_line_async(format!(
+        "ragnar-raven --day={}",
+        day.format("%Y%m%d").unwrap()
+    ));
 }
 
 /// Raven's notification master switch — shared settings file that the
-/// taskbar menu toggles and the Raven reminder part reads.
+/// taskbar menu toggles and the Raven reminder part reads. Read
+/// leniently: a strict GKeyFile parse rejects the whole file on one
+/// malformed line, and other tools write this file too.
 fn notifications_enabled() -> bool {
-    let kf = glib::KeyFile::new();
-    let path = glib::user_config_dir()
-        .join("ragnar-raven")
-        .join("settings.ini");
-    let _ = kf.load_from_file(&path, glib::KeyFileFlags::NONE);
-    kf.boolean("notifications", "enabled").unwrap_or(true)
+    let text = std::fs::read_to_string(
+        glib::user_config_dir()
+            .join("ragnar-raven")
+            .join("settings.ini"),
+    )
+    .unwrap_or_default();
+    let mut in_sec = false;
+    for line in text.lines() {
+        let t = line.trim();
+        if t.starts_with('[') {
+            in_sec = t == "[notifications]";
+        } else if in_sec {
+            if let Some((k, v)) = t.split_once('=') {
+                if k.trim() == "enabled" {
+                    // Anything but an explicit false keeps it on —
+                    // same fallback semantics as the KeyFile default.
+                    return !matches!(v.trim(), "false" | "0");
+                }
+            }
+        }
+    }
+    true
 }
 
+/// Write `enabled` into [notifications], preserving every other
+/// line — a strict GKeyFile rewrite would wipe the file whenever
+/// another tool left a malformed line behind.
 fn set_notifications_enabled(on: bool) {
-    let kf = glib::KeyFile::new();
-    kf.set_boolean("notifications", "enabled", on);
     let dir = glib::user_config_dir().join("ragnar-raven");
     let _ = std::fs::create_dir_all(&dir);
-    let _ = kf.save_to_file(dir.join("settings.ini"));
+    let path = dir.join("settings.ini");
+    let val = if on { "true" } else { "false" };
+    let mut lines: Vec<String> = std::fs::read_to_string(&path)
+        .map(|s| s.lines().map(str::to_string).collect())
+        .unwrap_or_default();
+    let mut in_sec = false;
+    let mut done = false;
+    let mut insert_at = None;
+    for (i, line) in lines.iter_mut().enumerate() {
+        let t = line.trim().to_string();
+        if t.starts_with('[') {
+            if in_sec && !done {
+                insert_at = Some(i);
+            }
+            in_sec = t == "[notifications]";
+        } else if in_sec {
+            if let Some((k, _)) = t.split_once('=') {
+                if k.trim() == "enabled" {
+                    *line = format!("enabled = {val}");
+                    done = true;
+                }
+            }
+        }
+    }
+    if !done {
+        match insert_at {
+            Some(i) => lines.insert(i, format!("enabled = {val}")),
+            None => {
+                if !lines.iter().any(|l| l.trim() == "[notifications]") {
+                    lines.push("[notifications]".to_string());
+                }
+                lines.push(format!("enabled = {val}"));
+            }
+        }
+    }
+    // Atomic write: temp + rename — a crash must not truncate the ini.
+    let tmp = dir.join("settings.ini.tmp");
+    if std::fs::write(&tmp, lines.join("\n") + "\n").is_ok() {
+        let _ = std::fs::rename(&tmp, &path);
+    }
 }
 
 /// Right-click menu on the calendar: open the Raven editor for the

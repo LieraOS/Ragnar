@@ -8,56 +8,26 @@
 //! CalDAV model, so a later Nextcloud/ownCloud sync can push these
 //! files without any format conversion.
 
+use crate::ical::{fmt_dt, parse_dt, Reminder};
 use gtk4::glib;
 use std::cell::RefCell;
 use std::collections::BTreeSet;
 use std::fs;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::rc::Rc;
-
-/// One appointment reminder offset, expressed as minutes before the
-/// appointment start. Stored as a VALARM TRIGGER inside the VEVENT.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
-pub struct Reminder(pub i64);
-
-impl Reminder {
-    /// Standard reminder offsets offered in the editor (minutes).
-    pub const PRESETS: &'static [i64] = &[2880, 1440, 360, 120, 60, 30, 15, 5, 0];
-
-    /// ICS TRIGGER value, e.g. -PT48H / -PT30M / PT0S (at start time).
-    fn to_trigger(&self) -> String {
-        let m = self.0;
-        if m == 0 {
-            "PT0S".into()
-        } else if m % 60 == 0 {
-            format!("-PT{}H", m / 60)
-        } else {
-            format!("-PT{}M", m)
-        }
-    }
-
-    /// Parse an ICS TRIGGER value like -PT48H, -PT90M, -P1D.
-    fn from_trigger(v: &str) -> Option<Self> {
-        let neg = v.starts_with('-');
-        let v = v.trim_start_matches('-').trim_start_matches('P');
-        let v = v.strip_prefix('T').unwrap_or(v);
-        let (num, unit) = v.split_at(v.len().checked_sub(1)?);
-        let n: i64 = num.parse().ok()?;
-        let minutes = match unit {
-            "M" => n,
-            "H" => n * 60,
-            "S" => n / 60,
-            _ => n * 1440, // -P1D arrives without a T prefix
-        };
-        Some(Self(if neg { minutes } else { -minutes }))
-    }
-}
 
 /// A single appointment (VEVENT).
 #[derive(Debug, Clone)]
 pub struct Appointment {
     pub uid: String,
     pub title: String,
+    /// Optional short note shown under the title (DESCRIPTION).
+    pub desc: String,
+    /// Optional per-appointment notification sound — an absolute
+    /// path inside util::sounds_dir() (a copy, so it survives the
+    /// original being moved). Empty = global notification sound.
+    /// Stored as X-RAGNAR-SOUND in the VEVENT.
+    pub sound: String,
     /// Start as local wall time formatted `YYYYMMDDTHHMMSS`.
     pub start: glib::DateTime,
     /// Reminder offsets, ascending (largest offset = earliest reminder
@@ -80,24 +50,6 @@ impl Appointment {
     }
 }
 
-/// Parse `YYYYMMDDTHHMMSS` (floating local) into a glib::DateTime.
-fn parse_dt(v: &str) -> Option<glib::DateTime> {
-    if v.len() < 15 {
-        return None;
-    }
-    let y = v[0..4].parse().ok()?;
-    let mo = v[4..6].parse().ok()?;
-    let d = v[6..8].parse().ok()?;
-    let h = v[9..11].parse().ok()?;
-    let mi = v[11..13].parse().ok()?;
-    let s = v[13..15].parse().ok()?;
-    glib::DateTime::from_local(y, mo, d, h, mi, s).ok()
-}
-
-fn fmt_dt(dt: &glib::DateTime) -> String {
-    dt.format("%Y%m%dT%H%M%S").unwrap().to_string()
-}
-
 /// Path of the calendar file; creates the parent dir on first use.
 fn ics_path() -> PathBuf {
     let dir = glib::user_data_dir().join("ragnar-raven");
@@ -117,9 +69,18 @@ impl Store {
     pub fn load() -> Self {
         let mut items = Vec::new();
         if let Ok(text) = fs::read_to_string(ics_path()) {
-            // ICS folds long lines (continuation starts with space).
-            let text = text.replace("\r\n ", "").replace("\r\n", "\n");
+            // RFC 5545: line endings are CRLF, but LF files exist in
+            // the wild — normalise first, then unfold every
+            // continuation line (a fold is a break + single space OR
+            // horizontal tab).
+            let text = text
+                .replace("\r\n", "\n")
+                .replace("\n ", "")
+                .replace("\n\t", "");
             let mut cur: Option<Appointment> = None;
+            // VALARM blocks carry their own DESCRIPTION/TRIGGER —
+            // only the VEVENT-level ones belong to the appointment.
+            let mut in_valarm = false;
             for line in text.lines() {
                 let line = line.trim_end();
                 match line {
@@ -127,6 +88,8 @@ impl Store {
                         cur = Some(Appointment {
                             uid: String::new(),
                             title: String::new(),
+                            desc: String::new(),
+                            sound: String::new(),
                             start: glib::DateTime::now_local().unwrap(),
                             reminders: BTreeSet::new(),
                         });
@@ -138,16 +101,24 @@ impl Store {
                             }
                         }
                     }
+                    "BEGIN:VALARM" => in_valarm = true,
+                    "END:VALARM" => in_valarm = false,
                     _ => {
                         if let Some(a) = cur.as_mut() {
                             if let Some(v) = line.strip_prefix("UID:") {
                                 a.uid = v.into();
                             } else if let Some(v) = line.strip_prefix("SUMMARY:") {
                                 a.title = v.into();
-                            } else if line.starts_with("DTSTART") {
-                                if let Some(v) = line.rsplit(':').next() {
-                                    if let Some(d) = parse_dt(v.trim_end_matches('Z')) {
-                                        a.start = d;
+                            } else if !in_valarm {
+                                if let Some(v) = line.strip_prefix("DESCRIPTION:") {
+                                    a.desc = v.into();
+                                } else if let Some(v) = line.strip_prefix("X-RAGNAR-SOUND:") {
+                                    a.sound = v.into();
+                                } else if line.starts_with("DTSTART") {
+                                    if let Some(v) = line.rsplit(':').next() {
+                                        if let Some(d) = parse_dt(v) {
+                                            a.start = d;
+                                        }
                                     }
                                 }
                             } else if let Some(v) = line.strip_prefix("TRIGGER:") {
@@ -181,8 +152,20 @@ impl Store {
         for a in self.inner.borrow().iter() {
             out.push_str("BEGIN:VEVENT\r\n");
             out.push_str(&format!("UID:{}\r\n", a.uid));
-            out.push_str(&format!("SUMMARY:{}\r\n", a.title.replace(['\n', '\r'], " ")));
+            out.push_str(&format!(
+                "SUMMARY:{}\r\n",
+                a.title.replace(['\n', '\r'], " ")
+            ));
             out.push_str(&format!("DTSTART:{}\r\n", fmt_dt(&a.start)));
+            if !a.desc.is_empty() {
+                out.push_str(&format!(
+                    "DESCRIPTION:{}\r\n",
+                    a.desc.replace(['\n', '\r'], " ")
+                ));
+            }
+            if !a.sound.is_empty() {
+                out.push_str(&format!("X-RAGNAR-SOUND:{}\r\n", a.sound));
+            }
             for m in &a.reminders {
                 out.push_str("BEGIN:VALARM\r\nACTION:DISPLAY\r\n");
                 out.push_str(&format!("DESCRIPTION:{}\r\n", a.title));
@@ -192,19 +175,41 @@ impl Store {
             out.push_str("END:VEVENT\r\n");
         }
         out.push_str("END:VCALENDAR\r\n");
-        let _ = fs::write(ics_path(), out);
+        crate::util::write_atomic(&ics_path(), &out);
     }
 
-    /// Insert a new appointment (fresh UID) and save.
-    pub fn add(&self, title: &str, start: glib::DateTime, reminders: BTreeSet<i64>) {
+    /// Resolve a caller-picked sound file into the stored path:
+    /// files outside the sounds dir get copied in, paths already
+    /// inside pass through. None/empty clears the custom sound.
+    fn resolve_sound(uid: &str, sound: Option<&Path>) -> String {
+        match sound {
+            Some(p) => crate::util::copy_sound(uid, p)
+                .map(|d| d.to_string_lossy().to_string())
+                .unwrap_or_default(),
+            None => String::new(),
+        }
+    }
+
+    /// Insert a new appointment (fresh UID) and save. `sound` is a
+    /// user-picked audio file — copied into the store's sounds dir.
+    pub fn add(
+        &self,
+        title: &str,
+        desc: &str,
+        start: glib::DateTime,
+        reminders: BTreeSet<i64>,
+        sound: Option<&Path>,
+    ) {
         let uid = format!(
             "{}-{}@ragnar-raven",
             glib::DateTime::now_local().unwrap().to_unix(),
             glib::random_int()
         );
         self.inner.borrow_mut().push(Appointment {
+            sound: Self::resolve_sound(&uid, sound),
             uid,
             title: title.into(),
+            desc: desc.into(),
             start,
             reminders,
         });
@@ -212,9 +217,59 @@ impl Store {
         self.save();
     }
 
-    /// Remove an appointment by UID and save.
+    /// Update the appointment with `uid` in place (title, start,
+    /// reminder offsets) and save. Keeping the UID matters: the
+    /// reminder daemon's fired-dedup and any external .ics tooling
+    /// track appointments by it. Unknown uids are ignored — the
+    /// entry may have been deleted since the list was rendered.
+    /// A replaced sound copy is cleaned out of the sounds dir.
+    pub fn update(
+        &self,
+        uid: &str,
+        title: &str,
+        desc: &str,
+        start: glib::DateTime,
+        reminders: BTreeSet<i64>,
+        sound: Option<&Path>,
+    ) {
+        // A replaced sound copy must not linger in the sounds dir.
+        let stale = {
+            let mut items = self.inner.borrow_mut();
+            let Some(a) = items.iter_mut().find(|a| a.uid == uid) else {
+                return;
+            };
+            a.title = title.into();
+            a.desc = desc.into();
+            a.start = start;
+            a.reminders = reminders;
+            let old = std::mem::replace(&mut a.sound, Self::resolve_sound(uid, sound));
+            if !old.is_empty() && old != a.sound {
+                Some(old)
+            } else {
+                None
+            }
+        };
+        if let Some(old) = stale {
+            crate::util::drop_sound(Path::new(&old));
+        }
+        self.sort();
+        self.save();
+    }
+
+    /// Remove an appointment by UID and save — its sound copy goes
+    /// with it (files inside the sounds dir are ours to clean).
     pub fn remove(&self, uid: &str) {
-        self.inner.borrow_mut().retain(|a| a.uid != uid);
+        let mut gone_sound = String::new();
+        self.inner.borrow_mut().retain(|a| {
+            let keep = a.uid != uid;
+            if !keep {
+                gone_sound = a.sound.clone();
+            }
+            keep
+        });
+        if !gone_sound.is_empty() {
+            crate::util::drop_sound(Path::new(&gone_sound));
+        }
         self.save();
     }
 
@@ -223,9 +278,7 @@ impl Store {
         self.inner
             .borrow()
             .iter()
-            .filter(|a| {
-                a.start.format("%Y-%m-%d").ok() == day.format("%Y-%m-%d").ok()
-            })
+            .filter(|a| a.start.format("%Y-%m-%d").ok() == day.format("%Y-%m-%d").ok())
             .cloned()
             .collect()
     }

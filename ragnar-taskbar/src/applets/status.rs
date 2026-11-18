@@ -97,9 +97,9 @@ fn apply_volume(
                 let mut p = prev.borrow_mut();
                 if let Some((old_level, old_muted)) = *p {
                     if old_level != level || old_muted != muted {
-                        let _ = std::process::Command::new("ragnar-skald-sound")
-                            .arg("audio-volume-change")
-                            .spawn();
+                        let _ = gtk4::glib::spawn_command_line_async(
+                            "ragnar-skald-sound audio-volume-change",
+                        );
                     }
                 }
                 *p = Some((level, muted));

@@ -29,6 +29,17 @@
 - [x] Display: display/ panel exists (resolution/orientation).
 - [x] Sounds: sounds.rs writes ragnar-raven's settings.ini —
       raven reads it as its interface.
+- [x] Corrupt ini writer fixed (1.0.10): sounds.rs' private
+      write_key emitted headers without ']' (`[notifications`),
+      which made every strict INI reader reject raven's whole
+      settings.ini — sound and notification writes now go through
+      the tested panels::ini::write_key; the private copies in
+      sounds.rs/notifications.rs were removed.
+- [x] Notifications panel extended (1.0.11): Events card toggles
+      Raven's watchers (watch_mounts/watch_updates +
+      update_interval_min), Colours card writes per-category
+      color_* keys via ColorDialogButton + reset; OSD rows moved
+      to panels/osd.rs (separate ini, separate module).
 - [x] Night light: gammastep-backed panel (config.ini + managed
       autostart; no sunset mode — no location service installed).
       Nachtlicht-Panel via gammastep.
@@ -42,10 +53,10 @@
       all schema-guarded. Barrierefreiheit-Panel.
 - [x] Shared helpers: panels/common.rs + generic INI
       panels/ini.rs. Gemeinsame Panel-Helfer.
-- [ ] Migrate old panels (privacy, power, media, notifications, ...)
-      to panels::common helpers and notifications.rs' private
-      write_key to panels::ini. Alte Panels auf common.rs/ini.rs
-      migrieren.
+- [ ] Migrate old panels (privacy, power, media, ...) to
+      panels::common helpers. (notifications.rs + sounds.rs write
+      through panels::ini since 1.0.10.) Alte Panels auf common.rs
+      migrieren — ini.rs ist seit 1.0.10 überall im Einsatz.
 - [ ] Software & Printers panels still open (deferred by user).
       Software- und Drucker-Panels noch offen.
 - [ ] Verify terminal argv conventions for alacritty/kitty/tilix etc.

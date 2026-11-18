@@ -78,10 +78,9 @@ pub fn set_count(n: u32) -> bool {
         return false;
     }
     // Live-reload: --reconfigure SIGHUPs the running compositor.
-    std::process::Command::new("labwc")
-        .arg("--reconfigure")
-        .spawn()
-        .is_ok()
+    // spawn_command_line_async reaps the child — Command::spawn
+    // leaves a zombie per call.
+    gtk4::glib::spawn_command_line_async("labwc --reconfigure").is_ok()
 }
 
 #[cfg(test)]

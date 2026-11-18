@@ -2,12 +2,17 @@
 //! notification history), rebuilt in Rust/GTK4 as a layer-shell
 //! surface docked to the right screen edge.
 
+mod card;
 mod dialog;
 mod i18n;
+mod ical;
 mod notify;
 mod reminder;
 mod sidebar;
+mod sound;
 mod store;
+mod util;
+mod watch;
 
 use gtk4::glib;
 use gtk4::prelude::*;
@@ -22,11 +27,7 @@ fn requested_day(cmd: &gtk4::gio::ApplicationCommandLine) -> glib::DateTime {
     if v.len() != 8 {
         return today();
     }
-    let (Ok(y), Ok(m), Ok(d)) = (
-        v[0..4].parse(),
-        v[4..6].parse(),
-        v[6..8].parse(),
-    ) else {
+    let (Ok(y), Ok(m), Ok(d)) = (v[0..4].parse(), v[4..6].parse(), v[6..8].parse()) else {
         return today();
     };
     glib::DateTime::from_local(y, m, d, 12, 0, 0.0)
@@ -69,8 +70,12 @@ fn main() {
         // just opens another window — never a second process.
         // hold() returns a guard — dropping it releases the hold and
         // a windowless daemon would exit, so keep it deliberately.
-        let guard = app.hold();
-        std::mem::forget(guard);
+        // Exactly once: forwarded --day activations must not pile up
+        // extra leaked holds on top of the daemon's first one.
+        static HOLD_ONCE: std::sync::Once = std::sync::Once::new();
+        HOLD_ONCE.call_once(|| {
+            std::mem::forget(app.hold());
+        });
         // One shared store per process: the daemon loop and every
         // opened day window must see the same in-memory state —
         // reloading per activation would hide fresh edits from the
@@ -81,8 +86,12 @@ fn main() {
                 *s = Some(store::Store::load());
             }
             let store = s.clone().unwrap();
+            // Repair a corrupted settings.ini once per process —
+            // older settings builds wrote headers without ']'.
+            util::sanitize_settings();
             reminder::start(&store);
             notify::start();
+            watch::start();
             if cmd.options_dict().contains("day") {
                 let day = requested_day(cmd);
                 sidebar::open(app, &store, &day);

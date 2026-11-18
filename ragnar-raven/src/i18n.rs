@@ -23,3 +23,9 @@ pub fn init() {
 pub fn tr(msg: &str) -> String {
     gettextrs::dgettext(DOMAIN, msg)
 }
+
+/// Plural-aware translate — wraps dngettext: `n` selects between
+/// the singular and plural msgid, both catalogued in po/.
+pub fn trn(sing: &str, plural: &str, n: u64) -> String {
+    gettextrs::dngettext(DOMAIN, sing, plural, n.min(u32::MAX as u64) as u32)
+}

@@ -115,16 +115,7 @@ fn build_ui(store: &Store, day: &glib::DateTime) -> std::rc::Rc<Ui> {
         let (ui, st) = (ui.clone(), store.clone());
         move |_| {
             let day = ui.day.borrow().clone();
-            let ed = dialog::open_editor(ui.window.upcast_ref(), &day, &st);
-            // Transient pair: when the editor is closed (saved or
-            // cancelled), the day view closes with it.
-            ed.connect_close_request({
-                let w = ui.window.clone();
-                move |_| {
-                    w.close();
-                    glib::Propagation::Proceed
-                }
-            });
+            open_editor_paired(&ui, &st, &day, None);
         }
     });
 
@@ -148,10 +139,8 @@ fn build_ui(store: &Store, day: &glib::DateTime) -> std::rc::Rc<Ui> {
 /// Re-render headline and appointment rows for the stored day.
 fn refresh(ui: &std::rc::Rc<Ui>, store: &Store) {
     let day = ui.day.borrow().clone();
-    ui.day_head.set_markup(&format!(
-        "<b>{}</b>",
-        day.format("%A, %d. %B %Y").unwrap()
-    ));
+    ui.day_head
+        .set_markup(&format!("<b>{}</b>", day.format("%A, %d. %B %Y").unwrap()));
     while let Some(c) = ui.day_list.first_child() {
         ui.day_list.remove(&c);
     }
@@ -171,8 +160,29 @@ fn refresh(ui: &std::rc::Rc<Ui>, store: &Store) {
             glib::markup_escape_text(&a.title)
         ));
         when.set_halign(gtk4::Align::Start);
-        when.set_hexpand(true);
-        row.append(&when);
+        let texts = gtk4::Box::new(gtk4::Orientation::Vertical, 0);
+        texts.set_hexpand(true);
+        texts.append(&when);
+        if !a.desc.is_empty() {
+            let d = gtk4::Label::new(Some(&a.desc));
+            d.set_halign(gtk4::Align::Start);
+            d.add_css_class("dim-label");
+            d.add_css_class("caption");
+            d.set_ellipsize(gtk4::pango::EllipsizeMode::End);
+            texts.append(&d);
+        }
+        texts.set_valign(gtk4::Align::Center);
+        row.append(&texts);
+        // Edit reuses the same editor, pre-filled; saving keeps the
+        // UID so fired/dedup tracking and external .ics consumers
+        // still recognise the appointment.
+        let edit = gtk4::Button::from_icon_name("document-edit-symbolic");
+        edit.set_has_frame(false);
+        edit.connect_clicked({
+            let (ui, st, appt) = (ui.clone(), store.clone(), a.clone());
+            move |_| open_editor_paired(&ui, &st, &appt.start, Some(&appt))
+        });
+        row.append(&edit);
         let del = gtk4::Button::from_icon_name("user-trash-symbolic");
         del.set_has_frame(false);
         let uid = a.uid.clone();
@@ -189,9 +199,50 @@ fn refresh(ui: &std::rc::Rc<Ui>, store: &Store) {
     }
 }
 
-/// Open the compact Raven window for the given day.
+/// Open the appointment editor paired to the day window — when the
+/// editor closes (saved or cancelled), the day view closes with it.
+/// `existing` selects edit mode (pre-filled, UID kept); None adds.
+fn open_editor_paired(
+    ui: &std::rc::Rc<Ui>,
+    store: &Store,
+    day: &glib::DateTime,
+    existing: Option<&crate::store::Appointment>,
+) {
+    let ed = dialog::open_editor(ui.window.upcast_ref(), day, store, existing);
+    ed.connect_close_request({
+        let w = ui.window.clone();
+        move |_| {
+            w.close();
+            glib::Propagation::Proceed
+        }
+    });
+}
+
+thread_local! {
+    /// The single live day window — a second --day activation must
+    /// retarget it instead of stacking another window at the edge.
+    static ACTIVE: std::cell::RefCell<Option<std::rc::Rc<Ui>>> =
+        const { std::cell::RefCell::new(None) };
+}
+
+/// Open the compact Raven window for the given day. If one is
+/// already open it is reused: day switched, content refreshed,
+/// window raised — never a second stacked window.
 pub fn open(app: &gtk4::Application, store: &Store, day: &glib::DateTime) {
+    if let Some(ui) = ACTIVE.with(|a| a.borrow().clone()) {
+        *ui.day.borrow_mut() = day.clone();
+        refresh(&ui, store);
+        ui.window.present();
+        return;
+    }
     let ui = build_ui(store, day);
     app.add_window(&ui.window);
+    // Clear the slot no matter which path closes the window —
+    // close button, Escape, or the editor's transient pairing.
+    ui.window.connect_close_request(|_| {
+        ACTIVE.with(|a| *a.borrow_mut() = None);
+        glib::Propagation::Proceed
+    });
+    ACTIVE.with(|a| *a.borrow_mut() = Some(ui.clone()));
     ui.window.present();
 }

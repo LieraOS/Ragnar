@@ -138,7 +138,10 @@ fn write_keyring_policy(on: bool) {
     }
     let _ = std::fs::write(
         path,
-        format!("[keyring]\nauto-unlock={}\n", if on { "true" } else { "false" }),
+        format!(
+            "[keyring]\nauto-unlock={}\n",
+            if on { "true" } else { "false" }
+        ),
     );
 }
 

@@ -345,42 +345,11 @@ fn get(
     m.get(sec).and_then(|s| s.get(key)).cloned()
 }
 
-/// Set one key inside an ini file, preserving everything else.
+/// Set one key inside an ini file — delegates to the shared, tested
+/// helper in panels::ini. The previous private copy wrote section
+/// headers as `format!("[] {sec}").replace("[] ", "[")` which drops
+/// the closing bracket and corrupts the file for every strict INI
+/// reader (this is what broke raven's settings.ini).
 fn write_key(path: &PathBuf, sec: &str, key: &str, value: &str) {
-    let mut lines: Vec<String> = std::fs::read_to_string(path)
-        .map(|s| s.lines().map(str::to_string).collect())
-        .unwrap_or_default();
-    let mut in_sec = false;
-    let mut done = false;
-    let mut insert_at: Option<usize> = None;
-    for i in 0..lines.len() {
-        let t = lines[i].trim().to_string();
-        if t.starts_with('[') {
-            if in_sec && !done {
-                insert_at = Some(i);
-            }
-            in_sec = t == format!("[{sec}]");
-        } else if in_sec {
-            if let Some((k, _)) = t.split_once('=') {
-                if k.trim() == key {
-                    lines[i] = format!("{key} = {value}");
-                    done = true;
-                }
-            }
-        }
-    }
-    if !done {
-        if let Some(i) = insert_at {
-            lines.insert(i, format!("{key} = {value}"));
-        } else {
-            if !lines.iter().any(|l| l.trim() == format!("[{sec}]")) {
-                lines.push(format!("[] {sec}").replace("[] ", "["));
-            }
-            lines.push(format!("{key} = {value}"));
-        }
-    }
-    if let Some(dir) = path.parent() {
-        let _ = std::fs::create_dir_all(dir);
-    }
-    let _ = std::fs::write(path, lines.join("\n") + "\n");
+    let _ = super::ini::write_key(path, sec, key, value);
 }

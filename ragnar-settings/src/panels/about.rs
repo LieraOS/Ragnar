@@ -77,7 +77,10 @@ fn cpu_model() -> String {
     std::fs::read_to_string("/proc/cpuinfo")
         .unwrap_or_default()
         .lines()
-        .find_map(|l| l.strip_prefix("model name").and_then(|r| r.split(':').nth(1)))
+        .find_map(|l| {
+            l.strip_prefix("model name")
+                .and_then(|r| r.split(':').nth(1))
+        })
         .map(|s| s.trim().to_string())
         .unwrap_or_else(|| gettextrs::gettext("Unknown"))
 }

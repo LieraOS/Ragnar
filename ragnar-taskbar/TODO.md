@@ -49,3 +49,15 @@
       skald, not here)
 - [x] Dead `pin_monitor_now` removed (0.3.9) — the async
       `pin_monitor` won
+- [x] Calendar closes before launching Raven (0.3.10) — the
+      fullscreen overlay otherwise kept swallowing the first click
+      aimed at the Raven window below it
+- [x] Child reaping (0.3.11): every helper launch (raven --day,
+      ragnar-skald, ragnar-skald-sound, labwc --reconfigure) goes
+      through glib::spawn_command_line_async — Command::spawn
+      without wait() left one zombie per call
+- [x] Lenient raven ini access (0.3.11): notifications_enabled
+      reads the file line-wise and set_notifications_enabled
+      rewrites it line-preserving + atomic — a strict GKeyFile
+      load/save would have wiped every key after a malformed
+      header elsewhere in the file

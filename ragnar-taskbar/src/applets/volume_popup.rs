@@ -261,7 +261,7 @@ pub fn menu_popover(anchor: &impl IsA<gtk4::Widget>) -> gtk4::Popover {
     {
         let pop = pop.clone();
         open.connect_clicked(move |_| {
-            let _ = std::process::Command::new("ragnar-skald").spawn();
+            let _ = gtk4::glib::spawn_command_line_async("ragnar-skald");
             pop.popdown();
         });
     }

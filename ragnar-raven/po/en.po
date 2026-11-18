@@ -37,6 +37,27 @@ msgstr "days before"
 msgid "Termin"
 msgstr "Appointment"
 
+msgid "Termin bearbeiten"
+msgstr "Edit appointment"
+
+msgid "Kurze Info zum Termin"
+msgstr "Short note for the appointment"
+
+msgid "Ton"
+msgstr "Sound"
+
+msgid "Wählen …"
+msgstr "Choose …"
+
+msgid "Standard"
+msgstr "Default"
+
+msgid "Standard wiederherstellen"
+msgstr "Restore default"
+
+msgid "Audiodateien"
+msgstr "Audio files"
+
 msgid "Termin eintragen"
 msgstr "Add appointment"
 
@@ -48,3 +69,23 @@ msgstr "Time"
 
 msgid "Zum Terminzeitpunkt"
 msgstr "At the appointment time"
+
+msgid "Laufwerk eingehängt"
+msgstr "Drive mounted"
+
+msgid "Laufwerk ausgehängt"
+msgstr "Drive unmounted"
+
+msgid "Laufwerk angeschlossen"
+msgstr "Drive connected"
+
+msgid "Laufwerk getrennt"
+msgstr "Drive disconnected"
+
+msgid "Updates verfügbar"
+msgstr "Updates available"
+
+msgid "ausstehendes Paket"
+msgid_plural "ausstehende Pakete"
+msgstr[0] "pending package"
+msgstr[1] "pending packages"
