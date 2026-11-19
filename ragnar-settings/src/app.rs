@@ -43,7 +43,7 @@ pub fn run() -> gtk4::glib::ExitCode {
             win.open_panel(&id);
         }
         win.present();
-        0.into()
+        0
     });
     app.run()
 }

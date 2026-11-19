@@ -6,6 +6,7 @@
 // enabled toggles, Apply button. All widgets sync with the
 // monitor selected in the canvas via DisplayUi state.
 
+use gettextrs::gettext;
 use gtk4::prelude::*;
 use std::rc::Rc;
 
@@ -17,9 +18,9 @@ pub fn create_controls(ui: &Rc<DisplayUi>) -> gtk4::Box {
     let box_ = gtk4::Box::new(gtk4::Orientation::Vertical, 12);
 
     if ui.heads.borrow().is_empty() {
-        box_.append(&gtk4::Label::new(Some(
+        box_.append(&gtk4::Label::new(Some(&gettext(
             "Start ragnar-display-svc to configure displays.",
-        )));
+        ))));
         return box_;
     }
 
@@ -33,7 +34,7 @@ pub fn create_controls(ui: &Rc<DisplayUi>) -> gtk4::Box {
     let name_refs: Vec<&str> = monitor_names.iter().map(|s| s.as_str()).collect();
     let monitor_dropdown = gtk4::DropDown::from_strings(&name_refs);
     monitor_dropdown.set_selected(ui.selected.borrow().unwrap_or(0) as u32);
-    box_.append(&dropdown_row("Monitor", &monitor_dropdown));
+    box_.append(&dropdown_row(&gettext("Monitor"), &monitor_dropdown));
 
     // Selecting from the dropdown also selects in the canvas.
     {
@@ -52,7 +53,7 @@ pub fn create_controls(ui: &Rc<DisplayUi>) -> gtk4::Box {
     box_.append(&mode.widget);
 
     // -- Primary toggle --------------------------------------------------
-    let (primary_row, primary_switch) = toggle_row("Primary Monitor");
+    let (primary_row, primary_switch) = toggle_row(&gettext("Primary Monitor"));
     box_.append(&primary_row);
     let primary_hid = {
         let ui_c = ui.clone();
@@ -60,11 +61,11 @@ pub fn create_controls(ui: &Rc<DisplayUi>) -> gtk4::Box {
             if let Some(idx) = *ui_c.selected.borrow() {
                 let name = ui_c.heads.borrow()[idx].name.clone();
                 if state {
-                    eprintln!("ragnar-settings: set_primary {}", name);
+                    tracing::info!("ragnar-settings: set_primary {}", name);
                     let r1 = dbus_client::send_primary(&name);
-                    eprintln!("  set_primary: {} {}", r1.success, r1.message);
+                    tracing::info!("  set_primary: {} {}", r1.success, r1.message);
                     let r2 = dbus_client::send_apply();
-                    eprintln!("  apply: {} {}", r2.success, r2.message);
+                    tracing::info!("  apply: {} {}", r2.success, r2.message);
                     // Update local state + badges.
                     for (i, h) in ui_c.heads.borrow_mut().iter_mut().enumerate() {
                         h.primary = i == idx;
@@ -77,18 +78,18 @@ pub fn create_controls(ui: &Rc<DisplayUi>) -> gtk4::Box {
     };
 
     // -- Enabled toggle --------------------------------------------------
-    let (enable_row, enable_switch) = toggle_row("Enabled");
+    let (enable_row, enable_switch) = toggle_row(&gettext("Enabled"));
     box_.append(&enable_row);
     let enable_hid = {
         let ui_c = ui.clone();
         enable_switch.connect_state_set(move |_, state| {
             if let Some(idx) = *ui_c.selected.borrow() {
                 let name = ui_c.heads.borrow()[idx].name.clone();
-                eprintln!("ragnar-settings: enable_output {} = {}", name, state);
+                tracing::info!("ragnar-settings: enable_output {} = {}", name, state);
                 let r1 = dbus_client::send_enable(&name, state);
-                eprintln!("  enable_output: {} {}", r1.success, r1.message);
+                tracing::info!("  enable_output: {} {}", r1.success, r1.message);
                 let r2 = dbus_client::send_apply();
-                eprintln!("  apply: {} {}", r2.success, r2.message);
+                tracing::info!("  apply: {} {}", r2.success, r2.message);
                 ui_c.heads.borrow_mut()[idx].enabled = state;
             }
             gtk4::glib::Propagation::Proceed
@@ -96,7 +97,7 @@ pub fn create_controls(ui: &Rc<DisplayUi>) -> gtk4::Box {
     };
 
     // -- Apply button ----------------------------------------------------
-    let apply = gtk4::Button::with_label("Apply");
+    let apply = gtk4::Button::with_label(&gettext("Apply"));
     apply.set_halign(gtk4::Align::End);
     apply.add_css_class("suggested-action");
     {
@@ -106,12 +107,12 @@ pub fn create_controls(ui: &Rc<DisplayUi>) -> gtk4::Box {
             for (name, cx, cy) in pos.iter() {
                 let rx = (cx / SCALE) as i32;
                 let ry = (cy / SCALE) as i32;
-                eprintln!("ragnar-settings: applying {} -> ({}, {})", name, rx, ry);
+                tracing::info!("ragnar-settings: applying {} -> ({}, {})", name, rx, ry);
                 let r = dbus_client::send_position(name, rx, ry);
-                eprintln!("  set_position: {} {}", r.success, r.message);
+                tracing::info!("  set_position: {} {}", r.success, r.message);
             }
             let r = dbus_client::send_apply();
-            eprintln!("ragnar-settings: apply {} {}", r.success, r.message);
+            tracing::info!("ragnar-settings: apply {} {}", r.success, r.message);
         });
     }
     box_.append(&apply);

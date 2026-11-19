@@ -52,12 +52,12 @@ pub fn fetch_outputs() -> Vec<Head> {
         Ok(proxy) => match proxy.get_outputs() {
             Ok(reply) => reply.heads,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: GetOutputs failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: GetOutputs failed: {}", e);
                 Vec::new()
             }
         },
         Err(e) => {
-            eprintln!(
+            tracing::warn!(
                 "ragnar-settings-gui: failed to connect to display service: {}",
                 e
             );
@@ -72,7 +72,7 @@ pub fn send_position(name: &str, x: i32, y: i32) -> ResultReply {
         Ok(proxy) => match proxy.set_position(name.to_string(), x, y) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_position failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_position failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -80,7 +80,7 @@ pub fn send_position(name: &str, x: i32, y: i32) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -95,7 +95,7 @@ pub fn send_primary(name: &str) -> ResultReply {
         Ok(proxy) => match proxy.set_primary(name.to_string()) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_primary failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_primary failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -103,7 +103,7 @@ pub fn send_primary(name: &str) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -118,7 +118,7 @@ pub fn send_enable(name: &str, enabled: bool) -> ResultReply {
         Ok(proxy) => match proxy.enable_output(name.to_string(), enabled) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: enable_output failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: enable_output failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -126,7 +126,7 @@ pub fn send_enable(name: &str, enabled: bool) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -141,7 +141,7 @@ pub fn send_apply() -> ResultReply {
         Ok(proxy) => match proxy.apply_config() {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: apply_config failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: apply_config failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -149,7 +149,7 @@ pub fn send_apply() -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -165,12 +165,12 @@ pub fn fetch_gpus() -> Vec<GpuInfo> {
         Ok(proxy) => match proxy.get_gpus() {
             Ok(reply) => reply.gpus,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: GetGpus failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: GetGpus failed: {}", e);
                 Vec::new()
             }
         },
         Err(e) => {
-            eprintln!(
+            tracing::warn!(
                 "ragnar-settings-gui: failed to connect to display service: {}",
                 e
             );
@@ -185,7 +185,7 @@ pub fn send_gpu_power_limit(pci_address: &str, watts: f64) -> ResultReply {
         Ok(proxy) => match proxy.set_gpu_power_limit(pci_address.to_string(), watts) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_gpu_power_limit failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_gpu_power_limit failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -193,7 +193,7 @@ pub fn send_gpu_power_limit(pci_address: &str, watts: f64) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -208,7 +208,7 @@ pub fn send_gpu_fan(pci_address: &str, percent: i32) -> ResultReply {
         Ok(proxy) => match proxy.set_gpu_fan(pci_address.to_string(), percent) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_gpu_fan failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_gpu_fan failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -216,7 +216,7 @@ pub fn send_gpu_fan(pci_address: &str, percent: i32) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -231,7 +231,7 @@ pub fn send_gpu_locked_clock(pci_address: &str, mhz: i32) -> ResultReply {
         Ok(proxy) => match proxy.set_gpu_locked_clock(pci_address.to_string(), mhz) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_gpu_locked_clock failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_gpu_locked_clock failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -239,7 +239,7 @@ pub fn send_gpu_locked_clock(pci_address: &str, mhz: i32) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -254,7 +254,7 @@ pub fn send_mode(name: &str, w: i32, h: i32, rr: i32) -> ResultReply {
         Ok(proxy) => match proxy.set_mode(name.to_string(), w, h, rr) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_mode failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_mode failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -262,7 +262,7 @@ pub fn send_mode(name: &str, w: i32, h: i32, rr: i32) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -277,7 +277,7 @@ pub fn send_scale(name: &str, scale: f64) -> ResultReply {
         Ok(proxy) => match proxy.set_scale(name.to_string(), scale) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_scale failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_scale failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -285,7 +285,7 @@ pub fn send_scale(name: &str, scale: f64) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -300,7 +300,7 @@ pub fn send_rotation(name: &str, rotation: i32) -> ResultReply {
         Ok(proxy) => match proxy.set_rotation(name.to_string(), rotation) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_rotation failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_rotation failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -308,7 +308,7 @@ pub fn send_rotation(name: &str, rotation: i32) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),
@@ -323,7 +323,7 @@ pub fn send_adaptive_sync(name: &str, enabled: bool) -> ResultReply {
         Ok(proxy) => match proxy.set_adaptive_sync(name.to_string(), enabled) {
             Ok(reply) => reply,
             Err(e) => {
-                eprintln!("ragnar-settings-gui: set_adaptive_sync failed: {}", e);
+                tracing::warn!("ragnar-settings-gui: set_adaptive_sync failed: {}", e);
                 ResultReply {
                     success: false,
                     message: e.to_string(),
@@ -331,7 +331,7 @@ pub fn send_adaptive_sync(name: &str, enabled: bool) -> ResultReply {
             }
         },
         Err(e) => {
-            eprintln!("ragnar-settings-gui: D-Bus connection failed: {}", e);
+            tracing::warn!("ragnar-settings-gui: D-Bus connection failed: {}", e);
             ResultReply {
                 success: false,
                 message: e.to_string(),

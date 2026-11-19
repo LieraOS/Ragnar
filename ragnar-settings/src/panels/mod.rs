@@ -6,8 +6,10 @@
 pub mod about;
 pub mod accessibility;
 pub mod appearance;
+pub mod autostart;
 pub mod cloud;
 pub mod common;
+pub mod compositor;
 pub mod datetime;
 pub mod default_apps;
 pub mod desktop;
@@ -23,11 +25,13 @@ pub mod placeholder;
 pub mod power;
 pub mod printers;
 pub mod privacy;
+pub mod rcxml;
 pub mod shortcuts;
 pub mod sounds;
 pub mod storage;
 pub mod updates;
 pub mod users;
+pub mod windowrules;
 
 use gtk4::Widget;
 
@@ -41,6 +45,9 @@ pub fn build(id: &str) -> Option<Widget> {
         "notifications" => Some(notifications::build()),
         "appearance" => Some(appearance::build()),
         "cloud" => Some(cloud::build()),
+        "compositor" => Some(compositor::build()),
+        "windowrules" => Some(windowrules::build()),
+        "autostart" => Some(autostart::build()),
         "datetime" => Some(datetime::build()),
         "display" => Some(display::build()),
         "default-apps" => Some(default_apps::build()),

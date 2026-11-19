@@ -51,13 +51,6 @@ where
 
     let button = Button::builder().child(&content).build();
     button.add_css_class("flat");
-    // Temporary diagnostics: report every press reaching the tile.
-    let press = gtk4::GestureClick::new();
-    press.connect_pressed(|_, _, _, _| eprintln!("DBG-TILE pressed"));
-    button.add_controller(press);
-    button.connect_clicked(move |_| {
-        eprintln!("DBG-TILE clicked");
-        on_click()
-    });
+    button.connect_clicked(move |_| on_click());
     button
 }

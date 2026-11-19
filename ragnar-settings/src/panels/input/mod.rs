@@ -8,8 +8,8 @@
 // truth and nothing is duplicated. Sections are card-style boxed
 // lists matching the rest of the settings hub.
 
-mod rc_edit;
-
+use crate::i18n::msgid;
+use crate::panels::rcxml;
 use gettextrs::gettext;
 use gtk4::prelude::*;
 use gtk4::{Box, ListBox, Orientation};
@@ -78,6 +78,24 @@ pub fn build() -> gtk4::Widget {
             "non-touch",
             "middleEmulation",
         ));
+        if crate::advanced::enabled() {
+            card.append(&slider_row(
+                &gettext("Double-click speed (ms)"),
+                "mouse",
+                "doubleClickTime",
+                100.0,
+                1000.0,
+                500.0,
+            ));
+            card.append(&slider_row(
+                &gettext("Scroll speed factor"),
+                "non-touch",
+                "scrollFactor",
+                0.1,
+                3.0,
+                1.0,
+            ));
+        }
     }));
 
     // ---------------- Touchpad (only when present) -------------
@@ -102,6 +120,46 @@ pub fn build() -> gtk4::Widget {
                 1.0,
                 0.0,
             ));
+            if crate::advanced::enabled() {
+                card.append(&switch_row(
+                    &gettext("Tap and drag"),
+                    "touchpad",
+                    "tapAndDrag",
+                ));
+                card.append(&switch_row(&gettext("Drag lock"), "touchpad", "dragLock"));
+                card.append(&switch_row(
+                    &gettext("Three-finger drag"),
+                    "touchpad",
+                    "threeFingerDrag",
+                ));
+                card.append(&choice_row(
+                    &gettext("Tap button mapping"),
+                    "touchpad",
+                    "tapButtonMap",
+                    &[("lrm", "lrm"), ("lmr", "lmr")],
+                ));
+                card.append(&choice_row(
+                    &gettext("Click method"),
+                    "touchpad",
+                    "clickMethod",
+                    &[
+                        ("clickfinger", msgid("Clickfinger")),
+                        ("buttonAreas", msgid("Button areas")),
+                        ("none", msgid("None")),
+                    ],
+                ));
+                card.append(&choice_row(
+                    &gettext("Scroll method"),
+                    "touchpad",
+                    "scrollMethod",
+                    &[
+                        ("twofinger", msgid("Two-finger")),
+                        ("edge", msgid("Edge")),
+                        ("onButtonDown", msgid("On button down")),
+                        ("none", msgid("None")),
+                    ],
+                ));
+            }
         }));
     }
 
@@ -128,8 +186,16 @@ pub fn build() -> gtk4::Widget {
             &gettext("Num lock on login"),
             "keyboard",
             "numlock",
-            &[("on", "On"), ("off", "Off"), ("keep", "Keep")],
+            &[("on", "On"), ("off", "Off")],
         ));
+        if crate::advanced::enabled() {
+            card.append(&choice_row(
+                &gettext("Remember layout per window"),
+                "keyboard-attr",
+                "layoutScope",
+                &[("window", msgid("Per window")), ("global", msgid("Global"))],
+            ));
+        }
     }));
 
     // ---------------- Test + note -----------------------------
@@ -234,34 +300,38 @@ fn choice_row(title: &str, scope: &str, key: &str, opts: &[(&str, &str)]) -> gtk
 fn layout_row() -> gtk4::ListBoxRow {
     let labels: Vec<&str> = LAYOUTS.iter().map(|o| o.1).collect();
     let dd = gtk4::DropDown::from_strings(&labels);
-    let cur = rc_edit::get_keyboard("layout").unwrap_or_else(|| "de".into());
+    let cur = rcxml::get_keyboard("layout").unwrap_or_else(|| "de".into());
     if let Some(i) = LAYOUTS.iter().position(|o| o.0 == cur) {
         dd.set_selected(i as u32);
     }
     dd.connect_selected_notify(|d| {
         if let Some((id, _)) = LAYOUTS.get(d.selected() as usize) {
-            rc_edit::set_keyboard("layout", id);
-            rc_edit::reconfigure();
+            rcxml::set_keyboard("layout", id);
+            rcxml::reload();
         }
     });
     row(&gettext("Keyboard layout"), dd.upcast())
 }
 
-/// Read helper: "keyboard" scope → keyboard block else device.
+/// Read helper: "keyboard" scope → keyboard block, "mouse" → the
+/// top-level <mouse> section, "keyboard-attr" → attribute on the
+/// <keyboard> element itself, otherwise a device category.
 fn get(scope: &str, key: &str) -> Option<String> {
-    if scope == "keyboard" {
-        rc_edit::get_keyboard(key)
-    } else {
-        rc_edit::get_device(scope, key)
+    match scope {
+        "keyboard" => rcxml::get_keyboard(key),
+        "mouse" => rcxml::get_section("mouse", key),
+        "keyboard-attr" => rcxml::get_attr("keyboard", key),
+        _ => rcxml::get_device(scope, key),
     }
 }
 
 /// Write helper + live reload.
 fn set(scope: &str, key: &str, val: &str) {
-    if scope == "keyboard" {
-        rc_edit::set_keyboard(key, val);
-    } else {
-        rc_edit::set_device(scope, key, val);
+    match scope {
+        "keyboard" => rcxml::set_keyboard(key, val),
+        "mouse" => rcxml::set_section("mouse", key, val),
+        "keyboard-attr" => rcxml::set_attr("keyboard", key, val),
+        _ => rcxml::set_device(scope, key, val),
     }
-    rc_edit::reconfigure();
+    rcxml::reload();
 }

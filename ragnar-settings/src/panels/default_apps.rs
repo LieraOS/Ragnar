@@ -6,6 +6,8 @@
 // Candidates are enumerated by scanning .desktop files that declare
 // the matching MimeType. Terminal uses the ragnar-view gsettings key.
 
+use crate::i18n::msgid;
+use gettextrs::gettext;
 use gtk4::prelude::*;
 use std::collections::BTreeMap;
 use std::process::Command;
@@ -13,16 +15,18 @@ use std::process::Command;
 /// (label, mime types) per category.
 const CATEGORIES: &[(&str, &[&str])] = &[
     (
-        "Web browser",
+        msgid("Web browser"),
         &["x-scheme-handler/http", "x-scheme-handler/https"],
     ),
-    ("Email", &["x-scheme-handler/mailto"]),
-    ("File manager", &["inode/directory"]),
-    ("Text editor", &["text/plain"]),
-    ("Image viewer", &["image/png", "image/jpeg"]),
-    ("Video player", &["video/mp4"]),
-    ("Music player", &["audio/mpeg"]),
-    ("PDF viewer", &["application/pdf"]),
+    (msgid("Email"), &["x-scheme-handler/mailto"]),
+    (msgid("Calendar"), &["text/calendar"]),
+    (msgid("File manager"), &["inode/directory"]),
+    (msgid("Text editor"), &["text/plain"]),
+    (msgid("Archive manager"), &["application/zip"]),
+    (msgid("Image viewer"), &["image/png", "image/jpeg"]),
+    (msgid("Video player"), &["video/mp4"]),
+    (msgid("Music player"), &["audio/mpeg"]),
+    (msgid("PDF viewer"), &["application/pdf"]),
 ];
 
 /// Create the Default Apps page.
@@ -33,7 +37,7 @@ pub fn build() -> gtk4::Widget {
     container.set_margin_top(24);
     container.set_margin_bottom(24);
 
-    let title = gtk4::Label::new(Some("Default Apps"));
+    let title = gtk4::Label::new(Some(&gettext("Default Apps")));
     title.add_css_class("title-1");
     title.set_halign(gtk4::Align::Start);
     container.append(&title);
@@ -84,7 +88,7 @@ fn category_row(label: &str, mimes: &[&str]) -> gtk4::Box {
     });
 
     let row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    row.append(&gtk4::Label::new(Some(label)));
+    row.append(&gtk4::Label::new(Some(&gettext(label))));
     dd.set_halign(gtk4::Align::End);
     row.append(&dd);
     row

@@ -88,7 +88,9 @@ pub fn build() -> gtk4::Widget {
             *debounce.borrow_mut() = Some(id);
         })
     };
-    let queue: Rc<dyn Fn(&str, gtk4::glib::Variant)> = {
+    /// Debounced writer callback signature: (gsettings key, value).
+    type QueueFn = dyn Fn(&str, gtk4::glib::Variant);
+    let queue: Rc<QueueFn> = {
         let pending = Rc::clone(&pending);
         Rc::new(move |key: &str, v: gtk4::glib::Variant| {
             pending.borrow_mut().push((key.to_string(), v));

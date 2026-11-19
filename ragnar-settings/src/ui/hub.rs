@@ -38,6 +38,9 @@ where
         let entries: Vec<_> = registry::entries_in(category.id)
             .into_iter()
             .filter(|e| satisfied(&e.requirement))
+            // Advanced tiles stay invisible — and unsearchable —
+            // in the normal view; hiding is the entire point.
+            .filter(|e| !e.advanced() || crate::advanced::enabled())
             .filter(|e| search::matches(e, query))
             .collect();
         if entries.is_empty() {

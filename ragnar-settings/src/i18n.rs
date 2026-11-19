@@ -24,3 +24,11 @@ pub fn init() -> Result<()> {
     gettextrs::textdomain(TEXTDOMAIN).context("cannot set textdomain")?;
     Ok(())
 }
+
+/// Extraction marker — the N_() equivalent. Wraps a literal that is
+/// translated elsewhere at display time (`gettext(entry.title)`),
+/// so xgettext still sees it: run extraction with `--keyword=msgid`.
+/// Returns the string unchanged at runtime.
+pub const fn msgid(s: &'static str) -> &'static str {
+    s
+}

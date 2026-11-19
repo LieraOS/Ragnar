@@ -9,6 +9,7 @@ mod controls;
 pub(crate) mod dbus_client;
 mod gpu;
 mod mode_controls;
+mod monitor_rect;
 mod revert_dialog;
 
 use gtk4::Widget;

@@ -2,92 +2,77 @@
 // ragnar-settings — "Printers" panel
 // Copyright (C) 2026 LieraOS Project
 //
-// Real CUPS integration via the standard command line tools
-// (lpstat / lpinfo / lpadmin / lpoptions) — the user is in the
-// lpadmin group, so no privilege elevation is needed. Lists
-// configured printers with state, lets one become default,
-// removes printers, and adds discovered network/USB printers
-// driverless (IPP Everywhere, `-m everywhere`).
+// Read/manage view over the real CUPS state via the standard
+// command line tools (lpstat / lpadmin / lpoptions) — the user is
+// in the lpadmin group, so no privilege elevation is needed.
+// Lists every configured queue with its state, lets one become
+// default and removes queues. Adding printers is deliberately
+// NOT offered here — driver/queue setup happens elsewhere; this
+// panel only manages what exists. The standard PDF printer is
+// ensured on open (CUPS-PDF backend must be installed) and its
+// per-user default options are editable.
 
 use gettextrs::gettext;
 use gtk4::prelude::*;
 use gtk4::{Box, Orientation};
 use std::process::Command;
 
+use super::common;
+use crate::i18n::msgid;
+
+/// lpadmin lives in /usr/sbin, which is not guaranteed on PATH.
+const LPADMIN: &str = "/usr/sbin/lpadmin";
+/// cups-pdf virtual backend — presence means PDF output is supported.
+const PDF_BACKEND: &str = "/usr/lib/cups/backend/cups-pdf";
+/// PPD shipped by printer-driver-cups-pdf (exposes tunable options).
+const PDF_PPD: &str = "/usr/share/ppd/cups-pdf/CUPS-PDF_opt.ppd";
+/// Queue name used when the panel provisions the standard PDF printer.
+const PDF_QUEUE: &str = "PDF";
+/// cups-pdf daemon config — holds the system-wide output directory.
+const PDF_CONF: &str = "/etc/cups/cups-pdf.conf";
+/// PPD option keys exposed as editable PDF defaults.
+const PDF_OPTIONS: &[&str] = &["PageSize", "Resolution", "PDFVer"];
+
 /// Build the printers panel.
 pub fn build() -> gtk4::Widget {
-    let page = Box::new(Orientation::Vertical, 16);
-    for m in ["top", "bottom", "start", "end"] {
-        page.set_property(&format!("margin-{m}"), 24);
-    }
+    let page = common::page(&gettext("Printers"));
 
-    let list = Box::new(Orientation::Vertical, 6);
-    page.append(&list);
-    refresh(&list);
+    // Provision the standard PDF printer before listing so it shows
+    // up like any other queue — but only when the backend exists.
+    ensure_pdf_printer();
 
-    page.append(&gtk4::Separator::new(Orientation::Horizontal));
-
-    // -- Add printer ------------------------------------------------------
-    let ah = gtk4::Label::new(Some(&gettext("Add printer")));
-    ah.add_css_class("heading");
-    ah.set_xalign(0.0);
-    page.append(&ah);
-
-    let discovered = discover();
-    let arow = Box::new(Orientation::Horizontal, 10);
-    let name_entry = gtk4::Entry::builder()
-        .placeholder_text(gettext("Printer name"))
-        .hexpand(true)
-        .build();
-    arow.append(&name_entry);
-
-    let mut uris: Vec<String> = discovered;
-    if uris.is_empty() {
-        uris.push(gettext("No printers discovered").to_string());
-    }
-    let dd = gtk4::DropDown::from_strings(&uris.iter().map(String::as_str).collect::<Vec<_>>());
-    dd.set_hexpand(true);
-    arow.append(&dd);
-
-    let add = gtk4::Button::with_label(&gettext("Add"));
-    {
-        let (l, ur, ne) = (list.clone(), uris.clone(), name_entry.clone());
-        add.connect_clicked(move |_| {
-            let uri = match ur.get(dd.selected() as usize) {
-                Some(u) if u.contains("://") || u.starts_with("usb") || u.starts_with("ipp") => u,
-                _ => return,
-            };
-            let name = ne.text().trim().to_string();
-            if name.is_empty() {
-                return;
-            }
-            add_printer(&name, uri);
-            refresh(&l);
-        });
-    }
-    arow.append(&add);
-    page.append(&arow);
-
-    let hint = gtk4::Label::new(Some(&gettext(
-        "Printers are added driverless (IPP Everywhere). Network \
-         printers need to be reachable on the network.",
+    page.append(&common::section(&gettext("Printers")));
+    let card = common::card();
+    refresh(&card);
+    page.append(&card);
+    page.append(&common::note(&gettext(
+        "Printers are set up through their drivers — this list shows \
+         what is already configured.",
     )));
-    hint.add_css_class("dim-label");
-    hint.set_xalign(0.0);
-    hint.set_wrap(true);
-    page.append(&hint);
+
+    if let Some(queue) = pdf_queue() {
+        page.append(&common::section(&gettext("PDF printer")));
+        let card = common::card();
+        for (key, label, choices, current) in ppd_options(&queue) {
+            card.append(&option_row(&queue, &key, &label, &choices, &current));
+        }
+        card.append(&common::row(
+            &gettext("Output folder"),
+            &gettext("System-wide — set in /etc/cups/cups-pdf.conf"),
+            out_dir_label(),
+        ));
+        page.append(&card);
+    }
 
     page.upcast()
 }
 
 /// Re-render the printer list rows.
-fn refresh(list: &Box) {
-    while let Some(c) = list.first_child() {
-        list.remove(&c);
+fn refresh(card: &gtk4::ListBox) {
+    while let Some(c) = card.first_child() {
+        card.remove(&c);
     }
-    let default = run("lpstat", &["-d"])
-        .and_then(|s| s.split(':').nth(1).map(str::trim).map(str::to_string))
-        .unwrap_or_default();
+    let default = default_queue();
     let printers = run("lpstat", &["-p"])
         .map(|s| {
             s.lines()
@@ -96,65 +81,168 @@ fn refresh(list: &Box) {
         })
         .unwrap_or_default();
     if printers.is_empty() {
-        let none = gtk4::Label::new(Some(&gettext("No printers configured")));
-        none.add_css_class("dim-label");
-        none.set_xalign(0.0);
-        list.append(&none);
+        card.append(&common::row(
+            &gettext("No printers configured"),
+            "",
+            gtk4::Label::new(None).upcast(),
+        ));
         return;
     }
     for name in printers {
-        let row = Box::new(Orientation::Horizontal, 10);
-        let is_default = name == default;
-        let label = if is_default {
-            format!("{name}  ✓")
-        } else {
-            name.clone()
-        };
-        let l = gtk4::Label::new(Some(&label));
-        l.set_xalign(0.0);
-        l.set_hexpand(true);
-        row.append(&l);
-
-        if !is_default {
-            let def = gtk4::Button::with_label(&gettext("Set default"));
-            let (n, ls) = (name.clone(), list.clone());
-            def.connect_clicked(move |_| {
-                let _ = Command::new("lpoptions").args(["-d", &n]).status();
-                refresh(&ls);
-            });
-            row.append(&def);
-        }
-
-        let del = gtk4::Button::from_icon_name("user-trash-symbolic");
-        del.set_has_frame(false);
-        del.set_tooltip_text(Some(&gettext("Remove printer")));
-        let (n, ls) = (name.clone(), list.clone());
-        del.connect_clicked(move |_| {
-            let _ = Command::new("lpadmin").args(["-x", &n]).status();
-            refresh(&ls);
-        });
-        row.append(&del);
-        list.append(&row);
+        card.append(&printer_row(&name, name == default, card));
     }
 }
 
-/// Discovered printer URIs (`lpinfo -v` lines: "<scheme> <uri>").
-fn discover() -> Vec<String> {
-    run("lpinfo", &["-v"])
-        .map(|s| {
-            s.lines()
-                .filter_map(|l| l.split_whitespace().nth(1).map(str::to_string))
-                .filter(|u| !u.starts_with("beh") && !u.starts_with("socket://"))
-                .collect()
+/// One printer row: name (+ default marker), set-default and remove.
+fn printer_row(name: &str, is_default: bool, card: &gtk4::ListBox) -> gtk4::ListBoxRow {
+    let controls = Box::new(Orientation::Horizontal, 6);
+    controls.set_valign(gtk4::Align::Center);
+
+    if !is_default {
+        let def = gtk4::Button::with_label(&gettext("Set default"));
+        let (n, c) = (name.to_string(), card.clone());
+        def.connect_clicked(move |_| {
+            let _ = Command::new("lpoptions").args(["-d", &n]).status();
+            refresh(&c);
+        });
+        controls.append(&def);
+    }
+
+    let del = gtk4::Button::from_icon_name("user-trash-symbolic");
+    del.set_has_frame(false);
+    del.set_tooltip_text(Some(&gettext("Remove printer")));
+    {
+        let (n, c) = (name.to_string(), card.clone());
+        del.connect_clicked(move |_| {
+            let _ = Command::new(LPADMIN).args(["-x", &n]).status();
+            refresh(&c);
+        });
+    }
+    controls.append(&del);
+
+    let sub = if is_default {
+        gettext("Default printer")
+    } else {
+        String::new()
+    };
+    common::row(name, &sub, controls.upcast())
+}
+
+/// Dropdown row writing a per-user default via `lpoptions -o`.
+fn option_row(
+    queue: &str,
+    key: &str,
+    label: &str,
+    choices: &[String],
+    current: &str,
+) -> gtk4::ListBoxRow {
+    let dd = gtk4::DropDown::from_strings(&choices.iter().map(String::as_str).collect::<Vec<_>>());
+    if let Some(i) = choices.iter().position(|c| c == current) {
+        dd.set_selected(i as u32);
+    }
+    dd.set_valign(gtk4::Align::Center);
+    {
+        let (q, k, owned) = (queue.to_string(), key.to_string(), choices.to_vec());
+        dd.connect_selected_notify(move |d| {
+            if let Some(v) = owned.get(d.selected() as usize) {
+                let _ = Command::new("lpoptions")
+                    .args(["-p", &q, "-o", &format!("{k}={v}")])
+                    .status();
+            }
+        });
+    }
+    common::row(&gettext(opt_label(key)), label, dd.upcast())
+}
+
+/// Name of the queue that routes to the cups-pdf backend, if any.
+fn pdf_queue() -> Option<String> {
+    run("lpstat", &["-v"]).and_then(|s| {
+        s.lines().find_map(|l| {
+            let toks: Vec<&str> = l.split_whitespace().collect();
+            if toks.last()?.starts_with("cups-pdf") {
+                toks.iter()
+                    .find(|t| t.ends_with(':'))
+                    .map(|t| t.trim_end_matches(':').to_string())
+            } else {
+                None
+            }
         })
+    })
+}
+
+/// Create the standard PDF queue unless one already exists.
+fn ensure_pdf_printer() {
+    if !std::path::Path::new(PDF_BACKEND).exists() || !std::path::Path::new(PDF_PPD).exists() {
+        return;
+    }
+    if pdf_queue().is_none() {
+        let _ = Command::new(LPADMIN)
+            .args(["-p", PDF_QUEUE, "-E", "-v", "cups-pdf:/", "-P", PDF_PPD])
+            .status();
+    }
+}
+
+/// Name of the system default queue (empty when none is set).
+fn default_queue() -> String {
+    run("lpstat", &["-d"])
+        .and_then(|s| s.split_once(':').map(|(_, n)| n.trim().to_string()))
         .unwrap_or_default()
 }
 
-/// Add a printer driverless (IPP Everywhere).
-fn add_printer(name: &str, uri: &str) {
-    let _ = Command::new("lpadmin")
-        .args(["-p", name, "-E", "-v", uri, "-m", "everywhere"])
-        .status();
+/// Parse `lpoptions -l` into (key, ppd label, choices, current) for
+/// the curated PDF_OPTIONS keys.
+fn ppd_options(queue: &str) -> Vec<(String, String, Vec<String>, String)> {
+    let out = run("lpoptions", &["-p", queue, "-l"]).unwrap_or_default();
+    out.lines()
+        .filter_map(|l| {
+            let (key_label, vals) = l.split_once(':')?;
+            let (key, label) = key_label.split_once('/')?;
+            if !PDF_OPTIONS.contains(&key) {
+                return None;
+            }
+            let mut choices = Vec::new();
+            let mut current = String::new();
+            for c in vals.split_whitespace() {
+                if let Some(v) = c.strip_prefix('*') {
+                    current = v.to_string();
+                }
+                choices.push(c.trim_start_matches('*').to_string());
+            }
+            Some((key.to_string(), label.trim().to_string(), choices, current))
+        })
+        .collect()
+}
+
+/// Translatable label for a known PPD option key.
+fn opt_label(key: &str) -> &'static str {
+    match key {
+        "PageSize" => msgid("Paper size"),
+        "Resolution" => msgid("Resolution"),
+        "PDFVer" => msgid("PDF version"),
+        _ => "",
+    }
+}
+
+/// Label showing where cups-pdf drops its files (resolved ${HOME}).
+fn out_dir_label() -> gtk4::Widget {
+    let raw = std::fs::read_to_string(PDF_CONF)
+        .ok()
+        .and_then(|s| {
+            s.lines()
+                .map(str::trim)
+                .find(|l| l.starts_with("Out "))
+                .map(|l| l[4..].trim().to_string())
+        })
+        .unwrap_or_else(|| "${HOME}/PDF".to_string());
+    let shown = if let Some(home) = std::env::var_os("HOME") {
+        raw.replace("${HOME}", &home.to_string_lossy())
+    } else {
+        raw
+    };
+    let l = gtk4::Label::new(Some(&shown));
+    l.add_css_class("dim-label");
+    l.set_valign(gtk4::Align::Center);
+    l.upcast()
 }
 
 /// Run a tool, return trimmed stdout on success.

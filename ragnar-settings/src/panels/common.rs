@@ -12,6 +12,20 @@ use gtk4::prelude::*;
 use gtk4::{Box, ListBox, Orientation};
 use std::process::Command;
 
+/// SpinButton that cannot be adjusted by the scroll wheel — when a
+/// panel is scrolled and the pointer rests over the field, GTK would
+/// otherwise bump the value (and silently write it) instead of
+/// moving the page. Consuming the event in the capture phase, ahead
+/// of the widget's own scroll handling, prevents that.
+pub fn spin(min: f64, max: f64, step: f64) -> gtk4::SpinButton {
+    let spin = gtk4::SpinButton::with_range(min, max, step);
+    let scroll = gtk4::EventControllerScroll::new(gtk4::EventControllerScrollFlags::VERTICAL);
+    scroll.set_propagation_phase(gtk4::PropagationPhase::Capture);
+    scroll.connect_scroll(|_, _, _| gtk4::glib::Propagation::Stop);
+    spin.add_controller(scroll);
+    spin
+}
+
 /// Panel page: vertical box with the standard margins and a
 /// heading-styled title label on top.
 pub fn page(title: &str) -> Box {

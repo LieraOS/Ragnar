@@ -36,7 +36,7 @@
 		<font place="ActiveWindow" name="Noto Sans" weight="Bold" size="11" slant="Normal" />
 		<font place="InactiveWindow" name="Noto Sans" weight="Bold" size="11" slant="Normal" />
 		<titlebar>
-			<layout>:iconify,max,close:</layout>
+			<layout>icon:iconify,max,close</layout>
 		</titlebar>
 		<icon>Pocillo</icon>
 	</theme>

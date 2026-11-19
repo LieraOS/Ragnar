@@ -6,23 +6,25 @@
 // accent color. GNOME's accent-color enum gives the fixed palette;
 // "Custom" writes an override into ~/.config/gtk-4.0/gtk.css.
 
+use crate::i18n::msgid;
+use gettextrs::gettext;
 use gtk4::prelude::*;
 use std::fs;
 
 /// (label, gsettings enum value, css color for the button swatch).
 const ACCENTS: &[(&str, &str, &str)] = &[
-    ("Blue", "blue", "#3584e4"),
-    ("Teal", "teal", "#2190a4"),
-    ("Green", "green", "#3a944a"),
-    ("Yellow", "yellow", "#c88800"),
-    ("Orange", "orange", "#ed5b00"),
-    ("Red", "red", "#e62d42"),
-    ("Pink", "pink", "#d56199"),
-    ("Purple", "purple", "#9141ac"),
-    ("Slate", "slate", "#6f8396"),
+    (msgid("Blue"), "blue", "#3584e4"),
+    (msgid("Teal"), "teal", "#2190a4"),
+    (msgid("Green"), "green", "#3a944a"),
+    (msgid("Yellow"), "yellow", "#c88800"),
+    (msgid("Orange"), "orange", "#ed5b00"),
+    (msgid("Red"), "red", "#e62d42"),
+    (msgid("Pink"), "pink", "#d56199"),
+    (msgid("Purple"), "purple", "#9141ac"),
+    (msgid("Slate"), "slate", "#6f8396"),
 ];
 
-const STYLE_LABELS: &[&str] = &["System", "Dark", "Light"];
+const STYLE_LABELS: &[&str] = &[msgid("System"), msgid("Dark"), msgid("Light")];
 const STYLE_VALUES: &[&str] = &["default", "prefer-dark", "prefer-light"];
 
 /// Build the style page (dark mode, accent palette, custom color).
@@ -33,8 +35,9 @@ pub fn build() -> gtk4::Box {
     let iface = gtk4::gio::Settings::new("org.gnome.desktop.interface");
 
     // -- Dark / light mode ----------------------------------------------
-    page.append(&section("Mode"));
-    let dd = gtk4::DropDown::from_strings(STYLE_LABELS);
+    page.append(&section(&gettext("Mode")));
+    let lbls: Vec<String> = STYLE_LABELS.iter().map(|s| gettext(*s)).collect();
+    let dd = gtk4::DropDown::from_strings(&lbls.iter().map(String::as_str).collect::<Vec<_>>());
     let cur = iface.string("color-scheme").to_string();
     let idx = STYLE_VALUES.iter().position(|v| *v == cur).unwrap_or(0);
     dd.set_selected(idx as u32);
@@ -49,14 +52,14 @@ pub fn build() -> gtk4::Box {
     page.append(&dd);
 
     // -- Accent color ----------------------------------------------------
-    page.append(&section("Accent color"));
+    page.append(&section(&gettext("Accent color")));
     let flow = gtk4::FlowBox::new();
     flow.set_max_children_per_line(9);
     flow.set_selection_mode(gtk4::SelectionMode::None);
 
     for (label, value, color) in ACCENTS {
         let btn = gtk4::Button::new();
-        btn.set_tooltip_text(Some(label));
+        btn.set_tooltip_text(Some(&gettext(*label)));
         btn.set_size_request(36, 36);
         // Colored swatch via per-widget CSS provider. style_context is
         // deprecated since GTK 4.10 but remains the only API for
@@ -81,7 +84,7 @@ pub fn build() -> gtk4::Box {
 
     // Custom color → hex written to ~/.config/gtk-4.0/gtk.css.
     let custom_row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    custom_row.append(&gtk4::Label::new(Some("Custom accent")));
+    custom_row.append(&gtk4::Label::new(Some(&gettext("Custom accent"))));
     let custom = gtk4::ColorDialogButton::new(None);
     custom.set_halign(gtk4::Align::End);
     custom.set_hexpand(true);
@@ -98,9 +101,9 @@ pub fn build() -> gtk4::Box {
     custom_row.append(&custom);
     page.append(&custom_row);
 
-    let hint = gtk4::Label::new(Some(
+    let hint = gtk4::Label::new(Some(&gettext(
         "Custom accents apply to GTK4 apps; the palette presets also style libadwaita apps.",
-    ));
+    )));
     hint.add_css_class("dim-label");
     hint.set_wrap(true);
     page.append(&hint);

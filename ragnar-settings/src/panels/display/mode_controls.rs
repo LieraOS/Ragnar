@@ -9,6 +9,8 @@
 // Programmatic repopulation on monitor switch blocks all handlers to
 // avoid feedback loops and spurious D-Bus calls.
 
+use crate::i18n::msgid;
+use gettextrs::gettext;
 use gtk4::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -31,7 +33,7 @@ const SCALE_LABELS: &[&str] = &[
 ];
 /// Rotation options mapped to degrees.
 const ROTATIONS: &[i32] = &[0, 90, 180, 270];
-const ROTATION_LABELS: &[&str] = &["Normal", "90°", "180°", "270°"];
+const ROTATION_LABELS: &[&str] = &[msgid("Normal"), msgid("90°"), msgid("180°"), msgid("270°")];
 
 /// Build the controls bound to shared state.
 pub fn create(ui: &Rc<DisplayUi>) -> ModeControls {
@@ -40,14 +42,16 @@ pub fn create(ui: &Rc<DisplayUi>) -> ModeControls {
     let res_dd = gtk4::DropDown::from_strings(&[]);
     let refresh_dd = gtk4::DropDown::from_strings(&[]);
     let scale_dd = gtk4::DropDown::from_strings(SCALE_LABELS);
-    let rot_dd = gtk4::DropDown::from_strings(ROTATION_LABELS);
+    let rot_lbls: Vec<String> = ROTATION_LABELS.iter().map(|s| gettext(*s)).collect();
+    let rot_dd =
+        gtk4::DropDown::from_strings(&rot_lbls.iter().map(String::as_str).collect::<Vec<_>>());
     let sync_switch = gtk4::Switch::new();
 
-    widget.append(&row("Resolution", &res_dd));
-    widget.append(&row("Refresh Rate", &refresh_dd));
-    widget.append(&row("Scale", &scale_dd));
-    widget.append(&row("Rotation", &rot_dd));
-    widget.append(&switch_row("Adaptive Sync", &sync_switch));
+    widget.append(&row(&gettext("Resolution"), &res_dd));
+    widget.append(&row(&gettext("Refresh Rate"), &refresh_dd));
+    widget.append(&row(&gettext("Scale"), &scale_dd));
+    widget.append(&row(&gettext("Rotation"), &rot_dd));
+    widget.append(&switch_row(&gettext("Adaptive Sync"), &sync_switch));
 
     // Modes of the currently selected head, for index→mode mapping.
     let modes: Rc<RefCell<Vec<Mode>>> = Rc::new(RefCell::new(Vec::new()));
@@ -96,7 +100,7 @@ pub fn create(ui: &Rc<DisplayUi>) -> ModeControls {
             };
 
             let reply = dbus_client::send_mode(&name, w, h, rr);
-            eprintln!("mode {} {}x{}@{} -> {}", name, w, h, rr, reply.message);
+            tracing::info!("mode {} {}x{}@{} -> {}", name, w, h, rr, reply.message);
             dbus_client::send_apply();
 
             // Update local head + offer revert when the mode really changed.
@@ -177,7 +181,7 @@ pub fn create(ui: &Rc<DisplayUi>) -> ModeControls {
             };
             let Some(name) = selected_name() else { return };
             let reply = dbus_client::send_scale(&name, scale);
-            eprintln!("scale {} {} -> {}", name, scale, reply.message);
+            tracing::info!("scale {} {} -> {}", name, scale, reply.message);
             dbus_client::send_apply();
         });
         handlers.push((scale_dd.clone().upcast(), id));
@@ -192,7 +196,7 @@ pub fn create(ui: &Rc<DisplayUi>) -> ModeControls {
             };
             let Some(name) = selected_name() else { return };
             let reply = dbus_client::send_rotation(&name, deg);
-            eprintln!("rotation {} {}° -> {}", name, deg, reply.message);
+            tracing::info!("rotation {} {}° -> {}", name, deg, reply.message);
             dbus_client::send_apply();
         });
         handlers.push((rot_dd.clone().upcast(), id));
@@ -206,7 +210,7 @@ pub fn create(ui: &Rc<DisplayUi>) -> ModeControls {
                 return gtk4::glib::Propagation::Proceed;
             };
             let reply = dbus_client::send_adaptive_sync(&name, state);
-            eprintln!("adaptive-sync {} {} -> {}", name, state, reply.message);
+            tracing::info!("adaptive-sync {} {} -> {}", name, state, reply.message);
             dbus_client::send_apply();
             gtk4::glib::Propagation::Proceed
         });

@@ -53,7 +53,7 @@ pub fn list_named(dirs: &[PathBuf], marker: &str, exclude: &str) -> Vec<String> 
             }
         }
     }
-    names.sort_by(|a, b| a.to_lowercase().cmp(&b.to_lowercase()));
+    names.sort_by_key(|n| n.to_lowercase());
     names
 }
 
@@ -75,7 +75,7 @@ pub fn list_gtk_themes() -> Vec<String> {
             }
         }
     }
-    names.sort_by(|a, b| a.to_lowercase().cmp(&b.to_lowercase()));
+    names.sort_by_key(|n| n.to_lowercase());
     names
 }
 
@@ -100,7 +100,7 @@ pub fn list_icon_themes() -> Vec<String> {
             }
         }
     }
-    names.sort_by(|a, b| a.to_lowercase().cmp(&b.to_lowercase()));
+    names.sort_by_key(|n| n.to_lowercase());
     names
 }
 
@@ -121,7 +121,7 @@ pub fn list_cursor_themes() -> Vec<String> {
             }
         }
     }
-    names.sort_by(|a, b| a.to_lowercase().cmp(&b.to_lowercase()));
+    names.sort_by_key(|n| n.to_lowercase());
     names
 }
 

@@ -5,6 +5,7 @@
 // Dropdown of installed icon themes writing
 // org.gnome.desktop.interface icon-theme, plus "Install from file".
 
+use gettextrs::gettext;
 use gtk4::prelude::*;
 
 use super::common;
@@ -33,7 +34,7 @@ pub fn build() -> gtk4::Box {
     let status = gtk4::Label::new(None);
     status.add_css_class("dim-label");
 
-    let btn = gtk4::Button::with_label("Install icon theme from file…");
+    let btn = gtk4::Button::with_label(&gettext("Install icon theme from file…"));
     {
         let status = status.clone();
         btn.connect_clicked(move |b| {
@@ -41,14 +42,16 @@ pub fn build() -> gtk4::Box {
                 return;
             };
             let dialog = gtk4::FileDialog::new();
-            dialog.set_title("Choose icon theme archive");
+            dialog.set_title(&gettext("Choose icon theme archive"));
             let status = status.clone();
             dialog.open(Some(&win), None::<&gtk4::gio::Cancellable>, move |res| {
                 if let Ok(file) = res {
                     let path = file.path().unwrap_or_default();
                     match common::install_archive(&path, "icons") {
-                        Ok(()) => status.set_label("Installed. Select it above."),
-                        Err(e) => status.set_label(&format!("Install failed: {}", e)),
+                        Ok(()) => status.set_label(&gettext("Installed. Select it above.")),
+                        Err(e) => {
+                            status.set_label(&format!("{}: {}", gettext("Install failed"), e))
+                        }
                     }
                 }
             });

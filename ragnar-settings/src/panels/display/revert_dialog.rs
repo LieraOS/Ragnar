@@ -7,6 +7,7 @@
 // or timeout restores the previous mode via the daemon — so a wrong
 // mode never leaves the user with a black screen.
 
+use gettextrs::{gettext, ngettext};
 use gtk4::prelude::*;
 use std::cell::Cell;
 use std::rc::Rc;
@@ -21,7 +22,7 @@ use ragnar_shared::display::Mode;
 pub fn show_mode_revert(anchor: &gtk4::Widget, output: &str, prev: Mode, on_revert: Rc<dyn Fn()>) {
     let window = gtk4::Window::new();
     window.set_modal(true);
-    window.set_title(Some("Keep these display settings?"));
+    window.set_title(Some(&gettext("Keep these display settings?")));
     window.set_resizable(false);
     if let Some(parent) = anchor
         .root()
@@ -36,14 +37,17 @@ pub fn show_mode_revert(anchor: &gtk4::Widget, output: &str, prev: Mode, on_reve
     content.set_margin_start(24);
     content.set_margin_end(24);
 
-    let countdown = gtk4::Label::new(Some("Reverting in 15 seconds…"));
+    let countdown = gtk4::Label::new(Some(
+        &ngettext("Reverting in {} second…", "Reverting in {} seconds…", 15)
+            .replacen("{}", "15", 1),
+    ));
     content.append(&countdown);
 
     let buttons = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
     buttons.set_halign(gtk4::Align::End);
-    let keep = gtk4::Button::with_label("Keep");
+    let keep = gtk4::Button::with_label(&gettext("Keep"));
     keep.add_css_class("suggested-action");
-    let revert = gtk4::Button::with_label("Revert");
+    let revert = gtk4::Button::with_label(&gettext("Revert"));
     buttons.append(&keep);
     buttons.append(&revert);
     content.append(&buttons);
@@ -57,7 +61,7 @@ pub fn show_mode_revert(anchor: &gtk4::Widget, output: &str, prev: Mode, on_reve
         let output = output.to_string();
         let prev = prev.clone();
         move || {
-            eprintln!(
+            tracing::info!(
                 "ragnar-settings: reverting {} to {}x{}@{:.2}Hz",
                 output,
                 prev.width,
@@ -87,7 +91,14 @@ pub fn show_mode_revert(anchor: &gtk4::Widget, output: &str, prev: Mode, on_reve
                 return gtk4::glib::ControlFlow::Break;
             }
             remaining.set(left - 1);
-            countdown.set_label(&format!("Reverting in {} seconds…", left - 1));
+            countdown.set_label(
+                &ngettext(
+                    "Reverting in {} second…",
+                    "Reverting in {} seconds…",
+                    left - 1,
+                )
+                .replacen("{}", &(left - 1).to_string(), 1),
+            );
             gtk4::glib::ControlFlow::Continue
         });
     }

@@ -1,6 +1,6 @@
 [package]
 name = "ragnar-settings"
-version = "1.0.11"
+version = "1.0.12"
 edition = "2021"
 authors = ["Liera"]
 description = "Native settings hub for the Ragnar desktop (LieraOS)"
@@ -50,4 +50,5 @@ depends = "$auto"
 assets = [
     ["target/release/ragnar-settings", "usr/bin/", "755"],
     ["data/org.lieraos.ragnar.Settings.desktop", "usr/share/applications/", "644"],
+    ["target/locale/de/LC_MESSAGES/ragnar-settings.mo", "usr/share/locale/de/LC_MESSAGES/", "644"],
 ]

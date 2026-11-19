@@ -6,6 +6,7 @@
 // org.gnome.desktop.interface gtk-theme, plus "Install from file"
 // which extracts a theme archive into ~/.local/share/themes.
 
+use gettextrs::gettext;
 use gtk4::prelude::*;
 
 use super::common;
@@ -33,9 +34,9 @@ pub fn build() -> gtk4::Box {
 
     page.append(&install_button("themes"));
 
-    let note = gtk4::Label::new(Some(
+    let note = gtk4::Label::new(Some(&gettext(
         "Installs .tar/.tar.gz/.tar.xz theme archives into ~/.local/share/themes.",
-    ));
+    )));
     note.add_css_class("dim-label");
     note.set_wrap(true);
     page.append(&note);
@@ -45,22 +46,22 @@ pub fn build() -> gtk4::Box {
 
 /// "Install from file…" button: archive picker → extract to user dir.
 fn install_button(kind: &'static str) -> gtk4::Button {
-    let btn = gtk4::Button::with_label("Install theme from file…");
+    let btn = gtk4::Button::with_label(&gettext("Install theme from file…"));
     let status = gtk4::Label::new(None);
     btn.connect_clicked(move |b| {
         let Some(win) = b.root().and_then(|r| r.downcast::<gtk4::Window>().ok()) else {
             return;
         };
         let dialog = gtk4::FileDialog::new();
-        dialog.set_title("Choose theme archive");
+        dialog.set_title(&gettext("Choose theme archive"));
         let status = status.clone();
         let kind = kind.to_string();
         dialog.open(Some(&win), None::<&gtk4::gio::Cancellable>, move |res| {
             if let Ok(file) = res {
                 let path = file.path().unwrap_or_default();
                 match common::install_archive(&path, &kind) {
-                    Ok(()) => status.set_label("Installed. Select it above."),
-                    Err(e) => status.set_label(&format!("Install failed: {}", e)),
+                    Ok(()) => status.set_label(&gettext("Installed. Select it above.")),
+                    Err(e) => status.set_label(&format!("{}: {}", gettext("Install failed"), e)),
                 }
             }
         });

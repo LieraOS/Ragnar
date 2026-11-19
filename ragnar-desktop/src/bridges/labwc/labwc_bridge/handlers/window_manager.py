@@ -20,6 +20,20 @@ from gi.repository import Pango
 from ..config import LabwcConfig
 from ..settings import Settings
 
+# GNOME button identifier -> labwc layout identifier. Buttons the
+# compositor cannot draw (none today) would drop out of the mapping.
+_GNOME_TO_LABWC = {
+    "appmenu": "menu",
+    "icon": "icon",
+    "menu": "menu",
+    "minimize": "iconify",
+    "maximize": "max",
+    "close": "close",
+    "shade": "shade",
+    "stick": "desk",
+    "all": "desk",
+}
+
 
 class WindowManager:
     """Tracks ragnar-wm, mutter and wm-preferences settings into rc.xml."""
@@ -116,12 +130,22 @@ class WindowManager:
             if bridge is None:
                 return
 
-            # GNOME's layout string is free-form; labwc gets one of two fixed layouts, by the side close sits on
-            bridge.text = (
-                "close,iconify,max:"
-                if settings[key].startswith("close")
-                else ":iconify,max,close:"
-            )
+            # GNOME and labwc share the same format — comma-separated
+            # button identifiers split into left/right sections by one
+            # colon; only the identifier names differ. Translate
+            # faithfully so custom layouts survive instead of being
+            # collapsed onto two fixed presets (and so an rc.xml-side
+            # writer and this handler stay convergent).
+            left, _, right = settings[key].partition(":")
+
+            def translate(side: str) -> str:
+                return ",".join(
+                    labwc
+                    for name in side.split(",")
+                    if (labwc := _GNOME_TO_LABWC.get(name.strip()))
+                )
+
+            bridge.text = f"{translate(left)}:{translate(right)}"
 
             updated = True
 

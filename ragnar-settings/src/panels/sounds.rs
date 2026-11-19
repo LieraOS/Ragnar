@@ -9,10 +9,11 @@
 // ragnar-raven's settings.ini — the file is the interface, so Raven
 // stays fully decoupled. "Open LieraAudio" launches the audio GUI.
 
+use crate::i18n::msgid;
 use gettextrs::gettext;
 use gtk4::prelude::*;
 use gtk4::{Box, Orientation};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 /// Our own prefs file (panel-level sound configuration).
 fn ini_path() -> PathBuf {
@@ -35,9 +36,9 @@ fn raven_ini() -> PathBuf {
 /// from Raven, device hot-plug from ragnar-automount, volume diffs
 /// from the taskbar's wpctl poll.
 const EVENTS: &[(&str, &str)] = &[
-    ("Device connected", "device-added"),
-    ("Device removed", "device-removed"),
-    ("Volume changed", "audio-volume-change"),
+    (msgid("Device connected"), "device-added"),
+    (msgid("Device removed"), "device-removed"),
+    (msgid("Volume changed"), "audio-volume-change"),
 ];
 
 /// Build the system-sounds panel.
@@ -110,13 +111,16 @@ pub fn build() -> gtk4::Widget {
         let cur_vol = get(&rcfg, "notifications", "sound_volume")
             .and_then(|v| v.parse::<f64>().ok())
             .unwrap_or(80.0);
+        let label = gettext("Notification sound");
         let row = event_row(
-            &gettext("Notification sound"),
-            &cur_theme,
-            "message-new-instant",
-            &files,
-            &cur_snd,
-            cur_vol,
+            EventRowSpec {
+                label: &label,
+                theme: &cur_theme,
+                event: "message-new-instant",
+                files: &files,
+                cur_snd: &cur_snd,
+                cur_vol,
+            },
             move |name| write_key(&raven_ini(), "notifications", "sound", name),
             move |v| write_key(&raven_ini(), "notifications", "sound_volume", &v),
         );
@@ -137,13 +141,16 @@ pub fn build() -> gtk4::Widget {
             .unwrap_or(80.0);
         let ev = event.to_string();
         let ev2 = ev.clone();
+        let label = gettext(*label);
         let row = event_row(
-            &gettext(*label),
-            &cur_theme,
-            event,
-            &files,
-            &cur_snd,
-            cur_vol,
+            EventRowSpec {
+                label: &label,
+                theme: &cur_theme,
+                event,
+                files: &files,
+                cur_snd: &cur_snd,
+                cur_vol,
+            },
             move |name| write_key(&ini_path(), "events", &ev, name),
             move |v| write_key(&ini_path(), "volumes", &ev2, &v),
         );
@@ -153,36 +160,38 @@ pub fn build() -> gtk4::Widget {
     page.upcast()
 }
 
+/// Everything one event row needs beyond its two persist
+/// callbacks — bundled so the builder signature stays readable.
+struct EventRowSpec<'a> {
+    label: &'a str,
+    theme: &'a str,
+    event: &'a str,
+    files: &'a [String],
+    cur_snd: &'a str,
+    cur_vol: f64,
+}
+
 /// One event row: label, sound dropdown, volume slider — each
 /// callback persists its own half into the relevant ini section.
-fn event_row<FS, FV>(
-    label: &str,
-    theme: &str,
-    event: &str,
-    files: &[String],
-    cur_snd: &str,
-    cur_vol: f64,
-    on_sound: FS,
-    on_volume: FV,
-) -> gtk4::Widget
+fn event_row<FS, FV>(spec: EventRowSpec, on_sound: FS, on_volume: FV) -> gtk4::Widget
 where
     FS: Fn(&str) + 'static,
     FV: Fn(String) + 'static,
 {
     let row = Box::new(Orientation::Horizontal, 14);
-    let l = gtk4::Label::new(Some(label));
+    let l = gtk4::Label::new(Some(spec.label));
     l.set_xalign(0.0);
     l.set_width_chars(22);
     row.append(&l);
 
     let mut opts = vec!["default".to_string(), "none".to_string()];
-    opts.extend(files.iter().cloned());
+    opts.extend(spec.files.iter().cloned());
     let dd = gtk4::DropDown::from_strings(&opts.iter().map(String::as_str).collect::<Vec<_>>());
-    if let Some(i) = opts.iter().position(|o| o == cur_snd) {
+    if let Some(i) = opts.iter().position(|o| o == spec.cur_snd) {
         dd.set_selected(i as u32);
     }
     dd.set_hexpand(true);
-    let files_c = files.to_vec();
+    let files_c = spec.files.to_vec();
     dd.connect_selected_notify(move |d| {
         let mut v = vec!["default".to_string(), "none".to_string()];
         v.extend(files_c.iter().cloned());
@@ -195,7 +204,7 @@ where
     let vol = gtk4::Scale::with_range(Orientation::Horizontal, 0.0, 100.0, 5.0);
     vol.set_width_request(140);
     vol.set_draw_value(true);
-    vol.set_value(cur_vol);
+    vol.set_value(spec.cur_vol);
     vol.connect_value_changed(move |s| on_volume(format!("{:.0}", s.value())));
     row.append(&vol);
 
@@ -210,9 +219,9 @@ where
         let (dd_c, vol_c, th, ev, fl) = (
             dd.clone(),
             vol.clone(),
-            theme.to_string(),
-            event.to_string(),
-            files.to_vec(),
+            spec.theme.to_string(),
+            spec.event.to_string(),
+            spec.files.to_vec(),
         );
         play.connect_clicked(move |b| {
             // Running? Stop it and flip back to the play icon.
@@ -317,7 +326,7 @@ fn theme_files(theme: &str) -> Vec<String> {
 
 /// Read an ini file into section → key → value.
 fn read_ini(
-    path: &PathBuf,
+    path: &Path,
 ) -> std::collections::BTreeMap<String, std::collections::BTreeMap<String, String>> {
     let mut map: std::collections::BTreeMap<String, std::collections::BTreeMap<String, String>> =
         Default::default();
@@ -350,6 +359,6 @@ fn get(
 /// headers as `format!("[] {sec}").replace("[] ", "[")` which drops
 /// the closing bracket and corrupts the file for every strict INI
 /// reader (this is what broke raven's settings.ini).
-fn write_key(path: &PathBuf, sec: &str, key: &str, value: &str) {
+fn write_key(path: &Path, sec: &str, key: &str, value: &str) {
     let _ = super::ini::write_key(path, sec, key, value);
 }

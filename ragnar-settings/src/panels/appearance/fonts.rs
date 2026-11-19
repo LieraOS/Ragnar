@@ -6,20 +6,22 @@
 // font-name / document-font-name / monospace-font-name. Scaling,
 // antialiasing and hinting map to the matching interface keys.
 
+use crate::i18n::msgid;
+use gettextrs::gettext;
 use gtk4::pango;
 use gtk4::prelude::*;
 
 const AA_OPTIONS: &[(&str, &str)] = &[
-    ("Standard (grayscale)", "grayscale"),
-    ("Subpixel (LCD)", "rgba"),
-    ("None", "none"),
+    (msgid("Standard (grayscale)"), "grayscale"),
+    (msgid("Subpixel (LCD)"), "rgba"),
+    (msgid("None"), "none"),
 ];
 
 const HINTING_OPTIONS: &[(&str, &str)] = &[
-    ("Slight", "slight"),
-    ("Medium", "medium"),
-    ("Full", "full"),
-    ("None", "none"),
+    (msgid("Slight"), "slight"),
+    (msgid("Medium"), "medium"),
+    (msgid("Full"), "full"),
+    (msgid("None"), "none"),
 ];
 
 /// Build the fonts page.
@@ -29,13 +31,21 @@ pub fn build() -> gtk4::Box {
 
     let iface = gtk4::gio::Settings::new("org.gnome.desktop.interface");
 
-    page.append(&font_row(&iface, "Interface font", "font-name"));
-    page.append(&font_row(&iface, "Document font", "document-font-name"));
-    page.append(&font_row(&iface, "Monospace font", "monospace-font-name"));
+    page.append(&font_row(&iface, &gettext("Interface font"), "font-name"));
+    page.append(&font_row(
+        &iface,
+        &gettext("Document font"),
+        "document-font-name",
+    ));
+    page.append(&font_row(
+        &iface,
+        &gettext("Monospace font"),
+        "monospace-font-name",
+    ));
 
     // Text scaling factor (0.5–2.0).
     let row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    row.append(&gtk4::Label::new(Some("Text size factor")));
+    row.append(&gtk4::Label::new(Some(&gettext("Text size factor"))));
     let scale = gtk4::Scale::with_range(gtk4::Orientation::Horizontal, 0.5, 2.0, 0.05);
     scale.set_value(iface.double("text-scaling-factor"));
     scale.set_hexpand(true);
@@ -52,13 +62,13 @@ pub fn build() -> gtk4::Box {
 
     page.append(&enum_row(
         &iface,
-        "Antialiasing",
+        &gettext("Antialiasing"),
         "font-antialiasing",
         AA_OPTIONS,
     ));
     page.append(&enum_row(
         &iface,
-        "Hinting",
+        &gettext("Hinting"),
         "font-hinting",
         HINTING_OPTIONS,
     ));
@@ -69,7 +79,7 @@ pub fn build() -> gtk4::Box {
 /// Row with label + FontDialogButton bound to a "Family Size" string key.
 fn font_row(iface: &gtk4::gio::Settings, label: &str, key: &'static str) -> gtk4::Box {
     let row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    row.append(&gtk4::Label::new(Some(label)));
+    row.append(&gtk4::Label::new(Some(&gettext(label))));
 
     let button = gtk4::FontDialogButton::new(Some(gtk4::FontDialog::new()));
     button.set_hexpand(true);
@@ -112,10 +122,11 @@ fn enum_row(
     options: &'static [(&'static str, &'static str)],
 ) -> gtk4::Box {
     let row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    row.append(&gtk4::Label::new(Some(label)));
+    row.append(&gtk4::Label::new(Some(&gettext(label))));
 
-    let labels: Vec<&str> = options.iter().map(|(l, _)| *l).collect();
-    let dd = gtk4::DropDown::from_strings(&labels);
+    let labels: Vec<String> = options.iter().map(|(l, _)| gettext(*l)).collect();
+    let lrefs: Vec<&str> = labels.iter().map(String::as_str).collect();
+    let dd = gtk4::DropDown::from_strings(&lrefs);
     dd.set_halign(gtk4::Align::End);
     let cur = iface.string(key).to_string();
     if let Some(i) = options.iter().position(|(_, v)| *v == cur) {

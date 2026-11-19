@@ -6,6 +6,7 @@
 // org.gnome.desktop.interface cursor-theme, a size slider for
 // cursor-size, plus "Install from file".
 
+use gettextrs::gettext;
 use gtk4::prelude::*;
 
 use super::common;
@@ -36,7 +37,7 @@ pub fn build() -> gtk4::Box {
 
     // Cursor size slider (8–96 px).
     let size_row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    size_row.append(&gtk4::Label::new(Some("Cursor size")));
+    size_row.append(&gtk4::Label::new(Some(&gettext("Cursor size"))));
     let scale = gtk4::Scale::with_range(gtk4::Orientation::Horizontal, 8.0, 96.0, 1.0);
     scale.set_value(iface.int("cursor-size") as f64);
     scale.set_hexpand(true);
@@ -51,7 +52,7 @@ pub fn build() -> gtk4::Box {
     let status = gtk4::Label::new(None);
     status.add_css_class("dim-label");
 
-    let btn = gtk4::Button::with_label("Install cursor theme from file…");
+    let btn = gtk4::Button::with_label(&gettext("Install cursor theme from file…"));
     {
         let status = status.clone();
         btn.connect_clicked(move |b| {
@@ -59,14 +60,16 @@ pub fn build() -> gtk4::Box {
                 return;
             };
             let dialog = gtk4::FileDialog::new();
-            dialog.set_title("Choose cursor theme archive");
+            dialog.set_title(&gettext("Choose cursor theme archive"));
             let status = status.clone();
             dialog.open(Some(&win), None::<&gtk4::gio::Cancellable>, move |res| {
                 if let Ok(file) = res {
                     let path = file.path().unwrap_or_default();
                     match common::install_archive(&path, "icons") {
-                        Ok(()) => status.set_label("Installed. Select it above."),
-                        Err(e) => status.set_label(&format!("Install failed: {}", e)),
+                        Ok(()) => status.set_label(&gettext("Installed. Select it above.")),
+                        Err(e) => {
+                            status.set_label(&format!("{}: {}", gettext("Install failed"), e))
+                        }
                     }
                 }
             });

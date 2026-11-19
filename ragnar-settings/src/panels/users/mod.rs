@@ -178,23 +178,28 @@ pub fn build() -> gtk4::Widget {
     page.append(&prow);
 
     // -- Groups: chips + edit dialog ---------------------------------------
-    let gh = Box::new(Orientation::Horizontal, 10);
-    gh.append(&gtk4::Label::new(Some(&gettext("Groups"))));
-    let edit = gtk4::Button::with_label(&gettext("Edit groups…"));
-    edit.set_halign(gtk4::Align::End);
-    edit.set_hexpand(true);
-    gh.append(&edit);
-    page.append(&gh);
+    // Group membership editing is admin territory — advanced mode
+    // only (viewing chips without the editor would be dead weight
+    // for a normal user, so the whole section hides).
+    if crate::advanced::enabled() {
+        let gh = Box::new(Orientation::Horizontal, 10);
+        gh.append(&gtk4::Label::new(Some(&gettext("Groups"))));
+        let edit = gtk4::Button::with_label(&gettext("Edit groups…"));
+        edit.set_halign(gtk4::Align::End);
+        edit.set_hexpand(true);
+        gh.append(&edit);
+        page.append(&gh);
 
-    let chip_flow = gtk4::FlowBox::new();
-    chip_flow.set_selection_mode(gtk4::SelectionMode::None);
-    chip_flow.set_max_children_per_line(6);
-    groups::chips(&chip_flow, &groups::memberships(&user));
-    page.append(&chip_flow);
+        let chip_flow = gtk4::FlowBox::new();
+        chip_flow.set_selection_mode(gtk4::SelectionMode::None);
+        chip_flow.set_max_children_per_line(6);
+        groups::chips(&chip_flow, &groups::memberships(&user));
+        page.append(&chip_flow);
 
-    {
-        let (u, cf) = (user.clone(), chip_flow.clone());
-        edit.connect_clicked(move |b| groups::dialog(b, &u, &cf));
+        {
+            let (u, cf) = (user.clone(), chip_flow.clone());
+            edit.connect_clicked(move |b| groups::dialog(b, &u, &cf));
+        }
     }
 
     page.upcast()

@@ -6,18 +6,20 @@
 // matching sub-page on an internal Stack; every sub-page offers a
 // "Back" button to return to the overview.
 
+use crate::i18n::msgid;
+use gettextrs::gettext;
 use gtk4::prelude::*;
 
 use super::{cursor, fonts, icons, style, themes, wallpaper};
 
 /// (button label, stack page name, builder).
 const SECTIONS: &[(&str, &str)] = &[
-    ("Style & Colors", "style"),
-    ("GTK Theme", "themes"),
-    ("Icon Theme", "icons"),
-    ("Cursor", "cursor"),
-    ("Fonts", "fonts"),
-    ("Wallpaper", "wallpaper"),
+    (msgid("Style & Colors"), "style"),
+    (msgid("GTK Theme"), "themes"),
+    (msgid("Icon Theme"), "icons"),
+    (msgid("Cursor"), "cursor"),
+    (msgid("Fonts"), "fonts"),
+    (msgid("Wallpaper"), "wallpaper"),
 ];
 
 /// Create the Appearance page: overview + internal sub-page stack.
@@ -31,7 +33,7 @@ pub fn create_page() -> gtk4::Widget {
     overview.set_margin_end(24);
     overview.set_margin_top(24);
 
-    let title = gtk4::Label::new(Some("Appearance"));
+    let title = gtk4::Label::new(Some(&gettext("Appearance")));
     title.add_css_class("title-1");
     title.set_halign(gtk4::Align::Start);
     overview.append(&title);
@@ -39,7 +41,7 @@ pub fn create_page() -> gtk4::Widget {
     for (label, page_name) in SECTIONS {
         let btn = gtk4::Button::new();
         let inner = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-        inner.append(&gtk4::Label::new(Some(label)));
+        inner.append(&gtk4::Label::new(Some(&gettext(*label))));
         let arrow = gtk4::Label::new(Some("›"));
         arrow.set_halign(gtk4::Align::End);
         arrow.set_hexpand(true);
@@ -75,14 +77,14 @@ fn section_page(label: &str, page_name: &str, stack: &gtk4::Stack) -> gtk4::Widg
 
     // Header: back button + page title.
     let header = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    let back = gtk4::Button::with_label("‹ Back");
+    let back = gtk4::Button::with_label(&gettext("‹ Back"));
     {
         let stack = stack.clone();
         back.connect_clicked(move |_| stack.set_visible_child_name("overview"));
     }
     back.set_halign(gtk4::Align::Start);
     header.append(&back);
-    let title = gtk4::Label::new(Some(label));
+    let title = gtk4::Label::new(Some(&gettext(label)));
     title.add_css_class("heading");
     header.append(&title);
     page.append(&header);

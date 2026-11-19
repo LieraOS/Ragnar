@@ -5,6 +5,7 @@
 //! concrete entries; [`search`] filters them for the search field.
 
 mod catalog;
+mod entries;
 pub mod search;
 
 pub use catalog::{all_entries, categories, entries_in, Category};
@@ -39,4 +40,13 @@ pub struct Entry {
     pub requirement: Requirement,
     /// Extra search keywords (not displayed).
     pub keywords: &'static [&'static str],
+}
+
+impl Entry {
+    /// Whether the tile only shows in advanced mode — deep areas a
+    /// normal user should never trip over. The id list lives in
+    /// [`catalog`].
+    pub fn advanced(&self) -> bool {
+        catalog::ADVANCED_TILES.contains(&self.id)
+    }
 }

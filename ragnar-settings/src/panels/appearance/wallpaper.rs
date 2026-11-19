@@ -11,6 +11,7 @@
 // screen follows, then respawns swaybg so the change applies
 // immediately.
 
+use gettextrs::gettext;
 use gtk4::prelude::*;
 use std::cell::RefCell;
 use std::path::{Path, PathBuf};
@@ -37,12 +38,12 @@ pub fn build() -> gtk4::Box {
     let badges: Badges = Rc::new(RefCell::new(Vec::new()));
 
     let sel_row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    sel_row.append(&gtk4::Label::new(Some("Apply to:")));
-    let mut names: Vec<String> = vec!["All monitors".to_string()];
+    sel_row.append(&gtk4::Label::new(Some(&gettext("Apply to:"))));
+    let mut names: Vec<String> = vec![gettext("All monitors")];
     names.extend(wallpaper_map::outputs());
     let names_rc: Rc<Vec<String>> = Rc::new(names);
     let dd = gtk4::DropDown::from_strings(&names_rc.iter().map(|n| n.as_str()).collect::<Vec<_>>());
-    let reset = gtk4::Button::with_label("Use default for this monitor");
+    let reset = gtk4::Button::with_label(&gettext("Use default for this monitor"));
     reset.set_sensitive(false);
     {
         let (sel, fl, bg, nr, rst) = (
@@ -86,7 +87,7 @@ pub fn build() -> gtk4::Box {
 
     // Custom image picker — copies the file into the user wallpaper
     // dir, applies it and rebuilds the grid so the new tile shows up.
-    let custom = gtk4::Button::with_label("Choose image file…");
+    let custom = gtk4::Button::with_label(&gettext("Choose image file…"));
     custom.connect_clicked(move |b| {
         let Some(win) = b.root().and_then(|r| r.downcast::<gtk4::Window>().ok()) else {
             return;
@@ -95,9 +96,9 @@ pub fn build() -> gtk4::Box {
         let badges = badges.clone();
         let selected = selected.clone();
         let dialog = gtk4::FileDialog::new();
-        dialog.set_title("Choose wallpaper image");
+        dialog.set_title(&gettext("Choose wallpaper image"));
         let filter = gtk4::FileFilter::new();
-        filter.set_name(Some("Images"));
+        filter.set_name(Some(&gettext("Images")));
         for mime in ["image/png", "image/jpeg", "image/webp", "image/avif"] {
             filter.add_mime_type(mime);
         }

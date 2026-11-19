@@ -7,6 +7,7 @@
 // polkit-authorised writes, same mechanism GNOME settings use.
 // NTP on/off, timezone picker, and manual set-time when NTP is off.
 
+use super::common;
 use gettextrs::gettext;
 use gtk4::prelude::*;
 use gtk4::{Box, ListBox, Orientation};
@@ -85,7 +86,7 @@ pub fn build() -> gtk4::Widget {
     // Row: manual set — only meaningful with NTP off.
     let btn = gtk4::Button::with_label(&gettext("Set manually…"));
     btn.set_valign(gtk4::Align::Center);
-    btn.connect_clicked(|b| set_dialog(b));
+    btn.connect_clicked(set_dialog);
     card.append(&row(
         &gettext("Manual date & time"),
         &gettext("Only when automatic sync is off"),
@@ -246,9 +247,9 @@ fn set_dialog(anchor: &gtk4::Button) {
         .collect();
     let trow = Box::new(Orientation::Horizontal, 6);
     trow.set_halign(gtk4::Align::Center);
-    let sh = gtk4::SpinButton::with_range(0.0, 23.0, 1.0);
+    let sh = common::spin(0.0, 23.0, 1.0);
     sh.set_value(v.first().copied().unwrap_or(0.0));
-    let smi = gtk4::SpinButton::with_range(0.0, 59.0, 1.0);
+    let smi = common::spin(0.0, 59.0, 1.0);
     smi.set_value(v.get(1).copied().unwrap_or(0.0));
     trow.append(&sh);
     trow.append(&gtk4::Label::new(Some(":")));

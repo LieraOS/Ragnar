@@ -51,7 +51,7 @@ pub fn append(page: &Box) {
     ));
 
     // Row: duration.
-    let dur = gtk4::SpinButton::with_range(0.5, 30.0, 0.5);
+    let dur = common::spin(0.5, 30.0, 0.5);
     dur.set_value(
         get("duration_s")
             .and_then(|v| v.parse::<f64>().ok())
@@ -66,7 +66,7 @@ pub fn append(page: &Box) {
     ));
 
     // Row: size scale in percent.
-    let sc = gtk4::SpinButton::with_range(50.0, 200.0, 10.0);
+    let sc = common::spin(50.0, 200.0, 10.0);
     sc.set_value(
         get("scale")
             .and_then(|v| v.parse::<f64>().ok())

@@ -10,6 +10,7 @@
 // itself lives in the taskbar's own settings window (Taskbar tile).
 
 use super::common;
+use crate::i18n::msgid;
 use gettextrs::gettext;
 use gtk4::prelude::*;
 use gtk4::{Box, ListBox, Orientation};
@@ -67,9 +68,9 @@ const VIEW_SCHEMA: &str = "org.lieraos.ragnar.view";
 
 /// Icon context-menu entries the user may hide: (id, label).
 const MENU_ENTRIES: &[(&str, &str)] = &[
-    ("open-with", "Open With…"),
-    ("terminal", "Open in Terminal"),
-    ("rename", "Rename…"),
+    ("open-with", msgid("Open With…")),
+    ("terminal", msgid("Open in Terminal")),
+    ("rename", msgid("Rename…")),
 ];
 
 /// "Desktop icons" section: what right-click → delete does and which
@@ -187,7 +188,7 @@ fn key(path: &PathBuf, want: &str) -> Option<String> {
     std::fs::read_to_string(path).ok().and_then(|s| {
         s.lines()
             .find(|l| l.starts_with(&format!("{want}=")))
-            .map(|l| l.splitn(2, '=').nth(1).unwrap_or("").trim().to_string())
+            .and_then(|l| l.split_once('=').map(|(_, v)| v.trim().to_string()))
     })
 }
 

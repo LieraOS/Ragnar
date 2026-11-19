@@ -10,6 +10,7 @@
 // watches and the per-category accent colours. The notification
 // sound itself is configured in the System Sounds panel.
 
+use crate::i18n::msgid;
 use gettextrs::gettext;
 use gtk4::prelude::*;
 use gtk4::{Box, Orientation};
@@ -59,7 +60,7 @@ pub fn build() -> gtk4::Widget {
     ));
 
     // Row: duration.
-    let dur = gtk4::SpinButton::with_range(2.0, 120.0, 1.0);
+    let dur = common::spin(2.0, 120.0, 1.0);
     dur.set_value(
         get("duration_s")
             .and_then(|v| v.parse::<f64>().ok())
@@ -99,15 +100,51 @@ pub fn build() -> gtk4::Widget {
         dd.upcast(),
     ));
 
+    // Row: on-screen position — panel gsettings key, not part of
+    // Raven's ini. Only shown when the schema exists.
+    if let Some(panel) = common::schema_lookup("org.lieraos.ragnar.panel", "notification-position")
+    {
+        const POS: &[(&str, &str)] = &[
+            ("RAGNAR_NOTIFICATION_POSITION_TOP_LEFT", msgid("Top left")),
+            ("RAGNAR_NOTIFICATION_POSITION_TOP_RIGHT", msgid("Top right")),
+            (
+                "RAGNAR_NOTIFICATION_POSITION_BOTTOM_LEFT",
+                msgid("Bottom left"),
+            ),
+            (
+                "RAGNAR_NOTIFICATION_POSITION_BOTTOM_RIGHT",
+                msgid("Bottom right"),
+            ),
+        ];
+        let labels: Vec<String> = POS.iter().map(|o| gettext(o.1)).collect();
+        let pdd =
+            gtk4::DropDown::from_strings(&labels.iter().map(String::as_str).collect::<Vec<_>>());
+        let cur = panel.string("notification-position").to_string();
+        if let Some(i) = POS.iter().position(|o| o.0 == cur) {
+            pdd.set_selected(i as u32);
+        }
+        pdd.set_valign(gtk4::Align::Center);
+        pdd.connect_selected_notify(move |d| {
+            if let Some((v, _)) = POS.get(d.selected() as usize) {
+                let _ = panel.set_string("notification-position", v);
+            }
+        });
+        card.append(&common::row(
+            &gettext("Position"),
+            &gettext("Which screen corner notifications slide into"),
+            pdd.upcast(),
+        ));
+    }
+
     // Row: history retention — how long past notifications stay in
     // Raven's list (writes `history_days`; -1 keeps everything).
     const HISTORY_OPTS: &[(&str, &str)] = &[
-        ("0", "Immediately"),
-        ("1", "For 1 day"),
-        ("3", "For 3 days"),
-        ("7", "For 1 week"),
-        ("14", "For 2 weeks"),
-        ("-1", "Forever"),
+        ("0", msgid("Immediately")),
+        ("1", msgid("For 1 day")),
+        ("3", msgid("For 3 days")),
+        ("7", msgid("For 1 week")),
+        ("14", msgid("For 2 weeks")),
+        ("-1", msgid("Forever")),
     ];
     let labels: Vec<String> = HISTORY_OPTS.iter().map(|o| gettext(o.1)).collect();
     let hdd = gtk4::DropDown::from_strings(&labels.iter().map(String::as_str).collect::<Vec<_>>());
@@ -160,13 +197,13 @@ pub fn build() -> gtk4::Widget {
         gtk4::glib::Propagation::Proceed
     });
     ecard.append(&common::row(
-        &gettext("System updates"),
+        &gettext(msgid("System updates")),
         &gettext("Check periodically for pending package upgrades"),
         usw.upcast(),
     ));
 
     // Row: update-check interval in minutes.
-    let iv = gtk4::SpinButton::with_range(5.0, 1440.0, 5.0);
+    let iv = common::spin(5.0, 1440.0, 5.0);
     iv.set_value(
         get("update_interval_min")
             .and_then(|v| v.parse::<f64>().ok())
@@ -192,19 +229,23 @@ pub fn build() -> gtk4::Widget {
     const CATS: &[(&str, &str, &str)] = &[
         (
             "color_default",
-            "Default",
-            "Notifications without a special category",
+            msgid("Default"),
+            msgid("Notifications without a special category"),
         ),
         (
             "color_mount",
-            "Drives & mounts",
-            "Removable media connect, mount and removal",
+            msgid("Drives & mounts"),
+            msgid("Removable media connect, mount and removal"),
         ),
-        ("color_update", "System updates", "Pending package upgrades"),
+        (
+            "color_update",
+            msgid("System updates"),
+            msgid("Pending package upgrades"),
+        ),
         (
             "color_appointment",
-            "Appointments",
-            "Calendar reminders fired by Raven",
+            msgid("Appointments"),
+            msgid("Calendar reminders fired by Raven"),
         ),
     ];
     for (key, title, sub) in CATS {

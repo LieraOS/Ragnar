@@ -8,6 +8,7 @@
 // actually reports as writable — everything else stays informational.
 // Writes go through pkexec and trigger a polkit auth dialog.
 
+use gettextrs::gettext;
 use gtk4::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -91,18 +92,18 @@ fn gpu_card(gpu: &GpuInfo) -> (gtk4::Expander, GpuLabels) {
     inner.set_margin_end(12);
 
     let vendor = match gpu.vendor {
-        GpuVendor::Nvidia => "NVIDIA",
-        GpuVendor::Amd => "AMD",
-        GpuVendor::Intel => "Intel",
-        GpuVendor::Unknown => "Unknown",
+        GpuVendor::Nvidia => "NVIDIA".to_string(),
+        GpuVendor::Amd => "AMD".to_string(),
+        GpuVendor::Intel => "Intel".to_string(),
+        GpuVendor::Unknown => gettext("Unknown"),
     };
-    inner.append(&info_row("Vendor", vendor));
-    inner.append(&info_row("Driver", &gpu.driver));
+    inner.append(&info_row(&gettext("Vendor"), &vendor));
+    inner.append(&info_row(&gettext("Driver"), &gpu.driver));
 
-    let temperature = value_row(&inner, "Temperature", &temp_string(gpu));
-    let power = value_row(&inner, "Power", &power_string(gpu));
-    let fan = value_row(&inner, "Fan", &fan_string(gpu));
-    let clocks = value_row(&inner, "Clocks", &clock_string(gpu));
+    let temperature = value_row(&inner, &gettext("Temperature"), &temp_string(gpu));
+    let power = value_row(&inner, &gettext("Power"), &power_string(gpu));
+    let fan = value_row(&inner, &gettext("Fan"), &fan_string(gpu));
+    let clocks = value_row(&inner, &gettext("Clocks"), &clock_string(gpu));
 
     // Interactive controls: only where the GPU reports real write support.
     if gpu.supports_power_limit {
@@ -155,7 +156,7 @@ fn value_row(parent: &gtk4::Box, label: &str, value: &str) -> gtk4::Label {
 /// Slider + apply button for the GPU power limit.
 fn power_limit_row(gpu: &GpuInfo) -> gtk4::Box {
     let row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    row.append(&gtk4::Label::new(Some("Power Limit")));
+    row.append(&gtk4::Label::new(Some(&gettext("Power Limit"))));
 
     let scale = gtk4::Scale::with_range(
         gtk4::Orientation::Horizontal,
@@ -169,14 +170,15 @@ fn power_limit_row(gpu: &GpuInfo) -> gtk4::Box {
     scale.set_value_pos(gtk4::PositionType::Right);
     row.append(&scale);
 
-    let apply = gtk4::Button::with_label("Apply");
+    let apply = gtk4::Button::with_label(&gettext("Apply"));
     let pci = gpu.pci_address.clone();
     apply.connect_clicked(move |_| {
         let watts = scale.value();
         let reply = dbus_client::send_gpu_power_limit(&pci, watts);
-        eprintln!(
+        tracing::info!(
             "ragnar-settings-gui: power limit {}W -> {}",
-            watts, reply.message
+            watts,
+            reply.message
         );
     });
     row.append(&apply);
@@ -188,7 +190,7 @@ fn power_limit_row(gpu: &GpuInfo) -> gtk4::Box {
 /// Sliding to 0 and applying unlocks the clock (free boost again).
 fn locked_clock_row(gpu: &GpuInfo) -> gtk4::Box {
     let row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    row.append(&gtk4::Label::new(Some("Lock GPU Clock")));
+    row.append(&gtk4::Label::new(Some(&gettext("Lock GPU Clock"))));
 
     let scale = gtk4::Scale::with_range(
         gtk4::Orientation::Horizontal,
@@ -200,17 +202,18 @@ fn locked_clock_row(gpu: &GpuInfo) -> gtk4::Box {
     scale.set_hexpand(true);
     scale.set_digits(0);
     scale.set_value_pos(gtk4::PositionType::Right);
-    scale.set_tooltip_text(Some("0 = unlocked (free boost)"));
+    scale.set_tooltip_text(Some(&gettext("0 = unlocked (free boost)")));
     row.append(&scale);
 
-    let apply = gtk4::Button::with_label("Apply");
+    let apply = gtk4::Button::with_label(&gettext("Apply"));
     let pci = gpu.pci_address.clone();
     apply.connect_clicked(move |_| {
         let mhz = scale.value() as i32;
         let reply = dbus_client::send_gpu_locked_clock(&pci, mhz);
-        eprintln!(
+        tracing::info!(
             "ragnar-settings-gui: lock clock {}MHz -> {}",
-            mhz, reply.message
+            mhz,
+            reply.message
         );
     });
     row.append(&apply);
@@ -221,7 +224,7 @@ fn locked_clock_row(gpu: &GpuInfo) -> gtk4::Box {
 /// Slider + apply button for manual fan speed (AMD pwm1).
 fn fan_row(gpu: &GpuInfo) -> gtk4::Box {
     let row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    row.append(&gtk4::Label::new(Some("Fan Speed")));
+    row.append(&gtk4::Label::new(Some(&gettext("Fan Speed"))));
 
     let scale = gtk4::Scale::with_range(gtk4::Orientation::Horizontal, 0.0, 100.0, 1.0);
     scale.set_value(gpu.fan_percent.max(0) as f64);
@@ -230,12 +233,12 @@ fn fan_row(gpu: &GpuInfo) -> gtk4::Box {
     scale.set_value_pos(gtk4::PositionType::Right);
     row.append(&scale);
 
-    let apply = gtk4::Button::with_label("Apply");
+    let apply = gtk4::Button::with_label(&gettext("Apply"));
     let pci = gpu.pci_address.clone();
     apply.connect_clicked(move |_| {
         let pct = scale.value() as i32;
         let reply = dbus_client::send_gpu_fan(&pci, pct);
-        eprintln!("ragnar-settings-gui: fan {}% -> {}", pct, reply.message);
+        tracing::info!("ragnar-settings-gui: fan {}% -> {}", pct, reply.message);
     });
     row.append(&apply);
 

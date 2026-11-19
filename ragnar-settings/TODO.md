@@ -1,14 +1,9 @@
 # Ragnar Settings TODO
 
-## Preparation (done)
-
-- [x] Create project directory — development starts after the current
-      live image with the Phase-2 rebrand is built and boot-tested.
-
 ## Phase A — skeleton
 
 - [x] Cargo workspace: GTK4 + libadwaita app, English code,
-      i18n from day one (de/en/es/fr), files <= 400 lines, one module
+      i18n from day one, files <= 400 lines, one module
       per feature area.
 - [x] Hub window: categorized tile grid + search field, registry
       catalog as the category/tile model.
@@ -20,75 +15,160 @@
       the app runs on non-Ragnar dev machines.
 - [x] .desktop file + icon — shipped since 1.0.4, appears under
       "Einstellungen" in the taskbar menu.
-- [ ] gettext catalogs (de/en/es/fr) + xgettext extraction workflow.
+- [x] gettext catalogs + workflow (1.0.12): `po/de.po` complete
+      (495 strings, msgfmt-clean), `po/ragnar-settings.pot` template,
+      `build.rs` compiles every po/*.po into `target/locale/` and
+      cargo-deb ships the `.mo` under `/usr/share/locale/`;
+      `LOCALEDIR` override for dev runs; extraction/merge commands
+      documented in README. English is the source language — no
+      en.po needed. es/fr catalogs open for later.
 
-## Phase B — first native panels
+## Phase B — native panels
 
 - [x] Personalization: appearance/ panel — mode (color-scheme +
       panel dark-theme), accent colors, theme/cursor rows.
-- [x] Display: display/ panel exists (resolution/orientation).
+- [x] Display: display/ panel (canvas arrangement, resolution,
+      orientation, GPU section).
 - [x] Sounds: sounds.rs writes ragnar-raven's settings.ini —
       raven reads it as its interface.
-- [x] Corrupt ini writer fixed (1.0.10): sounds.rs' private
-      write_key emitted headers without ']' (`[notifications`),
-      which made every strict INI reader reject raven's whole
-      settings.ini — sound and notification writes now go through
-      the tested panels::ini::write_key; the private copies in
-      sounds.rs/notifications.rs were removed.
+- [x] Corrupt ini writer fixed (1.0.10): sound/notification writes go
+      through the tested panels::ini::write_key.
 - [x] Notifications panel extended (1.0.11): Events card toggles
-      Raven's watchers (watch_mounts/watch_updates +
-      update_interval_min), Colours card writes per-category
-      color_* keys via ColorDialogButton + reset; OSD rows moved
-      to panels/osd.rs (separate ini, separate module).
-- [x] Night light: gammastep-backed panel (config.ini + managed
-      autostart; no sunset mode — no location service installed).
-      Nachtlicht-Panel via gammastep.
+      Raven's watchers, Colours card writes per-category color_*
+      keys; OSD rows moved to panels/osd.rs.
+- [x] Night light: gammastep-backed panel.
 - [x] Updates: pending count via apt simulation, pkexec
-      refresh/install, auto-upgrade switch writing
-      /etc/apt/apt.conf.d/52ragnar-auto-upgrades with an explicit
-      origin=Debian,label=Debian pattern (lsb_release -cs = "n/a"
-      makes the shipped ${distro_codename} patterns match nothing).
-      Updates-Panel mit Auto-Update-Schalter.
+      refresh/install, auto-upgrade drop-in with explicit
+      origin=Debian,label=Debian pattern.
 - [x] Accessibility: text size, reduce animations, high contrast —
-      all schema-guarded. Barrierefreiheit-Panel.
-- [x] Shared helpers: panels/common.rs + generic INI
-      panels/ini.rs. Gemeinsame Panel-Helfer.
+      all schema-guarded.
+- [x] Shared helpers: panels/common.rs + generic INI panels/ini.rs.
+- [x] Removable media: automount switch + live "Connected devices"
+      list with unmount/eject via gio::VolumeMonitor.
+- [x] Autostart view in desktop.rs.
+- [x] Default applications (xdg-mime); extended with calendar
+      and archive categories, category labels now actually run
+      through gettext (1.0.12).
 - [ ] Migrate old panels (privacy, power, media, ...) to
-      panels::common helpers. (notifications.rs + sounds.rs write
-      through panels::ini since 1.0.10.) Alte Panels auf common.rs
-      migrieren — ini.rs ist seit 1.0.10 überall im Einsatz.
-- [ ] Software & Printers panels still open (deferred by user).
-      Software- und Drucker-Panels noch offen.
-- [ ] Verify terminal argv conventions for alacritty/kitty/tilix etc.
-      on a machine where they are installed — unit-tested but only
-      gnome-terminal exists here. Terminal-Argv-Konventionen
-      testabgedeckt, aber nur gnome-terminal installiert.
-- [ ] On-screen keyboard / screen reader rows for Accessibility once
-      such tools are installed — currently nothing to control.
-      Bildschirmtastatur-/Screenreader-Reihen, sobald installiert.
-- [x] Removable media: automount switch
-      (`org.lieraos.ragnar.automount enabled`, schema shipped in this
-      package, compiled via postinst) + live "Connected devices" list
-      with unmount/eject via gio::VolumeMonitor.
-      Panel „Wechseldatenträger": Automount-Schalter + Live-Geräteliste.
-- [x] Autostart view in desktop.rs — lists /etc/xdg/autostart +
-      user autostart; only user-owned entries are removable.
-- [x] Default applications (xdg-mime) — default_apps.rs; fixed a
-      crash caused by a nonexistent `org.lieraos.ragnar-view` schema
-      and a dead terminal row (1.0.5).
-- [ ] Panel & Desktop: expose org.lieraos.ragnar.* settings
-      (panel positions, autohide, applet defaults).
+      panels::common helpers.
+- [x] Power-panel crash fixed (1.0.12): unguarded access to
+      org.gnome.settings-daemon.plugins.power (gsd is not part of
+      Ragnar) aborted the whole app on open; rows are now
+      schema-gated. Profile switching was moved from the
+      powerprofilesctl CLI to the net.hadess.PowerProfiles D-Bus
+      API — works identically against power-profiles-daemon or
+      tuned-ppd (tuned-ppd added to the ISO's
+      performance.list.chroot so tuned stays the tuning engine).
+- [x] Software tile launches ragnar-software (1.0.12);
+      printers panel rewritten — lists configured queues with
+      default/remove, no add UI (drivers own that); standard
+      PDF printer auto-provisioned via CUPS-PDF with editable
+      per-user defaults (paper size, resolution, PDF version).
+- [x] Terminal argv simplified (1.0.12): dropped the per-emulator
+      special cases — gnome-terminal/kgx use `--`, everything else
+      gets the portable `-e sh -c` form.
+- [x] On-screen keyboard / screen reader rows (1.0.12,
+      experimental section in Accessibility): write the real
+      a11y.applications flags and report whether a consumer
+      (squeekboard/onboard/orca) is installed — missing tools
+      are pointed at Software with an "Open Software" jump
+      button.
+- [x] Panel & Desktop: org.lieraos.ragnar.* settings are exposed —
+      per-panel options (position, autohide, applet defaults) via
+      ragnar-taskbar's own settings window (no duplicate UI here by
+      design); notification-position added to the notifications
+      panel (1.0.12).
 
-## Phase C — launched-app tiles
+## Phase C — normal vs. advanced
+
+- [x] Advanced mode (1.0.12): persistent switch in the header bar,
+      state in `~/.config/ragnar-settings/settings.ini`
+      (`[ui] advanced`); tile-level hiding via
+      `registry::catalog::ADVANCED_TILES`, section-level guards via
+      `crate::advanced::enabled()` inside panels (GPU controls in
+      Display, rc edit in Input, group management in Users).
+- [x] Search focus fix (1.0.12): the hub rebuild on every keystroke
+      no longer runs the stale-pointer-grab workaround, so the entry
+      keeps keyboard focus for continuous typing.
+- [x] Module splits for the line budget (1.0.12):
+      display/canvas.rs → monitor_rect.rs (rects, drag/select,
+      thumbnails), registry/catalog.rs → entries.rs (tile list).
+- [x] All clippy warnings resolved; `cargo test`, `msgfmt --check`
+      and release build green.
+- [x] Compositor panel (1.0.12, advanced tile): window decoration
+      (corner radius, drop shadows, keep-border, titlebar layout +
+      font), window gap, work-area margins, workspace count + popup
+      time, focus behaviour, snap distances, top-maximize, placement
+      policy, tearing — written live to the compositor configuration
+      file. "Coming with the native compositor" section lists locked
+      rows (blur, animations, tiling layouts, gestures, window
+      groups, scratchpad, mirroring).
+- [x] Compositor capability layer (1.0.12): `backend/compositor.rs`
+      detects the running compositor (labwc / native Ragnar /
+      unknown) and maps per-feature support; locked rows unlock
+      automatically once the native compositor provides the
+      capability — no second UI implementation.
+- [x] Generic rc.xml patcher (1.0.12): `panels/rcxml.rs` replaces
+      the input-only `rc_edit` helper — block get/set for any
+      section, nested blocks via parent, attribute read/write
+      incl. attribute-keyed elements (`<font place="…">`),
+      auto-creation of missing sections/elements, `labwc -r` reload;
+      input + shortcuts panels migrated; fixture-tested.
+- [x] Window rules editor (1.0.12, advanced tile, experimental):
+      list/add/edit/delete for the compositor's window rules —
+      matchers (app id, title, first-match-only), window-state
+      actions (top/below, omnipresent, maximized, fullscreen,
+      minimized), placement (snap edge, center, workspace),
+      titlebar override and behaviour flags. Round-trip model
+      preserves unmodelled attributes/actions/comments verbatim;
+      fixture-tested.
+- [x] Keyboard-shortcut editor v2 (1.0.12): every compositor
+      keybind is now editable — key-capture dialog plus a WM-action
+      catalogue (run command, close/kill/minimize, maximize,
+      fullscreen, snap-to-edge, go/move-to-workspace, window
+      switching, menus, desktop, reconfigure). Session-managed
+      binds (managed="labwc-bridge") are shown read-only since the
+      bridge regenerates them from GSettings.
+- [x] Workspace names (1.0.12, compositor panel): per-workspace
+      name entries writing <desktops><names> — empty slots keep the
+      generated "<prefix> N" label; entry count follows the
+      workspace-count spin live.
+- [x] Autostart & environment (1.0.12, advanced tile): editors
+      for the session's autostart file (programs at login) and
+      environment variables — in-place editing preserving comments,
+      session-managed variables shown read-only.
+- [x] Input depth (1.0.12): double-click time, tap-and-drag,
+      drag lock, three-finger drag, tap button map, click method,
+      scroll method, scroll speed factor and per-window keyboard
+      layout scope added to the input panel; invalid "keep"
+      num-lock value removed (the compositor only accepts
+      on/off). Touchpad-only rows stay hidden without a
+      detected touchpad.
+- [x] Notification position (1.0.12, notifications panel):
+      screen-corner dropdown writing the panel schema's
+      notification-position enum, schema-guarded so the row
+      only appears where the schema is installed.
+- [x] Configuration backup & restore (1.0.12): footer buttons open
+      file dialogs; export stages every source from the declarative
+      manifest in `src/backup/mod.rs` (~/.config files + dirs,
+      whole-schema gsettings dumps incl. every org.lieraos.ragnar.*
+      schema found at runtime, system files) into one timestamped
+      .tar.gz; restore replays files + gsettings and installs
+      system files through a single pkexec script. New config
+      sources register as one manifest line — the feature grows
+      with the app by design.
+
+## Phase D — launched-app tiles
 
 - [x] Sound tile → Liera Audio (`lieraaudio`, verified in catalog).
-- [x] Network & Bluetooth tile → Heimdall (`ragnar-heimdall`, verified in catalog).
-- [ ] Software tile → installed-app list + launch Liera Software Center.
+- [x] Network & Bluetooth tile → Heimdall (`ragnar-heimdall`).
+- [x] Software tile → launches ragnar-software.
 
-## Phase D — adoption
+## Phase E — adoption
 
-- [x] Debian packaging — cargo-deb ships binary + .desktop since 1.0.3.
+- [x] Debian packaging — cargo-deb ships binary + .desktop + .mo.
 - [x] In ISO package list (packages.chroot staging).
 - [x] ragnar-control-center removed from the ISO — ragnar-settings
       is the only settings hub.
-- [ ] Automated tests (unit + integration), docs, translations.
+- [ ] Automated tests beyond ini/apt/terminal/search (display
+      dbus_client parsing, advanced-mode filtering).
