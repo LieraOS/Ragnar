@@ -40,11 +40,60 @@ pub enum Msg {
     Deps(Vec<String>, Vec<String>),
 }
 
+/// Flatpak updates pending in user scope, as update items. The id is
+/// "flatpak:<origin>:<ref>" so the install/detail paths can tell
+/// them apart from PackageKit ids. Read-only query — no polkit.
+fn flatpak_updates() -> Vec<packagekit::UpdateItem> {
+    let Ok(out) = std::process::Command::new("flatpak")
+        .args([
+            "remote-ls",
+            "--user",
+            "--updates",
+            "--columns=name,ref,version,origin",
+        ])
+        .output()
+    else {
+        return Vec::new();
+    };
+    String::from_utf8_lossy(&out.stdout)
+        .lines()
+        .filter_map(|l| {
+            let c: Vec<&str> = l.split('\t').collect();
+            let (name, refr, ver, origin) = (
+                c.first().copied().unwrap_or(""),
+                c.get(1).copied().unwrap_or(""),
+                c.get(2).copied().unwrap_or(""),
+                c.get(3).copied().unwrap_or("flathub"),
+            );
+            if refr.is_empty() {
+                return None;
+            }
+            Some(packagekit::UpdateItem {
+                id: format!("flatpak:{origin}:{refr}"),
+                // name column may be empty for runtimes — fall back
+                // to the id component of the ref (app/org.id/…)
+                name: if name.is_empty() {
+                    refr.split('/').nth(1).unwrap_or(refr).to_string()
+                } else {
+                    name.to_string()
+                },
+                version: ver.to_string(),
+                severity: 0,
+                summary: gettextrs::gettext("Flatpak update"),
+                flatpak: true,
+            })
+        })
+        .collect()
+}
+
 /// Spawn the update-check worker.
 pub fn fetch(tx: Sender<Msg>) {
     thread::spawn(move || {
         let _ = tx.send(match packagekit::fetch_updates() {
-            Ok(list) => Msg::Updates(list),
+            Ok(mut list) => {
+                list.extend(flatpak_updates());
+                Msg::Updates(list)
+            }
             Err(e) => Msg::FetchFailed(e),
         });
     });
@@ -53,24 +102,95 @@ pub fn fetch(tx: Sender<Msg>) {
 /// Spawn the install worker for the selected package ids.
 pub fn install(ids: Vec<String>, tx: Sender<Msg>) {
     thread::spawn(move || {
+        // Split the selection: flatpak refs update through the CLI
+        // (user scope, no polkit), the rest through PackageKit.
+        let (fp_ids, pk_ids): (Vec<String>, Vec<String>) =
+            ids.into_iter().partition(|i| i.starts_with("flatpak:"));
+        let mut fp_err: Option<String> = None;
+        if !fp_ids.is_empty() {
+            // When both sources run, flatpak owns progress 0–50,
+            // PackageKit gets scaled into 50–100.
+            let span = if pk_ids.is_empty() { 100 } else { 50 } as f64;
+            for (i, fid) in fp_ids.iter().enumerate() {
+                // "flatpak:origin:kind/org.id/arch/branch" → ref
+                let refr = fid
+                    .split_once(':')
+                    .and_then(|(_, r)| r.split_once(':'))
+                    .map(|x| x.1)
+                    .unwrap_or(fid);
+                let short = refr.split('/').nth(1).unwrap_or(refr);
+                let _ = tx.send(Msg::InstallName(short.to_string()));
+                let r = std::process::Command::new("flatpak")
+                    .args(["update", "-y", "--noninteractive", "--user", refr])
+                    .output();
+                let _ = tx.send(Msg::InstallProgress(
+                    ((i + 1) as f64 / fp_ids.len() as f64 * span) as u32,
+                ));
+                match r {
+                    Ok(o) if o.status.success() => {}
+                    Ok(o) => {
+                        fp_err = Some(String::from_utf8_lossy(&o.stderr).trim().to_string());
+                        break;
+                    }
+                    Err(e) => {
+                        fp_err = Some(e.to_string());
+                        break;
+                    }
+                }
+            }
+        }
         let tx2 = tx.clone();
-        let result = packagekit::install_updates(ids, move |pct, name| {
+        let base = if fp_ids.is_empty() { 0 } else { 50 } as f64;
+        let scale = if pk_ids.is_empty() || fp_ids.is_empty() {
+            1.0
+        } else {
+            0.5
+        };
+        let result = packagekit::install_updates(pk_ids, move |pct, name| {
             let _ = tx2.send(if name.is_empty() {
-                Msg::InstallProgress(pct)
+                Msg::InstallProgress((pct as f64 * scale + base) as u32)
             } else {
                 Msg::InstallName(name)
             });
         });
-        let _ = tx.send(Msg::InstallDone(result));
+        let _ = tx.send(Msg::InstallDone(result.and(fp_err.map_or(Ok(()), Err))));
     });
+}
+
+/// Flatpak update detail: `flatpak remote-info` on the pending ref
+/// yields version, commit and download size — no changelog stream
+/// exists for runtime updates, the raw info is shown as-is.
+fn flatpak_detail(fid: &str) -> Result<packagekit::DetailInfo, String> {
+    let (origin, refr) = fid
+        .split_once(':')
+        .ok_or_else(|| "bad flatpak id".to_string())?;
+    let out = std::process::Command::new("flatpak")
+        .args(["remote-info", "--user", origin, refr])
+        .output()
+        .map_err(|e| e.to_string())?;
+    if !out.status.success() {
+        return Err(String::from_utf8_lossy(&out.stderr).trim().to_string());
+    }
+    Ok(packagekit::DetailInfo {
+        updates: String::new(),
+        text: String::from_utf8_lossy(&out.stdout).trim().to_string(),
+        issued: String::new(),
+    })
 }
 
 /// Spawn the detail worker for one package id.
 pub fn detail(id: String, tx: Sender<Msg>) {
     thread::spawn(move || {
-        let _ = tx.send(match packagekit::fetch_detail(&id) {
-            Ok(d) => Msg::Detail(d),
-            Err(e) => Msg::DetailFailed(e),
+        let _ = tx.send(if let Some(fid) = id.strip_prefix("flatpak:") {
+            match flatpak_detail(fid) {
+                Ok(d) => Msg::Detail(d),
+                Err(e) => Msg::DetailFailed(e),
+            }
+        } else {
+            match packagekit::fetch_detail(&id) {
+                Ok(d) => Msg::Detail(d),
+                Err(e) => Msg::DetailFailed(e),
+            }
         });
     });
 }
@@ -80,6 +200,9 @@ pub fn deps_preview(ids: Vec<String>, tx: Sender<Msg>) {
     thread::spawn(move || {
         let names: Vec<String> = ids
             .iter()
+            // flatpak refs are no apt packages — their runtimes
+            // resolve automatically, nothing to preview
+            .filter(|i| !i.starts_with("flatpak:"))
             .map(|i| i.split(';').next().unwrap_or("").to_string())
             .collect();
         let mut cmd = std::process::Command::new("apt-get");

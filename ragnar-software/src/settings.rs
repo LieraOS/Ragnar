@@ -26,10 +26,10 @@ pub struct SettingsPage {
 impl SettingsPage {
     pub fn new() -> Self {
         let grp = adw::PreferencesGroup::new();
-        grp.set_title(&gettext("Software-Quellen"));
+        grp.set_title(&gettext("Software sources"));
         let fp = adw::ActionRow::new();
         fp.set_title("Flathub");
-        fp.set_subtitle(&gettext("Flathub-Apps im Katalog anzeigen"));
+        fp.set_subtitle(&gettext("Show Flathub apps in the catalogue"));
         let sw = gtk4::Switch::new();
         sw.set_active(
             std::process::Command::new("flatpak")
@@ -60,8 +60,8 @@ impl SettingsPage {
         fp.add_suffix(&sw);
         grp.add(&fp);
         let sr = adw::ActionRow::new();
-        sr.set_title(&gettext("Quellen"));
-        sr.set_subtitle(&gettext("APT-Quellen anzeigen und bearbeiten"));
+        sr.set_title(&gettext("Sources"));
+        sr.set_subtitle(&gettext("View and edit APT sources"));
         sr.set_activatable(true);
         let arrow = gtk4::Image::from_icon_name("go-next-symbolic");
         arrow.set_valign(gtk4::Align::Center);
@@ -159,9 +159,9 @@ fn action_row(
     exp: &adw::ExpanderRow,
 ) -> adw::ActionRow {
     let save = adw::ActionRow::new();
-    save.set_title(&gettext("Aktionen"));
+    save.set_title(&gettext("Actions"));
     let rowbox = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
-    let rm = gtk4::Button::with_label(&gettext("Entfernen"));
+    let rm = gtk4::Button::with_label(&gettext("Remove"));
     rm.set_valign(gtk4::Align::Center);
     rm.add_css_class("destructive-action");
     let file_rm = s.file.clone();
@@ -171,11 +171,11 @@ fn action_row(
         ops_rm.borrow_mut().push(format!(
             "rm -f '/etc/apt/sources.list.d/{file_rm}' '/etc/apt/{file_rm}'"
         ));
-        b.set_label(&gettext("✓ markiert"));
+        b.set_label(&gettext("✓ marked"));
         exp_rm.set_opacity(0.4);
     });
     rowbox.append(&rm);
-    let sb = gtk4::Button::with_label(&gettext("Übernehmen"));
+    let sb = gtk4::Button::with_label(&gettext("Apply"));
     sb.set_valign(gtk4::Align::Center);
     sb.add_css_class("suggested-action");
     let file = s.file.clone();
@@ -196,7 +196,7 @@ fn action_row(
         ops_s.borrow_mut().push(format!(
             "printf '{content}' > /etc/apt/sources.list.d/{file}"
         ));
-        b.set_label(&gettext("✓ gespeichert"));
+        b.set_label(&gettext("✓ saved"));
     });
     rowbox.append(&sb);
     save.add_suffix(&rowbox);
@@ -206,7 +206,7 @@ fn action_row(
 fn open_sources(parent: &impl IsA<gtk4::Widget>) {
     let ops: Ops = Rc::new(RefCell::new(Vec::new()));
     let grp = adw::PreferencesGroup::new();
-    grp.set_title(&gettext("APT-Quellen"));
+    grp.set_title(&gettext("APT sources"));
     for s in &read_sources() {
         let exp = adw::ExpanderRow::new();
         exp.set_title(&s.uris);
@@ -232,14 +232,14 @@ fn open_sources(parent: &impl IsA<gtk4::Widget>) {
     }
     // new deb822 source — queued like the rest
     let addg = adw::PreferencesGroup::new();
-    addg.set_title(&gettext("Neue Quelle (.sources)"));
+    addg.set_title(&gettext("New source (.sources)"));
     let ru = adw::EntryRow::new();
     ru.set_title("URIs");
     let rs = adw::EntryRow::new();
     rs.set_title("Suites");
     let rc = adw::EntryRow::new();
     rc.set_title("Components");
-    let btn = gtk4::Button::with_label(&gettext("Hinzufügen"));
+    let btn = gtk4::Button::with_label(&gettext("Add"));
     btn.add_css_class("suggested-action");
     btn.set_margin_top(8);
     let ops_a = ops.clone();
@@ -250,12 +250,12 @@ fn open_sources(parent: &impl IsA<gtk4::Widget>) {
         ops_a.borrow_mut().push(format!(
             "printf 'Types: deb\\nURIs: {}\\nSuites: {}\\nComponents: {}\\n' > /etc/apt/sources.list.d/ragnar-custom.sources",
             uris, s2.text(), c2.text()));
-        b.set_label(&gettext("✓ wartet"));
+        b.set_label(&gettext("✓ pending"));
     });
     addg.add(&ru);
     addg.add(&rs);
     addg.add(&rc);
-    let apply = gtk4::Button::with_label(&gettext("Änderungen anwenden"));
+    let apply = gtk4::Button::with_label(&gettext("Apply changes"));
     apply.add_css_class("suggested-action");
     apply.set_margin_top(12);
     let ops_ap = ops.clone();
@@ -268,8 +268,8 @@ fn open_sources(parent: &impl IsA<gtk4::Widget>) {
             .args(["sh", "-c", &cmds])
             .output();
         b.set_label(&match r {
-            Ok(o) if o.status.success() => gettext("✓ Angewendet"),
-            _ => gettext("Fehlgeschlagen"),
+            Ok(o) if o.status.success() => gettext("✓ applied"),
+            _ => gettext("Failed"),
         });
     });
     let scroll = gtk4::ScrolledWindow::builder()
@@ -289,13 +289,13 @@ fn open_sources(parent: &impl IsA<gtk4::Widget>) {
     let tv = adw::ToolbarView::new();
     let hb = adw::HeaderBar::new();
     hb.set_show_end_title_buttons(false);
-    let close = gtk4::Button::with_label(&gettext("Schließen"));
+    let close = gtk4::Button::with_label(&gettext("Close"));
     close.add_css_class("flat");
     hb.pack_end(&close);
     tv.add_top_bar(&hb);
     tv.set_content(Some(&scroll));
     let dlg = adw::Dialog::builder()
-        .title(&gettext("Quellen"))
+        .title(gettext("Sources"))
         .child(&tv)
         .content_width(600)
         .content_height(520)

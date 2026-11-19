@@ -7,6 +7,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
+use crate::i18n::msgid;
 use gettextrs::gettext;
 use gtk4::prelude::*;
 use libadwaita as adw;
@@ -17,7 +18,7 @@ use crate::catalog_data::AppItem;
 /// category names to a display label.
 const GROUPS: &[(&str, &[&str])] = &[
     (
-        "Audio & Video",
+        msgid("Audio & Video"),
         &[
             "AudioVideo",
             "Audio",
@@ -28,7 +29,7 @@ const GROUPS: &[(&str, &[&str])] = &[
         ],
     ),
     (
-        "Bildbearbeitung",
+        msgid("Image editing"),
         &[
             "Graphics",
             "Photography",
@@ -36,17 +37,17 @@ const GROUPS: &[(&str, &[&str])] = &[
             "VectorGraphics",
         ],
     ),
-    ("Entwicklung", &["Development", "IDE", "Debugger"]),
-    ("Bildung", &["Education"]),
-    ("Spiele", &["Game"]),
+    (msgid("Development"), &["Development", "IDE", "Debugger"]),
+    (msgid("Education"), &["Education"]),
+    (msgid("Games"), &["Game"]),
     (
-        "Internet",
+        msgid("Internet"),
         &["Network", "WebBrowser", "Email", "InstantMessaging"],
     ),
-    ("Büro", &["Office"]),
-    ("Wissenschaft", &["Science"]),
-    ("System", &["System", "Settings"]),
-    ("Zubehör", &["Utility"]),
+    (msgid("Office"), &["Office"]),
+    (msgid("Science"), &["Science"]),
+    (msgid("System"), &["System", "Settings"]),
+    (msgid("Utilities"), &["Utility"]),
 ];
 
 pub struct CatalogPage {
@@ -62,6 +63,7 @@ pub struct CatalogPage {
     on_detail: Rc<dyn Fn((String, String))>,
     detail_title: gtk4::Label,
     detail_body: gtk4::Label,
+    detail_icon: gtk4::Image,
     detail_pane: gtk4::Box,
     installed: Rc<RefCell<std::collections::HashSet<String>>>,
     status: gtk4::Label,
@@ -112,9 +114,13 @@ impl CatalogPage {
         let detail_close = gtk4::Button::from_icon_name("window-close-symbolic");
         detail_close.add_css_class("flat");
         let dhead = gtk4::Box::new(gtk4::Orientation::Horizontal, 6);
+        let detail_icon = gtk4::Image::new();
+        detail_icon.set_pixel_size(48);
+        detail_icon.set_valign(gtk4::Align::Start);
+        dhead.append(&detail_icon);
         dhead.append(&detail_title);
         dhead.append(&detail_close);
-        let detail_body = gtk4::Label::new(Some(&gettext("Keine App ausgewählt")));
+        let detail_body = gtk4::Label::new(Some(&gettext("No app selected")));
         detail_body.set_halign(gtk4::Align::Start);
         detail_body.set_xalign(0.0);
         detail_body.set_wrap(true);
@@ -134,17 +140,17 @@ impl CatalogPage {
         detail_pane.set_width_request(240);
         detail_pane.set_hexpand(false);
 
-        let title = gtk4::Label::new(Some(&gettext("Kategorien")));
+        let title = gtk4::Label::new(Some(&gettext("Categories")));
         title.add_css_class("title-3");
         title.set_halign(gtk4::Align::Start);
         let src_filter = gtk4::DropDown::from_strings(&[
-            &gettext("Alle"),
+            &gettext("All"),
             &gettext("Debian"),
             &gettext("Flathub"),
         ]);
         let search = gtk4::SearchEntry::new();
         search.set_hexpand(true);
-        search.set_placeholder_text(Some(&gettext("Pakete suchen")));
+        search.set_placeholder_text(Some(&gettext("Search packages")));
 
         let head = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
         head.set_margin_start(8);
@@ -192,6 +198,7 @@ impl CatalogPage {
             on_detail: on_detail.clone(),
             detail_title,
             detail_body,
+            detail_icon,
             detail_pane,
             installed: Rc::new(RefCell::new(std::collections::HashSet::new())),
             status,
@@ -212,6 +219,7 @@ impl CatalogPage {
         let dp2 = this.detail_pane.clone();
         let dt2 = this.detail_title.clone();
         let db2 = this.detail_body.clone();
+        let di2 = this.detail_icon.clone();
         this.group_list.connect_row_selected(move |_, row| {
             let Some(r) = row else { return };
             let name = r.widget_name();
@@ -227,6 +235,7 @@ impl CatalogPage {
                     pane: &dp2,
                     title: &dt2,
                     body: &db2,
+                    icon: &di2,
                 },
                 &inst2.borrow(),
             );
@@ -247,6 +256,7 @@ impl CatalogPage {
         let dp_f = this.detail_pane.clone();
         let dt_f = this.detail_title.clone();
         let db_f = this.detail_body.clone();
+        let di_f = this.detail_icon.clone();
         src_filter.connect_selected_notify(move |dd| {
             *flt.borrow_mut() = dd.selected() as u8;
             if let Some(r) = gl_f.selected_row() {
@@ -263,6 +273,7 @@ impl CatalogPage {
                         pane: &dp_f,
                         title: &dt_f,
                         body: &db_f,
+                        icon: &di_f,
                     },
                     &inst_f.borrow(),
                 );
@@ -281,12 +292,13 @@ impl CatalogPage {
         let dp3 = this.detail_pane.clone();
         let dt3 = this.detail_title.clone();
         let db3 = this.detail_body.clone();
+        let di3 = this.detail_icon.clone();
         this.search.connect_search_changed(move |e| {
             let q = e.text().to_string().to_lowercase();
             if q.is_empty() {
                 return;
             }
-            title3.set_label(&gettext("Suche"));
+            title3.set_label(&gettext("Search"));
             let hits: Vec<AppItem> = apply_source(
                 apps3
                     .borrow()
@@ -311,6 +323,7 @@ impl CatalogPage {
                     pane: &dp3,
                     title: &dt3,
                     body: &db3,
+                    icon: &di3,
                 },
                 &inst3.borrow(),
             );
@@ -323,11 +336,20 @@ impl CatalogPage {
         self.detail_pane.set_visible(true);
         self.detail_title.set_label(name);
         let text = if body.is_empty() {
-            gettext("Keine Beschreibung verfügbar.")
+            gettext("No description available.")
         } else {
             body.to_string()
         };
         self.detail_body.set_label(&text);
+        // icon of the catalogue entry, when the name matches one
+        let icon = self
+            .apps
+            .borrow()
+            .iter()
+            .find(|a| a.name == name)
+            .map(|a| a.icon.clone())
+            .unwrap_or_default();
+        set_icon(&self.detail_icon, &icon, &self.detail_pane);
     }
 
     /// Show a status line under the list (install/remove feedback).
@@ -361,6 +383,7 @@ impl CatalogPage {
                     pane: &self.detail_pane,
                     title: &self.detail_title,
                     body: &self.detail_body,
+                    icon: &self.detail_icon,
                 },
                 &self.installed.borrow(),
             );
@@ -387,6 +410,7 @@ impl CatalogPage {
                     pane: &self.detail_pane,
                     title: &self.detail_title,
                     body: &self.detail_body,
+                    icon: &self.detail_icon,
                 },
                 &self.installed.borrow(),
             );
@@ -419,6 +443,18 @@ fn filter_by_group(apps: &[AppItem], group: &str) -> Vec<AppItem> {
         .collect()
 }
 
+/// Resolve an AppItem icon onto an Image widget: an absolute path
+/// loads from disk, anything else is tried as a theme icon name.
+/// "package-x-generic" is the honest fallback, never a fake icon.
+fn set_icon(img: &gtk4::Image, icon: &str, w: &impl IsA<gtk4::Widget>) {
+    if icon.starts_with('/') && std::path::Path::new(icon).exists() {
+        img.set_from_file(Some(icon));
+        return;
+    }
+    let has = !icon.is_empty() && gtk4::IconTheme::for_display(&w.display()).has_icon(icon);
+    img.set_icon_name(Some(if has { icon } else { "package-x-generic" }));
+}
+
 /// Render app rows: name + summary + install button.
 /// Widgets + callbacks shared by every populate call.
 struct RowCtx<'a> {
@@ -428,6 +464,7 @@ struct RowCtx<'a> {
     pane: &'a gtk4::Box,
     title: &'a gtk4::Label,
     body: &'a gtk4::Label,
+    icon: &'a gtk4::Image,
 }
 
 fn populate(
@@ -455,6 +492,12 @@ fn populate(
         v.set_hexpand(true);
         v.append(&sum);
         let h = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
+        let icon = gtk4::Image::new();
+        icon.set_pixel_size(32);
+        icon.set_valign(gtk4::Align::Center);
+        icon.set_margin_start(6);
+        set_icon(&icon, &a.icon, &h);
+        h.append(&icon);
         h.append(&v);
         let key = if a.source == "flatpak" {
             a.id.replace(".desktop", "")
@@ -470,9 +513,9 @@ fn populate(
         badge.add_css_class("dim-label");
         badge.set_valign(gtk4::Align::Center);
         let label = if is_in {
-            gettext("Deinstallieren")
+            gettext("Uninstall")
         } else {
-            gettext("Installieren")
+            gettext("Install")
         };
         let btn = gtk4::Button::with_label(&label);
         if is_in {
@@ -497,13 +540,16 @@ fn populate(
         let _dc = ctx.detail.clone();
         let dt = ctx.title.clone();
         let db = ctx.body.clone();
+        let di = ctx.icon.clone();
         let pane = ctx.pane.clone();
         let title2 = a.name.clone();
         let desc = a.desc.clone();
+        let icon_str = a.icon.clone();
         ib.connect_clicked(move |_| {
             pane.set_visible(true);
             dt.set_label(&title2);
             db.set_label(&desc);
+            set_icon(&di, &icon_str, &pane);
         });
         h.append(&ib);
         h.append(&badge);

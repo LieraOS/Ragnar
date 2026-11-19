@@ -4,7 +4,6 @@
 
 use gettextrs::gettext;
 use gtk4::prelude::*;
-use libadwaita as adw;
 
 use crate::packagekit::HistoryEntry;
 
@@ -23,12 +22,12 @@ impl HistoryPage {
             .hexpand(true)
             .vexpand(true)
             .build();
-        let head = gtk4::Label::new(Some(&gettext("Verlauf")));
+        let head = gtk4::Label::new(Some(&gettext("History")));
         head.add_css_class("title-3");
         head.set_halign(gtk4::Align::Start);
         head.set_margin_start(8);
         head.set_margin_top(8);
-        let status = gtk4::Label::new(Some(&gettext("Lade Verlauf …")));
+        let status = gtk4::Label::new(Some(&gettext("Loading history …")));
         status.set_halign(gtk4::Align::Start);
         status.set_margin_start(8);
         status.add_css_class("dim-label");
@@ -49,7 +48,7 @@ impl HistoryPage {
             self.list.remove(&r);
         }
         self.status
-            .set_label(&format!("{} {}", entries.len(), gettext("Transaktionen")));
+            .set_label(&format!("{} {}", entries.len(), gettext("transactions")));
         for e in entries.iter().rev() {
             let t = gtk4::Label::new(Some(&format!(
                 "{}  {}",
@@ -89,6 +88,6 @@ impl HistoryPage {
 
     pub fn set_error(&self, e: &str) {
         self.status
-            .set_label(&format!("{}: {e}", gettext("Verlauf nicht verfügbar")));
+            .set_label(&format!("{}: {e}", gettext("History not available")));
     }
 }

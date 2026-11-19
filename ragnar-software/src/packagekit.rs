@@ -43,20 +43,25 @@ pub struct UpdateItem {
     pub severity: u32,
     /// Short description carried by the Package signal.
     pub summary: String,
+    /// Flatpak ref (id "flatpak:origin:ref"), not a PackageKit id.
+    pub flatpak: bool,
 }
 
-/// Human-readable label for a PK_INFO severity.
-pub fn severity_label(severity: u32) -> &'static str {
-    match severity {
-        3 => "Gering",
-        4 => "Verbesserung",
-        5 => "Normal",
-        6 => "Fehlerbehebung",
-        7 => "Wichtig",
-        8 => "Sicherheit",
-        9 => "Kritisch",
-        _ => "",
-    }
+/// Human-readable, translated label for a PK_INFO severity.
+pub fn severity_label(severity: u32) -> String {
+    let s = match severity {
+        // msgid markers — xgettext cannot see literals that reach
+        // gettext() through a variable
+        3 => crate::i18n::msgid("Low"),
+        4 => crate::i18n::msgid("Enhancement"),
+        5 => crate::i18n::msgid("Normal"),
+        6 => crate::i18n::msgid("Bugfix"),
+        7 => crate::i18n::msgid("Important"),
+        8 => crate::i18n::msgid("Security"),
+        9 => crate::i18n::msgid("Critical"),
+        _ => return String::new(),
+    };
+    gettextrs::gettext(s)
 }
 
 /// Event delivered from the signal listener threads.
@@ -130,6 +135,7 @@ fn spawn_listener(path: String, member: &'static str, ready: Sender<()>, events:
                                 severity: info,
                                 summary,
                                 id,
+                                flatpak: false,
                             }))
                         } else {
                             None
@@ -190,9 +196,40 @@ fn set_interactive(tx: &Proxy) {
     );
 }
 
+/// RefreshCache on its own transaction — the D-Bus equivalent of
+/// `apt-get update`. Polkit grants it to active sessions without a
+/// password. Errors are ignored by the caller: a stale GetUpdates
+/// answer still beats none.
+fn refresh_cache(call_conn: &Connection) -> Result<(), String> {
+    let (path, tx) = transaction(call_conn)?;
+    let path_s = path.to_string();
+    let (events, rx) = channel::<Ev>();
+    let (ready_tx, ready_rx) = channel::<()>();
+    for m in ["Finished", "ErrorCode"] {
+        spawn_listener(path_s.clone(), m, ready_tx.clone(), events.clone());
+    }
+    for _ in 0..2 {
+        ready_rx.recv().map_err(|_| "listener died".to_string())?;
+    }
+    set_interactive(&tx);
+    tx.call::<_, _, ()>("RefreshCache", &(false,))
+        .map_err(|e| e.to_string())?;
+    while let Ok(ev) = rx.recv() {
+        match ev {
+            Ev::Error(d) => return Err(d),
+            Ev::Finished(_) => return Ok(()),
+            _ => {}
+        }
+    }
+    Err("channel closed".to_string())
+}
+
 /// Query pending updates. Blocks until Finished; runs on a worker.
 pub fn fetch_updates() -> Result<Vec<UpdateItem>, String> {
     let call_conn = Connection::system().map_err(|e| e.to_string())?;
+    // Refresh the package lists first — without it GetUpdates only
+    // reports whatever the last external `apt update` left behind.
+    let _ = refresh_cache(&call_conn);
     let (path, tx) = transaction(&call_conn)?;
     let path_s = path.to_string();
 
@@ -467,7 +504,7 @@ pub fn remove_named(name: &str, mut progress: impl FnMut(u32, String)) -> Result
 pub struct HistoryEntry {
     /// "2026-11-07 09:51:29"
     pub time: String,
-    /// Action label: "Installiert", "Entfernt", "Aktualisiert".
+    /// Action label: "Installed", "Removed", "Updated".
     pub action: String,
     /// Package names involved.
     pub names: String,
@@ -488,17 +525,17 @@ pub fn fetch_history() -> Vec<HistoryEntry> {
                 time = v.trim().to_string();
                 action.clear();
                 names.clear();
-            } else if l.starts_with("Install: ") {
-                action = "Installiert".into();
-                names = pkg_names(&l[9..]);
-            } else if l.starts_with("Upgrade: ") {
-                action = "Aktualisiert".into();
-                names = pkg_names(&l[9..]);
+            } else if let Some(rest) = l.strip_prefix("Install: ") {
+                action = gettextrs::gettext("Installed");
+                names = pkg_names(rest);
+            } else if let Some(rest) = l.strip_prefix("Upgrade: ") {
+                action = gettextrs::gettext("Updated");
+                names = pkg_names(rest);
             } else if l.starts_with("Remove: ") || l.starts_with("Purge: ") {
                 action = if l.starts_with("Purge") {
-                    "Gelöscht".into()
+                    gettextrs::gettext("Purged")
                 } else {
-                    "Entfernt".into()
+                    gettextrs::gettext("Removed")
                 };
                 names = pkg_names(l.split_once(':').map(|x| x.1).unwrap_or(""));
             } else if l.starts_with("End-Date:") && !names.is_empty() {
@@ -519,17 +556,19 @@ pub fn fetch_history() -> Vec<HistoryEntry> {
     {
         for l in String::from_utf8_lossy(&o.stdout).lines() {
             let p: Vec<&str> = l.split('\t').collect();
-            if p.len() >= 3 && !p[0].contains("Zeit") {
+            // header line is locale-dependent ("Time"/"Zeit") — skip
+            // anything that does not start with a digit
+            if p.len() >= 3 && p[0].trim_start().starts_with(|c: char| c.is_ascii_digit()) {
                 let action = match p[1].trim() {
-                    "deploy install" | "install" => "Installiert",
-                    "deploy update" | "update" => "Aktualisiert",
-                    "uninstall" => "Entfernt",
-                    "add remote" => "Remote hinzugefügt",
-                    other => other,
+                    "deploy install" | "install" => gettextrs::gettext("Installed"),
+                    "deploy update" | "update" => gettextrs::gettext("Updated"),
+                    "uninstall" => gettextrs::gettext("Removed"),
+                    "add remote" => gettextrs::gettext("Remote added"),
+                    other => other.to_string(),
                 };
                 out.push(HistoryEntry {
                     time: p[0].trim().to_string(),
-                    action: action.to_string(),
+                    action,
                     names: p[2].trim().to_string(),
                     ok: true,
                 });
@@ -581,4 +620,25 @@ pub fn install_file(path: &str, mut progress: impl FnMut(u32, String)) -> Result
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    /// pkg_names strips "name:arch (version)" tuples down to
+    /// comma-separated package names — pure string parsing.
+    use super::pkg_names;
+
+    #[test]
+    fn strips_arch_and_version() {
+        assert_eq!(
+            pkg_names("libgtk-4-1:amd64 (4.14.5-1), libadwaita-1-0:amd64 (1.7.2-1)"),
+            "libgtk-4-1, libadwaita-1-0"
+        );
+    }
+
+    #[test]
+    fn single_and_empty() {
+        assert_eq!(pkg_names("flatpak:amd64 (1.16.1-1)"), "flatpak");
+        assert_eq!(pkg_names(""), "");
+    }
 }

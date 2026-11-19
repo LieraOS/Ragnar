@@ -1,5 +1,5 @@
 Package: ragnar-software
-Version: 0.0.1
+Version: 0.1.0
 Section: admin
 Priority: optional
 Architecture: amd64

@@ -47,7 +47,16 @@ pub fn build(app: &adw::Application) {
             backend::deps_preview(ids, tx_install.clone());
         },
         move |id| {
-            *dn.borrow_mut() = id.split(';').next().unwrap_or("").to_string();
+            // detail title: name part of a PackageKit id ("name;…")
+            // or the ref id of "flatpak:origin:kind/org.id/…"
+            *dn.borrow_mut() = if let Some(rest) = id.strip_prefix("flatpak:") {
+                rest.split_once(':')
+                    .and_then(|(_, r)| r.split('/').nth(1))
+                    .unwrap_or(rest)
+                    .to_string()
+            } else {
+                id.split(';').next().unwrap_or("").to_string()
+            };
             backend::detail(id, tx_detail.clone());
         },
     );
@@ -85,11 +94,11 @@ pub fn build(app: &adw::Application) {
     let sidebar_list = gtk4::ListBox::new();
     sidebar_list.add_css_class("navigation-sidebar");
     for (id, label) in [
-        ("welcome", gettext("Willkommen")),
+        ("welcome", gettext("Welcome")),
         ("updates", gettext("Updates")),
         ("software", gettext("Software")),
-        ("history", gettext("Verlauf")),
-        ("settings", gettext("Einstellungen")),
+        ("history", gettext("History")),
+        ("settings", gettext("Settings")),
     ] {
         let row = gtk4::ListBoxRow::new();
         row.set_widget_name(id);
@@ -173,7 +182,7 @@ pub fn build(app: &adw::Application) {
                         open_dlg(&mut d, &win2);
                     }
                     if let Some((_, lbl, bar)) = d.as_ref() {
-                        lbl.set_label(&gettext("Installiere …"));
+                        lbl.set_label(&gettext("Installing …"));
                         bar.set_fraction(p as f64 / 100.0);
                     }
                 }
@@ -190,16 +199,16 @@ pub fn build(app: &adw::Application) {
                 }
                 Msg::Deps(ids, deps) => {
                     let txt = if deps.is_empty() {
-                        "Keine zusätzlichen Abhängigkeiten.".to_string()
+                        gettext("No additional dependencies.")
                     } else {
-                        format!("Zusätzlich werden installiert:\n{}", deps.join(", "))
+                        gettext("The following will also be installed:\n") + &deps.join(", ")
                     };
                     let dlg = adw::AlertDialog::builder()
-                        .heading(gettext("Updates installieren?"))
+                        .heading(gettext("Install updates?"))
                         .body(txt)
                         .build();
-                    dlg.add_response("cancel", &gettext("Abbrechen"));
-                    dlg.add_response("ok", &gettext("Installieren"));
+                    dlg.add_response("cancel", &gettext("Cancel"));
+                    dlg.add_response("ok", &gettext("Install"));
                     dlg.set_response_appearance("ok", adw::ResponseAppearance::Suggested);
                     let ti = tx_pump.clone();
                     dlg.connect_response(None, move |_, r| {
@@ -248,7 +257,7 @@ fn open_dlg(
     d: &mut Option<(adw::Dialog, gtk4::Label, gtk4::ProgressBar)>,
     win: &adw::ApplicationWindow,
 ) {
-    let lbl = gtk4::Label::new(Some(&gettext("Arbeite …")));
+    let lbl = gtk4::Label::new(Some(&gettext("Working …")));
     let bar = gtk4::ProgressBar::new();
     bar.set_pulse_step(0.1);
     bar.pulse();
@@ -261,7 +270,7 @@ fn open_dlg(
     bx.append(&lbl);
     bx.append(&bar);
     let dg = adw::Dialog::builder()
-        .title(gettext("Paketverwaltung"))
+        .title(gettext("Package management"))
         .child(&bx)
         .build();
     dg.present(Some(win));
@@ -286,7 +295,7 @@ pub fn build_install(app: &adw::Application, path: String) {
     bar.set_visible(false);
     let status = gtk4::Label::new(None);
     status.add_css_class("dim-label");
-    let btn = gtk4::Button::with_label(&gettext("Installieren"));
+    let btn = gtk4::Button::with_label(&gettext("Install"));
     btn.add_css_class("suggested-action");
     let bx = gtk4::Box::new(gtk4::Orientation::Vertical, 12);
     bx.set_margin_start(24);
@@ -303,12 +312,12 @@ pub fn build_install(app: &adw::Application, path: String) {
     tb.set_content(Some(&bx));
     let win = adw::ApplicationWindow::builder()
         .application(app)
-        .title(&gettext("Paket installieren"))
+        .title(gettext("Install package"))
         .default_width(560)
         .default_height(220)
         .content(&tb)
         .build();
-    // Button morphs: "Installieren" → "Beenden" when the tx finishes.
+    // Button morphs: "Install" → "Close" when the tx finishes.
     let done = std::rc::Rc::new(std::cell::Cell::new(false));
     let txc = tx.clone();
     let p = path.clone();
@@ -329,7 +338,7 @@ pub fn build_install(app: &adw::Application, path: String) {
                     bar.set_visible(true);
                     bar.pulse();
                     btn.set_sensitive(false);
-                    status.set_label(&gettext("Transaktion läuft …"));
+                    status.set_label(&gettext("Transaction running …"));
                 }
                 Msg::InstallProgress(p) => {
                     bar.set_visible(true);
@@ -343,11 +352,11 @@ pub fn build_install(app: &adw::Application, path: String) {
                 Msg::InstallDone(r) => {
                     bar.set_visible(false);
                     done.set(true);
-                    btn.set_label(&gettext("Beenden"));
+                    btn.set_label(&gettext("Close"));
                     btn.set_sensitive(true);
                     status.set_label(&match r {
-                        Ok(()) => gettext("Installation abgeschlossen."),
-                        Err(e) => gettext("Installation fehlgeschlagen: %s").replace("%s", &e),
+                        Ok(()) => gettext("Installation finished."),
+                        Err(e) => gettext("Installation failed: %s").replace("%s", &e),
                     });
                 }
                 _ => {}

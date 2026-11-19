@@ -35,6 +35,9 @@ pub struct AppItem {
     pub source: String,
     /// Long description text (markup stripped).
     pub desc: String,
+    /// Icon reference — absolute png path for flatpak (local
+    /// appstream cache), theme icon name for debian (DEP-11 stock).
+    pub icon: String,
 }
 
 /// Load every desktop-application component from the DEP-11 yaml.gz
@@ -117,6 +120,7 @@ fn parse_yaml(r: &mut impl Read, out: &mut Vec<AppItem>) {
     let mut in_summary = false;
     let mut in_categories = false;
     let mut in_desc = false;
+    let mut in_icon = false;
     let mut desc_block = false;
     let mut skip_block = false;
 
@@ -127,6 +131,7 @@ fn parse_yaml(r: &mut impl Read, out: &mut Vec<AppItem>) {
             in_name = false;
             in_summary = false;
             in_categories = false;
+            in_icon = false;
             skip_block = false;
             continue;
         }
@@ -140,6 +145,7 @@ fn parse_yaml(r: &mut impl Read, out: &mut Vec<AppItem>) {
             in_name = false;
             in_summary = false;
             in_categories = false;
+            in_icon = false;
             skip_block = false;
             if let Some((k, v)) = line.split_once(':') {
                 match k {
@@ -150,6 +156,7 @@ fn parse_yaml(r: &mut impl Read, out: &mut Vec<AppItem>) {
                     "Summary" => in_summary = true,
                     "Categories" => in_categories = true,
                     "Description" => in_desc = true,
+                    "Icon" => in_icon = true,
                     _ => {}
                 }
             }
@@ -159,6 +166,12 @@ fn parse_yaml(r: &mut impl Read, out: &mut Vec<AppItem>) {
             continue;
         }
         let t = line.trim_start();
+        // DEP-11 Icon block — the stock name is a theme icon we can
+        // resolve locally; cached/remote files are not downloaded
+        if in_icon && t.starts_with("stock:") {
+            cur.icon = unquote(&t[6..]);
+            in_icon = false;
+        }
         if in_name && t.starts_with("C:") {
             cur.name = unquote(&t[2..]);
             in_name = false;
@@ -213,6 +226,7 @@ impl AppItem {
             categories: Vec::new(),
             source: "debian".into(),
             desc: String::new(),
+            icon: String::new(),
         }
     }
 
@@ -313,6 +327,15 @@ fn parse_xml(r: &mut impl Read, out: &mut Vec<AppItem>) {
             if let Some(end) = rest.find("</category>") {
                 a.categories.push(rest[..end].to_string());
             }
+        }
+        // flathub caches appstream icons locally, named by app id —
+        // use them only when the file actually exists
+        let icon_path = format!(
+            "/var/lib/flatpak/appstream/flathub/x86_64/active/icons/64x64/{}.png",
+            a.id.trim_end_matches(".desktop")
+        );
+        if std::path::Path::new(&icon_path).exists() {
+            a.icon = icon_path;
         }
         a.finish(out);
     }

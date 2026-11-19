@@ -47,8 +47,8 @@ impl UpdatesPage {
             .hexpand(true)
             .build();
 
-        let select_all = gtk4::CheckButton::with_label(&gettext("Alle auswählen"));
-        let install_btn = gtk4::Button::with_label(&gettext("Ausgewählte installieren"));
+        let select_all = gtk4::CheckButton::with_label(&gettext("Select all"));
+        let install_btn = gtk4::Button::with_label(&gettext("Install selected"));
         install_btn.add_css_class("suggested-action");
         install_btn.set_sensitive(false);
 
@@ -73,7 +73,7 @@ impl UpdatesPage {
         let dhead = gtk4::Box::new(gtk4::Orientation::Horizontal, 6);
         dhead.append(&detail_title);
         dhead.append(&close_btn);
-        let detail_body = gtk4::Label::new(Some(&gettext("Kein Update ausgewählt")));
+        let detail_body = gtk4::Label::new(Some(&gettext("No update selected")));
         detail_body.set_halign(gtk4::Align::Start);
         detail_body.set_xalign(0.0);
         detail_body.set_wrap(true);
@@ -96,12 +96,12 @@ impl UpdatesPage {
         // Column header over the list so users know what the
         // columns mean: name+version on the left, severity right.
         let head = gtk4::Box::new(gtk4::Orientation::Horizontal, 12);
-        let h_name = gtk4::Label::new(Some(&gettext("Paket")));
+        let h_name = gtk4::Label::new(Some(&gettext("Package")));
         h_name.add_css_class("heading");
         h_name.set_hexpand(true);
         h_name.set_halign(gtk4::Align::Start);
         h_name.set_margin_start(48);
-        let h_sev = gtk4::Label::new(Some(&gettext("Schweregrad")));
+        let h_sev = gtk4::Label::new(Some(&gettext("Severity")));
         h_sev.add_css_class("heading");
         h_sev.set_margin_end(8);
         head.append(&h_name);
@@ -189,7 +189,13 @@ impl UpdatesPage {
             textcol.append(&title);
             textcol.append(&subtitle);
 
-            let badge = gtk4::Label::new(Some(severity_label(it.severity)));
+            // flatpak rows carry the source as their badge instead
+            // of a PackageKit severity
+            let badge = gtk4::Label::new(Some(&if it.flatpak {
+                "Flathub".to_string()
+            } else {
+                severity_label(it.severity)
+            }));
             badge.add_css_class("dim-label");
             if it.severity >= 7 {
                 badge.add_css_class("warning");
@@ -236,7 +242,7 @@ impl UpdatesPage {
         self.install_btn.set_sensitive(false);
         self.select_all.set_active(false);
         self.status.set_label(
-            &gettextrs::ngettext("1 Update", "%d Updates", items.len() as u32)
+            &gettextrs::ngettext("1 update", "%d updates", items.len() as u32)
                 .replace("%d", &items.len().to_string()),
         );
     }
@@ -244,10 +250,15 @@ impl UpdatesPage {
     /// Show the fetched detail of the clicked update.
     pub fn show_detail(&self, name: &str, installed: &str, d: &crate::packagekit::DetailInfo) {
         self.detail_pane.set_visible(true);
-        self.detail_title
-            .set_label(&format!("{name} {} → {}", installed, d.updates));
+        // no "installed → updates" arrow when there is no version
+        // pair to compare (flatpak remote-info path)
+        self.detail_title.set_label(&if d.updates.is_empty() {
+            name.to_string()
+        } else {
+            format!("{name} {} → {}", installed, d.updates)
+        });
         let text = if d.text.is_empty() {
-            gettext("Keine Änderungsbeschreibung verfügbar.")
+            gettext("No changelog available.")
         } else {
             d.text.clone()
         };
@@ -259,7 +270,7 @@ impl UpdatesPage {
         self.detail_pane.set_visible(true);
         self.detail_title.set_label(&gettext("Details"));
         self.detail_body
-            .set_label(&gettext("Details konnten nicht geladen werden: %s").replace("%s", e));
+            .set_label(&gettext("Details could not be loaded: %s").replace("%s", e));
     }
 
     /// Show live install progress.
@@ -267,14 +278,14 @@ impl UpdatesPage {
         self.progress.set_visible(true);
         self.progress.set_fraction(pct as f64 / 100.0);
         self.status
-            .set_label(&gettext("Installiere … %d %%").replace("%d", &pct.to_string()));
+            .set_label(&gettext("Installing … %d %%").replace("%d", &pct.to_string()));
     }
 
     /// Show which package is currently being installed.
     pub fn set_progress_name(&self, name: &str) {
         self.progress.set_visible(true);
         self.status
-            .set_label(&gettext("Installiere: %s").replace("%s", name));
+            .set_label(&gettext("Installing: %s").replace("%s", name));
     }
 
     /// Install finished — re-enable the button and show the outcome.
@@ -282,9 +293,10 @@ impl UpdatesPage {
         self.progress.set_visible(false);
         self.install_btn.set_sensitive(true);
         let text = if ok {
-            gettext("Installiert: %s — PackageKit hat benötigte Abhängigkeiten automatisch mitinstalliert.").replace("%s", detail)
+            gettext("Installed: %s — PackageKit automatically installed required dependencies.")
+                .replace("%s", detail)
         } else {
-            gettext("Installation fehlgeschlagen: %s").replace("%s", detail)
+            gettext("Installation failed: %s").replace("%s", detail)
         };
         self.status.set_label(&text);
     }

@@ -2,6 +2,7 @@
 Type=Application
 Name=Ragnar Software
 Comment=System updates and package management
+Comment[de]=Systemaktualisierungen und Paketverwaltung
 Exec=ragnar-software %f
 Icon=system-software-install-symbolic
 Terminal=false

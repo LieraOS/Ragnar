@@ -1,6 +1,6 @@
 [package]
 name = "ragnar-software"
-version = "0.0.1"
+version = "0.1.0"
 edition = "2021"
 description = "Ragnar Software — updates and package management for the Ragnar desktop"
 license = "GPL-3.0-or-later"

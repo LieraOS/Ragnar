@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 //! ragnar-software — updates and package management for Ragnar.
 //!
-//! v0.0.1 scope: welcome page with background update status plus an
-//! updates page listing pending updates for selective install.
+//! v0.1.0 scope: welcome status, updates page covering both apt
+//! (PackageKit RefreshCache + GetUpdates) and Flatpak user-scope
+//! updates, AppStream software catalogue with install/remove,
+//! transaction history, and APT/Flathub source management.
 //! Backend: PackageKit over the system D-Bus (polkit, transactions
 //! and progress are handled by packagekitd).
 
