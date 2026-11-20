@@ -1,3 +1,15 @@
+ragnar-desktop (1.0-38) forky; urgency=medium
+
+  * labwc rc.xml: enable autoEnableOutputs — with it off, labwc
+    never publishes a wl_output on systems without a saved
+    ragnar-display-svc profile (fresh live/install sessions),
+    leaving clients with no output to map: black screen
+  * startragnarlabwc: drop dead environment-file copy — the
+    source file is never installed; the labwc bridge's
+    EnvironmentWriter creates and owns the file instead
+
+ -- LieraOS Project <projekt@lieraos.local>  Thu, 19 Nov 2026 12:30:00 +0100
+
 ragnar-desktop (1.0-37) forky; urgency=medium
 
   * Source tree reduced to the session glue: launcher scripts,

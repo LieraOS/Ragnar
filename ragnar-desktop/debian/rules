@@ -20,7 +20,7 @@ override_dh_auto_configure:
 	# not install). Keeping it in the session's RequiredComponents makes
 	# gnome-session abort the whole desktop startup when its autostart
 	# .desktop file is absent - a black screen with only the compositor up.
-	dh_auto_configure -- --prefix=/usr -Dwith-gtk-doc=false -Dwith-runtime-dependencies=false -Dwith-bluetooth=false -Dgsd-components-excluded=DiskUtilityNotify
+	dh_auto_configure -- --prefix=/usr -Dgsd-components-excluded=DiskUtilityNotify
 
 override_dh_gencontrol:
 	dh_gencontrol -- $(SUBSTVARSREC) $(SUBSTVARSSUG)
@@ -35,7 +35,7 @@ ifeq ($(shell dpkg-vendor --is Debian && echo yes),yes)
 endif
 
 override_dh_installchangelogs:
-	dh_installchangelogs debian/changelog-announcement.txt
+	dh_installchangelogs
 
 override_dh_fixperms:
 	dh_fixperms

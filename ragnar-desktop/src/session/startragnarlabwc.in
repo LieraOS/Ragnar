@@ -178,11 +178,9 @@ if [ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/rc.xml" ]; t
     chmod u+w "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/rc.xml"
 fi
 
-# Copy specific labwc environment file for Ragnar
-if [ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/environment" ]; then
-    cp -p @datadir@/ragnar-desktop/labwc/environment "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/environment"
-    chmod u+w "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/environment"
-fi
+# The environment file is not copied here: the labwc bridge's
+# EnvironmentWriter owns it and creates it on first run. The
+# packaged tree intentionally ships no template for it.
 
 # Copy specific labwc menu file for Ragnar
 if [ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/menu.xml" ]; then

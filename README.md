@@ -1,67 +1,74 @@
 # Ragnar — a modular Wayland desktop environment
 
-**Deutsch:** Ragnar ist ein modulares Desktop Environment für Wayland,
-gebaut auf Standard-Linux- und freedesktop-Mechanismen: systemd, D-Bus,
-polkit, XDG, PipeWire. Alle Komponenten sind eigenständige Rust/GTK4-Krates:
-jede einzeln baubar, paketierbar und austauschbar.
-
-**English:** Ragnar is a modular Wayland desktop environment built on
-standard Linux and freedesktop mechanisms: systemd, D-Bus, polkit, XDG,
+Ragnar is a modular Wayland desktop environment built on standard
+Linux and freedesktop mechanisms: systemd, D-Bus, polkit, XDG,
 PipeWire. Every component is an independent Rust/GTK4 crate: each one
 buildable, packageable and replaceable on its own.
 
-## Components / Komponenten
+Deutsche Version: [README_de.md](README_de.md)
 
-| Component | Zweck / Purpose |
+## Compositor
+
+Ragnar currently runs on **labwc**, integrated through the labwc
+bridge in `ragnar-desktop`. Our own compositor **Odin** — a
+standalone Wayland compositor written in Rust (no wlroots, no
+Smithay; the whole stack from DRM/KMS over a Vulkan renderer to
+its own XWayland window manager is implemented in-tree) — is in
+development and will replace labwc once it is stable. Since every
+component only uses standard Wayland protocols and our own D-Bus
+APIs, the swap is a single-point change — no component has to be
+rewritten for it.
+
+## Components
+
+| Component | Purpose |
 | --- | --- |
-| `ragnar-taskbar` | Panel, Startmenü, Tray, Lautstärke-Applet |
-| `ragnar-view` | Desktop-Icons |
-| `ragnar-settings` | Settings-Zentrale |
-| `ragnar-skald` | Audio-Frontend + Daemon (PipeWire/WirePlumber) |
-| `ragnar-raven` | Benachrichtigungen, Seitenleiste, Kalender (CalDAV) |
-| `ragnar-heimdall` | Netzwerk/Verbindungen (iwd, systemd-networkd) |
-| `ragnar-session` | Session-Orchestrierung |
-| `ragnar-desktop` | Session-Glue: Launcher, Schemas, Daten (Meta-Paket) |
-| `ragnar-run-dialog` | Alt+F2-Launcher |
-| `ragnar-power-dialog` | Logout/Neustart/Herunterfahren |
-| `ragnar-screenlock` | Sperrbildschirm |
-| `ragnar-polkit-agent` | polkit-Authentifizierungs-Agent |
-| `ragnar-screenshot` | Screenshot-Werkzeug |
-| `ragnar-osd` | On-Screen-Display (Lautstärke, Helligkeit) |
-| `ragnar-nightlight` | Nachtlicht/Farbtemperatur |
-| `ragnar-status-notifier` | System-Tray (StatusNotifier) |
-| `ragnar-mpris` | MPRIS-Mediensteuerung |
-| `ragnar-automount` | Automount für Wechselmedien |
-| `ragnar-brightness-helper` | Backlight via logind (Helligkeits-Tasten) |
-| `ragnar-display-svc` | Display-Verwaltungsdienst |
-| `ragnar-gtk3-sync` | GTK3↔GTK4 Theme-/Einstellungs-Sync |
-| `ragnar-keyboard-layout` | Tastatur-Layouts |
-| `ragnar-keyring` | Session-Keyring (Secret-Service-Start) |
-| `ragnar-wallpaper` | Hintergrundbild-Verwaltung |
-| `ragnar-shared` | Gemeinsame Rust-Bibliothek (D-Bus, Display, GPU, Config) |
-| `liera-secrets` | Credential-Store (freedesktop Secret Service) |
+| `ragnar-taskbar` | Panel, start menu, tray, volume applet |
+| `ragnar-view` | Desktop icons |
+| `ragnar-settings` | Settings center |
+| `ragnar-skald` | Audio frontend + daemon (PipeWire/WirePlumber) |
+| `ragnar-raven` | Notifications, sidebar, calendar (CalDAV) |
+| `ragnar-heimdall` | Network/connections (iwd, systemd-networkd) |
+| `ragnar-session` | Session orchestration |
+| `ragnar-desktop` | Session glue: launchers, schemas, data (meta-package) |
+| `ragnar-run-dialog` | Alt+F2 launcher |
+| `ragnar-power-dialog` | Logout/reboot/shutdown |
+| `ragnar-screenlock` | Lock screen |
+| `ragnar-polkit-agent` | polkit authentication agent |
+| `ragnar-screenshot` | Screenshot tool |
+| `ragnar-osd` | On-screen display (volume, brightness) |
+| `ragnar-nightlight` | Night light/color temperature |
+| `ragnar-status-notifier` | System tray (StatusNotifier) |
+| `ragnar-mpris` | MPRIS media control |
+| `ragnar-automount` | Automount for removable media |
+| `ragnar-brightness-helper` | Backlight via logind (brightness keys) |
+| `ragnar-display-svc` | Display management service |
+| `ragnar-gtk3-sync` | GTK3↔GTK4 theme/settings sync |
+| `ragnar-keyboard-layout` | Keyboard layouts |
+| `ragnar-keyring` | Session keyring (Secret Service start) |
+| `ragnar-wallpaper` | Wallpaper management |
+| `ragnar-shared` | Shared Rust library (D-Bus, display, GPU, config) |
+| `liera-secrets` | Credential store (freedesktop Secret Service) |
 
 ## Layout
 
 ```
 ragnar-<name>/
-├── src/            # Rust-Quellen
-├── po/             # Übersetzungen (.po — kompilierte .mo sind Build-Artefakte)
-├── data/           # Icons, Schemas, Desktop-Dateien
-├── pkg/            # Deb-Staging-Skeleton (DEBIAN/, Services, Configs —
-│                   #   kompilierte Binaries werden vom Build hineinkopiert
-│                   #   und sind NICHT im Repo)
-├── packaging/      # build-deb.sh (falls vorhanden)
+├── src/            # Rust sources
+├── po/             # translations (.po — compiled .mo files are build artifacts)
+├── data/           # icons, schemas, desktop files
+├── pkg/            # deb staging skeleton (DEBIAN/, services, configs —
+│                   #   compiled binaries are copied in by the build
+│                   #   and are NOT in the repo)
+├── packaging/      # build-deb.sh (where present)
 ├── tests/
-├── README.md       # zweisprachig / bilingual
-└── TODO.md         # zweisprachig / bilingual
+├── README.md       # bilingual / zweisprachig
+└── TODO.md         # bilingual / zweisprachig
 ```
 
 ## Build
 
-**Deutsch:** Jede Komponente baut eigenständig und erzeugt ein `.deb`:
-
-**English:** Every component builds on its own and produces a `.deb`:
+Every component builds on its own and produces a `.deb`:
 
 ```bash
 cd ragnar-<name>
@@ -69,19 +76,37 @@ cargo fmt -- --check
 cargo clippy
 cargo test
 cargo build --release
-packaging/build-deb.sh        # oder / or: dpkg-deb --build pkg/<name>
+packaging/build-deb.sh        # or: dpkg-deb --build pkg/<name>
 ```
 
-## Konventionen / Conventions
+## Conventions
 
-- **Code:** Englisch, Rust bevorzugt. Kommentare erklären Module/Funktionen.
-- **Doku:** README + TODO zweisprachig (Deutsch/Englisch), permanent gepflegt.
-- **Repo:** Nur Quellcode. Keine Binaries, `.deb`s, `target/` oder
-  kompilierte `.mo` (siehe `.gitignore`).
-- **Architektur:** Komponenten kommunizieren über Standardschnittstellen
-  (Wayland-Protokolle, D-Bus) — nie über compositorspezifische Interna,
-  damit jede Komponente einzeln ersetzbar bleibt.
+- **Code:** English, Rust preferred. Comments explain modules/functions.
+- **Docs:** README + TODO kept in German and English, always current.
+- **Repo:** source code only. No binaries, `.deb`s, `target/` or
+  compiled `.mo` files (see `.gitignore`).
+- **Architecture:** components communicate through standard
+  interfaces (Wayland protocols, D-Bus) — never through
+  compositor-specific internals, so every component stays
+  individually replaceable.
+
+## Screenshots
+
+<!--
+  Drop PNG screenshots into docs/screenshots/ and adjust the file
+  names + alt text below. Suggested shots: full desktop, Ragnar
+  Settings, Heimdall, Valkyrie or a gaming/app view.
+  Keep the 2x2 table layout; GitHub renders image tables nicely.
+-->
+
+| Desktop | Ragnar Settings |
+| --- | --- |
+| ![Ragnar desktop with taskbar](docs/screenshots/desktop.png) | ![Ragnar Settings](docs/screenshots/settings.png) |
+
+| Heimdall | Apps |
+| --- | --- |
+| ![Ragnar Heimdall network manager](docs/screenshots/heimdall.png) | ![Applications on the Ragnar desktop](docs/screenshots/apps.png) |
 
 ## License
 
-GPL-3.0-or-later (siehe LICENSE / see LICENSE).
+GPL-3.0-or-later (see LICENSE).

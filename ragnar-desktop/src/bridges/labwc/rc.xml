@@ -1,6 +1,6 @@
 <labwc_config version="5">
 	<core>
-		<autoEnableOutputs>no</autoEnableOutputs>
+		<autoEnableOutputs>yes</autoEnableOutputs>
 	</core>
 	<desktops number="2">
 		<popupTime>1000</popupTime>

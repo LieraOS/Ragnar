@@ -172,8 +172,20 @@ pub fn open(item: &Item) {
     }
 }
 
-/// Launch a file's default application.
+/// Launch a file's default application. `.desktop` entries are
+/// executed via `DesktopAppInfo` — opening them would just show
+/// the file in a text editor.
 fn launch(f: &gio::File) {
+    if let Some(path) = f.path() {
+        if path.extension().is_some_and(|e| e == "desktop") {
+            if let Some(app) = gio::DesktopAppInfo::from_filename(&path) {
+                match app.launch(&[], None::<&gio::AppLaunchContext>) {
+                    Ok(()) => return,
+                    Err(e) => eprintln!("[ragnar-view] launch {} failed: {e}", f.uri()),
+                }
+            }
+        }
+    }
     if let Err(e) = gio::AppInfo::launch_default_for_uri(&f.uri(), None::<&gio::AppLaunchContext>) {
         eprintln!("[ragnar-view] open {} failed: {e}", f.uri());
     }
