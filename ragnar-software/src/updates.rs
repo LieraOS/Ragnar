@@ -281,11 +281,12 @@ impl UpdatesPage {
             .set_label(&gettext("Installing … %d %%").replace("%d", &pct.to_string()));
     }
 
-    /// Show which package is currently being installed.
-    pub fn set_progress_name(&self, name: &str) {
+    /// Show which package the transaction is currently processing
+    /// and what it does to it (downloading/installing/removing …).
+    pub fn set_progress_phase(&self, info: u32, name: &str) {
         self.progress.set_visible(true);
         self.status
-            .set_label(&gettext("Installing: %s").replace("%s", name));
+            .set_label(&format!("{}: {name}", crate::packagekit::phase_label(info)));
     }
 
     /// Install finished — re-enable the button and show the outcome.

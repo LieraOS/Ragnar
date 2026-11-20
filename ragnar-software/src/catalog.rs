@@ -53,14 +53,12 @@ const GROUPS: &[(&str, &[&str])] = &[
 pub struct CatalogPage {
     pub widget: adw::NavigationPage,
     apps: Rc<RefCell<Vec<AppItem>>>,
-    content: gtk4::Stack,
     list: gtk4::ListBox,
     group_list: gtk4::ListBox,
     title: gtk4::Label,
     search: gtk4::SearchEntry,
     on_install: Rc<dyn Fn((String, String))>,
     on_remove: Rc<dyn Fn((String, String))>,
-    on_detail: Rc<dyn Fn((String, String))>,
     detail_title: gtk4::Label,
     detail_body: gtk4::Label,
     detail_icon: gtk4::Image,
@@ -76,11 +74,9 @@ impl CatalogPage {
     pub fn new(
         on_install: impl Fn((String, String)) + 'static,
         on_remove: impl Fn((String, String)) + 'static,
-        on_detail: impl Fn((String, String)) + 'static,
     ) -> Self {
         let on_install: Rc<dyn Fn((String, String))> = Rc::new(on_install);
         let on_remove: Rc<dyn Fn((String, String))> = Rc::new(on_remove);
-        let on_detail: Rc<dyn Fn((String, String))> = Rc::new(on_detail);
         let group_list = gtk4::ListBox::new();
         group_list.add_css_class("navigation-sidebar");
         for (label, _) in GROUPS {
@@ -188,14 +184,12 @@ impl CatalogPage {
         let this = Self {
             widget: page,
             apps,
-            content: gtk4::Stack::new(),
             list,
             group_list,
             title,
             search,
             on_install: on_install.clone(),
             on_remove: on_remove.clone(),
-            on_detail: on_detail.clone(),
             detail_title,
             detail_body,
             detail_icon,
@@ -205,8 +199,6 @@ impl CatalogPage {
             scroll,
             filter: Rc::new(RefCell::new(0)),
         };
-        let _ = &this.content;
-
         // Sidebar selection → show that group's apps.
         let apps2 = this.apps.clone();
         let list2 = this.list.clone();
@@ -215,7 +207,6 @@ impl CatalogPage {
         let inst2 = this.installed.clone();
         let orm2 = on_remove.clone();
         let flt2 = this.filter.clone();
-        let od2 = this.on_detail.clone();
         let dp2 = this.detail_pane.clone();
         let dt2 = this.detail_title.clone();
         let db2 = this.detail_body.clone();
@@ -231,7 +222,6 @@ impl CatalogPage {
                 &RowCtx {
                     install: &oi2,
                     remove: &orm2,
-                    detail: &od2,
                     pane: &dp2,
                     title: &dt2,
                     body: &db2,
@@ -252,7 +242,6 @@ impl CatalogPage {
         let oi_f = this.on_install.clone();
         let orm_f = this.on_remove.clone();
         let inst_f = this.installed.clone();
-        let od_f = this.on_detail.clone();
         let dp_f = this.detail_pane.clone();
         let dt_f = this.detail_title.clone();
         let db_f = this.detail_body.clone();
@@ -269,7 +258,6 @@ impl CatalogPage {
                     &RowCtx {
                         install: &oi_f,
                         remove: &orm_f,
-                        detail: &od_f,
                         pane: &dp_f,
                         title: &dt_f,
                         body: &db_f,
@@ -288,7 +276,6 @@ impl CatalogPage {
         let inst3 = this.installed.clone();
         let orm3 = on_remove.clone();
         let flt3 = this.filter.clone();
-        let od3 = this.on_detail.clone();
         let dp3 = this.detail_pane.clone();
         let dt3 = this.detail_title.clone();
         let db3 = this.detail_body.clone();
@@ -319,7 +306,6 @@ impl CatalogPage {
                 &RowCtx {
                     install: &oi3,
                     remove: &orm3,
-                    detail: &od3,
                     pane: &dp3,
                     title: &dt3,
                     body: &db3,
@@ -329,27 +315,6 @@ impl CatalogPage {
             );
         });
         this
-    }
-
-    /// Show the fetched app description in the detail pane.
-    pub fn show_app_detail(&self, name: &str, body: &str) {
-        self.detail_pane.set_visible(true);
-        self.detail_title.set_label(name);
-        let text = if body.is_empty() {
-            gettext("No description available.")
-        } else {
-            body.to_string()
-        };
-        self.detail_body.set_label(&text);
-        // icon of the catalogue entry, when the name matches one
-        let icon = self
-            .apps
-            .borrow()
-            .iter()
-            .find(|a| a.name == name)
-            .map(|a| a.icon.clone())
-            .unwrap_or_default();
-        set_icon(&self.detail_icon, &icon, &self.detail_pane);
     }
 
     /// Show a status line under the list (install/remove feedback).
@@ -379,7 +344,6 @@ impl CatalogPage {
                 &RowCtx {
                     install: &self.on_install,
                     remove: &self.on_remove,
-                    detail: &self.on_detail,
                     pane: &self.detail_pane,
                     title: &self.detail_title,
                     body: &self.detail_body,
@@ -406,7 +370,6 @@ impl CatalogPage {
                 &RowCtx {
                     install: &self.on_install,
                     remove: &self.on_remove,
-                    detail: &self.on_detail,
                     pane: &self.detail_pane,
                     title: &self.detail_title,
                     body: &self.detail_body,
@@ -460,7 +423,6 @@ fn set_icon(img: &gtk4::Image, icon: &str, w: &impl IsA<gtk4::Widget>) {
 struct RowCtx<'a> {
     install: &'a Rc<dyn Fn((String, String))>,
     remove: &'a Rc<dyn Fn((String, String))>,
-    detail: &'a Rc<dyn Fn((String, String))>,
     pane: &'a gtk4::Box,
     title: &'a gtk4::Label,
     body: &'a gtk4::Label,
@@ -537,7 +499,6 @@ fn populate(
         let ib = gtk4::Button::from_icon_name("dialog-information-symbolic");
         ib.add_css_class("flat");
         ib.set_valign(gtk4::Align::Center);
-        let _dc = ctx.detail.clone();
         let dt = ctx.title.clone();
         let db = ctx.body.clone();
         let di = ctx.icon.clone();

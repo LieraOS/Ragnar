@@ -23,10 +23,9 @@ pub enum Msg {
     Detail(DetailInfo),
     /// Detail fetch failed.
     DetailFailed(String),
-    /// A package is currently being installed (name).
-    InstallName(String),
-    /// App detail text arrived: (title, body).
-    AppDetail(String, String),
+    /// A package just entered a lifecycle phase (PK_INFO code, name)
+    /// — drives the live status line and the detail log.
+    InstallPhase(u32, String),
     /// Transaction history loaded.
     History(Vec<packagekit::HistoryEntry>),
     /// History fetch failed.
@@ -101,6 +100,9 @@ pub fn fetch(tx: Sender<Msg>) {
 
 /// Spawn the install worker for the selected package ids.
 pub fn install(ids: Vec<String>, tx: Sender<Msg>) {
+    // Open the progress UI before the first PK call — the polkit
+    // wait inside it must not leave the user staring at nothing.
+    let _ = tx.send(Msg::InstallStart);
     thread::spawn(move || {
         // Split the selection: flatpak refs update through the CLI
         // (user scope, no polkit), the rest through PackageKit.
@@ -119,7 +121,9 @@ pub fn install(ids: Vec<String>, tx: Sender<Msg>) {
                     .map(|x| x.1)
                     .unwrap_or(fid);
                 let short = refr.split('/').nth(1).unwrap_or(refr);
-                let _ = tx.send(Msg::InstallName(short.to_string()));
+                // 12 = PK_INFO_UPDATING — the flatpak path reuses
+                // the PackageKit phase vocabulary for the log.
+                let _ = tx.send(Msg::InstallPhase(12, short.to_string()));
                 let r = std::process::Command::new("flatpak")
                     .args(["update", "-y", "--noninteractive", "--user", refr])
                     .output();
@@ -146,11 +150,11 @@ pub fn install(ids: Vec<String>, tx: Sender<Msg>) {
         } else {
             0.5
         };
-        let result = packagekit::install_updates(pk_ids, move |pct, name| {
+        let result = packagekit::install_updates(pk_ids, move |pct, info, name| {
             let _ = tx2.send(if name.is_empty() {
                 Msg::InstallProgress((pct as f64 * scale + base) as u32)
             } else {
-                Msg::InstallName(name)
+                Msg::InstallPhase(info, name)
             });
         });
         let _ = tx.send(Msg::InstallDone(result.and(fp_err.map_or(Ok(()), Err))));
@@ -196,6 +200,12 @@ pub fn detail(id: String, tx: Sender<Msg>) {
 }
 
 /// Spawn a dry-run resolving which extra packages the selection pulls.
+/// Parses `apt-get -s` under LC_ALL=C so the marker phrase is stable
+/// across locales — matching translated output broke the preview on
+/// German systems (and would break on every other language too).
+/// The NEW-packages block is the honest answer for updates: new
+/// dependencies land there, not under "additional packages" (which
+/// only lists deps of freshly requested installs).
 pub fn deps_preview(ids: Vec<String>, tx: Sender<Msg>) {
     thread::spawn(move || {
         let names: Vec<String> = ids
@@ -205,28 +215,36 @@ pub fn deps_preview(ids: Vec<String>, tx: Sender<Msg>) {
             .filter(|i| !i.starts_with("flatpak:"))
             .map(|i| i.split(';').next().unwrap_or("").to_string())
             .collect();
-        let mut cmd = std::process::Command::new("apt-get");
-        cmd.arg("-s").arg("install").args(&names);
         let mut deps = Vec::new();
-        if let Ok(out) = cmd.output() {
-            let txt = String::from_utf8_lossy(&out.stdout);
-            let mut in_block = false;
-            for line in txt.lines() {
-                if line.contains("werden zusätzlich installiert")
-                    || line.contains("additional packages")
-                {
-                    in_block = true;
-                    continue;
-                }
-                if in_block {
-                    if line.starts_with("  ") {
-                        deps.extend(line.split_whitespace().map(|x| x.to_string()));
-                    } else {
-                        break;
+        if !names.is_empty() {
+            let mut cmd = std::process::Command::new("apt-get");
+            cmd.env("LC_ALL", "C")
+                .arg("-s")
+                .arg("install")
+                .args(&names);
+            if let Ok(out) = cmd.output() {
+                let txt = String::from_utf8_lossy(&out.stdout);
+                let mut in_block = false;
+                for line in txt.lines() {
+                    if line.starts_with("The following NEW packages will be installed") {
+                        in_block = true;
+                        continue;
+                    }
+                    if in_block {
+                        if line.starts_with("  ") {
+                            deps.extend(line.split_whitespace().map(|x| x.to_string()));
+                        } else {
+                            break;
+                        }
                     }
                 }
             }
         }
+        // The simulation lists the requested packages themselves for
+        // fresh installs — they are not "additional", drop them.
+        deps.retain(|d| !names.contains(d));
+        deps.sort();
+        deps.dedup();
         let _ = tx.send(Msg::Deps(ids, deps));
     });
 }
@@ -248,11 +266,11 @@ pub fn install_pkg(name: String, tx: Sender<Msg>) {
     let _ = tx.send(Msg::InstallStart);
     thread::spawn(move || {
         let tx2 = tx.clone();
-        let result = packagekit::install_named(&name, move |pct, pname| {
+        let result = packagekit::install_named(&name, move |pct, info, pname| {
             let _ = tx2.send(if pname.is_empty() {
                 Msg::InstallProgress(pct)
             } else {
-                Msg::InstallName(pname)
+                Msg::InstallPhase(info, pname)
             });
         });
         let _ = tx.send(Msg::InstallDone(result));
@@ -264,11 +282,11 @@ pub fn uninstall_pkg(name: String, tx: Sender<Msg>) {
     let _ = tx.send(Msg::InstallStart);
     thread::spawn(move || {
         let tx2 = tx.clone();
-        let result = packagekit::remove_named(&name, move |pct, pname| {
+        let result = packagekit::remove_named(&name, move |pct, info, pname| {
             let _ = tx2.send(if pname.is_empty() {
                 Msg::InstallProgress(pct)
             } else {
-                Msg::InstallName(pname)
+                Msg::InstallPhase(info, pname)
             });
         });
         let _ = tx.send(Msg::InstallDone(result));
@@ -279,11 +297,18 @@ pub fn uninstall_pkg(name: String, tx: Sender<Msg>) {
 fn flatpak_tx(name: String, remove: bool, tx: Sender<Msg>) {
     let _ = tx.send(Msg::InstallStart);
     thread::spawn(move || {
-        let args = if remove {
-            vec!["uninstall", "-y", name.as_str()]
+        let (args, phase) = if remove {
+            (
+                vec!["uninstall", "-y", name.as_str()],
+                14, // PK_INFO_REMOVING
+            )
         } else {
-            vec!["install", "-y", "--user", "flathub", name.as_str()]
+            (
+                vec!["install", "-y", "--user", "flathub", name.as_str()],
+                13, // PK_INFO_INSTALLING
+            )
         };
+        let _ = tx.send(Msg::InstallPhase(phase, name.clone()));
         let result = std::process::Command::new("flatpak")
             .args(&args)
             .output()
@@ -313,57 +338,6 @@ pub fn uninstall_pkg_any(name: String, source: String, tx: Sender<Msg>) {
     } else {
         uninstall_pkg(name, tx)
     }
-}
-
-/// Fetch the long description of an app: apt-cache show for debs,
-/// flatpak info for flatpaks. Runs on a worker.
-pub fn app_detail(name: String, source: String, tx: Sender<Msg>) {
-    thread::spawn(move || {
-        let body = if source == "flatpak" {
-            std::process::Command::new("flatpak")
-                .args(["info", &name])
-                .output()
-                .map(|o| {
-                    let t = String::from_utf8_lossy(&o.stdout);
-                    // description block lives after "Beschreibung:" /
-                    // "Description:" — fall back to the whole output
-                    let after = t
-                        .split("Beschreibung:")
-                        .nth(1)
-                        .or_else(|| t.split("Description:").nth(1));
-                    after.unwrap_or(&t).trim().to_string()
-                })
-                .unwrap_or_default()
-        } else {
-            std::process::Command::new("apt-cache")
-                .args(["show", &name])
-                .output()
-                .map(|o| {
-                    let t = String::from_utf8_lossy(&o.stdout);
-                    let mut desc = String::new();
-                    let mut in_d = false;
-                    for l in t.lines() {
-                        if l.starts_with("Description:") {
-                            in_d = true;
-                            desc.push_str(l.trim_start_matches("Description:").trim());
-                            desc.push('\n');
-                        } else if in_d && l.starts_with(' ') {
-                            desc.push_str(l.trim());
-                            desc.push('\n');
-                        } else if in_d {
-                            break;
-                        }
-                    }
-                    if desc.is_empty() {
-                        t.lines().next().unwrap_or("").to_string()
-                    } else {
-                        desc
-                    }
-                })
-                .unwrap_or_default()
-        };
-        let _ = tx.send(Msg::AppDetail(name, body));
-    });
 }
 
 /// Spawn the transaction-history fetch (last 50 entries).
@@ -397,11 +371,11 @@ pub fn install_local(path: String, tx: Sender<Msg>) {
     } else {
         thread::spawn(move || {
             let tx2 = tx.clone();
-            let r = packagekit::install_file(&path, move |pct, n| {
+            let r = packagekit::install_file(&path, move |pct, info, n| {
                 let _ = tx2.send(if n.is_empty() {
                     Msg::InstallProgress(pct)
                 } else {
-                    Msg::InstallName(n)
+                    Msg::InstallPhase(info, n)
                 });
             });
             let _ = tx.send(Msg::InstallDone(r));

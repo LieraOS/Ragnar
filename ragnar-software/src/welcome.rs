@@ -32,7 +32,23 @@ impl WelcomePage {
         page.set_vexpand(true);
         page.set_valign(gtk4::Align::Fill);
 
+        // Beta badge — the app is a development preview; that must
+        // be unmistakable on the landing page, not hidden in text.
+        let beta = gtk4::Label::new(Some(&gettext("Beta")));
+        beta.add_css_class("heading");
+        beta.add_css_class("warning");
+        beta.set_halign(gtk4::Align::Center);
+        let beta_note = gtk4::Label::new(Some(&gettext(
+            "Development preview — some features may be incomplete.",
+        )));
+        beta_note.add_css_class("dim-label");
+        beta_note.set_halign(gtk4::Align::Center);
+        let beta_box = gtk4::Box::new(gtk4::Orientation::Vertical, 2);
+        beta_box.append(&beta);
+        beta_box.append(&beta_note);
+
         let body = gtk4::Box::new(gtk4::Orientation::Vertical, 12);
+        body.append(&beta_box);
         body.append(&spinner);
         body.append(&status);
         page.set_child(Some(&body));

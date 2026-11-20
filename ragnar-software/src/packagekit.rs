@@ -67,11 +67,34 @@ pub fn severity_label(severity: u32) -> String {
 /// Event delivered from the signal listener threads.
 enum Ev {
     Pkg(UpdateItem),
-    Name(String),
+    /// A package entered a lifecycle phase — carries the PK_INFO
+    /// code (downloading/installing/removing/…) and the short name.
+    Phase(u32, String),
     Detail(String, String, String),
     Progress(u32),
     Finished(u32),
     Error(String),
+}
+
+/// Translated verb for a lifecycle PK_INFO code — used wherever a
+/// running transaction reports what it currently does to a package.
+pub fn phase_label(info: u32) -> String {
+    let s = match info {
+        // msgid markers — xgettext cannot see literals that reach
+        // gettext() through a variable
+        11 => crate::i18n::msgid("Downloading"),
+        12 => crate::i18n::msgid("Updating"),
+        13 => crate::i18n::msgid("Installing"),
+        14 => crate::i18n::msgid("Removing"),
+        15 => crate::i18n::msgid("Cleaning up"),
+        16 => crate::i18n::msgid("Obsoleting"),
+        20 => crate::i18n::msgid("Reinstalling"),
+        21 => crate::i18n::msgid("Downgrading"),
+        22 => crate::i18n::msgid("Preparing"),
+        23 => crate::i18n::msgid("Decompressing"),
+        _ => crate::i18n::msgid("Package"),
+    };
+    gettextrs::gettext(s)
 }
 
 /// Open a fresh transaction object on `conn` → (path, call proxy).
@@ -122,10 +145,13 @@ fn spawn_listener(path: String, member: &'static str, ready: Sender<()>, events:
                         // bits (e.g. 0x50005 = "available" + NORMAL) —
                         // the severity itself lives in the low 16.
                         let info = raw & 0xFFFF;
-                        if matches!(info, 11..=13) {
-                            // downloading/updating/installing — used
-                            // during UpdatePackages for live status.
-                            return Some(Ev::Name(id.split(';').next().unwrap_or(&id).to_string()));
+                        if matches!(info, 11..=16 | 20..=23) {
+                            // lifecycle phases — the live activity
+                            // feed of a running transaction.
+                            return Some(Ev::Phase(
+                                info,
+                                id.split(';').next().unwrap_or(&id).to_string(),
+                            ));
                         }
                         if UPDATE_INFO.contains(&info) {
                             let mut p = id.splitn(4, ';');
@@ -263,7 +289,7 @@ pub fn fetch_updates() -> Result<Vec<UpdateItem>, String> {
 /// (0–100) through `progress`; returns Err on PackageKit failure.
 pub fn install_updates(
     ids: Vec<String>,
-    mut progress: impl FnMut(u32, String),
+    mut progress: impl FnMut(u32, u32, String),
 ) -> Result<(), String> {
     if ids.is_empty() {
         return Ok(());
@@ -288,8 +314,8 @@ pub fn install_updates(
 
     while let Ok(ev) = rx.recv() {
         match ev {
-            Ev::Progress(p) => progress(p, String::new()),
-            Ev::Name(n) => progress(0, n),
+            Ev::Progress(p) => progress(p, 0, String::new()),
+            Ev::Phase(i, n) => progress(0, i, n),
             Ev::Error(d) => return Err(d),
             Ev::Finished(exit) => {
                 return if exit == EXIT_SUCCESS {
@@ -356,7 +382,7 @@ pub fn fetch_detail(id: &str) -> Result<DetailInfo, String> {
 
 /// Install one package by name: Resolve to a full package id first,
 /// then InstallPackages on it.
-pub fn install_named(name: &str, mut progress: impl FnMut(u32, String)) -> Result<(), String> {
+pub fn install_named(name: &str, mut progress: impl FnMut(u32, u32, String)) -> Result<(), String> {
     let call_conn = Connection::system().map_err(|e| e.to_string())?;
     let (path, tx) = transaction(&call_conn)?;
     let path_s = path.to_string();
@@ -391,7 +417,7 @@ pub fn install_named(name: &str, mut progress: impl FnMut(u32, String)) -> Resul
     };
     ids.retain(|id| id.split(';').nth(2) == Some(arch));
     let Some(one) = ids.into_iter().next() else {
-        return Err(format!("Paket '{name}' nicht gefunden"));
+        return Err(gettextrs::gettext("Package '%s' not found").replace("%s", name));
     };
     let ids = vec![one];
     // InstallPackages (not UpdatePackages) — new installs, not upgrades.
@@ -411,8 +437,8 @@ pub fn install_named(name: &str, mut progress: impl FnMut(u32, String)) -> Resul
         .map_err(|e| e.to_string())?;
     while let Ok(ev) = rx.recv() {
         match ev {
-            Ev::Progress(p) => progress(p, String::new()),
-            Ev::Name(n) => progress(0, n),
+            Ev::Progress(p) => progress(p, 0, String::new()),
+            Ev::Phase(i, n) => progress(0, i, n),
             Ev::Error(d) => return Err(d),
             Ev::Finished(exit) => {
                 return if exit == EXIT_SUCCESS {
@@ -429,7 +455,7 @@ pub fn install_named(name: &str, mut progress: impl FnMut(u32, String)) -> Resul
 
 /// Remove one package by name: Resolve to the installed package id,
 /// then RemovePackages. allow_deps=true lets PK pull dependents.
-pub fn remove_named(name: &str, mut progress: impl FnMut(u32, String)) -> Result<(), String> {
+pub fn remove_named(name: &str, mut progress: impl FnMut(u32, u32, String)) -> Result<(), String> {
     let call_conn = Connection::system().map_err(|e| e.to_string())?;
     let (path, tx) = transaction(&call_conn)?;
     let path_s = path.to_string();
@@ -464,7 +490,7 @@ pub fn remove_named(name: &str, mut progress: impl FnMut(u32, String)) -> Result
         }
     }
     if ids.is_empty() {
-        return Err(format!("Paket '{name}' nicht installiert"));
+        return Err(gettextrs::gettext("Package '%s' is not installed").replace("%s", name));
     }
 
     // RemovePackages on a fresh transaction object.
@@ -483,8 +509,8 @@ pub fn remove_named(name: &str, mut progress: impl FnMut(u32, String)) -> Result
         .map_err(|e| e.to_string())?;
     while let Ok(ev) = rx2.recv() {
         match ev {
-            Ev::Progress(p) => progress(p, String::new()),
-            Ev::Name(n) => progress(0, n),
+            Ev::Progress(p) => progress(p, 0, String::new()),
+            Ev::Phase(i, n) => progress(0, i, n),
             Ev::Error(d) => return Err(d),
             Ev::Finished(exit) => {
                 return if exit == EXIT_SUCCESS {
@@ -588,7 +614,7 @@ fn pkg_names(s: &str) -> String {
 
 /// Install a local .deb file via InstallFiles. only_trusted=0 —
 /// local files are inherently untrusted, pk asks the untrusted auth.
-pub fn install_file(path: &str, mut progress: impl FnMut(u32, String)) -> Result<(), String> {
+pub fn install_file(path: &str, mut progress: impl FnMut(u32, u32, String)) -> Result<(), String> {
     let call_conn = Connection::system().map_err(|e| e.to_string())?;
     let (txpath, tx) = transaction(&call_conn)?;
     let sig_path = format!("/{}", txpath.to_string().rsplit('/').next().unwrap_or(""));
@@ -606,8 +632,8 @@ pub fn install_file(path: &str, mut progress: impl FnMut(u32, String)) -> Result
         .map_err(|e| e.to_string())?;
     while let Ok(ev) = rx.recv() {
         match ev {
-            Ev::Progress(p) => progress(p, String::new()),
-            Ev::Name(n) => progress(0, n),
+            Ev::Progress(p) => progress(p, 0, String::new()),
+            Ev::Phase(i, n) => progress(0, i, n),
             Ev::Error(d) => return Err(d),
             Ev::Finished(exit) => {
                 return if exit == EXIT_SUCCESS {

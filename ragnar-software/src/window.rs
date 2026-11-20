@@ -65,11 +65,9 @@ pub fn build(app: &adw::Application) {
     // Software catalogue page.
     let tx_cat = tx.clone();
     let tx_rm = tx.clone();
-    let tx_det = tx.clone();
     let catalog = CatalogPage::new(
         move |(pkg, src)| backend::install_pkg_any(pkg, src, tx_cat.clone()),
         move |(pkg, src)| backend::uninstall_pkg_any(pkg, src, tx_rm.clone()),
-        move |(pkg, src)| backend::app_detail(pkg, src, tx_det.clone()),
     );
     stack.add_named(
         &catalog.widget.clone().upcast::<gtk4::Widget>(),
@@ -151,10 +149,12 @@ pub fn build(app: &adw::Application) {
     backend::load_catalog(tx.clone());
     backend::history(tx.clone());
     let welcome_ref = welcome.clone();
-    // Lazy progress dialog: opened on the first progress signal from
-    // any transaction, updated live, closed on InstallDone.
-    let dlg_state: Rc<RefCell<Option<(adw::Dialog, gtk4::Label, gtk4::ProgressBar)>>> =
-        Rc::new(RefCell::new(None));
+    // Lazy progress dialog: opened on InstallStart / the first
+    // progress signal from any transaction, updated live, closed on
+    // InstallDone. Tuple: dialog, headline, bar, log buffer.
+    let dlg_state: Rc<
+        RefCell<Option<(adw::Dialog, gtk4::Label, gtk4::ProgressBar, gtk4::TextBuffer)>>,
+    > = Rc::new(RefCell::new(None));
     let win2 = win.clone();
 
     // Pump backend messages into the widgets (poll the worker
@@ -176,33 +176,54 @@ pub fn build(app: &adw::Application) {
                 }
                 Msg::InstallProgress(p) => {
                     updates.borrow().set_progress(p);
-                    catalog.set_status(&format!("Installiere … {p} %"));
+                    catalog.set_status(&format!("{} {p} %", gettext("Installing …")));
                     let mut d = dlg_state.borrow_mut();
                     if d.is_none() {
                         open_dlg(&mut d, &win2);
                     }
-                    if let Some((_, lbl, bar)) = d.as_ref() {
+                    if let Some((_, lbl, bar, _)) = d.as_ref() {
                         lbl.set_label(&gettext("Installing …"));
                         bar.set_fraction(p as f64 / 100.0);
                     }
                 }
-                Msg::InstallName(n) => {
-                    updates.borrow().set_progress_name(&n);
-                    catalog.set_status(&format!("Paket: {n}"));
-                    if let Some((_, lbl, bar)) = dlg_state.borrow().as_ref() {
-                        lbl.set_label(&format!("Paket: {n}"));
+                Msg::InstallPhase(i, n) => {
+                    let line = format!("{}: {n}", crate::packagekit::phase_label(i));
+                    updates.borrow().set_progress_phase(i, &n);
+                    catalog.set_status(&line);
+                    let mut d = dlg_state.borrow_mut();
+                    // No percentage may ever arrive for a transaction
+                    // (PackageKit emits none during many ops) — the
+                    // first phase signal must already open the dialog.
+                    if d.is_none() {
+                        open_dlg(&mut d, &win2);
+                    }
+                    if let Some((_, lbl, bar, buf)) = d.as_ref() {
+                        lbl.set_label(&line);
                         bar.pulse();
-                    } else {
-                        // no percentage yet — open dialog via the
-                        // progress path on next tick
+                        buf.insert_at_cursor(&(line.clone() + "\n"));
                     }
                 }
                 Msg::Deps(ids, deps) => {
-                    let txt = if deps.is_empty() {
-                        gettext("No additional dependencies.")
-                    } else {
-                        gettext("The following will also be installed:\n") + &deps.join(", ")
-                    };
+                    // Name the actual selection first — the user must
+                    // see what they checked, not just the side effects.
+                    let names: Vec<String> = ids
+                        .iter()
+                        .map(|i| {
+                            if let Some(rest) = i.strip_prefix("flatpak:") {
+                                rest.split('/').nth(1).unwrap_or(rest).to_string()
+                            } else {
+                                i.split(';').next().unwrap_or(i).to_string()
+                            }
+                        })
+                        .collect();
+                    let mut txt =
+                        gettext("The following updates will be installed:") + "\n" + &names.join(", ");
+                    if !deps.is_empty() {
+                        txt += "\n\n";
+                        txt += &gettext("The following will also be installed:");
+                        txt += "\n";
+                        txt += &deps.join(", ");
+                    }
                     let dlg = adw::AlertDialog::builder()
                         .heading(gettext("Install updates?"))
                         .body(txt)
@@ -218,10 +239,6 @@ pub fn build(app: &adw::Application) {
                     });
                     dlg.present(Some(&win));
                 }
-                Msg::AppDetail(name, body) => {
-                    eprintln!("[dbg] AppDetail {} ({}b)", name, body.len());
-                    catalog.show_app_detail(&name, &body);
-                }
                 Msg::Detail(d) => {
                     let name = detail_name.borrow().clone();
                     updates.borrow().show_detail(&name, "", &d);
@@ -232,7 +249,7 @@ pub fn build(app: &adw::Application) {
                 Msg::HistoryFailed(e) => history.set_error(&e),
                 Msg::InstallDone(res) => {
                     // close the transaction dialog — non-blocking by now
-                    if let Some((dg, _, _)) = dlg_state.borrow_mut().take() {
+                    if let Some((dg, _, _, _)) = dlg_state.borrow_mut().take() {
                         dg.close();
                     }
                     catalog.refresh_installed();
@@ -252,29 +269,46 @@ pub fn build(app: &adw::Application) {
     });
 }
 
-/// Open the shared transaction progress dialog.
+/// Open the shared transaction progress dialog: headline + bar on
+/// top, and — Synaptic-style — an expandable Details section that
+/// logs every package phase the backend reports (downloading,
+/// installing, removing …).
 fn open_dlg(
-    d: &mut Option<(adw::Dialog, gtk4::Label, gtk4::ProgressBar)>,
+    d: &mut Option<(adw::Dialog, gtk4::Label, gtk4::ProgressBar, gtk4::TextBuffer)>,
     win: &adw::ApplicationWindow,
 ) {
     let lbl = gtk4::Label::new(Some(&gettext("Working …")));
+    lbl.set_halign(gtk4::Align::Start);
     let bar = gtk4::ProgressBar::new();
     bar.set_pulse_step(0.1);
     bar.pulse();
+    let log = gtk4::TextView::new();
+    log.set_editable(false);
+    log.set_cursor_visible(false);
+    log.set_monospace(true);
+    log.set_wrap_mode(gtk4::WrapMode::WordChar);
+    let lscroll = gtk4::ScrolledWindow::builder()
+        .child(&log)
+        .min_content_height(140)
+        .propagate_natural_height(true)
+        .build();
+    let exp = gtk4::Expander::new(Some(&gettext("Details")));
+    exp.set_child(Some(&lscroll));
     let bx = gtk4::Box::new(gtk4::Orientation::Vertical, 10);
     bx.set_margin_start(20);
     bx.set_margin_end(20);
     bx.set_margin_top(20);
     bx.set_margin_bottom(20);
-    bx.set_size_request(360, -1);
+    bx.set_size_request(420, -1);
     bx.append(&lbl);
     bx.append(&bar);
+    bx.append(&exp);
     let dg = adw::Dialog::builder()
         .title(gettext("Package management"))
         .child(&bx)
         .build();
     dg.present(Some(win));
-    *d = Some((dg, lbl, bar));
+    *d = Some((dg, lbl, bar, log.buffer()));
 }
 
 /// Minimal window for a local package file (.deb/.flatpakref):
@@ -344,10 +378,13 @@ pub fn build_install(app: &adw::Application, path: String) {
                     bar.set_visible(true);
                     bar.set_fraction(p as f64 / 100.0);
                 }
-                Msg::InstallName(n) => {
+                Msg::InstallPhase(i, n) => {
                     bar.set_visible(true);
                     bar.pulse();
-                    status.set_label(&format!("Paket: {n}"));
+                    status.set_label(&format!(
+                        "{}: {n}",
+                        crate::packagekit::phase_label(i)
+                    ));
                 }
                 Msg::InstallDone(r) => {
                     bar.set_visible(false);

@@ -40,10 +40,41 @@ pub struct AppItem {
     pub icon: String,
 }
 
+/// Language preference list for localised AppStream fields —
+/// e.g. ["de_DE", "de"] on a German system, empty on English (the
+/// un-languaged `C:` fields already are English). glib resolves
+/// LANG/LANGUAGE for us.
+fn locale_candidates() -> Vec<String> {
+    let mut out = Vec::new();
+    for l in gtk4::glib::language_names() {
+        let l = l.replace('-', "_");
+        if l == "C" || l.starts_with("en") {
+            continue;
+        }
+        out.push(l.clone());
+        if let Some(base) = l.split('_').next() {
+            if base != l {
+                out.push(base.to_string());
+            }
+        }
+    }
+    out
+}
+
+/// Does the localised map key `k` match one of the wanted locales?
+fn wanted_key<'a>(k: &str, want: &'a [String]) -> Option<&'a str> {
+    want.iter()
+        .find(|w| w.as_str() == k)
+        .map(|w| w.as_str())
+}
+
 /// Load every desktop-application component from the DEP-11 yaml.gz
 /// collection files. Missing/undecodable files are skipped so a
 /// partially populated cache still yields a usable catalogue.
+/// Name/Summary/Description prefer the system-locale entry and fall
+/// back to the un-languaged `C:` text.
 pub fn load_apps() -> Vec<AppItem> {
+    let want = locale_candidates();
     let mut out = Vec::new();
     let Ok(rd) = std::fs::read_dir(CATALOG_DIR) else {
         return out;
@@ -54,7 +85,7 @@ pub fn load_apps() -> Vec<AppItem> {
             continue;
         }
         let Ok(f) = File::open(&p) else { continue };
-        parse_yaml(&mut GzDecoder::new(f), &mut out);
+        parse_yaml(&mut GzDecoder::new(f), &want, &mut out);
     }
     // flathub trees, system + user scope (~/.local/share/flatpak)
     let mut dirs: Vec<String> = FLATPAK_DIRS.iter().map(|d| d.to_string()).collect();
@@ -62,7 +93,7 @@ pub fn load_apps() -> Vec<AppItem> {
         dirs.push(format!("{home}/.local/share/flatpak/appstream"));
     }
     for dir in &dirs {
-        collect_flatpak(dir, &mut out);
+        collect_flatpak(dir, &want, &mut out);
     }
     // same remote exists in system + user scope — drop dupes
     out.sort_by_key(|a| (a.id.clone(), a.source.clone()));
@@ -71,19 +102,19 @@ pub fn load_apps() -> Vec<AppItem> {
     out
 }
 
-/// Walk flatpak appstream dirs for yaml.gz files, tag source=flatpak.
-fn collect_flatpak(dir: &str, out: &mut Vec<AppItem>) {
+/// Walk flatpak appstream dirs for xml/yaml files, tag source=flatpak.
+fn collect_flatpak(dir: &str, want: &[String], out: &mut Vec<AppItem>) {
     let Ok(rd) = std::fs::read_dir(dir) else {
         return;
     };
     for e in rd.flatten() {
         let p = e.path();
         if p.is_dir() {
-            collect_flatpak(p.to_str().unwrap_or(""), out);
+            collect_flatpak(p.to_str().unwrap_or(""), want, out);
         } else if p.to_string_lossy().ends_with(".xml.gz") {
             if let Ok(f) = File::open(&p) {
                 let start = out.len();
-                parse_xml(&mut GzDecoder::new(f), out);
+                parse_xml(&mut GzDecoder::new(f), want, out);
                 for a in &mut out[start..] {
                     a.source = "flatpak".into();
                 }
@@ -92,7 +123,7 @@ fn collect_flatpak(dir: &str, out: &mut Vec<AppItem>) {
             // flatpak also stores the collection uncompressed
             if let Ok(mut f) = File::open(&p) {
                 let start = out.len();
-                parse_xml(&mut f, out);
+                parse_xml(&mut f, want, out);
                 for a in &mut out[start..] {
                     a.source = "flatpak".into();
                 }
@@ -102,7 +133,7 @@ fn collect_flatpak(dir: &str, out: &mut Vec<AppItem>) {
         {
             if let Ok(f) = File::open(&p) {
                 let start = out.len();
-                parse_yaml(&mut GzDecoder::new(f), out);
+                parse_yaml(&mut GzDecoder::new(f), want, out);
                 for a in &mut out[start..] {
                     a.source = "flatpak".into();
                 }
@@ -111,27 +142,35 @@ fn collect_flatpak(dir: &str, out: &mut Vec<AppItem>) {
     }
 }
 
-/// Parse one DEP-11 stream. Documents are separated by `---`; fields
-/// we need sit on single lines except localized maps where only the
-/// `C:` (default locale) entry is taken.
-fn parse_yaml(r: &mut impl Read, out: &mut Vec<AppItem>) {
+/// Parse one DEP-11 stream. Documents are separated by `---`.
+/// Localised maps (Name/Summary/Description) yield two values per
+/// component: the un-languaged `C:` fallback and the first entry
+/// matching the system locale — finish() prefers the localised one.
+fn parse_yaml(r: &mut impl Read, want: &[String], out: &mut Vec<AppItem>) {
     let mut cur = AppItem::empty();
+    let mut name_loc: Option<String> = None;
+    let mut sum_loc: Option<String> = None;
+    let mut desc_loc = String::new();
     let mut in_name = false;
     let mut in_summary = false;
     let mut in_categories = false;
     let mut in_desc = false;
     let mut in_icon = false;
-    let mut desc_block = false;
+    // Which buffer an open |-/| description block feeds:
+    // 0 none, 1 = C fallback, 2 = system-locale override.
+    let mut desc_target = 0u8;
     let mut skip_block = false;
 
     for line in BufReader::new(r).lines().map_while(Result::ok) {
         if line == "---" {
-            cur.finish(out);
+            cur.finish(out, name_loc.take(), sum_loc.take(), desc_loc.split_off(0));
             cur = AppItem::empty();
             in_name = false;
             in_summary = false;
             in_categories = false;
+            in_desc = false;
             in_icon = false;
+            desc_target = 0;
             skip_block = false;
             continue;
         }
@@ -145,7 +184,9 @@ fn parse_yaml(r: &mut impl Read, out: &mut Vec<AppItem>) {
             in_name = false;
             in_summary = false;
             in_categories = false;
+            in_desc = false;
             in_icon = false;
+            desc_target = 0;
             skip_block = false;
             if let Some((k, v)) = line.split_once(':') {
                 match k {
@@ -172,43 +213,87 @@ fn parse_yaml(r: &mut impl Read, out: &mut Vec<AppItem>) {
             cur.icon = unquote(&t[6..]);
             in_icon = false;
         }
-        if in_name && t.starts_with("C:") {
-            cur.name = unquote(&t[2..]);
-            in_name = false;
-        } else if in_summary && t.starts_with("C:") {
-            cur.summary = unquote(&t[2..]);
-            in_summary = false;
-        } else if in_desc && t.starts_with("C:") {
-            let v = t[2..].trim();
-            if v == "|-" || v == "|" || v == ">-" || v == ">" {
-                // yaml block scalar — capture indented lines below
-                desc_block = true;
-                cur.desc.clear();
-            } else {
-                cur.desc = strip_tags(v);
+        // Localised single-line values — C: is the fallback and
+        // keeps the flag open so a matching locale entry later in
+        // the same map still overrides it.
+        if in_name {
+            if let Some(v) = t.strip_prefix("C:") {
+                cur.name = unquote(v);
+            } else if name_loc.is_none() {
+                if let Some((k, v)) = t.split_once(':') {
+                    if wanted_key(k.trim(), want).is_some() {
+                        name_loc = Some(unquote(v));
+                    }
+                }
             }
-            in_desc = false;
-        } else if desc_block {
-            if line.trim().is_empty()
-                || t.contains(':')
-                    && t.split(':')
-                        .next()
-                        .map(|k| k.chars().all(|c| c.is_alphanumeric() || c == '_'))
-                        .unwrap_or(false)
-            {
-                // next localized key (e.g. "  es:") or blank → stop
-                desc_block = false;
-            } else {
-                cur.desc.push(' ');
-                cur.desc.push_str(&strip_tags(t.trim()));
-                continue;
+        }
+        if in_summary {
+            if let Some(v) = t.strip_prefix("C:") {
+                cur.summary = unquote(v);
+            } else if sum_loc.is_none() {
+                if let Some((k, v)) = t.split_once(':') {
+                    if wanted_key(k.trim(), want).is_some() {
+                        sum_loc = Some(unquote(v));
+                    }
+                }
+            }
+        }
+        if in_desc {
+            if desc_target != 0 {
+                // Inside a folded block: content is indented deeper
+                // than the 2-space locale keys — a key-level line
+                // closes the block and is re-processed below.
+                let key_level = line.starts_with("  ") && !line.starts_with("   ");
+                if !key_level {
+                    let d = if desc_target == 2 {
+                        &mut desc_loc
+                    } else {
+                        &mut cur.desc
+                    };
+                    let s = strip_tags(t.trim());
+                    if !s.is_empty() {
+                        if !d.is_empty() {
+                            d.push(' ');
+                        }
+                        d.push_str(&s);
+                    }
+                    continue;
+                }
+                desc_target = 0;
+            }
+            if let Some((k, v)) = t.split_once(':') {
+                let (k, v) = (k.trim(), v.trim());
+                let mut tgt = if k == "C" {
+                    1u8
+                } else if wanted_key(k, want).is_some() {
+                    2
+                } else {
+                    0
+                };
+                // First matching locale wins — a second one must not
+                // overwrite what an earlier wanted key already set.
+                if tgt == 2 && !desc_loc.is_empty() {
+                    tgt = 0;
+                }
+                if tgt != 0 {
+                    if matches!(v, "|-" | "|" | ">-" | ">") {
+                        desc_target = tgt;
+                    } else if !v.is_empty() {
+                        let d = if tgt == 2 {
+                            &mut desc_loc
+                        } else {
+                            &mut cur.desc
+                        };
+                        *d = strip_tags(v);
+                    }
+                }
             }
         }
         if in_categories && t.starts_with("- ") {
             cur.categories.push(unquote(&t[2..]));
         }
     }
-    cur.finish(out);
+    cur.finish(out, name_loc, sum_loc, desc_loc);
 }
 
 /// Strip surrounding quotes yaml puts around values.
@@ -231,8 +316,24 @@ impl AppItem {
     }
 
     /// Push a finished component — must have name + package and be a
-    /// real application (the Type filter already ran).
-    fn finish(self, out: &mut Vec<AppItem>) {
+    /// real application (the Type filter already ran). Localised
+    /// values override the C: fallback when present.
+    fn finish(
+        mut self,
+        out: &mut Vec<AppItem>,
+        name_loc: Option<String>,
+        sum_loc: Option<String>,
+        desc_loc: String,
+    ) {
+        if let Some(n) = name_loc {
+            self.name = n;
+        }
+        if let Some(s) = sum_loc {
+            self.summary = s;
+        }
+        if !desc_loc.is_empty() {
+            self.desc = desc_loc;
+        }
         if !self.name.is_empty() && !self.package.is_empty() {
             out.push(self);
         }
@@ -291,7 +392,7 @@ pub fn flatpak_installed() -> std::collections::HashSet<String> {
 /// Minimal AppStream collection-XML parser: pulls id/name/summary/
 /// pkgname/categories out of <component type="desktop-application">
 /// blocks. The un-languaged element wins for name/summary.
-fn parse_xml(r: &mut impl Read, out: &mut Vec<AppItem>) {
+fn parse_xml(r: &mut impl Read, want: &[String], out: &mut Vec<AppItem>) {
     let mut buf = String::new();
     if r.read_to_string(&mut buf).is_err() {
         return;
@@ -312,13 +413,13 @@ fn parse_xml(r: &mut impl Read, out: &mut Vec<AppItem>) {
         if a.package.is_empty() {
             a.package = a.id.clone();
         }
-        if let Some(v) = tag(block, "name") {
+        if let Some(v) = tag_loc(block, "name", want) {
             a.name = v;
         }
-        if let Some(v) = tag(block, "summary") {
+        if let Some(v) = tag_loc(block, "summary", want) {
             a.summary = v;
         }
-        if let Some(v) = tag(block, "description") {
+        if let Some(v) = tag_loc(block, "description", want) {
             a.desc = strip_tags(&v);
         }
         let mut rest = block;
@@ -337,7 +438,7 @@ fn parse_xml(r: &mut impl Read, out: &mut Vec<AppItem>) {
         if std::path::Path::new(&icon_path).exists() {
             a.icon = icon_path;
         }
-        a.finish(out);
+        a.finish(out, None, None, String::new());
     }
 }
 
@@ -348,6 +449,25 @@ fn tag(block: &str, t: &str) -> Option<String> {
     let start = block.find(&open)? + open.len();
     let end = block[start..].find(&close)? + start;
     Some(block[start..end].trim().to_string())
+}
+
+/// Localised element <tag xml:lang="…"> — tries each wanted locale
+/// (both de_DE and de-DE spellings appear in the wild), falls back
+/// to the un-languaged element.
+fn tag_loc(block: &str, t: &str, want: &[String]) -> Option<String> {
+    for w in want {
+        for lang in [w.as_str(), &w.replace('_', "-")] {
+            let open = format!("<{t} xml:lang=\"{lang}\">");
+            let close = format!("</{t}>");
+            if let Some(s) = block.find(&open) {
+                let s = s + open.len();
+                if let Some(e) = block[s..].find(&close) {
+                    return Some(block[s..s + e].trim().to_string());
+                }
+            }
+        }
+    }
+    tag(block, t)
 }
 
 /// Remove simple XML/HTML markup from description bodies.

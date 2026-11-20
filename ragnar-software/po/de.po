@@ -337,9 +337,18 @@ msgstr "Installiere …"
 msgid "No additional dependencies."
 msgstr "Keine zusätzlichen Abhängigkeiten."
 
+msgid "Beta"
+msgstr "Beta"
+
+msgid "Development preview — some features may be incomplete."
+msgstr "Entwicklungsvorabversion — einige Funktionen sind noch unvollständig."
+
 #: src/window.rs:204
-msgid "The following will also be installed:\n"
-msgstr "Zusätzlich werden installiert:\n"
+msgid "The following updates will be installed:"
+msgstr "Die folgenden Aktualisierungen werden installiert:"
+
+msgid "The following will also be installed:"
+msgstr "Zusätzlich werden installiert:"
 
 #: src/window.rs:207
 msgid "Install updates?"
@@ -368,3 +377,51 @@ msgstr "Transaktion läuft …"
 #: src/window.rs:358
 msgid "Installation finished."
 msgstr "Installation abgeschlossen."
+
+#: src/packagekit.rs
+msgid "Downloading"
+msgstr "Lädt herunter"
+
+#: src/packagekit.rs
+msgid "Updating"
+msgstr "Aktualisiert"
+
+#: src/packagekit.rs
+msgid "Installing"
+msgstr "Installiert"
+
+#: src/packagekit.rs
+msgid "Removing"
+msgstr "Entfernt"
+
+#: src/packagekit.rs
+msgid "Cleaning up"
+msgstr "Räumt auf"
+
+#: src/packagekit.rs
+msgid "Obsoleting"
+msgstr "Ersetzt"
+
+#: src/packagekit.rs
+msgid "Reinstalling"
+msgstr "Installiert neu"
+
+#: src/packagekit.rs
+msgid "Downgrading"
+msgstr "Stuft zurück"
+
+#: src/packagekit.rs
+msgid "Preparing"
+msgstr "Bereitet vor"
+
+#: src/packagekit.rs
+msgid "Decompressing"
+msgstr "Entpackt"
+
+#: src/packagekit.rs
+msgid "Package '%s' not found"
+msgstr "Paket '%s' wurde nicht gefunden"
+
+#: src/packagekit.rs
+msgid "Package '%s' is not installed"
+msgstr "Paket '%s' ist nicht installiert"
