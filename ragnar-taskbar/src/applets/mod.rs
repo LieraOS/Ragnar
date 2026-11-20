@@ -2,6 +2,8 @@
 // into a zone slot; new applets register a builder here and a config
 // key to place them.
 pub mod clock;
+pub mod clock_cfg;
+pub mod clock_prefs;
 pub mod clock_settings;
 pub mod cmd;
 pub mod menu;

@@ -49,6 +49,57 @@ msgstr "Show weekday"
 msgid "Übernehmen"
 msgstr "Apply"
 
+msgid "Einrichten …"
+msgstr "Configure…"
+
+msgid "Datum & Uhrzeit"
+msgstr "Date & Time"
+
+msgid "Aus"
+msgstr "Off"
+
+msgid "Abgekürzt"
+msgstr "Abbreviated"
+
+msgid "Vollständig"
+msgstr "Full"
+
+msgid "Wochentag"
+msgstr "Weekday"
+
+msgid "Schriftfarbe"
+msgstr "Text colour"
+
+msgid "Datumsformat"
+msgstr "Date format"
+
+msgid "Systemsprache"
+msgstr "System language"
+
+msgid "TT.MM.JJJJ"
+msgstr "DD.MM.YYYY"
+
+msgid "JJJJ-MM-TT"
+msgstr "YYYY-MM-DD"
+
+msgid "MM/TT/JJJJ"
+msgstr "MM/DD/YYYY"
+
+msgid "Nur änderbar, wenn Netzwerkzeit (NTP) aus ist"
+msgstr "Only editable when network time (NTP) is off"
+
+msgid "Schriftstärke"
+msgstr "Font weight"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Halbfett"
+msgstr "Semi-bold"
+
+msgid "Fett"
+msgstr "Bold"
+
 msgid "Alle Anwendungen"
 msgstr "All applications"
 

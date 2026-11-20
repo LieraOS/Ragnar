@@ -2,63 +2,57 @@
 // sits in the tooltip. Cinnamon-style interaction: LEFT click opens
 // the calendar panel (date header, appointment area, month calendar,
 // settings entry); RIGHT click opens the applet context menu
-// (Einrichten).
+// (Einrichten). Display options (weekday/colour/weight/date format)
+// live in clock_cfg and apply live on every tick.
+use crate::applets::clock_cfg as cfg;
 use crate::bar::State;
 use gtk4::glib;
 use gtk4::prelude::*;
 
-thread_local! {
-    /// Whether the bar label shows the weekday — loaded once from
-    /// clock.ini, updated live by the settings dialog.
-    static SHOW_WEEKDAY: std::cell::Cell<bool> = std::cell::Cell::new(weekday_saved());
-}
-
-/// Persist + activate the weekday flag — called by the dialog.
-pub fn set_show_weekday(on: bool) {
-    let kf = gtk4::glib::KeyFile::new();
-    kf.set_boolean("clock", "weekday", on);
-    let dir = crate::config::cfg_dir();
-    let _ = std::fs::create_dir_all(&dir);
-    let _ = kf.save_to_file(dir.join("clock.ini"));
-    SHOW_WEEKDAY.with(|c| c.set(on));
-}
-
-pub fn weekday_saved() -> bool {
-    let kf = gtk4::glib::KeyFile::new();
-    let _ = kf.load_from_file(
-        crate::config::cfg_dir().join("clock.ini"),
-        gtk4::glib::KeyFileFlags::NONE,
-    );
-    kf.boolean("clock", "weekday").unwrap_or(false)
-}
-
 pub fn build(_state: &State, vertical: bool) -> gtk4::Widget {
     let label = gtk4::Label::new(None);
     // On vertical bars the HH:MM string overflows the thin bar —
-    // stack hour over minute instead. Weekday shows as the
-    // abbreviated name in front when enabled.
+    // stack hour over minute instead. The weekday prefix honours
+    // the configured mode (off/abbreviated/full).
     let tick_fmt = move || {
-        let wd = SHOW_WEEKDAY.with(|c| if c.get() { "%a " } else { "" });
+        let wd = cfg::weekday_prefix();
         if vertical {
             format!("{wd}%H\n%M")
         } else {
             format!("{wd}%H:%M")
         }
     };
-    let fmt = tick_fmt();
-    let tick = move |l: &gtk4::Label| {
-        let now = glib::DateTime::now_local().unwrap();
-        l.set_text(&now.format(&fmt).unwrap());
-        l.set_tooltip_text(Some(&now.format("%A, %d. %B %Y").unwrap()));
+    // Paint the text — plain set_text while colour and weight are
+    // at their defaults; Pango markup takes over once either is
+    // customised, so the untouched label renders exactly like the
+    // theme wants it.
+    let paint = move |l: &gtk4::Label, now: &glib::DateTime| {
+        let txt = now.format(&tick_fmt()).unwrap();
+        let (col, wt) = cfg::label_style();
+        if col.is_none() && wt == cfg::Weight::Normal {
+            l.set_text(&txt);
+            return;
+        }
+        let mut span = String::from("<span");
+        if let Some(c) = &col {
+            span += &format!(" foreground=\"{c}\"");
+        }
+        if wt != cfg::Weight::Normal {
+            span += &format!(" weight=\"{}\"", wt.pango());
+        }
+        l.set_markup(&format!("{span}>{}</span>", glib::markup_escape_text(&txt)));
     };
-    tick(&label);
+    {
+        let now = glib::DateTime::now_local().unwrap();
+        paint(&label, &now);
+        label.set_tooltip_text(Some(&cfg::date_label(&now)));
+    }
     let l = label.clone();
     glib::timeout_add_seconds_local(1, move || {
         // Re-read the format each tick so a weekday toggle applies
         // live without rebuilding the bar.
-        let f = tick_fmt();
         let now = gtk4::glib::DateTime::now_local().unwrap();
-        l.set_text(&now.format(&f).unwrap());
+        paint(&l, &now);
         glib::ControlFlow::Continue
     });
 
@@ -86,7 +80,7 @@ pub fn build(_state: &State, vertical: bool) -> gtk4::Widget {
             let (lft, rgt, sw, h) = crate::menu::widget_span(&l);
             let win = crate::menu::shell(lft, rgt, sw, h);
             let items: Vec<(String, Box<dyn Fn() + 'static>)> = vec![(
-                "Einrichten …".into(),
+                crate::i18n::tr("Einrichten …").into(),
                 Box::new({
                     let l = l.clone();
                     move || crate::applets::clock_settings::open_settings(&l)
@@ -116,7 +110,7 @@ fn calendar_panel(anchor: &gtk4::Label) -> gtk4::Widget {
     // Date and clock above the calendar. The clock refreshes once
     // per second and stops automatically when the panel is dropped.
     let date = gtk4::Label::new(None);
-    date.set_markup(&format!("<b>{}</b>", now.format("%A, %d. %B %Y").unwrap()));
+    date.set_markup(&format!("<b>{}</b>", cfg::date_label(&now)));
     body.append(&date);
     let time = gtk4::Label::new(None);
     let fmt_time = |l: &gtk4::Label| {
