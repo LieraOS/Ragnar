@@ -12,7 +12,7 @@ else
 endif
 
 %:
-	dh $@ --with gir
+	dh $@
 
 override_dh_auto_configure:
 	# gsd-components-excluded: DiskUtilityNotify ships no binary in Debian

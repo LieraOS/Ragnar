@@ -31,6 +31,10 @@
 		<action name="Execute" command="dbus-send --type=method_call --dest=org.lieraos.ragnar.MprisController /org/lieraos/ragnar/MprisController org.lieraos.ragnar.MprisController.Stop" />
 	</keybind>
 
+	<keybind key="C-S-Escape">
+		<action name="Execute" command="ragnar-taskmanager" />
+	</keybind>
+
 	<!-- plugins.media-keys -->
 
 	<keybind bridge="plugins.media-keys/decrease-text-size" />

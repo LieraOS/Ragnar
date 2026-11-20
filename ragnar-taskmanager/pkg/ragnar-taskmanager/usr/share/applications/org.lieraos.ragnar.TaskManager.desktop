@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Ragnar Task Manager
+Name[de]=Ragnar Taskverwaltung
+Comment=Monitor processes, performance and services
+Comment[de]=Prozesse, Leistung und Dienste überwachen
+Exec=ragnar-taskmanager
+Icon=utilities-system-monitor
+Type=Application
+Categories=System;Monitor;GTK;
+Keywords=task;manager;process;monitor;
+Keywords[de]=task;prozess;überwachung;system;
+StartupNotify=true

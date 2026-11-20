@@ -1,3 +1,11 @@
+ragnar-desktop (1.0-39) forky; urgency=medium
+
+  * labwc: bind Ctrl+Shift+Esc to ragnar-taskmanager — static bind in
+    keybinds.xml.example so the bridge merge keeps it, plus the same
+    bind in the shipped rc.xml for installs that deploy it directly
+
+ -- LieraOS Project <projekt@lieraos.local>  Fri, 20 Nov 2026 12:00:00 +0100
+
 ragnar-desktop (1.0-38) forky; urgency=medium
 
   * labwc rc.xml: enable autoEnableOutputs — with it off, labwc

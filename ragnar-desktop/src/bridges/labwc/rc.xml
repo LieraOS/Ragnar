@@ -29,6 +29,9 @@
 		<keybind key="Print">
 			<action name="Execute" command="ragnar-screenshot" />
 		</keybind>
+		<keybind key="C-S-Escape">
+			<action name="Execute" command="ragnar-taskmanager" />
+		</keybind>
 	</keyboard>
 	<theme>
 		<name>Pocillo-dark</name>
