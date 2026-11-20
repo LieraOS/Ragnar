@@ -405,7 +405,6 @@ impl AppUi {
 
     /// Back to the options page (Escape, retake, failure).
     fn back(self: &Rc<Self>) {
-        self.clear_clip();
         self.stack.set_visible_child_name("options");
         self.window.set_visible(true);
     }
@@ -429,19 +428,10 @@ impl AppUi {
                     }
                 }
             }
-            ui.clear_clip();
         });
     }
 
-    /// Clipboard hygiene: nothing of the screenshot may linger.
-    fn clear_clip(&self) {
-        if let Some(d) = gdk::Display::default() {
-            let _ = d.clipboard().set_content(None::<&gdk::ContentProvider>);
-        }
-    }
-
     fn close_all(self: &Rc<Self>) {
-        self.clear_clip();
         self.window.close();
     }
 }
@@ -470,7 +460,7 @@ impl WaylandGuard {
     }
 }
 
-/// CapturedImage → MemoryTexture for preview/save/clipboard.
+/// CapturedImage → MemoryTexture for preview/save.
 fn texture(img: &CapturedImage) -> gdk::Texture {
     let bytes = glib::Bytes::from_owned(img.pixels.clone());
     gdk::MemoryTexture::new(

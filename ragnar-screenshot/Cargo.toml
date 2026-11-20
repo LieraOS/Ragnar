@@ -18,6 +18,7 @@ gettext-rs = { version = "0.7", features = ["gettext-system"] }
 libc = "0.2"
 
 [package.metadata.deb]
+revision = "3"
 maintainer = "LieraOS Project <projekt@lieraos.local>"
 section = "x11"
 priority = "optional"

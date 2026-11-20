@@ -419,6 +419,7 @@ impl Dispatch<zwlr_screencopy_frame_v1::ZwlrScreencopyFrameV1, ()> for Ws {
                 height,
                 stride,
             } => {
+                eprintln!("[ragnar-screenshot] screencopy buffer: {format:?} {width}x{height} stride={stride}");
                 let len = (stride as usize) * (height as usize);
                 let Ok((fd, mem)) = memfd(len) else {
                     state.failed = true;
@@ -464,6 +465,7 @@ pub fn format_bpp(fmt: wl_shm::Format) -> Option<usize> {
     use wl_shm::Format as F;
     match fmt {
         F::Argb8888 | F::Xrgb8888 | F::Abgr8888 | F::Xbgr8888 => Some(4),
+        F::Bgra8888 | F::Bgrx8888 | F::Rgba8888 | F::Rgbx8888 => Some(4),
         F::Bgr888 | F::Rgb888 => Some(3),
         F::Rgb565 => Some(2),
         _ => None,
@@ -485,29 +487,63 @@ pub fn convert_frame(
     if stride < w * bpp {
         return Err("stride smaller than row".into());
     }
+    // wl_shm fourccs name the packed value MSB→LSB, NOT the memory
+    // byte order. On little-endian that flips the byte sequence:
+    //   Argb8888 0xAARRGGBB → mem B,G,R,A   (straight BGRA)
+    //   Abgr8888 0xAABBGGRR → mem R,G,B,A   (swap R/B)
+    //   Bgra8888 0xBBGGRRAA → mem A,R,G,B   (shift + swap)
+    //   Rgba8888 0xRRGGBBAA → mem A,B,G,R   (shift)
+    //   Rgb888   0xRRGGBB   → mem B,G,R     (straight!)
+    //   Bgr888   0xBBGGRR   → mem R,G,B     (swap!)
+    // Copying bytes verbatim swaps red/blue whenever the compositor
+    // advertises a non-Argb format — the classic "wrong colors" bug.
     let mut px = vec![0u8; w * h * 4];
     for row in 0..h {
         for col in 0..w {
             let s = row * stride + col * bpp;
             let d = (row * w + col) * 4;
-            match bpp {
-                4 => {
+            match fmt {
+                F::Argb8888 | F::Xrgb8888 => {
                     px[d] = raw[s];
                     px[d + 1] = raw[s + 1];
                     px[d + 2] = raw[s + 2];
-                    px[d + 3] = if matches!(fmt, F::Argb8888 | F::Abgr8888) {
-                        raw[s + 3]
-                    } else {
-                        255
-                    };
+                    px[d + 3] = if fmt == F::Argb8888 { raw[s + 3] } else { 255 };
                 }
-                3 => {
+                F::Abgr8888 | F::Xbgr8888 => {
+                    px[d] = raw[s + 2];
+                    px[d + 1] = raw[s + 1];
+                    px[d + 2] = raw[s];
+                    px[d + 3] = if fmt == F::Abgr8888 { raw[s + 3] } else { 255 };
+                }
+                F::Bgra8888 | F::Bgrx8888 => {
+                    // mem A/X,R,G,B
+                    px[d] = raw[s + 3];
+                    px[d + 1] = raw[s + 2];
+                    px[d + 2] = raw[s + 1];
+                    px[d + 3] = if fmt == F::Bgra8888 { raw[s] } else { 255 };
+                }
+                F::Rgba8888 | F::Rgbx8888 => {
+                    // mem A/X,B,G,R
+                    px[d] = raw[s + 1];
+                    px[d + 1] = raw[s + 2];
+                    px[d + 2] = raw[s + 3];
+                    px[d + 3] = if fmt == F::Rgba8888 { raw[s] } else { 255 };
+                }
+                F::Bgr888 => {
+                    // 'BG24' = 0xBBGGRR → mem R,G,B
+                    px[d] = raw[s + 2];
+                    px[d + 1] = raw[s + 1];
+                    px[d + 2] = raw[s];
+                    px[d + 3] = 255;
+                }
+                F::Rgb888 => {
+                    // 'RG24' = 0xRRGGBB → mem B,G,R
                     px[d] = raw[s];
                     px[d + 1] = raw[s + 1];
                     px[d + 2] = raw[s + 2];
                     px[d + 3] = 255;
                 }
-                _ => {
+                F::Rgb565 => {
                     let v = u16::from_le_bytes([raw[s], raw[s + 1]]);
                     let (r, g, b) = ((v >> 11) & 31, (v >> 5) & 63, v & 31);
                     px[d] = ((b * 255) / 31) as u8;
@@ -515,6 +551,7 @@ pub fn convert_frame(
                     px[d + 2] = ((r * 255) / 31) as u8;
                     px[d + 3] = 255;
                 }
+                _ => return Err(format!("unsupported shm format {fmt:?}")),
             }
         }
     }

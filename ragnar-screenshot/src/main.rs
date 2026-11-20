@@ -19,6 +19,21 @@ thread_local! {
 }
 
 fn main() {
+    // Diagnostic path: RAGNAR_SHOT_PROBE=1 captures all monitors
+    // headlessly, prints the advertised shm format and writes a
+    // PPM for pixel-level comparison against grim.
+    if std::env::var_os("RAGNAR_SHOT_PROBE").is_some() {
+        let mut wl = wayland::Wayland::new().expect("wayland connect");
+        let img = wl.capture_all(false).expect("probe capture");
+        let mut out = Vec::with_capacity(img.width * img.height * 3);
+        for px in img.pixels.chunks_exact(4) {
+            out.extend_from_slice(&[px[2], px[1], px[0]]); // BGRA -> RGB
+        }
+        let hdr = format!("P6\n{} {}\n255\n", img.width, img.height);
+        std::fs::write("/tmp/ragnar-probe.ppm", [hdr.into_bytes(), out].concat()).unwrap();
+        println!("wrote /tmp/ragnar-probe.ppm {}x{}", img.width, img.height);
+        return;
+    }
     i18n::init();
     let app = adw::Application::builder()
         .application_id("org.lieraos.ragnar.Screenshot")
