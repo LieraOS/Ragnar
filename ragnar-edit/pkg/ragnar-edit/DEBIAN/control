@@ -1,0 +1,12 @@
+Package: ragnar-edit
+Version: 0.1.0-18
+Section: editors
+Priority: optional
+Architecture: amd64
+Installed-Size: 888
+Maintainer: Jörg Schröder <projekt@lieraos.local>
+Depends: libgtk-4-1, libadwaita-1-0, zlib1g
+Homepage: https://www.lieraos.com
+Description: Native Wayland text editor for the Ragnar desktop
+ Multi-tab editor with syntax highlighting, find & replace across
+ tabs, RTF/PDF text import, printing and German/English UI.

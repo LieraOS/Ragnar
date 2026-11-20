@@ -1,0 +1,16 @@
+[Default Applications]
+text/plain=ragnar-edit.desktop
+text/markdown=ragnar-edit.desktop
+application/x-zerosize=ragnar-edit.desktop
+inode/x-empty=ragnar-edit.desktop
+text/x-csrc=ragnar-edit.desktop
+text/x-python=ragnar-edit.desktop
+application/json=ragnar-edit.desktop
+text/html=ragnar-edit.desktop
+text/css=ragnar-edit.desktop
+application/xml=ragnar-edit.desktop
+text/x-yaml=ragnar-edit.desktop
+application/x-shellscript=ragnar-edit.desktop
+application/x-shellscript=ragnar-edit.desktop
+application/rtf=ragnar-edit.desktop
+application/pdf=ragnar-edit.desktop
