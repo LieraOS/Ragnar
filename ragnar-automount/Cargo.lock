@@ -246,7 +246,7 @@ dependencies = [
 
 [[package]]
 name = "ragnar-automount"
-version = "0.1.0"
+version = "0.1.2"
 dependencies = [
  "gio",
  "glib",

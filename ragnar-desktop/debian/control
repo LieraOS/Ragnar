@@ -2,28 +2,60 @@ Source: ragnar-desktop
 Section: x11
 Priority: optional
 Maintainer: LieraOS Project <projekt@lieraos.local>
-Build-Depends: debhelper-compat (= 13), meson, ninja-build, python3
+Build-Depends: debhelper-compat (= 13), meson, ninja-build, python3,
+ cargo, rustc, gettext, pkg-config, libgtk-4-dev, libadwaita-1-dev,
+ libgtk4-layer-shell-dev
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
 Package: ragnar-core
 Architecture: amd64
-Depends: ragnar-session, gammastep, grim, slurp, swaybg, swayidle,
- wlopm, python3, python3-dbus, python3-gi, python3-psutil,
+Depends: gammastep, grim, slurp, swaybg, swayidle, gtklock, wlopm,
+ polkitd, udisks2, pulseaudio-utils, systemd, libglib2.0-bin,
+ python3, python3-dbus, python3-gi, python3-psutil,
  dconf-gsettings-backend | gsettings-backend,
  ${shlibs:Depends}, ${misc:Depends}
-Description: Ragnar desktop session glue
- Session scripts, labwc bridge, GSettings schemas, icons and data
- for the Ragnar desktop. The desktop stack itself is implemented by
- the ragnar-* Rust components; this package carries the glue.
+Provides: ragnar-automount, ragnar-brightness-helper,
+ ragnar-display-svc, ragnar-gtk3-sync, ragnar-keyboard-layout,
+ ragnar-keyring, ragnar-mpris, ragnar-nightlight, ragnar-osd,
+ ragnar-polkit-agent, ragnar-power-dialog, ragnar-run-dialog,
+ ragnar-screenlock, ragnar-session, ragnar-status-notifier,
+ ragnar-taskbar, ragnar-view
+Breaks: ragnar-automount, ragnar-brightness-helper,
+ ragnar-display-svc, ragnar-gtk3-sync, ragnar-keyboard-layout,
+ ragnar-keyring, ragnar-mpris, ragnar-nightlight, ragnar-osd,
+ ragnar-polkit-agent, ragnar-power-dialog, ragnar-run-dialog,
+ ragnar-screenlock, ragnar-session (<< 3), ragnar-status-notifier,
+ ragnar-taskbar, ragnar-view
+Replaces: ragnar-automount, ragnar-brightness-helper,
+ ragnar-display-svc, ragnar-gtk3-sync, ragnar-keyboard-layout,
+ ragnar-keyring, ragnar-mpris, ragnar-nightlight, ragnar-osd,
+ ragnar-polkit-agent, ragnar-power-dialog, ragnar-run-dialog,
+ ragnar-screenlock, ragnar-session (<< 3), ragnar-status-notifier,
+ ragnar-taskbar, ragnar-view
+Description: Ragnar desktop core session
+ The complete Ragnar desktop session in one package: session
+ manager (ragnar-session), taskbar, desktop icons layer, screen
+ lock, polkit agent, keyring, display service, automounter,
+ brightness/night-light/OSD/MPRIS helpers, run dialog, power
+ dialog, GTK3 theme sync and the labwc compositor bridge.
+ Installing ragnar-core yields a working Ragnar session; the
+ ragnar-desktop meta package adds the optional applications.
 
 Package: ragnar-desktop
 Architecture: all
-Depends: blueman, ragnar-core (>= 1.0-37), dconf-cli, ragnar-heimdall,
+Depends: blueman, ragnar-core (>= 1.0-40), dconf-cli,
  notification-daemon, python3-psutil, xdotool, wdisplays, wlr-randr,
  mesa-utils, dconf-gsettings-backend | gsettings-backend,
  ${misc:Depends}
-Recommends: xdg-desktop-portal-wlr, ragnar-view
-Description: Desktop package for ragnar-desktop
- Meta package pulling the Ragnar desktop environment together:
- GSettings overrides, greeter badge and runtime dependencies.
+Recommends: xdg-desktop-portal-wlr, ragnar-heimdall, ragnar-skald,
+ ragnar-edit, ragnar-taskmanager, ragnar-software, ragnar-settings,
+ ragnar-screenshot, ragnar-raven, ragnar-wallpaper,
+ ragnar-backgrounds
+Description: Ragnar desktop environment (meta package)
+ Meta package pulling the complete Ragnar desktop together:
+ ragnar-core provides the working session; the Recommends carry
+ the optional applications (editor, task manager, settings,
+ software centre, network and sound tools, screenshot, reminders,
+ wallpaper).
+

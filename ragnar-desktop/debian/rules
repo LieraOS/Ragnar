@@ -27,6 +27,10 @@ override_dh_gencontrol:
 
 override_dh_auto_install:
 	dh_auto_install
+	# Build the 17 session-critical Rust components from the sibling
+	# directories (monorepo root = parent of this source tree) and
+	# stage their files into the ragnar-core bundle.
+	debian/stage-components.sh "$(CURDIR)/.." debian/ragnar-core
 ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo ubuntu),ubuntu)
 	dh_install -pragnar-desktop debian/15_ragnar-desktop-ubuntu.gschema.override /usr/share/glib-2.0/schemas/
 endif

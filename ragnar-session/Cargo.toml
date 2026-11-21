@@ -16,5 +16,11 @@ maintainer = "LieraOS"
 section = "x11"
 priority = "optional"
 assets = [
-    ["target/release/ragnar-session", "usr/libexec/", "755"],
+    ["target/release/ragnar-session", "usr/libexec/ragnar-session", "755"],
+    ["target/release/ragnar-session-quit", "usr/bin/ragnar-session-quit", "755"],
+    ["target/release/ragnar-session-inhibit", "usr/bin/ragnar-session-inhibit", "755"],
+    ["target/release/ragnar-session-compositor-ready", "usr/libexec/ragnar-session-compositor-ready", "755"],
+    ["data/ragnar-session", "usr/bin/ragnar-session", "755"],
+    ["data/ragnar-session.target", "usr/lib/systemd/user/ragnar-session.target", "644"],
+    ["data/org.lieraos.ragnar.SessionManager.gschema.xml", "usr/share/glib-2.0/schemas/", "644"],
 ]

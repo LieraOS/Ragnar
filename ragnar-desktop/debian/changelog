@@ -1,3 +1,28 @@
+ragnar-desktop (1.0-40) forky; urgency=medium
+
+  * ragnar-core is now the session bundle: the 17 session-critical
+    Rust components (session manager, taskbar, desktop icons, screen
+    lock, polkit agent, keyring, display-svc, automount, brightness,
+    night-light, OSD, MPRIS, run/power dialogs, gtk3-sync,
+    keyboard-layout) are built by debian/stage-components.sh and
+    shipped in one package instead of individual .debs
+  * Breaks/Replaces/Provides declared for every absorbed package so
+    upgrades transition cleanly
+  * ragnar-session completed as a drop-in replacement for the old
+    gnome-session fork 2.0-7: adds ragnar-session-quit,
+    ragnar-session-inhibit and ragnar-session-compositor-ready
+    binaries, the launcher wrapper, the user .target unit and the
+    SessionManager schema
+  * ragnar-desktop becomes the real meta package: Depends on
+    ragnar-core, Recommends the optional applications (edit,
+    taskmanager, software, settings, screenshot, raven, heimdall,
+    skald, wallpaper, backgrounds)
+  * Depends cleaned up: component runtime deps (polkitd, gtklock,
+    udisks2, pulseaudio-utils, systemd, libglib2.0-bin) now declared
+    on the bundle instead of leaking through unrelated packages
+
+ -- LieraOS Project <projekt@lieraos.local>  Sat, 21 Nov 2026 12:00:00 +0100
+
 ragnar-desktop (1.0-39) forky; urgency=medium
 
   * labwc: bind Ctrl+Shift+Esc to ragnar-taskmanager — static bind in

@@ -21,6 +21,11 @@ use tokio::sync::Mutex;
 
 #[tokio::main]
 async fn main() -> zbus::Result<()> {
+    // --version exits before any session work starts.
+    if std::env::args().any(|a| a == "--version") {
+        println!("ragnar-session {}", env!("CARGO_PKG_VERSION"));
+        return Ok(());
+    }
     // Locate the .session file: --session=<name> or default Desktop.
     let arg = std::env::args()
         .find(|a| a.starts_with("--session="))
