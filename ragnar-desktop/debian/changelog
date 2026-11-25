@@ -1,3 +1,12 @@
+ragnar-desktop (1.0-43) forky; urgency=medium
+
+  * ragnar-view 0.1.1 in the core bundle: desktop icon captions
+    render through the FxLabel widget — optional filename effects
+    (pulse / travelling colour wave) read live from
+    ~/.config/ragnar-settings/font-effects.ini (off by default)
+
+ -- LieraOS Project <projekt@lieraos.local>  Tue, 25 Nov 2025 15:05:00 +0100
+
 ragnar-desktop (1.0-42) forky; urgency=medium
 
   * ragnar-calc joins the core bundle: GTK4 calculator with
