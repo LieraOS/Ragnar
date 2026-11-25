@@ -9,6 +9,7 @@
 // shows the same wallpaper.
 
 mod accounts;
+mod anim;
 mod background;
 mod map;
 mod outputs;
@@ -26,6 +27,8 @@ fn main() {
     swaybg::apply(&background::current());
     background::watch(|b| swaybg::apply(&b));
     map::watch(|| swaybg::apply(&background::current()));
+    // Animated-wallpaper toggle: swaps swaybg for livewall.
+    anim::watch(|| swaybg::apply(&background::current()));
     // Watchdog: re-apply whenever any tracked swaybg is gone (covers
     // the session-start race and any unexpected swaybg death).
     swaybg::watch_last();

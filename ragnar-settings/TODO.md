@@ -27,6 +27,24 @@
 
 - [x] Personalization: appearance/ panel — mode (color-scheme +
       panel dark-theme), accent colors, theme/cursor rows.
+- [x] Animated wallpaper switch (beta) in the wallpaper panel —
+      writes ~/.config/ragnar-settings/wallpaper-animated; the
+      ragnar-wallpaper daemon then spawns ragnar-livewall instead
+      of swaybg.
+- [x] Effects editor (1.0.16): "Effects…" in the wallpaper panel
+      opens a dialog with a live GL mini-preview running the same
+      installed GLSL as ragnar-livewall; stars + mist regions are
+      dragged directly on the preview, parameters via sliders;
+      Save writes livewall-effects.ini which ragnar-wallpaper
+      applies instantly.
+- [x] Glow as effect + multi-regions (1.0.17): the aurora band
+      (shown as "Glow" in the UI) is a toggleable effect with
+      region/intensity like the others;
+      every effect accepts up to four drag-rects (marching-ants
+      highlight), per-effect Reset button, snow/rain/fireflies/cloud
+      shadows added — the dialog renders all seven shader blocks.
+- [ ] Extend the editor: lamp-glow regions — same mechanism,
+      needs livewall shader support first.
 - [x] Display: display/ panel (canvas arrangement, resolution,
       orientation, GPU section).
 - [x] Sounds: sounds.rs writes ragnar-raven's settings.ini —

@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) Jörg Schröder
+# ragnar-livewall — animated live wallpaper for the Ragnar desktop
+[package]
+name = "ragnar-livewall"
+version = "0.1.2"
+edition = "2021"
+description = "Animated live wallpaper for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+gl = "0.14.0"
+gtk4 = { version = "0.9", features = ["v4_16"] }
+gtk4-layer-shell = "0.5"
+libloading = "0.9.1"
+# Second Wayland connection for the foreign-toplevel watcher —
+# fullscreen apps must freeze the animation to zero GPU cost.
+wayland-client = "0.31"
+wayland-protocols-wlr = { version = "0.3", features = ["client"] }
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/ragnar-livewall", "usr/bin/ragnar-livewall", "755"],
+    # Shared fragment shaders — ragnar-settings' effects preview
+    # loads the same files so dialog and desktop render identically.
+    ["glsl/effects_es.glsl", "usr/share/ragnar-livewall/", "644"],
+    ["glsl/effects_gl.glsl", "usr/share/ragnar-livewall/", "644"],
+]

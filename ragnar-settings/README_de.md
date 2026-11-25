@@ -80,9 +80,17 @@ beim nächsten Hub-Aufbau bzw. Panel-Öffnen wirkt.
   wendet Änderungen live an.
 - **Native Panels** (`src/panels/`) für Ragnar-spezifische
   Einstellungen:
-  - *Anzeige / Personalisierung* — Hintergrundbild, Icon-Design,
-    Auflösung (wlr-output-management unter labwc), GPU-Steuerung
-    (erweitert)
+  - *Anzeige / Personalisierung* — Hintergrundbild (inkl. Schalter
+    „Animiertes Hintergrundbild (Beta)", der
+    `~/.config/ragnar-settings/wallpaper-animated` schreibt —
+    ragnar-wallpaper spawnt dann ragnar-livewall statt swaybg;
+    plus „Effekte…"-Editor mit Live-GL-Vorschau, die dasselbe
+    installierte livewall-GLSL rendert — sieben Effekte (Glow, Sterne,
+    Nebel, Schnee, Regen, Glühwürmchen, Wolkenschatten) in
+    einklappbaren Zeilen — bis zu vier Regionen je Effekt auf der
+    Vorschau gezogen — gespeichert in livewall-effects.ini),
+    Icon-Design, Auflösung (wlr-output-management unter labwc),
+    GPU-Steuerung (erweitert)
   - *Klänge* — Klangthemen installieren und wählen, Zuordnung pro
     Ereignis
   - *Panel & Desktop* — Applets, Raven, Autostart, Standard-Apps

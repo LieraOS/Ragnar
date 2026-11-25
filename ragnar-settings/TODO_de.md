@@ -29,6 +29,26 @@
 
 - [x] Personalisierung: appearance/-Panel — Modus, Akzentfarben,
       Design-/Cursorzeilen.
+- [x] Schalter „Animiertes Hintergrundbild (Beta)" im
+      Hintergrundbild-Panel — schreibt
+      ~/.config/ragnar-settings/wallpaper-animated; der
+      ragnar-wallpaper-Daemon spawnt dann ragnar-livewall statt
+      swaybg.
+- [x] Effekt-Editor (1.0.16): „Effekte…" im Hintergrundbild-Panel
+      öffnet einen Dialog mit Live-GL-Minivorschau, die dasselbe
+      installierte GLSL rendert wie ragnar-livewall; Sterne- und
+      Nebel-Regionen werden direkt auf der Vorschau gezogen,
+      Parameter per Slider; Speichern schreibt
+      livewall-effects.ini, das ragnar-wallpaper sofort anwendet.
+- [x] Glow als Effekt + Mehrfach-Regionen (1.0.17): das
+      Polarlichtband (UI: „Glow") ist ein schaltbarer Effekt mit
+      Region/Stärke wie die anderen; Sterne und Nebel nehmen bis zu vier
+      Drag-Rechtecke je Effekt (Marching-Ants-Markierung),
+      Zurücksetzen-Knopf pro Effekt, Schnee/Regen/Glühwürmchen/
+      Wolkenschatten hinzugefügt — der Dialog rendert alle sieben
+      Shader-Blöcke.
+- [ ] Editor erweitern: Glow-Regionen — gleicher Mechanismus,
+      braucht zuerst Shader-Unterstützung in ragnar-livewall.
 - [x] Anzeige: display/-Panel (Anordnungs-Canvas, Auflösung,
       Ausrichtung, GPU-Sektion).
 - [x] Klänge: sounds.rs schreibt Ravens settings.ini — die Datei

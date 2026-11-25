@@ -1,6 +1,6 @@
 [package]
 name = "ragnar-wallpaper"
-version = "0.1.4"
+version = "0.1.6"
 authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
 edition = "2021"
 description = "Session wallpaper service for the Ragnar desktop (Liera)"

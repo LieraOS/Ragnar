@@ -11,7 +11,7 @@
 // the compositor has not advertised the output yet at session
 // start), and a watchdog re-applies whenever every swaybg is gone.
 
-use crate::{accounts, background::Choice, map, outputs};
+use crate::{accounts, anim, background::Choice, map, outputs};
 use std::process::{Child, Command};
 use std::sync::atomic::{AtomicU32, Ordering};
 use std::sync::Mutex;
@@ -71,7 +71,21 @@ pub fn apply(choice: &Choice) {
     *LAST.lock().unwrap() = Some(clone_choice(choice));
     let names = outputs::enabled();
     let spawned = match choice {
-        Choice::Image { path, mode } => spawn_images(&names, path, mode, &map::load()),
+        Choice::Image { path, mode } => {
+            // Animated wallpaper: one ragnar-livewall covers all
+            // monitors (per-output maps do not apply). A failed
+            // spawn falls back to the static swaybg set.
+            if anim::enabled() {
+                let live = spawn_livewall(path);
+                if !live.is_empty() {
+                    live
+                } else {
+                    spawn_images(&names, path, mode, &map::load())
+                }
+            } else {
+                spawn_images(&names, path, mode, &map::load())
+            }
+        }
         Choice::SolidColor { color } => spawn_color(color),
     };
     // Reap the previous set (kill + collect so nothing lingers
@@ -137,6 +151,16 @@ fn spawn_images(
                 .spawn()
                 .ok()
         })
+        .collect()
+}
+
+/// Animated wallpaper client — a single instance renders one
+/// layer-shell surface per monitor itself, so no -o splitting.
+fn spawn_livewall(image: &str) -> Vec<Child> {
+    Command::new("ragnar-livewall")
+        .args(["--image", image])
+        .spawn()
+        .into_iter()
         .collect()
 }
 

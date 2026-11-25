@@ -1,15 +1,6 @@
 # TODO — ragnar-wallpaper
 
-## Deutsch
-
-- [ ] background + crystal_dock_helper aus den Daemon-Sourcen
-      entfernen, sobald `ragnar-core` ohne den Background-Service
-      gebaut wird (mit der Daemon-Aufsplitterung)
-- [ ] Unit-Test für die `picture-options` → swaybg-Mode-Tabelle
-- [ ] Monitor-Refresh: swaybg neu spawnen, wenn sich die
-      Output-Topologie ändert (Hotplug)
-
-## English
+## Open
 
 - [ ] Remove background + crystal_dock_helper from the daemon
       sources once `ragnar-core` builds without the background
@@ -17,3 +8,14 @@
 - [ ] Unit test for the `picture-options` → swaybg mode table
 - [ ] Monitor refresh: respawn swaybg on output topology changes
       (hotplug)
+
+## Done
+
+- [x] Animated wallpaper: `wallpaper-animated` flag file
+      (`true`/`false`, monitored via gio::FileMonitor) — `true` +
+      image choice spawns one `ragnar-livewall --image <path>`
+      process covering all monitors instead of per-output swaybg;
+      spawn failure or flag `false` → normal swaybg set
+- [x] Watch `livewall-effects.ini` alongside the flag — edits
+      from the ragnar-settings effects editor respawn a running
+      livewall with new shader parameters

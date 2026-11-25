@@ -18,7 +18,7 @@ use std::cell::RefCell;
 use std::path::{Path, PathBuf};
 use std::rc::Rc;
 
-use super::wallpaper_map;
+use super::{fx_preview, wallpaper_anim, wallpaper_fx, wallpaper_map};
 
 /// (tile path, check badge) pairs so the badge can move on select.
 type Badges = Rc<RefCell<Vec<(String, gtk4::Label)>>>;
@@ -76,6 +76,42 @@ pub fn build() -> gtk4::Box {
     }
     sel_row.append(&reset);
     page.append(&sel_row);
+
+    // Animated wallpaper: the flag file is watched by
+    // ragnar-wallpaper, which swaps swaybg for ragnar-livewall
+    // (or back) the moment the switch flips.
+    let anim_row = gtk4::Box::new(gtk4::Orientation::Horizontal, 8);
+    anim_row.append(&gtk4::Label::new(Some(&gettext("Animated wallpaper (beta):"))));
+    let anim_sw = gtk4::Switch::new();
+    anim_sw.set_active(wallpaper_anim::enabled());
+    anim_sw.set_valign(gtk4::Align::Center);
+    anim_sw.connect_state_set(|_, on| {
+        wallpaper_anim::set_enabled(on);
+        gtk4::glib::Propagation::Proceed
+    });
+    anim_row.append(&anim_sw);
+
+    // Effects editor — only meaningful while the animation is on
+    // and only possible when ragnar-livewall's shader files are
+    // installed (the preview runs the same GLSL).
+    if fx_preview::shader_available() {
+        let fx_btn = gtk4::Button::with_label(&gettext("Effects…"));
+        fx_btn.set_tooltip_text(Some(&gettext(
+            "Glow, stars and mist regions for the animated wallpaper",
+        )));
+        {
+            let sel = selected.clone();
+            fx_btn.connect_clicked(move |b| {
+                let Some(win) = b.root().and_then(|r| r.downcast::<gtk4::Window>().ok())
+                else {
+                    return;
+                };
+                wallpaper_fx::open(&win, std::path::Path::new(&active_for(&sel.borrow())));
+            });
+        }
+        anim_row.append(&fx_btn);
+    }
+    page.append(&anim_row);
 
     let scrolled = gtk4::ScrolledWindow::new();
     scrolled.set_vexpand(true);

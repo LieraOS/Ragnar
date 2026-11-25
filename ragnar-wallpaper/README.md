@@ -1,38 +1,5 @@
 # ragnar-wallpaper
 
-## Deutsch
-
-Rust-Ersatz für den Hintergrund-Teil des legacy `ragnar-daemon`.
-Eigenständiger Session-Dienst: liest `org.gnome.desktop.background`
-(`picture-uri`, `picture-options`, `primary-color`), hält einen
-`swaybg`-Prozess am Laufen und respawnt ihn bei jeder Änderung —
-inklusive kurzem Übergabe-Fenster, damit der Wechsel nicht flackert.
-
-**Modi:** GNOME `picture-options` → swaybg (`wallpaper`→`tile`,
-`centered`→`center`, `scaled`→`fit`, `stretched`→`stretch`,
-`zoom`/`spanned`→`fill`). Ohne Bild oder bei `options=none`:
-`swaybg -m solid_color` mit `primary-color` — auf Laptops damit
-auch reine Farb-Hintergründe.
-
-**Greeter-Sync:** schreibt die Wahl über den System-Bus in
-AccountsService (`User.SetBackgroundFile` + DisplayManager-
-Extension, LightDM-Konvention) — der Login-Screen zeigt dasselbe
-Bild. Best-effort, nie fatal.
-
-**Startrobustheit:** Vor dem ersten Spawn wartet der Dienst, bis der
-Wayland-Socket tatsächlich Verbindungen annimmt (Compositor-Race beim
-Session-Start, z. B. Re-Login über LightDM). Danach decken begrenzte
-Schnell-Retries plus ein Watchdog den Rest ab — ein toter `swaybg`
-pro Output wird erkannt und neu angewendet, nicht nur ein Komplett-
-Ausfall.
-
-**Start:** XDG-Autostart (`org.lieraos.ragnar.Wallpaper.desktop`).
-Der legacy Daemon übernimmt den Job ab `ragnar-core 1.0-23` nicht mehr.
-
-**Paket:** `packaging/build-deb.sh` → cargo-deb.
-
-## English
-
 Rust replacement for the background part of the legacy
 `ragnar-daemon`. Standalone session service: reads
 `org.gnome.desktop.background` (`picture-uri`, `picture-options`,
@@ -43,6 +10,20 @@ every change — with a short hand-over so switches don't flicker.
 `centered`→`center`, `scaled`→`fit`, `stretched`→`stretch`,
 `zoom`/`spanned`→`fill`). Without an image or `options=none`:
 `swaybg -m solid_color` using `primary-color`.
+
+**Animated wallpaper (beta):** watches
+`~/.config/ragnar-settings/wallpaper-animated` (`true`/`false`,
+written by the ragnar-settings appearance panel). When the flag is
+`true` and the choice is an image, a single `ragnar-livewall`
+process replaces the per-output swaybg spawns — it owns the
+background layer on every monitor. Flag off or spawn failure →
+normal swaybg set. `ragnar-livewall` must run with
+`ApplicationFlags::NON_UNIQUE`: GApplication single-instance
+forwarding would make every spawned child exit immediately and
+wedge the respawn logic. The same watcher also monitors
+`livewall-effects.ini` (per-image effect parameters written by
+the ragnar-settings effects editor) so edits respawn a running
+livewall with the new values.
 
 **Greeter sync:** writes the choice into AccountsService over the
 system bus (`User.SetBackgroundFile` plus the DisplayManager

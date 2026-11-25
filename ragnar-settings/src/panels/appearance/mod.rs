@@ -5,11 +5,17 @@
 mod common;
 mod cursor;
 mod fonts;
+mod fx_preview;
+mod fx_preview_gl;
 mod icons;
 mod root;
 mod style;
 mod themes;
 mod wallpaper;
+mod wallpaper_anim;
+mod wallpaper_fx;
+mod wallpaper_fx_ini;
+mod wallpaper_fx_row;
 mod wallpaper_map;
 
 use gtk4::Widget;

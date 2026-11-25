@@ -1878,6 +1878,10 @@ msgstr "Alle Monitore"
 msgid "Use default for this monitor"
 msgstr "Standard für diesen Monitor verwenden"
 
+#: src/panels/appearance/wallpaper.rs:84
+msgid "Animated wallpaper (beta):"
+msgstr "Animiertes Hintergrundbild (Beta):"
+
 #: src/panels/appearance/wallpaper.rs:91
 msgid "Choose image file…"
 msgstr "Bilddatei wählen …"
@@ -3372,3 +3376,87 @@ msgstr ""
 
 #~ msgid "Menu, iconify, maximize, close (left)"
 #~ msgstr "Menü, minimieren, maximieren, schließen (links)"
+
+msgid "Wallpaper effects"
+msgstr "Hintergrund-Effekte"
+
+msgid "Expand an effect, activate \"Region\", then drag on the preview to add a region (glow keeps a single band)."
+msgstr "Effekt aufklappen, „Region\" aktivieren und auf der Vorschau aufziehen — jeder Zug fügt eine Region hinzu (Glow hat nur ein Band)."
+
+msgid "Stars"
+msgstr "Sterne"
+
+msgid "Mist"
+msgstr "Nebel"
+
+msgid "Region"
+msgstr "Region"
+
+msgid "Star density"
+msgstr "Sterndichte"
+
+msgid "Star twinkle speed"
+msgstr "Sternenfunkel-Tempo"
+
+msgid "Mist opacity"
+msgstr "Nebelstärke"
+
+msgid "Mist drift speed"
+msgstr "Nebeldrift-Tempo"
+
+msgid "Effects…"
+msgstr "Effekte…"
+
+msgid "Glow, stars and mist regions for the animated wallpaper"
+msgstr "Glow-, Sterne- und Nebel-Regionen für das animierte Hintergrundbild"
+
+msgid "Glow"
+msgstr "Glow"
+
+msgid "Glow intensity"
+msgstr "Glow-Stärke"
+
+msgid "Remove last region"
+msgstr "Letzte Region entfernen"
+
+msgid "Snow"
+msgstr "Schnee"
+
+msgid "Rain"
+msgstr "Regen"
+
+msgid "Fireflies"
+msgstr "Glühwürmchen"
+
+msgid "Cloud shadows"
+msgstr "Wolkenschatten"
+
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgid "Restore this effect's defaults"
+msgstr "Standardwerte dieses Effekts wiederherstellen"
+
+msgid "Snow density"
+msgstr "Schneedichte"
+
+msgid "Snow fall speed"
+msgstr "Falltempo"
+
+msgid "Rain strength"
+msgstr "Regenstärke"
+
+msgid "Rain speed"
+msgstr "Regentempo"
+
+msgid "Firefly count"
+msgstr "Glühwürmchen-Anzahl"
+
+msgid "Firefly drift speed"
+msgstr "Glühwürmchen-Tempo"
+
+msgid "Cloud shadow opacity"
+msgstr "Wolkenschatten-Stärke"
+
+msgid "Cloud shadow speed"
+msgstr "Wolkenschatten-Tempo"

@@ -1,6 +1,6 @@
 [package]
 name = "ragnar-settings"
-version = "1.0.14"
+version = "1.0.17"
 edition = "2021"
 authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
 description = "Native settings hub for the Ragnar desktop (LieraOS)"
@@ -32,6 +32,11 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
 # Platform paths
 dirs = "5.0"
+
+# GL preview for the animated-wallpaper effects editor —
+# same loader approach as ragnar-livewall.
+gl = "0.14"
+libloading = "0.9"
 
 [profile.release]
 opt-level = 3

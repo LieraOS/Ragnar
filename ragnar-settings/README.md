@@ -70,9 +70,17 @@ the next hub rebuild / panel open.
   `<font place="…">`). User-managed content (keybinds, window rules,
   comments) is never touched; `labwc -r` applies edits live.
 - **Native panels** (`src/panels/`) for Ragnar-specific settings:
-  - *Display / Personalization* — wallpaper, icon theme/settings,
-    resolution (wlr-output-management under labwc), GPU controls
-    (advanced)
+  - *Display / Personalization* — wallpaper (incl. an "Animated
+    wallpaper (beta)" switch writing
+    `~/.config/ragnar-settings/wallpaper-animated`, which makes
+    ragnar-wallpaper spawn ragnar-livewall instead of swaybg;
+    plus an "Effects…" editor with a live GL preview running the
+    installed livewall GLSL — seven effects (glow, stars,
+    mist, snow, rain, fireflies, cloud shadows) in collapsible rows
+    — up to four regions each dragged on the preview — saved to
+    livewall-effects.ini),
+    icon theme/settings, resolution (wlr-output-management under
+    labwc), GPU controls (advanced)
   - *Sounds* — install and select sound themes, per-event assignment
   - *Panel & Desktop* — applets, Raven, autostart, default apps
   - *Removable media* — automount switch
