@@ -3460,3 +3460,48 @@ msgstr "Wolkenschatten-Stärke"
 
 msgid "Cloud shadow speed"
 msgstr "Wolkenschatten-Tempo"
+
+msgid "Filename effects"
+msgstr "Dateinamen-Effekte"
+
+msgid "Applies to file and folder names in Valkyrie and on the desktop. Off by default."
+msgstr "Gilt für Datei- und Ordnernamen in Valkyrie und auf dem Desktop. Standardmäßig aus."
+
+msgid "Animate names"
+msgstr "Namen animieren"
+
+msgid "Effect"
+msgstr "Effekt"
+
+msgid "Pulse"
+msgstr "Pulsieren"
+
+msgid "Colour wave"
+msgstr "Farbwelle"
+
+msgid "Direction"
+msgstr "Richtung"
+
+msgid "Left to right"
+msgstr "Von links nach rechts"
+
+msgid "Right to left"
+msgstr "Von rechts nach links"
+
+msgid "Top to bottom"
+msgstr "Von oben nach unten"
+
+msgid "Bottom to top"
+msgstr "Von unten nach oben"
+
+msgid "Base colour"
+msgstr "Grundfarbe"
+
+msgid "Wave colour"
+msgstr "Wellenfarbe"
+
+msgid "Strength"
+msgstr "Stärke"
+
+msgid "Speed"
+msgstr "Tempo"

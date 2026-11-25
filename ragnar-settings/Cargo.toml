@@ -1,6 +1,6 @@
 [package]
 name = "ragnar-settings"
-version = "1.0.17"
+version = "1.0.18"
 edition = "2021"
 authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
 description = "Native settings hub for the Ragnar desktop (LieraOS)"

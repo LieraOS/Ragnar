@@ -49,6 +49,11 @@
       Shader-Blöcke.
 - [ ] Editor erweitern: Glow-Regionen — gleicher Mechanismus,
       braucht zuerst Shader-Unterstützung in ragnar-livewall.
+- [x] Dateinamen-Effekte (1.0.18): Sektion „Dateinamen-Effekte" auf
+      der Schriften-Seite schreibt font-effects.ini [names] —
+      an/aus, Modus (Pulsieren/Farbwelle), zwei Farben, Richtung,
+      Stärke, Tempo; Valkyrie und ragnar-view rendern es live auf
+      Datei-/Ordnernamen.
 - [x] Anzeige: display/-Panel (Anordnungs-Canvas, Auflösung,
       Ausrichtung, GPU-Sektion).
 - [x] Klänge: sounds.rs schreibt Ravens settings.ini — die Datei

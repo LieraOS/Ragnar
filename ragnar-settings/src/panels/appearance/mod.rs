@@ -4,6 +4,7 @@
 
 mod common;
 mod cursor;
+pub mod font_fx;
 mod fonts;
 mod fx_preview;
 mod fx_preview_gl;

@@ -88,7 +88,11 @@ beim nächsten Hub-Aufbau bzw. Panel-Öffnen wirkt.
     installierte livewall-GLSL rendert — sieben Effekte (Glow, Sterne,
     Nebel, Schnee, Regen, Glühwürmchen, Wolkenschatten) in
     einklappbaren Zeilen — bis zu vier Regionen je Effekt auf der
-    Vorschau gezogen — gespeichert in livewall-effects.ini),
+    Vorschau gezogen — gespeichert in livewall-effects.ini;
+    die Schriften-Seite ergänzt eine „Dateinamen-Effekte"-Sektion,
+    die font-effects.ini [names] schreibt — optionales Pulsieren
+    oder eine Farbwelle auf Datei-/Ordnernamen, live gerendert von
+    Valkyrie und ragnar-view),
     Icon-Design, Auflösung (wlr-output-management unter labwc),
     GPU-Steuerung (erweitert)
   - *Klänge* — Klangthemen installieren und wählen, Zuordnung pro

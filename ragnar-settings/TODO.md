@@ -45,6 +45,10 @@
       shadows added — the dialog renders all seven shader blocks.
 - [ ] Extend the editor: lamp-glow regions — same mechanism,
       needs livewall shader support first.
+- [x] Filename effects (1.0.18): "Filename effects" section in the
+      fonts page writes font-effects.ini [names] — enabled, mode
+      (pulse/colour wave), two colours, direction, strength, speed;
+      Valkyrie and ragnar-view render it live on file/folder names.
 - [x] Display: display/ panel (canvas arrangement, resolution,
       orientation, GPU section).
 - [x] Sounds: sounds.rs writes ragnar-raven's settings.ini —

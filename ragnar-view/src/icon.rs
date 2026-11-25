@@ -17,12 +17,13 @@ impl Surface {
         let img = gtk4::Image::from_gicon(&it.icon);
         img.set_pixel_size(48);
         img.set_margin_top(8);
-        let lbl = gtk4::Label::new(Some(&it.name));
+        let lbl = crate::fxlabel::FxLabel::new(&it.name);
         lbl.set_wrap(true);
+        lbl.set_shadow(true);
         lbl.set_max_width_chars(13);
         lbl.set_lines(2);
         lbl.set_ellipsize(gtk4::pango::EllipsizeMode::End);
-        lbl.set_justify(gtk4::Justification::Center);
+        lbl.set_justify(gtk4::pango::Alignment::Center);
         v.append(&img);
         v.append(&lbl);
         self.attach_click(&v, it);

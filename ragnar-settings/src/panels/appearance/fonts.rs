@@ -74,6 +74,10 @@ pub fn build() -> gtk4::Box {
         HINTING_OPTIONS,
     ));
 
+    // Filename effects — INI-backed, consumed live by Valkyrie
+    // and the ragnar-view desktop icons.
+    page.append(&crate::panels::appearance::font_fx::build());
+
     page
 }
 

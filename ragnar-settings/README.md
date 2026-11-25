@@ -78,7 +78,10 @@ the next hub rebuild / panel open.
     installed livewall GLSL — seven effects (glow, stars,
     mist, snow, rain, fireflies, cloud shadows) in collapsible rows
     — up to four regions each dragged on the preview — saved to
-    livewall-effects.ini),
+    livewall-effects.ini; the fonts page adds a "Filename
+    effects" section writing font-effects.ini [names] — an
+    optional pulse or two-colour wave on file/folder names,
+    rendered live by Valkyrie and ragnar-view),
     icon theme/settings, resolution (wlr-output-management under
     labwc), GPU controls (advanced)
   - *Sounds* — install and select sound themes, per-event assignment

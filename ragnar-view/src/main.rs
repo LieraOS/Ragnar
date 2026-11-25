@@ -7,6 +7,8 @@
 
 mod desktop;
 mod dialogs;
+mod fxcfg;
+mod fxlabel;
 mod i18n;
 mod icon;
 mod items;
@@ -35,7 +37,7 @@ fn main() {
         css.load_from_string(
             "window.desktop-surface { background-color: transparent; box-shadow: none; }
              .desktop-icon { border-radius: 8px; padding: 2px; }
-             .desktop-icon label { color: white; text-shadow: 0 1px 3px black; font-size: 0.9em; }
+             .desktop-icon label, .desktop-icon fxlabel { color: white; font-size: 0.9em; }
              .desktop-icon.selected { background-color: alpha(white, 0.22); }
              .desktop-icon.dragging { opacity: 0.7; }
              .rubber-band { border: 1px solid #3584e4; background-color: alpha(#3584e4, 0.18); border-radius: 2px; }
