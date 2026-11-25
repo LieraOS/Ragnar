@@ -456,7 +456,9 @@ pub fn run(app: &gtk4::Application, start: Option<PathBuf>) {
         let canvas = canvas.clone();
         let status = status.clone();
         let thumbs = thumbs.clone();
-        gtk4::glib::idle_add_local(move || {
+        // Poll the channel on a timer, NOT on idle: a Continue
+        // idle source spins the main loop at 100 % of a core.
+        gtk4::glib::timeout_add_local(std::time::Duration::from_millis(50), move || {
             let rx = state.rx.borrow();
             for (gen, path, res) in rx.try_iter() {
                 if gen != state.gen.load(std::sync::atomic::Ordering::SeqCst) {

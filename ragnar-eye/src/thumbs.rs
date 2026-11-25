@@ -63,7 +63,9 @@ impl Thumbs {
         // Drain finished thumbs on the main loop.
         {
             let t = t.clone();
-            gtk4::glib::idle_add_local(move || {
+            // Poll the channel on a timer, NOT on idle: a Continue
+            // idle source spins the main loop at 100 % of a core.
+            gtk4::glib::timeout_add_local(std::time::Duration::from_millis(50), move || {
                 let rx = t.rx.borrow();
                 for r in rx.try_iter() {
                     // Row lookup by stored path.
