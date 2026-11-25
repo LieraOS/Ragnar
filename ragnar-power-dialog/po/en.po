@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-power-dialog 0.1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "Sitzung"
+msgstr "Session"
+
+msgid "Was möchtest du tun?"
+msgstr "What would you like to do?"
+
+msgid "Abbrechen"
+msgstr "Cancel"
+
+msgid "Bildschirm sperren"
+msgstr "Lock screen"
+
+msgid "Abmelden"
+msgstr "Log out"
+
+msgid "Bereitschaft"
+msgstr "Suspend"
+
+msgid "Ruhezustand"
+msgstr "Hibernate"
+
+msgid "Neustart"
+msgstr "Restart"
+
+msgid "Herunterfahren"
+msgstr "Shut down"

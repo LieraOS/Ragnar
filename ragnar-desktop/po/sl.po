@@ -1,0 +1,1783 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Joshua Strobl <joshua.strobl@outlook.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-20 00:29+0200\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Joshua Strobl <joshua.strobl@outlook.com>, 2023\n"
+"Language-Team: Slovenian (https://app.transifex.com/buddiesofragnar/teams/129844/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "Drugo"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Games"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "Internet"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Programming"
+msgstr ""
+
+msgid "Science"
+msgstr ""
+
+msgid "Sound & Video"
+msgstr ""
+
+msgid "System Tools"
+msgstr ""
+
+msgid "Universal Access"
+msgstr ""
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr ""
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr ""
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr ""
+
+msgid "Log out"
+msgstr "Odjava"
+
+msgid "Restart device"
+msgstr "Znova zaženi napravo"
+
+#: src/daemon/endsession.ui.h:1
+msgid "Power Off"
+msgstr "Izklop"
+
+msgid "Caps Lock is on"
+msgstr ""
+
+msgid "Caps Lock is off"
+msgstr ""
+
+msgid "Num Lock is on"
+msgstr ""
+
+msgid "Num Lock is off"
+msgstr ""
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "Caffeine Boost vklopljen"
+
+msgid "Turned off Caffeine Boost"
+msgstr "Caffeine Boost izklopljen"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Authentication failed"
+msgstr "Avtentikacija je spodletela"
+
+msgid "Group:"
+msgstr "Skupina:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr ""
+
+msgid "L_og Out"
+msgstr ""
+
+msgid "_Suspend"
+msgstr ""
+
+msgid "_Hibernate"
+msgstr ""
+
+msgid "_Reboot"
+msgstr ""
+
+msgid "Shut_down"
+msgstr ""
+
+msgid "This system does not support hibernation."
+msgstr ""
+
+msgid "Files to send"
+msgstr ""
+
+msgid "_Cancel"
+msgstr ""
+
+msgid "_Open"
+msgstr ""
+
+msgid "Send Files via Bluetooth"
+msgstr ""
+
+msgid "Send files to device…"
+msgstr ""
+
+msgid "Rejected file"
+msgstr ""
+
+#, c-format
+msgid "File already exists: %s"
+msgstr ""
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr ""
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Reject"
+msgstr ""
+
+msgid "File name"
+msgstr ""
+
+msgid "Transfer rate"
+msgstr ""
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr ""
+
+#: src/daemon/endsession.ui.h:3 src/dialogs/polkit/dialog.ui.h:8
+msgid "Cancel"
+msgstr "Prekliči"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr ""
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr ""
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Speaker"
+msgstr ""
+
+msgid "Controller"
+msgstr ""
+
+msgid "Keyboard"
+msgstr ""
+
+msgid "Mouse"
+msgstr ""
+
+msgid "Tablet"
+msgstr ""
+
+msgid "Touchpad"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Bluetooth File Transfer"
+msgstr ""
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr ""
+
+msgid "File transfer failed"
+msgstr ""
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr ""
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr ""
+
+msgid "File transferred successfully"
+msgstr ""
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr ""
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr ""
+
+msgid "The file has not been transferred."
+msgstr ""
+
+msgid "Retry"
+msgstr ""
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr ""
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr ""
+
+msgid "Select a Bluetooth device to send files to"
+msgstr ""
+
+msgid "Discovering…"
+msgstr ""
+
+msgid "<b>No devices found</b>"
+msgstr ""
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr ""
+
+msgid "Available Devices"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in.h:1
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in.h:1
+msgid "Ragnar Screenshot"
+msgstr ""
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr ""
+
+msgid "Screenshot active window"
+msgstr ""
+
+msgid "Screenshot selected area"
+msgstr ""
+
+#. translate
+msgid "Cancel screenshot"
+msgstr ""
+
+msgid "Save screenshot to the selected directory"
+msgstr ""
+
+msgid "Copy screenshot to the clipboard"
+msgstr ""
+
+msgid "Open screenshot in default application"
+msgstr ""
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr ""
+
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "Način Caffeine"
+
+msgid "Set menu icon from file"
+msgstr "Nastavi ikono menija iz datoteke"
+
+msgid "Image files"
+msgstr "Slikovne datoteke"
+
+msgid "Any file"
+msgstr "Katerakoli datoteka"
+
+msgid "Set icon"
+msgstr "Nastavi ikono"
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "Oprostite, ni najdenih elementov"
+
+msgid "All"
+msgstr "Vse"
+
+#: src/panel/ragnar-desktop-settings.desktop.in.h:1
+msgid "Ragnar Desktop Settings"
+msgstr "Nastavite Ragnar namizja"
+
+msgid "System Settings"
+msgstr ""
+
+msgid "Power"
+msgstr ""
+
+msgid "Timer (minutes)"
+msgstr "Časovnik (minute)"
+
+msgid "System time and date settings"
+msgstr ""
+
+msgid "Unfavorite"
+msgstr "Odstrani iz priljubljeno"
+
+msgid "Favorite"
+msgstr "Dodaj med priljubljeno"
+
+msgid "Close all windows"
+msgstr ""
+
+msgid "Launch new instance"
+msgstr ""
+
+msgid "Minimize"
+msgstr "Pomanjšaj"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr ""
+
+msgid "Unmaximize"
+msgstr "Od-maksimiziraj"
+
+msgid "Maximize"
+msgstr "Povečaj"
+
+msgid "Close window"
+msgstr ""
+
+msgid "Show window controls"
+msgstr ""
+
+msgid "Caps lock is active"
+msgstr "Caps Lock je dejavna"
+
+msgid "Caps lock is not active"
+msgstr "Caps Lock ni dejavna"
+
+msgid "Num lock is active"
+msgstr "Num Lock je dejavna"
+
+msgid "Num lock is not active"
+msgstr "Num Lock ni dejavna"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "No unread notifications"
+msgstr "Ni neprebranih obvestil"
+
+msgid "Volume is in use by other processes"
+msgstr "Pogon uporabljajo drugi procesi"
+
+msgid "Operation aborted"
+msgstr "Operacija prekinjena"
+
+msgid "Type your password"
+msgstr "Vtipkajte vaše geslo"
+
+msgid "Removable devices"
+msgstr "Odstranljive naprave"
+
+msgid "Local volumes"
+msgstr "Lokalni nosilci"
+
+msgid "Network folders"
+msgstr "Omrežne mape"
+
+msgid "Eject"
+msgstr "Izvrzi"
+
+msgid "Unmount"
+msgstr "Odklopi"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "Odpri \"%s\""
+
+msgid "You can now safely remove"
+msgstr "Zdaj lahko varno odstranite"
+
+msgid "Unknown Device"
+msgstr "Neznana Naprava"
+
+msgid "Error while ejecting device"
+msgstr "Napaka pri odstranjevanju naprave"
+
+msgid "Error while unmounting volume"
+msgstr "Napaka pri izpenjanju pogona"
+
+msgid "Places"
+msgstr "Mesta"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "Priklopi in odpri \"%s\""
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr "Vnesite enkripcijsko geslo, da odklenete ta pogon"
+
+msgid "The password you entered is incorrect"
+msgstr "Vneseno geslo ni pravilno"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr "Pri vpenjanju tega pogona je prišlo do neznane napake"
+
+msgid "Nothing to display right now"
+msgstr "Trenutno ničesar za prikazati"
+
+msgid "Mount some drives"
+msgstr "Priklopi nekaj pogonskih enot"
+
+msgid "Enable more sections"
+msgstr "Omogoči več odsekov"
+
+msgid "Toggle the desktop"
+msgstr "Preklopi namizje"
+
+msgid "Bluetooth"
+msgstr ""
+
+msgid "Bluetooth Settings"
+msgstr "Nastavitve Bluetooth"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr ""
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr ""
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr ""
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr ""
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr ""
+
+msgid "Send file"
+msgstr ""
+
+msgid "Disconnect"
+msgstr ""
+
+msgid "Disconnecting…"
+msgstr ""
+
+msgid "Connecting…"
+msgstr ""
+
+msgid "Failed to disconnect"
+msgstr ""
+
+msgid "Failed to connect"
+msgstr ""
+
+msgid "Connected"
+msgstr ""
+
+msgid "Disconnected"
+msgstr ""
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr ""
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr ""
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr ""
+
+msgid "Battery fully charged."
+msgstr "Baterija je napolnjena."
+
+msgid "Unknown"
+msgstr "Neznano"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "Baterija se polni"
+
+msgid "Battery remaining"
+msgstr "Baterije preostaja"
+
+msgid "Performance Mode"
+msgstr ""
+
+msgid "Power Saver"
+msgstr ""
+
+msgid "Balanced"
+msgstr ""
+
+msgid "Performance"
+msgstr ""
+
+msgid "Power settings"
+msgstr "Nastavitve napajanja"
+
+#. User Menu Creation
+msgid "User"
+msgstr "Uporabnik"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "V zaklep"
+
+msgid "Suspend"
+msgstr "V pripravljenost"
+
+msgid "Hibernate"
+msgstr "V mirovanje"
+
+#: src/daemon/endsession.ui.h:5
+msgid "Restart"
+msgstr "Znova zaženi"
+
+#: src/daemon/endsession.ui.h:6
+msgid "Shutdown"
+msgstr "Izklopi"
+
+#: src/daemon/endsession.ui.h:4
+msgid "Logout"
+msgstr "Odjavi"
+
+msgid "Rename"
+msgstr "Preimenuj"
+
+msgid "Remove"
+msgstr "Odstrani"
+
+msgid "Not able to create new workspaces"
+msgstr ""
+
+msgid "Create a new workspace"
+msgstr ""
+
+msgid "Untitled"
+msgstr "Brez naslova"
+
+msgid "No description"
+msgstr "Brez opisa"
+
+msgid "running"
+msgstr "v delovanju"
+
+msgid "Applications"
+msgstr "Aplikacije"
+
+msgid "Add"
+msgstr "Dodaj"
+
+msgid "Command"
+msgstr "Ukaz"
+
+msgid "An entry with that title already exists"
+msgstr "Vnos s tem naslovom že obstaja"
+
+msgid "Title"
+msgstr "Naslov"
+
+msgid "Required"
+msgstr "Zahtevano"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Optional"
+msgstr "Neobvezno"
+
+msgid "Autostart"
+msgstr "Samodejni zagon"
+
+msgid "Autostart apps"
+msgstr "Samodejno zagnane aplikacije"
+
+msgid "Add Application"
+msgstr ""
+
+msgid "Add Command"
+msgstr ""
+
+msgid "Desktop"
+msgstr "Namizje"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "Ikone na namizju"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr ""
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr ""
+
+msgid "Show all active mounts on the desktop."
+msgstr ""
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "Domači imenik"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "Dodaj bljižnico do vašega domačega imenika na namizje."
+
+#. Switcher to show or hide a shortcut to Trash
+msgid "Trash"
+msgstr "Smeti"
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "Dodaj bližnjico za mapo Smeti na namizje."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr ""
+
+msgid "Set the desired size of icons on the desktop."
+msgstr ""
+
+msgid "Number of virtual desktops"
+msgstr ""
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr ""
+
+msgid "Single"
+msgstr ""
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr ""
+
+msgid "Click Policy"
+msgstr ""
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+#. Small
+msgid "Small"
+msgstr ""
+
+#. Large
+msgid "Large"
+msgstr ""
+
+#. Massive
+msgid "Massive"
+msgstr ""
+
+msgid "Fonts"
+msgstr "Pisave"
+
+msgid "Window Titles"
+msgstr "Naslovi oken"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "Nastavi pisavo za uporabo v naslovnih vrsticah aplikacij."
+
+msgid "Documents"
+msgstr "Dokumenti"
+
+msgid "Set the display font used by for documents."
+msgstr "Nastavi pisavo za uporabo v dokumentih."
+
+msgid "Interface"
+msgstr "Vmesnik"
+
+msgid "Set the primary font used by application controls."
+msgstr "Nastavi primarno pisavo za kontrolnike aplikacije."
+
+msgid "Monospace"
+msgstr "Pisava stalne širine"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr ""
+
+msgid "Text scaling"
+msgstr "Skaliranje besedila"
+
+msgid "Set the text scaling factor."
+msgstr "Nastavi faktor skaliranja besedil."
+
+msgid "Full"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Slight"
+msgstr ""
+
+msgid "None"
+msgstr "Nobeden"
+
+msgid "Hinting"
+msgstr ""
+
+msgid "Set the type of hinting to use."
+msgstr ""
+
+msgid "Subpixel (for LCD screens)"
+msgstr ""
+
+msgid "Standard (grayscale)"
+msgstr ""
+
+msgid "Antialiasing"
+msgstr ""
+
+msgid "Set the type of antialiasing to use."
+msgstr ""
+
+msgid "Appearance"
+msgstr "Videz"
+
+msgid "Panels"
+msgstr "Paneli"
+
+msgid "Session"
+msgstr "Seja"
+
+msgid "Create new panel"
+msgstr "Ustvari nov panel"
+
+msgid "Applet Settings"
+msgstr ""
+
+msgid "Add applet"
+msgstr "Dodaj applet"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "Izberi nov applet za dodajanje na to ploščo"
+
+msgid "No settings available"
+msgstr "Nastavitve niso na voljo"
+
+msgid "Start"
+msgstr "Začetek"
+
+msgid "Center"
+msgstr "Sredina"
+
+msgid "End"
+msgstr "Konec"
+
+msgid "Confirm panel removal"
+msgstr "Potrdi odstranjevanje plošče"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr "Res želite odstraniti to ploščo? Tega dejanja ni mogoče razveljaviti."
+
+msgid "Remove panel"
+msgstr "Odstrani ploščo"
+
+msgid "Keep panel"
+msgstr "Obdrži ploščo"
+
+msgid "Confirm applet removal"
+msgstr "Potrdi odstranitev applet-a"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr "Res želite odstraniti ta applet? Tega dejanja ni mogoče razveljaviti."
+
+msgid "Don't ask me again"
+msgstr "Ne vprašaj me ponovno"
+
+msgid "Remove applet"
+msgstr "Odstrani applet"
+
+msgid "Keep applet"
+msgstr "Obdrži applet"
+
+msgid "Confirm widget removal"
+msgstr ""
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr ""
+
+msgid "Built-in"
+msgstr ""
+
+msgid "Choose a plugin"
+msgstr ""
+
+msgid "No description."
+msgstr ""
+
+#, c-format
+msgid "by %s"
+msgstr ""
+
+msgid "No authors listed"
+msgstr ""
+
+msgid "Widgets"
+msgstr "Widgeti"
+
+msgid "Settings"
+msgstr "Nastavitve"
+
+msgid "Set Raven position"
+msgstr ""
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr ""
+
+msgid "Set notification sort order"
+msgstr ""
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr ""
+
+msgid "Widget Settings"
+msgstr ""
+
+msgid "Add widget"
+msgstr ""
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr ""
+
+msgid "Windows"
+msgstr "Okna"
+
+msgid "Button layout"
+msgstr "Postavitev gumbov"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "Spremeni postavitev gumbov v naslovni vrstici aplikacije."
+
+msgid "Center new windows on screen"
+msgstr "Nova okna odpri na sredini zaslona"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "Novo odprta okna postavi na sredino trenutnega zaslona."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr "Onemogoči način Nočne osvetlitve ko so okna v celozaslonskem načinu"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr ""
+"Onemogoči način Nočne osvetlitve ko je okno v celozaslonskem načinu. Ponovno"
+" omogoči ko zapusti celozaslonski način."
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr ""
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr ""
+
+msgid "Automatic tiling"
+msgstr "Avtomatično poravnavanje"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr ""
+"Okna se bodo avtomatično razširila ko jih potegnete na vrh ali v kote "
+"zaslona."
+
+msgid "Enable window focus change on mouse enter and leave"
+msgstr ""
+"Omogoči spremembo fokusa okna ob tem ko miškin kazalec vstopi in zapusti "
+"okno"
+
+msgid ""
+"Enables window focus to apply when the mouse enters the window and unfocus "
+"when the mouse leaves the window."
+msgstr ""
+"Omogoči fokusiranje okna ko miškin kazalec vstopi v okno in od-fokusiranje "
+"ko miškin kazalec zapusti okno."
+
+msgid "Show all windows in tab switcher"
+msgstr ""
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr ""
+
+msgid "Right (standard)"
+msgstr "Desno (standardno)"
+
+msgid "Left"
+msgstr "Levo"
+
+msgid "Applets"
+msgstr "Apleti"
+
+msgid "Remove Panel"
+msgstr ""
+
+msgid "Remove this panel from the screen"
+msgstr "Odstrani ta panel iz zaslona"
+
+msgid "Top Dock"
+msgstr "Zgornji Dock"
+
+msgid "Right Dock"
+msgstr "Desni Dock"
+
+msgid "Left Dock"
+msgstr "Levi Dock"
+
+msgid "Bottom Dock"
+msgstr "Spodnji Dock"
+
+msgid "Top Panel"
+msgstr "Zgornji Pult"
+
+msgid "Right Panel"
+msgstr "Desni Pult"
+
+msgid "Left Panel"
+msgstr "Levi Pult"
+
+msgid "Bottom Panel"
+msgstr "Spodnji Pult"
+
+msgid "Top"
+msgstr "Zgoraj"
+
+msgid "Right"
+msgstr "Desno"
+
+msgid "Bottom"
+msgstr "Spodaj"
+
+msgid "Always"
+msgstr "Vedno"
+
+msgid "Dynamic"
+msgstr "Dinamično"
+
+msgid "Automatic"
+msgstr "Avtomatično"
+
+msgid "Intelligent"
+msgstr "Inteligentno"
+
+msgid "Never"
+msgstr "Nikoli"
+
+msgid "Position"
+msgstr "Položaj"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "Nastavi rob zaslona na katerem bo ostal ta panel"
+
+msgid "Size"
+msgstr "Velikost"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr ""
+"Nastavi velikost tega panela (širina ali višina, glede na orientacijo)"
+
+msgid "Spacing"
+msgstr ""
+
+msgid "Set the spacing between applets for this panel"
+msgstr ""
+
+msgid "Automatically hide"
+msgstr "Avtomatično skrij"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr "Ko je nastavljeno, bo ta panel skrit, da poveča površino zaslona"
+
+msgid "Transparency"
+msgstr "Transparentnost"
+
+msgid "Control when this panel should have a solid background"
+msgstr "Kontroliraj kdaj naj ima panel enobarvno ozadje"
+
+msgid "Shadow"
+msgstr "Senca"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr "Doda dekorativno senco, idealno za neprozorne panele"
+
+msgid "Stylize regions"
+msgstr "Omgoči slog regij"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr ""
+"Doda namig panelu, da ima lahko vsako od treh glavnih področij drugačno "
+"temo."
+
+msgid "Dock mode"
+msgstr "način Dock"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr ""
+"V dock načinu, bo ta panel uporabil najmanjšo možno površino zaslona, da "
+"sprosti čimveč uporabne površine zaslona"
+
+msgid "Style"
+msgstr "Stil"
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "Nastavi prikaz dekoracij in kontrol oken"
+
+msgid "Icons"
+msgstr "Ikone"
+
+msgid "Set the globally used icon theme"
+msgstr "Nastavi globalno temo za ikone"
+
+msgid "Cursors"
+msgstr "Kazalec"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "Nastavi globalno temo za kazalec miške"
+
+msgid "Notification Position"
+msgstr "Pozicija obvestil"
+
+msgid "Set the location for notification popups"
+msgstr "Nastavi lokacijo za pojavna okna obvestil"
+
+msgid "Dark theme"
+msgstr "Temna tema"
+
+msgid "Built-in theme"
+msgstr "Vgrajena tema"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr ""
+
+msgid "Animations"
+msgstr "Animacije"
+
+msgid "Control whether windows and controls use animations"
+msgstr "Kontroliraj ali okna in kontrolniki uporabljajo animacije"
+
+msgid "Top Left"
+msgstr "Zgoraj levo"
+
+msgid "Bottom Left"
+msgstr "Spodaj levo"
+
+msgid "Bottom Right"
+msgstr "Spodaj desno"
+
+msgid "Top Right"
+msgstr "Zgoraj desno"
+
+msgid "Notifications"
+msgstr "Obvestila"
+
+msgid "No widgets added."
+msgstr ""
+
+msgid "Nothing to see here"
+msgstr "Tu ni ničesar"
+
+msgid "No new notifications"
+msgstr "Nič novih obvestil"
+
+msgid "No apps are currently playing audio."
+msgstr "Trenutno nobena aplikacija ne predvaja zvoka."
+
+msgid "Play some music"
+msgstr "Predvajaj nekaj glasbe"
+
+msgid "Unknown Title"
+msgstr ""
+
+msgid "Unknown Artist"
+msgstr ""
+
+msgid "Unknown Album"
+msgstr ""
+
+#, c-format
+msgid "Playing - %s"
+msgstr ""
+
+#, c-format
+msgid "Paused - %s"
+msgstr ""
+
+msgid "No apps are playing audio."
+msgstr ""
+
+msgid "Apps"
+msgstr "Aplikacije"
+
+msgid "Devices"
+msgstr "Naprave"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.in.h:1
+msgid "Usage Monitor"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "RAM"
+msgstr ""
+
+msgid "Swap"
+msgstr ""
+
+msgid "Oldest to newest"
+msgstr ""
+
+msgid "Newest to oldest"
+msgstr ""
+
+#: src/daemon/endsession.ui.h:2
+msgid "Are you sure you want to end your session?"
+msgstr "Ste prepričani, da želite končati vašo sejo?"
+
+#: src/dialogs/polkit/dialog.ui.h:1
+msgid "Authentication Required"
+msgstr "Zahtevana avtentikacija"
+
+#: src/dialogs/polkit/dialog.ui.h:2
+msgid "Password:"
+msgstr "Geslo:"
+
+#: src/dialogs/polkit/dialog.ui.h:3
+msgid "Username:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui.h:4
+msgid "Authentication is required"
+msgstr "Zahtevana je avtentikacija"
+
+#: src/dialogs/polkit/dialog.ui.h:5
+msgid "Details"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui.h:6
+msgid "Action:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui.h:7
+msgid "ID:"
+msgstr ""
+
+#: src/dialogs/polkit/dialog.ui.h:9
+msgid "Authenticate"
+msgstr "Avtenticiraj"
+
+#: src/dialogs/screenshot/aftershot.ui.h:1
+msgid "Name:"
+msgstr ""
+
+#: src/dialogs/screenshot/aftershot.ui.h:2
+msgid "Folder:"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui.h:1
+msgid "Delay in seconds"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui.h:2
+msgid "Show Pointer"
+msgstr ""
+
+#: src/dialogs/screenshot/screenshothome.ui.h:3
+msgid "Play sound when capturing"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:1
+msgid "Show Menu Label"
+msgstr "Prikaži oznake menijev"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:2
+msgid "Menu Label"
+msgstr "Oznaka menija"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:3
+msgid "Use Default Menu Icon"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:4
+msgid "Menu Icon"
+msgstr "Ikona menija"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:5
+msgid "Compact Mode"
+msgstr "Kompaktni način"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:6
+msgid "Show Headers"
+msgstr "Prikaži naslove"
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:7
+msgid "Roll-over mouse"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui.h:8
+msgid "Show settings items"
+msgstr ""
+
+#: src/panel/applets/caffeine/settings.ui.h:1
+msgid "Enable notification"
+msgstr "Omogoči obvsetila"
+
+#: src/panel/applets/caffeine/settings.ui.h:2
+msgid "Maximize brightness"
+msgstr "Povečaj svetlost"
+
+#: src/panel/applets/caffeine/settings.ui.h:3
+msgid "Brightness Level"
+msgstr "Nivo osvetlitve"
+
+#: src/panel/applets/clock/settings.ui.h:1
+msgid "Show date"
+msgstr "Prikaži datum"
+
+#: src/panel/applets/clock/settings.ui.h:2
+msgid "Show seconds"
+msgstr "Prikaži sekunde"
+
+#: src/panel/applets/clock/settings.ui.h:3
+msgid "Use 24 hour time"
+msgstr "Uporabi 24 urni prikaz"
+
+#: src/panel/applets/clock/settings.ui.h:4
+msgid "Custom Format"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui.h:6
+#, no-c-format
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui.h:7
+msgid "Custom Timezone"
+msgstr ""
+
+#: src/panel/applets/clock/settings.ui.h:8
+msgid "UTC"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:1
+msgid "Show all windows on click"
+msgstr "Ob kliku prikaži vsa okna"
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:2
+msgid "Only show favorited"
+msgstr "Prikaži samo priljubljene"
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:3
+msgid "Lock icons"
+msgstr "Zakleni ikone"
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:4
+msgid "Restrict to Workspace"
+msgstr "Omeji na Delovno površino"
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:5
+msgid "Middle click to launch new window"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui.h:6
+msgid "Require a double-click to launch new window"
+msgstr ""
+
+#: src/panel/applets/night-light/indicator_window.ui.h:1
+msgid "Night Light"
+msgstr "Nočna osvetlitev"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:2
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:3
+msgid "Schedule"
+msgstr "Urnik"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:4
+msgid "Sunset to Sunrise"
+msgstr "od sončnega zahoda do sončnega vzhoda"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:5
+msgid "Manual"
+msgstr "Ročno"
+
+#: src/panel/applets/night-light/indicator_window.ui.h:6
+msgid "Display Settings"
+msgstr "Nastavitve zaslona"
+
+#: src/panel/applets/places-indicator/settings.ui.h:1
+msgid "Show label"
+msgstr "Prikaži oznako"
+
+#: src/panel/applets/places-indicator/settings.ui.h:2
+msgid "Show places"
+msgstr "Pokaži mesta"
+
+#: src/panel/applets/places-indicator/settings.ui.h:3
+msgid "Show network folders"
+msgstr "Pokaži omrežne mape"
+
+#: src/panel/applets/places-indicator/settings.ui.h:4
+msgid "Show removable drives"
+msgstr "Pokaži odstranjive pogonske enote"
+
+#: src/panel/applets/places-indicator/settings.ui.h:5
+msgid "Always expand places"
+msgstr ""
+
+#: src/panel/applets/spacer/settings.ui.h:1
+msgid "Spacer size"
+msgstr "Velikost distančnika"
+
+#: src/panel/applets/status/settings.ui.h:1
+#: src/panel/applets/tray/settings.ui.h:1
+msgid "Icon Spacing"
+msgstr ""
+
+#: src/panel/applets/status/settings.ui.h:2
+msgid "Show battery percentage"
+msgstr "Prikaži napolnjenost baterije"
+
+#: src/panel/applets/trash/settings.ui.h:1
+msgid "Sort Mode"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:2
+msgid "Sort by type"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:3
+msgid "Sort alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:4
+msgid "Sort reverse alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:5
+msgid "Sort by date ascending"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui.h:6
+msgid "Sort by date descending"
+msgstr ""
+
+#: src/panel/applets/tray/settings.ui.h:2
+msgid "Scale icons with panel size"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:1
+msgid "\"Add\" button visibility"
+msgstr "Vidljivost gumba \"Dodaj\""
+
+#: src/panel/applets/workspaces/settings.ui.h:2
+msgid "Item Size Multiplier"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:3
+msgid "Don't show"
+msgstr "Ne prikaži"
+
+#: src/panel/applets/workspaces/settings.ui.h:4
+msgid "Show on mouseover"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:5
+msgid "Always show"
+msgstr "Vedno prikaži"
+
+#: src/panel/applets/workspaces/settings.ui.h:6
+msgid "0.5x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:7
+msgid "0.75x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:8
+msgid "1.0x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:9
+msgid "1.5x"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui.h:10
+msgid "2.0x"
+msgstr ""
+
+#: src/panel/applets/tasklist/settings.ui.h:1
+msgid "Show button icons"
+msgstr ""
+
+#: src/panel/applets/tasklist/settings.ui.h:2
+msgid "Show button labels"
+msgstr ""
+
+#: src/raven/widgets/calendar/settings.ui.h:1
+msgid "Show Week Numbers"
+msgstr ""
+
+#: src/raven/widgets/calendar/settings.ui.h:2
+msgid "Show Day Names"
+msgstr ""
+
+#: src/raven/widgets/sound-input/settings.ui.h:1
+#: src/raven/widgets/sound-output/settings.ui.h:1
+msgid "Allow Volume Overdrive"
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/settings.ui.h:1
+msgid "Show Swap Usage"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in.h:2
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in.h:2
+msgid "Ragnar screenshot app"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.in.h:1
+msgid "Search for and start up applications."
+msgstr ""
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.in.h:1
+msgid "Prevent the system and screen from sleeping."
+msgstr ""
+
+#: src/panel/applets/clock/ClockApplet.plugin.in.h:1
+msgid "A digital clock with a customizable format."
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.in.h:1
+msgid "A configurable application task list."
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.in.h:1
+msgid "Indicates which keyboard layout is currently in use."
+msgstr ""
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.in.h:1
+msgid "Show status of lock keys."
+msgstr ""
+
+#: src/panel/applets/night-light/NightLight.plugin.in.h:1
+msgid "Toggle and modify Night Light settings."
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.in.h:1
+msgid "Open the Raven notifications view."
+msgstr ""
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.in.h:1
+msgid "Show drives and favorite folders."
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.in.h:1
+msgid "Open the Raven sidebar."
+msgstr ""
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.in.h:1
+msgid "Visual separator between applets."
+msgstr ""
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.in.h:1
+msgid "A button that toggles visibility of the desktop."
+msgstr ""
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.in.h:1
+msgid "Adjustable spacer to put between other applets."
+msgstr ""
+
+#: src/panel/applets/status/StatusApplet.plugin.in.h:1
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr ""
+
+#: src/panel/applets/trash/TrashApplet.plugin.in.h:1
+msgid "Manage your trash from the Ragnar panel"
+msgstr ""
+
+#: src/panel/applets/tray/TrayApplet.plugin.in.h:1
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr ""
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.in.h:1
+msgid "Opens the power dialog."
+msgstr ""
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.in.h:1
+msgid "Display workspaces and switch between them."
+msgstr ""
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.in.h:1
+msgid "An application task list with icons and labels."
+msgstr ""
+
+#: src/panel/ragnar-desktop-settings.desktop.in.h:2
+msgid "Change desktop appearance and behavior"
+msgstr "Spremeni videz in vedenje namizja"
+
+#: src/panel/ragnar-panel.desktop.in.h:1
+msgid "Ragnar Panel"
+msgstr "Ragnar Panel"
+
+#: src/panel/ragnar-panel.desktop.in.h:2
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr ""
+"Zaženi druge aplikacije in ponudi različne pripomočke za upravljanje oken, "
+"prikaz časa, itd."
+
+#: src/raven/widgets/calendar/Calendar.plugin.in.h:1
+msgid "Calendar"
+msgstr "Koledar"
+
+#: src/raven/widgets/calendar/Calendar.plugin.in.h:2
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.in.h:1
+msgid "Media Controls"
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.in.h:2
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.in.h:1
+msgid "Sound Input"
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.in.h:2
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.in.h:1
+msgid "Sound Output"
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.in.h:2
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.in.h:2
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr ""
+
+#: src/session/ragnar-desktop.session.in.in.h:1
+#: src/session/ragnar-desktop.desktop.in.in.h:1
+msgid "Ragnar Desktop"
+msgstr "Namizje Ragnar"
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in.h:1
+msgid "Ragnar Desktop (magpie)"
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in.h:2
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in.h:2
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr ""
+

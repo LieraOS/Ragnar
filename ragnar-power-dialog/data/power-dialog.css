@@ -1,0 +1,33 @@
+/* Default theme for ragnar-power-dialog.
+ *
+ * The dialog loads this file's rules itself (embedded at build
+ * time). To customise the look, copy this file to
+ *   ~/.config/ragnar-desktop/power-dialog.css
+ * and edit it there — the user copy is loaded at USER priority and
+ * wins over every rule below. Ragnar Settings → Appearance can later
+ * manage that file the same way it manages wallpapers.
+ */
+
+/* Big tile buttons inside the dialog grid. */
+.power-action {
+    min-width: 128px;
+    min-height: 96px;
+    border-radius: 16px;
+}
+
+/* Action icon inside a tile. */
+.power-action-icon {
+    -gtk-icon-size: 40px;
+}
+
+/* Destructive actions (restart, shut down) get a warning tint on
+ * hover/active instead of the default accent. */
+.power-action-destructive:hover,
+.power-action-destructive:active {
+    background: alpha(@error_bg_color, 0.35);
+}
+
+/* Small "Cancel" button row at the bottom. */
+.power-dialog-cancel {
+    margin-top: 6px;
+}

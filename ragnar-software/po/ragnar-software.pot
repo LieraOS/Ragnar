@@ -1,0 +1,372 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-19 06:03+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: src/backend.rs:82
+msgid "Flatpak update"
+msgstr ""
+
+#: src/catalog.rs:21
+msgid "Audio & Video"
+msgstr ""
+
+#: src/catalog.rs:32
+msgid "Image editing"
+msgstr ""
+
+#: src/catalog.rs:40
+msgid "Development"
+msgstr ""
+
+#: src/catalog.rs:41
+msgid "Education"
+msgstr ""
+
+#: src/catalog.rs:42
+msgid "Games"
+msgstr ""
+
+#: src/catalog.rs:44
+msgid "Internet"
+msgstr ""
+
+#: src/catalog.rs:47
+msgid "Office"
+msgstr ""
+
+#: src/catalog.rs:48
+msgid "Science"
+msgstr ""
+
+#: src/catalog.rs:49
+msgid "System"
+msgstr ""
+
+#: src/catalog.rs:50
+msgid "Utilities"
+msgstr ""
+
+#: src/catalog.rs:123
+msgid "No app selected"
+msgstr ""
+
+#: src/catalog.rs:143
+msgid "Categories"
+msgstr ""
+
+#: src/catalog.rs:147
+msgid "All"
+msgstr ""
+
+#: src/catalog.rs:148
+msgid "Debian"
+msgstr ""
+
+#: src/catalog.rs:149
+msgid "Flathub"
+msgstr ""
+
+#: src/catalog.rs:153
+msgid "Search packages"
+msgstr ""
+
+#: src/catalog.rs:181 src/catalog.rs:182 src/catalog.rs:185 src/window.rs:99
+msgid "Software"
+msgstr ""
+
+#: src/catalog.rs:301
+msgid "Search"
+msgstr ""
+
+#: src/catalog.rs:339
+msgid "No description available."
+msgstr ""
+
+#: src/catalog.rs:516
+msgid "Uninstall"
+msgstr ""
+
+#: src/catalog.rs:518 src/window.rs:211 src/window.rs:298
+msgid "Install"
+msgstr ""
+
+#: src/history.rs:25 src/window.rs:100
+msgid "History"
+msgstr ""
+
+#: src/history.rs:30
+msgid "Loading history …"
+msgstr ""
+
+#: src/history.rs:51
+msgid "transactions"
+msgstr ""
+
+#: src/history.rs:91
+msgid "History not available"
+msgstr ""
+
+#: src/packagekit.rs:55
+msgid "Low"
+msgstr ""
+
+#: src/packagekit.rs:56
+msgid "Enhancement"
+msgstr ""
+
+#: src/packagekit.rs:57
+msgid "Normal"
+msgstr ""
+
+#: src/packagekit.rs:58
+msgid "Bugfix"
+msgstr ""
+
+#: src/packagekit.rs:59
+msgid "Important"
+msgstr ""
+
+#: src/packagekit.rs:60
+msgid "Security"
+msgstr ""
+
+#: src/packagekit.rs:61
+msgid "Critical"
+msgstr ""
+
+#: src/packagekit.rs:529 src/packagekit.rs:563
+msgid "Installed"
+msgstr ""
+
+#: src/packagekit.rs:532 src/packagekit.rs:564
+msgid "Updated"
+msgstr ""
+
+#: src/packagekit.rs:536
+msgid "Purged"
+msgstr ""
+
+#: src/packagekit.rs:538 src/packagekit.rs:565
+msgid "Removed"
+msgstr ""
+
+#: src/packagekit.rs:566
+msgid "Remote added"
+msgstr ""
+
+#: src/settings.rs:29
+msgid "Software sources"
+msgstr ""
+
+#: src/settings.rs:32
+msgid "Show Flathub apps in the catalogue"
+msgstr ""
+
+#: src/settings.rs:63 src/settings.rs:298
+msgid "Sources"
+msgstr ""
+
+#: src/settings.rs:64
+msgid "View and edit APT sources"
+msgstr ""
+
+#: src/settings.rs:162
+msgid "Actions"
+msgstr ""
+
+#: src/settings.rs:164
+msgid "Remove"
+msgstr ""
+
+#: src/settings.rs:174
+msgid "✓ marked"
+msgstr ""
+
+#: src/settings.rs:178
+msgid "Apply"
+msgstr ""
+
+#: src/settings.rs:199
+msgid "✓ saved"
+msgstr ""
+
+#: src/settings.rs:209
+msgid "APT sources"
+msgstr ""
+
+#: src/settings.rs:235
+msgid "New source (.sources)"
+msgstr ""
+
+#: src/settings.rs:242
+msgid "Add"
+msgstr ""
+
+#: src/settings.rs:253
+msgid "✓ pending"
+msgstr ""
+
+#: src/settings.rs:258
+msgid "Apply changes"
+msgstr ""
+
+#: src/settings.rs:271
+msgid "✓ applied"
+msgstr ""
+
+#: src/settings.rs:272
+msgid "Failed"
+msgstr ""
+
+#: src/settings.rs:292 src/window.rs:355
+msgid "Close"
+msgstr ""
+
+#: src/updates.rs:50
+msgid "Select all"
+msgstr ""
+
+#: src/updates.rs:51
+msgid "Install selected"
+msgstr ""
+
+#: src/updates.rs:76
+msgid "No update selected"
+msgstr ""
+
+#: src/updates.rs:99
+msgid "Package"
+msgstr ""
+
+#: src/updates.rs:104
+msgid "Severity"
+msgstr ""
+
+#: src/updates.rs:245
+msgid "1 update"
+msgid_plural "%d updates"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/updates.rs:261
+msgid "No changelog available."
+msgstr ""
+
+#: src/updates.rs:271
+msgid "Details"
+msgstr ""
+
+#: src/updates.rs:273
+msgid "Details could not be loaded: %s"
+msgstr ""
+
+#: src/updates.rs:281
+msgid "Installing … %d %%"
+msgstr ""
+
+#: src/updates.rs:288
+msgid "Installing: %s"
+msgstr ""
+
+#: src/updates.rs:296
+msgid ""
+"Installed: %s — PackageKit automatically installed required dependencies."
+msgstr ""
+
+#: src/updates.rs:299 src/window.rs:359
+msgid "Installation failed: %s"
+msgstr ""
+
+#: src/welcome.rs:20 src/welcome.rs:74
+msgid "Checking update status …"
+msgstr ""
+
+#: src/welcome.rs:29 src/window.rs:122 src/window.rs:123 src/window.rs:137
+msgid "Ragnar Software"
+msgstr ""
+
+#: src/welcome.rs:30
+msgid "System updates and software management"
+msgstr ""
+
+#: src/welcome.rs:51
+msgid "The system is up to date."
+msgstr ""
+
+#: src/welcome.rs:53
+msgid "1 update available"
+msgid_plural "%d updates available"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/welcome.rs:67
+msgid "Failed to check status: %s"
+msgstr ""
+
+#: src/window.rs:97
+msgid "Welcome"
+msgstr ""
+
+#: src/window.rs:98
+msgid "Updates"
+msgstr ""
+
+#: src/window.rs:101
+msgid "Settings"
+msgstr ""
+
+#: src/window.rs:185
+msgid "Installing …"
+msgstr ""
+
+#: src/window.rs:202
+msgid "No additional dependencies."
+msgstr ""
+
+#: src/window.rs:204
+msgid "The following will also be installed:\n"
+msgstr ""
+
+#: src/window.rs:207
+msgid "Install updates?"
+msgstr ""
+
+#: src/window.rs:210
+msgid "Cancel"
+msgstr ""
+
+#: src/window.rs:260
+msgid "Working …"
+msgstr ""
+
+#: src/window.rs:273
+msgid "Package management"
+msgstr ""
+
+#: src/window.rs:315
+msgid "Install package"
+msgstr ""
+
+#: src/window.rs:341
+msgid "Transaction running …"
+msgstr ""
+
+#: src/window.rs:358
+msgid "Installation finished."
+msgstr ""

@@ -1,0 +1,71 @@
+ragnar-desktop (1.0-42) forky; urgency=medium
+
+  * ragnar-calc joins the core bundle: GTK4 calculator with
+    standard and scientific ("Erweitert") layouts, own expression
+    parser — a complete install now ships a calculator
+
+ -- LieraOS Project <projekt@lieraos.local>  Sat, 21 Nov 2026 16:10:00 +0100
+
+ragnar-desktop (1.0-41) forky; urgency=medium
+
+  * ragnar-clipboard joins the core bundle: Wayland data-control
+    daemon with persistent history (survives source-app exit via
+    re-provide), GTK4 picker bound to Super+V in the shipped rc.xml
+    and keybinds.xml.example
+
+ -- LieraOS Project <projekt@lieraos.local>  Sat, 21 Nov 2026 13:00:00 +0100
+
+ragnar-desktop (1.0-40) forky; urgency=medium
+
+  * ragnar-core is now the session bundle: the 17 session-critical
+    Rust components (session manager, taskbar, desktop icons, screen
+    lock, polkit agent, keyring, display-svc, automount, brightness,
+    night-light, OSD, MPRIS, run/power dialogs, gtk3-sync,
+    keyboard-layout) are built by debian/stage-components.sh and
+    shipped in one package instead of individual .debs
+  * Breaks/Replaces/Provides declared for every absorbed package so
+    upgrades transition cleanly
+  * ragnar-session completed as a drop-in replacement for the old
+    gnome-session fork 2.0-7: adds ragnar-session-quit,
+    ragnar-session-inhibit and ragnar-session-compositor-ready
+    binaries, the launcher wrapper, the user .target unit and the
+    SessionManager schema
+  * ragnar-desktop becomes the real meta package: Depends on
+    ragnar-core, Recommends the optional applications (edit,
+    taskmanager, software, settings, screenshot, raven, heimdall,
+    skald, wallpaper, backgrounds)
+  * Depends cleaned up: component runtime deps (polkitd, gtklock,
+    udisks2, pulseaudio-utils, systemd, libglib2.0-bin) now declared
+    on the bundle instead of leaking through unrelated packages
+
+ -- LieraOS Project <projekt@lieraos.local>  Sat, 21 Nov 2026 12:00:00 +0100
+
+ragnar-desktop (1.0-39) forky; urgency=medium
+
+  * labwc: bind Ctrl+Shift+Esc to ragnar-taskmanager — static bind in
+    keybinds.xml.example so the bridge merge keeps it, plus the same
+    bind in the shipped rc.xml for installs that deploy it directly
+
+ -- LieraOS Project <projekt@lieraos.local>  Fri, 20 Nov 2026 12:00:00 +0100
+
+ragnar-desktop (1.0-38) forky; urgency=medium
+
+  * labwc rc.xml: enable autoEnableOutputs — with it off, labwc
+    never publishes a wl_output on systems without a saved
+    ragnar-display-svc profile (fresh live/install sessions),
+    leaving clients with no output to map: black screen
+  * startragnarlabwc: drop dead environment-file copy — the
+    source file is never installed; the labwc bridge's
+    EnvironmentWriter creates and owns the file instead
+
+ -- LieraOS Project <projekt@lieraos.local>  Thu, 19 Nov 2026 12:30:00 +0100
+
+ragnar-desktop (1.0-37) forky; urgency=medium
+
+  * Source tree reduced to the session glue: launcher scripts,
+    labwc bridge, schemas, icons, data — no compiled code
+  * meson build rewritten for the glue package
+  * debian/control: minimal dependencies, no GNOME desktop deps
+  * Legacy branding and upstream references removed
+
+ -- LieraOS Project <projekt@lieraos.local>  Thu, 05 Nov 2026 00:30:00 +0100

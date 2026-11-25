@@ -1,0 +1,22 @@
+[package]
+name = "ragnar-automount"
+version = "0.1.2"
+edition = "2021"
+description = "Session automounter for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+
+[dependencies]
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/ragnar-automount", "usr/bin/ragnar-automount", "755"],
+    ["data/org.lieraos.ragnar.Automount.desktop", "etc/xdg/autostart/", "644"],
+    ["data/polkit-1/rules.d/60-ragnar-automount.rules", "etc/polkit-1/rules.d/60-ragnar-automount.rules", "644"],
+]

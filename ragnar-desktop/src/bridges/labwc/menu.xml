@@ -1,0 +1,7 @@
+<openbox_menu>
+	<menu id="root-menu">
+		<item label="System Settings" original="System Settings">
+			<action name="Execute" command="ragnar-settings" />
+		</item>
+	</menu>
+</openbox_menu>

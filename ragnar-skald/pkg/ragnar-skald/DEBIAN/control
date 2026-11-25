@@ -1,0 +1,14 @@
+Package: ragnar-skald
+Version: 0.1.1
+Section: sound
+Priority: optional
+Architecture: amd64
+Depends: libpipewire-0.3-0t64, libgtk-4-1, wireplumber
+Recommends: swh-plugins, rubberband-ladspa, librnnoise-ladspa
+Maintainer: Jörg Schröder <projekt@lieraos.local>
+Description: PipeWire audio control center for LieraOS
+ Native GTK4/Wayland audio settings: output/input devices,
+ volume with optional 150% boost, mute, effect chains
+ (EQ, echo, reverb) and microphone processing (voice presets,
+ noise suppression, echo) via PipeWire filter-chain modules.
+ Persistent effects run through the ragnar-skald-fx daemon.

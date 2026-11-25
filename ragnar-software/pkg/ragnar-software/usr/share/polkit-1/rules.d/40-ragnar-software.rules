@@ -1,0 +1,10 @@
+// Ragnar Software: require admin authentication for system updates.
+// Upstream ships a YES shortcut for active sudo/wheel members to
+// support unattended updates; LieraOS asks for the password instead —
+// applying system changes without authentication is not acceptable.
+// Sorts before org.freedesktop.packagekit.rules so this answer wins.
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.packagekit.system-update") {
+        return polkit.Result.AUTH_ADMIN_KEEP;
+    }
+});

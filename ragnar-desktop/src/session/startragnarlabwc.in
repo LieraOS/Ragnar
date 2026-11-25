@@ -1,0 +1,257 @@
+#!/bin/sh
+OPTS=""
+for OPT in "$@"; do
+    if test "${OPT}" = "--help"; then
+        # Print help and exit
+        echo "Usage:"
+        echo "  startragnarlabwc [OPTIONS...]"
+        echo
+        echo "Options:"
+        echo "  --help                   Show help options"
+        echo
+
+        exit 0
+    else
+        # Append to opts
+        OPTS="$OPTS $OPT"
+    fi
+done
+
+# Set XDG_CONFIG_DIRS for apps like crystal-dock that needs it but don't supply a fallback
+if [ -z "${XDG_CONFIG_DIRS}" ]; then
+  XDG_CONFIG_DIRS="/etc/xdg"
+  export XDG_CONFIG_DIRS
+fi
+
+# Set the XDG_RUNTIME_DIR if we can not get it in systems
+# without systemd
+if [ -z "${XDG_RUNTIME_DIR}" ]; then
+    if [ -d "/run/user" ]; then
+        XDG_RUNTIME_DIR="/run/user/$(id -ru)"
+        export XDG_RUNTIME_DIR
+    else
+        if [ -d "/var/run/user" ]; then
+            XDG_RUNTIME_DIR="/var/run/user/$(id -ru)"
+            export XDG_RUNTIME_DIR
+        else
+            XDG_RUNTIME_DIR="/tmp/${USER}-runtime"
+            export XDG_RUNTIME_DIR
+        fi
+    fi
+fi
+
+if [ ! -e "${XDG_RUNTIME_DIR}" ]; then
+    logger "XDG_RUNTIME_DIR is invalid or does not exist!"
+    logger "Creating XDG_RUNTIME_DIR..."
+    mkdir -p -m 0700 "${XDG_RUNTIME_DIR}" || {
+        logger "Unable to create runtime directory ${XDG_RUNTIME_DIR}!"
+        exit 1
+    }
+fi
+
+# Login shells add ~/bin and ~/.local/bin to PATH via ~/.profile, but
+# display managers start wayland sessions through a plain `sh`, so the
+# profile never runs inside the graphical session. Apply the same
+# convention here or user-installed binaries (npm -g, pip --user, …)
+# are unresolvable for every program in the session.
+# Deliberately not sourcing ~/.profile itself: arbitrary user code
+# must not run inside the session launcher, and a non-POSIX profile
+# would break login entirely.
+for _dir in "${HOME}/bin" "${HOME}/.local/bin"; do
+    if [ -d "${_dir}" ]; then
+        case ":${PATH}:" in
+            *":${_dir}:"*) ;;
+            *) PATH="${_dir}:${PATH}" ;;
+        esac
+    fi
+done
+export PATH
+unset _dir
+
+# Publish the login-convention PATH to the systemd user manager and
+# the D-Bus activation environment: labwc only exports its own
+# whitelist later, so without this step every autostart unit and
+# dbus-activated service (terminals, portals, …) inherits the
+# minimal default PATH and cannot find user-installed binaries.
+systemctl --user import-environment PATH 2>/dev/null || true
+dbus-update-activation-environment --systemd PATH 2>/dev/null || true
+
+# Fix desktop file override precedence
+if [ -z "$XDG_DATA_DIRS" ]; then
+    export XDG_DATA_DIRS="@datadir@/ragnar-desktop:@datadir@"
+else
+    case ":$XDG_DATA_DIRS:" in
+        *":@datadir@/ragnar-desktop:"*) ;;
+        *)
+            export XDG_DATA_DIRS="@datadir@/ragnar-desktop:$XDG_DATA_DIRS"
+            ;;
+    esac
+fi
+
+# freedesktop specifications mandate that the definition
+# of XDG_SESSION_TYPE should be respected
+XDG_SESSION_TYPE="wayland"
+export XDG_SESSION_TYPE
+# Make sure all toolkits use their Wayland backend
+#
+# For Gtk applications also the x11 backend as a safe fallback
+if [ -z "${GDK_BACKEND}" ]; then
+    GDK_BACKEND="wayland,x11"
+    export GDK_BACKEND
+fi
+if [ -z "${QT_QPA_PLATFORM}" ]; then
+    QT_QPA_PLATFORM="wayland"
+    export QT_QPA_PLATFORM
+fi
+
+# allow compatible Qt6 apps to theme with gtk3
+if [ -z "${QT_QPA_PLATFORMTHEME}" ]; then
+    QT_QPA_PLATFORMTHEME="gtk3"
+    export QT_QPA_PLATFORMTHEME
+fi
+
+# In many OS the wayland backend for clutter does not work, so
+# use the safe "gdk" backend instead
+if [ -z "${CLUTTER_BACKEND}" ]; then
+    CLUTTER_BACKEND="gdk"
+    export CLUTTER_BACKEND
+fi
+if [ -z "${SDL_VIDEODRIVER}" ]; then
+    # Keep the strict wayland driver: enabling the x11 fallback
+    # globally pushed SDL clients onto XWayland, which produces
+    # visible rendering artifacts on NVIDIA + wlroots sessions.
+    # Games that need x11 can set it per launch option.
+    SDL_VIDEODRIVER="wayland"
+    export SDL_VIDEODRIVER
+fi
+
+# Add a wlroots helper to allow running in VirtualBox
+if grep -q "VirtualBox" /sys/class/dmi/id/product_name 2>/dev/null; then
+    export WLR_RENDERER=pixman
+fi
+
+if command -v eglinfo >/dev/null 2>&1; then
+    if eglinfo 2>/dev/null | grep -Eqi 'virgl|vmwgfx|SVGA3D'; then
+        export WLR_NO_HARDWARE_CURSORS=1
+    fi
+fi
+
+# Add a helper for electron based apps to think they are running under GNOME
+export GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+
+# This is default for current firefox/thunderbird.
+#
+# Exception - legacy proprietary NVIDIA driver (branch < 590, i.e.
+# what Pascal-generation cards are pinned to): with Firefox's native
+# Wayland backend on this driver stack, opening the getUserMedia
+# permission doorhanger creates a new xdg_popup surface whose first
+# frame deadlocks inside NVIDIA's EGL (renderer thread parked in
+# libEGL_nvidia/libnvidia-eglcore) and the whole browser freezes
+# before the prompt appears. XWayland avoids the Wayland-EGL path
+# while keeping the content sandbox intact. Cards on driver >= 590
+# keep native Wayland, as do AMD, Intel and nouveau. Overridable via
+# the labwc environment file when MOZ_ENABLE_WAYLAND is preset.
+if [ -z "${MOZ_ENABLE_WAYLAND}" ]; then
+    MOZ_ENABLE_WAYLAND="1"
+    if [ -f /proc/driver/nvidia/version ]; then
+        _nv_branch="$(sed -n 's/^NVRM version: NVIDIA UNIX x86_64 Kernel Module  \([0-9]*\).*/\1/p' \
+                      /proc/driver/nvidia/version)"
+        if [ -n "${_nv_branch}" ] && [ "${_nv_branch}" -lt 590 ]; then
+            MOZ_ENABLE_WAYLAND="0"
+        fi
+        unset _nv_branch
+    fi
+    export MOZ_ENABLE_WAYLAND
+fi
+
+default_compositor="labwc"
+
+# Create specific labwc directory for Ragnar
+if [ ! -d "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc" ]; then
+    mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc"
+fi
+
+# Copy specific labwc configuration file for Ragnar
+if [ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/rc.xml" ]; then
+    cp -p @datadir@/ragnar-desktop/labwc/rc.xml "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/rc.xml"
+    # This is needed on some immutable distributions like NixOS.
+    chmod u+w "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/rc.xml"
+fi
+
+# The environment file is not copied here: the labwc bridge's
+# EnvironmentWriter owns it and creates it on first run. The
+# packaged tree intentionally ships no template for it.
+
+# Copy specific labwc menu file for Ragnar
+if [ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/menu.xml" ]; then
+    cp -p @datadir@/ragnar-desktop/labwc/menu.xml "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/menu.xml"
+    chmod u+w "${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc/menu.xml"
+fi
+
+# Ragnar will use its own config directory and config file to avoid
+# conflict with current labwc setup and avoid launching anything
+# from ~/.config/labwc/autostart
+# A preset RAGNAR_SESSION_COMPOSITOR (e.g. by a wrapper like
+# startragnarcomp) is the full compositor command and wins over the
+# labwc default — this is what makes alternative Ragnar compositors
+# (ragnar-comp) selectable without touching this script.
+RAGNAR_SESSION_COMPOSITOR="${RAGNAR_SESSION_COMPOSITOR:-${OPTS:-labwc --config-dir ${XDG_CONFIG_HOME:-${HOME}/.config}/ragnar-desktop/labwc} -S ragnar-desktop}"
+
+# Start a D-Bus session if there isn't one already.
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+    RAGNAR_SESSION_COMPOSITOR="dbus-run-session -- ${RAGNAR_SESSION_COMPOSITOR}"
+fi
+
+# workaround https://github.com/canonical/lightdm/issues/63
+if [ -n "$XDG_VTNR" ] && [ -f "/sys/devices/virtual/tty/tty0/active" ]; then
+    VT_TEST_CNT=1
+    while true; do
+        CURRENT_VT=$(cat /sys/devices/virtual/tty/tty0/active)
+        if [ "$CURRENT_VT" = "tty$XDG_VTNR" ]; then
+            break
+        fi
+        VT_TEST_CNT=$((VT_TEST_CNT + 1))
+        if [ "$VT_TEST_CNT" -gt 100 ]; then
+            logger "VT $XDG_VTNR is expected but the switch did not happen in the last second, continuing anyway."
+            break
+        fi
+        sleep 0.01
+    done
+fi
+
+# Pin the compositor to a real GPU DRM device. With the proprietary
+# NVIDIA driver the EFI framebuffer stays registered as card0
+# (nvidia-drm does not remove platform framebuffer devices), so two
+# DRM nodes exist: card0=simpledrm plus the real GPU. wlroots picks a
+# device on its own and may land on simpledrm, which cannot offer real
+# outputs - the session then comes up with no monitors at all and
+# every client looking for wl_output fails. Deterministic selection:
+# first card that is not driven by simple-framebuffer wins. Still
+# overridable via the labwc environment file.
+if [ -z "${WLR_DRM_DEVICES}" ]; then
+    for _card in /sys/class/drm/card[0-9]; do
+        [ -e "${_card}/device/driver" ] || continue
+        _drv="$(basename "$(readlink "${_card}/device/driver")")"
+        if [ "${_drv}" != "simple-framebuffer" ]; then
+            WLR_DRM_DEVICES="/dev/dri/$(basename "${_card}")"
+            export WLR_DRM_DEVICES
+            break
+        fi
+    done
+fi
+
+# Start the ragnar compositor.
+# When no accelerated renderer can be initialized (missing GPU
+# firmware, failed accel init, unsupported hardware), labwc exits
+# non-zero right away. Retry once with the software pixman renderer
+# so the desktop still comes up - degraded, but working - instead of
+# bouncing straight back to the display manager greeter. A clean
+# logout exits 0 and never reaches the fallback.
+if ! ${RAGNAR_SESSION_COMPOSITOR}; then
+    logger "startragnarlabwc: compositor exited abnormally, retrying with pixman renderer"
+    WLR_RENDERER=pixman
+    export WLR_RENDERER
+    exec ${RAGNAR_SESSION_COMPOSITOR}
+fi
+
+exit 0

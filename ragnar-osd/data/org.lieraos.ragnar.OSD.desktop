@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar OSD
+Comment=On-screen display overlay for the Ragnar desktop
+Exec=/usr/bin/ragnar-osd
+Terminal=false
+NoDisplay=true
+X-GNOME-AutoRestart=true

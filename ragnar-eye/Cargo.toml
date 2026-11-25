@@ -1,0 +1,24 @@
+[package]
+name = "ragnar-eye"
+version = "0.1.0"
+edition = "2021"
+description = "Ragnar Eye — fast GTK4 image viewer (fast GTK4 image viewer)"
+license = "GPL-3.0-or-later"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+
+[dependencies]
+gtk4 = { version = "0.9", features = ["v4_10"] }
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+image = "0.25"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+psd = "0.3"
+libloading = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+image = "0.25"
+
+[profile.release]
+lto = true
+opt-level = 3

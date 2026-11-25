@@ -1,0 +1,16 @@
+[package]
+name = "ragnar-keyring"
+version = "0.1.1"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Ragnar session keyring starter/unlock helper"
+license = "GPL-3.0-or-later"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+assets = [
+    ["target/release/ragnar-keyring", "usr/libexec/", "755"],
+    ["data/org.lieraos.ragnar.Keyring.desktop", "etc/xdg/autostart/", "644"],
+]

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Edit
+Name[de]=Ragnar Editor
+Comment=Native Wayland text editor for the Ragnar desktop
+Comment[de]=Nativer Wayland-Texteditor für den Ragnar-Desktop
+Exec=ragnar-edit %F
+Icon=text-editor
+Terminal=false
+Categories=Utility;TextEditor;
+StartupNotify=true
+MimeType=text/plain;text/markdown;text/x-csrc;text/x-chdr;text/x-c++src;text/x-python;text/x-python3;text/x-javascript;application/json;text/html;text/css;application/xml;text/xml;text/x-yaml;application/x-yaml;text/x-sh;application/x-shellscript;text/x-cmake;text/x-makefile;text/x-rust;application/x-php;application/sql;text/x-log;text/x-tex;text/x-ini;application/toml;application/rtf;application/pdf;application/x-zerosize;inode/x-empty;
+Keywords=editor;text;code;

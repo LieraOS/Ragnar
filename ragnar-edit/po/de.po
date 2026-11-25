@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Untitled"
+msgstr "Unbenannt"
+
+msgid "New"
+msgstr "Neu"
+
+msgid "Open…"
+msgstr "Öffnen…"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Save As…"
+msgstr "Speichern unter…"
+
+msgid "Print…"
+msgstr "Drucken…"
+
+msgid "Exit"
+msgstr "Beenden"
+
+msgid "File"
+msgstr "Datei"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "View"
+msgstr "Ansicht"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "Undo"
+msgstr "Rückgängig"
+
+msgid "Redo"
+msgstr "Wiederholen"
+
+msgid "Cut"
+msgstr "Ausschneiden"
+
+msgid "Copy"
+msgstr "Kopieren"
+
+msgid "Paste"
+msgstr "Einfügen"
+
+msgid "Find and Replace…"
+msgstr "Suchen und Ersetzen…"
+
+msgid "Find and Replace"
+msgstr "Suchen und Ersetzen"
+
+msgid "Find"
+msgstr "Suchen"
+
+msgid "Replace with"
+msgstr "Ersetzen durch"
+
+msgid "Find:"
+msgstr "Suchen:"
+
+msgid "Replace:"
+msgstr "Ersetzen:"
+
+msgid "Match case"
+msgstr "Groß-/Kleinschreibung"
+
+msgid "Whole word"
+msgstr "Ganzes Wort"
+
+msgid "Search all tabs"
+msgstr "Alle Tabs durchsuchen"
+
+msgid "Find next"
+msgstr "Weitersuchen"
+
+msgid "Replace"
+msgstr "Ersetzen"
+
+msgid "Replace all"
+msgstr "Alle ersetzen"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "matches"
+msgstr "Treffer"
+
+msgid "replacements"
+msgstr "Ersetzungen"
+
+msgid "Zoom In"
+msgstr "Vergrößern"
+
+msgid "Zoom Out"
+msgstr "Verkleinern"
+
+msgid "Reset Zoom"
+msgstr "Zoom zurücksetzen"
+
+msgid "Settings…"
+msgstr "Einstellungen…"
+
+msgid "About Ragnar Edit"
+msgstr "Über Ragnar Edit"
+
+msgid "Ready"
+msgstr "Bereit"
+
+msgid "Modified"
+msgstr "Geändert"
+
+msgid "Opened"
+msgstr "Geöffnet"
+
+msgid "File saved"
+msgstr "Datei gespeichert"
+
+msgid "Could not save file"
+msgstr "Datei konnte nicht gespeichert werden"
+
+msgid "Could not open file"
+msgstr "Datei konnte nicht geöffnet werden"
+
+msgid "Binary file — not opened"
+msgstr "Binärdatei — nicht geöffnet"
+
+msgid "Auto-saved"
+msgstr "Automatisch gespeichert"
+
+msgid "New document"
+msgstr "Neues Dokument"
+
+msgid "Dark theme"
+msgstr "Dunkles Thema"
+
+msgid "Font"
+msgstr "Schriftart"
+
+msgid "Word wrap"
+msgstr "Zeilenumbruch"
+
+msgid "Auto-save interval (s, 0 = off)"
+msgstr "Auto-Speichern-Intervall (s, 0 = aus)"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Native Wayland text editor for the Ragnar desktop"
+msgstr "Nativer Wayland-Texteditor für den Ragnar-Desktop"
+
+msgid "Unsaved changes"
+msgstr "Ungespeicherte Änderungen"
+
+msgid "Some documents have unsaved changes. Save them before closing?"
+msgstr "Einige Dokumente haben ungespeicherte Änderungen. Vor dem Schließen speichern?"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Discard changes"
+msgstr "Änderungen verwerfen"
+
+msgid "Save and close"
+msgstr "Speichern und schließen"

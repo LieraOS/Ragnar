@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        # Rebuild the compiled schema cache so the bundled schemas
+        # (SessionManager, power-dialog, automount, view) are picked
+        # up immediately.
+        glib-compile-schemas /usr/share/glib-2.0/schemas || true
+
+        # Safety net (from the former ragnar-polkit-agent package):
+        # polkit-agent-helper-1 must be setuid root or PAM
+        # authentication fails instantly. Some images/tools strip
+        # suid bits — restore it if missing.
+        if [ -f /usr/lib/polkit-1/polkit-agent-helper-1 ] && \
+           [ ! -u /usr/lib/polkit-1/polkit-agent-helper-1 ]; then
+            chmod u+s /usr/lib/polkit-1/polkit-agent-helper-1
+        fi
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Software
+Comment=System updates and package management
+Comment[de]=Systemaktualisierungen und Paketverwaltung
+Exec=ragnar-software %f
+Icon=system-software-install-symbolic
+Terminal=false
+Categories=System;Settings;PackageManager;
+Keywords=update;install;package;software;
+MimeType=application/vnd.debian.binary-package;application/vnd.flatpak.ref;application/vnd.flatpak.repo;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar MPRIS Controller
+Comment=Media-key to MPRIS player forwarding for the Ragnar desktop
+Exec=/usr/bin/ragnar-mpris
+Terminal=false
+NoDisplay=true
+X-GNOME-AutoRestart=true

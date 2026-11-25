@@ -1,0 +1,292 @@
+# German translations for Ragnar Task Manager.
+# Copyright (C) 2025 Jörg Schröder / LieraOS
+# SPDX-License-Identifier: GPL-3.0-or-later
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-taskmanager 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/LieraOS\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Ragnar Task Manager"
+msgstr "Ragnar Taskverwaltung"
+
+msgid "Sections"
+msgstr "Bereiche"
+
+msgid "Processes"
+msgstr "Prozesse"
+
+msgid "Performance"
+msgstr "Leistung"
+
+msgid "Services"
+msgstr "Dienste"
+
+msgid "Startup"
+msgstr "Autostart"
+
+msgid "System"
+msgstr "System"
+
+msgid "Search name, pid or user"
+msgstr "Name, PID oder Benutzer suchen"
+
+msgid "End Process"
+msgstr "Prozess beenden"
+
+msgid "Kill Process"
+msgstr "Prozess erzwingen"
+
+msgid "Priority (nice):"
+msgstr "Priorität (nice):"
+
+msgid "Apply"
+msgstr "Übernehmen"
+
+msgid "Priority updated"
+msgstr "Priorität aktualisiert"
+
+msgid "Operation not permitted"
+msgstr "Vorgang nicht erlaubt"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Parent PID"
+msgstr "Eltern-PID"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "State"
+msgstr "Status"
+
+msgid "Threads"
+msgstr "Threads"
+
+msgid "Memory"
+msgstr "Speicher"
+
+msgid "Command"
+msgstr "Befehl"
+
+msgid "Running"
+msgstr "Läuft"
+
+msgid "Sleeping"
+msgstr "Schlafend"
+
+msgid "Disk sleep"
+msgstr "Plattenwarte"
+
+msgid "Stopped"
+msgstr "Gestoppt"
+
+msgid "Zombie"
+msgstr "Zombie"
+
+msgid "Idle"
+msgstr "Untätig"
+
+msgid "Unknown"
+msgstr "Unbekannt"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Swap"
+msgstr "Auslagerung"
+
+msgid "Network"
+msgstr "Netzwerk"
+
+msgid "Disk"
+msgstr "Festplatte"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "No GPU detected"
+msgstr "Keine GPU erkannt"
+
+msgid "Search services"
+msgstr "Dienste suchen"
+
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+msgid "Start"
+msgstr "Starten"
+
+msgid "Stop"
+msgstr "Stoppen"
+
+msgid "Restart"
+msgstr "Neu starten"
+
+msgid "System Information"
+msgstr "Systeminformationen"
+
+msgid "Hostname"
+msgstr "Rechnername"
+
+msgid "Operating System"
+msgstr "Betriebssystem"
+
+msgid "Kernel"
+msgstr "Kernel"
+
+msgid "Architecture"
+msgstr "Architektur"
+
+msgid "Processor"
+msgstr "Prozessor"
+
+msgid "Cores"
+msgstr "Kerne"
+
+msgid "Uptime"
+msgstr "Laufzeit"
+
+msgid "Load Average"
+msgstr "Lastdurchschnitt"
+
+msgid "Started"
+msgstr "Gestartet"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Users"
+msgstr "Benutzer"
+
+msgid "File"
+msgstr "Datei"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "Exit"
+msgstr "Beenden"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "About"
+msgstr "Über"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Refresh interval (s):"
+msgstr "Aktualisierungsintervall (s):"
+
+msgid "Search:"
+msgstr "Suche:"
+
+msgid "Enter process name or PID..."
+msgstr "Prozessname oder PID eingeben…"
+
+msgid "Filter:"
+msgstr "Filter:"
+
+msgid "All Processes"
+msgstr "Alle Prozesse"
+
+msgid "My Processes"
+msgstr "Meine Prozesse"
+
+msgid "System Processes"
+msgstr "Systemprozesse"
+
+msgid "Apps"
+msgstr "Apps"
+
+msgid "Background Processes"
+msgstr "Hintergrundprozesse"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "End Task"
+msgstr "Task beenden"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Sessions"
+msgstr "Sitzungen"
+
+msgid "Double-click a user to show their processes."
+msgstr "Benutzer doppelklicken, um dessen Prozesse anzuzeigen."
+
+msgid "Core"
+msgstr "Kern"
+
+msgid "Model"
+msgstr "Modell"
+
+msgid "Current"
+msgstr "Aktuell"
+
+msgid "Max"
+msgstr "Max."
+
+msgid "Version 0.1.0"
+msgstr "Version 0.1.0"
+
+msgid "A modern, user-friendly system task manager for Linux\ndesigned to help you monitor and manage your system efficiently."
+msgstr "Ein moderner, benutzerfreundlicher System-Taskmanager für Linux,\nder dir hilft, dein System effizient zu überwachen und zu verwalten."
+
+msgid "A modern, user-friendly system task manager\ndesigned for efficient system monitoring."
+msgstr "Ein moderner, benutzerfreundlicher System-Taskmanager\nfür effiziente Systemüberwachung."
+
+msgid "Key Features"
+msgstr "Hauptfunktionen"
+
+msgid "Process Management"
+msgstr "Prozessverwaltung"
+
+msgid "Monitor and control running applications"
+msgstr "Laufende Anwendungen überwachen und steuern"
+
+msgid "Performance Monitoring"
+msgstr "Leistungsüberwachung"
+
+msgid "Real-time CPU, memory, disk, network, and GPU tracking"
+msgstr "CPU-, Speicher-, Festplatten-, Netzwerk- und GPU-Verfolgung in Echtzeit"
+
+
+msgid "Detailed hardware and software overview"
+msgstr "Detaillierte Hardware- und Softwareübersicht"
+
+msgid "Startup Control"
+msgstr "Autostart-Verwaltung"
+
+msgid "Manage applications that launch at boot"
+msgstr "Anwendungen verwalten, die beim Start laufen"
+
+msgid "Service Management"
+msgstr "Dienstverwaltung"
+
+msgid "Control system services easily"
+msgstr "Systemdienste einfach steuern"
+
+msgid "Global Hotkey"
+msgstr "Globaler Hotkey"
+
+msgid "Launch instantly with Ctrl+Shift+Esc"
+msgstr "Sofortstart mit Strg+Umschalt+Esc"

@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ragnar-desktop
+Upstream-Contact: Jörg Schröder <projekt@lieraos.local>
+Source: https://github.com/lieraos/ragnar-desktop
+
+Files: *
+Copyright: 2026, Jörg Schröder, LieraOS Project
+License: GPL-2.0
+ On Debian systems, the complete text of the GNU General Public
+ License version 2 can be found in /usr/share/common-licenses/GPL-2.

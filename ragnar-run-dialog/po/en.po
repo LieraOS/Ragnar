@@ -1,0 +1,20 @@
+# English translations for ragnar-run-dialog.
+# msgids are the German source strings (German-first UI).
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-run-dialog 0.1.0\n"
+"Report-Msgid-Bugs-To: projekt@lieraos.local\n"
+"POT-Creation-Date: 2026-03-04 00:00+0100\n"
+"PO-Revision-Date: 2026-03-04 00:00+0100\n"
+"Last-Translator: LieraOS Project <projekt@lieraos.local>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Anwendung oder Befehl eingeben …"
+msgstr "Type an application or command …"
+
+msgid "Befehl ausführen"
+msgstr "Run command"

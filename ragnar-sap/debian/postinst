@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+# The brscan* packages install their decoder libraries into /usr/lib64,
+# which the dynamic loader does not search on Debian; the Brother SANE
+# backends dlopen() them at open time and fail with SANE_INVAL when they
+# are missing from the search path. Mirror every name the decoder ships
+# under (libbrscandecN.so / .so.1 / .so.1.0.0) into the multiarch dir so
+# any dlopen() spelling resolves — covers brscan3/4/5 alike.
+for lib in /usr/lib64/libbrscandec*.so*; do
+    [ -e "$lib" ] || continue
+    ln -sf "$lib" "/usr/lib/x86_64-linux-gnu/$(basename "$lib")"
+done
+command -v ldconfig >/dev/null 2>&1 && ldconfig || true
+if command -v udevadm >/dev/null 2>&1; then
+    udevadm control --reload-rules || true
+    # Apply the Brother rule to already-plugged devices right now —
+    # otherwise the permissions only take effect after a replug.
+    udevadm trigger --subsystem-match=usb --attr-match=idVendor=04f9 || true
+fi
+#DEBHELPER#
+exit 0

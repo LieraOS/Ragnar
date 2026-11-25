@@ -1,0 +1,47 @@
+[package]
+name = "ragnar-skald"
+version = "0.1.0"
+edition = "2021"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+description = "Audio control application with PipeWire backend and GTK4 frontend"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/lieraos/ragnar-skald"
+readme = "README.md"
+
+[dependencies]
+# GUI Framework (v4_10 for AlertDialog)
+gtk4 = { version = "0.9", features = ["v4_10"] }
+
+# PipeWire bindings (native backend: registry, node params, metadata)
+pipewire = "0.8"
+libspa = "0.8"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Utilities
+dirs = "5.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
+
+# libspa 0.8 writes opaque spa_pod_builder fields removed in
+# PipeWire >= 1.0 headers — vendored with a C-API fix (builder.rs
+# overflow callback re-initializes instead of touching fields).
+[patch.crates-io]
+libspa = { path = "vendor/libspa" }

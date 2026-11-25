@@ -1,0 +1,427 @@
+# German translations for Ragnar Software.
+# Copyright (C) 2025 LieraOS
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-software 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-19 05:45+0100\n"
+"PO-Revision-Date: 2025-11-08 00:00+0000\n"
+"Last-Translator: LieraOS\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/backend.rs:82
+msgid "Flatpak update"
+msgstr "Flatpak-Update"
+
+#: src/catalog.rs:21
+msgid "Audio & Video"
+msgstr "Audio & Video"
+
+#: src/catalog.rs:32
+msgid "Image editing"
+msgstr "Bildbearbeitung"
+
+#: src/catalog.rs:40
+msgid "Development"
+msgstr "Entwicklung"
+
+#: src/catalog.rs:41
+msgid "Education"
+msgstr "Bildung"
+
+#: src/catalog.rs:42
+msgid "Games"
+msgstr "Spiele"
+
+#: src/catalog.rs:44
+msgid "Internet"
+msgstr "Internet"
+
+#: src/catalog.rs:47
+msgid "Office"
+msgstr "Büro"
+
+#: src/catalog.rs:48
+msgid "Science"
+msgstr "Wissenschaft"
+
+#: src/catalog.rs:49
+msgid "System"
+msgstr "System"
+
+#: src/catalog.rs:50
+msgid "Utilities"
+msgstr "Zubehör"
+
+#: src/catalog.rs:118
+msgid "No app selected"
+msgstr "Keine App ausgewählt"
+
+#: src/catalog.rs:138
+msgid "Categories"
+msgstr "Kategorien"
+
+#: src/catalog.rs:142
+msgid "All"
+msgstr "Alle"
+
+#: src/catalog.rs:143
+msgid "Debian"
+msgstr "Debian"
+
+#: src/catalog.rs:144
+msgid "Flathub"
+msgstr "Flathub"
+
+#: src/catalog.rs:148
+msgid "Search packages"
+msgstr "Pakete suchen"
+
+#: src/catalog.rs:176 src/catalog.rs:177 src/catalog.rs:180 src/window.rs:99
+msgid "Software"
+msgstr "Software"
+
+#: src/catalog.rs:290
+msgid "Search"
+msgstr "Suche"
+
+#: src/catalog.rs:327
+msgid "No description available."
+msgstr "Keine Beschreibung verfügbar."
+
+#: src/catalog.rs:474
+msgid "Uninstall"
+msgstr "Deinstallieren"
+
+#: src/catalog.rs:476 src/window.rs:211 src/window.rs:298
+msgid "Install"
+msgstr "Installieren"
+
+#: src/history.rs:25 src/window.rs:100
+msgid "History"
+msgstr "Verlauf"
+
+#: src/history.rs:30
+msgid "Loading history …"
+msgstr "Lade Verlauf …"
+
+#: src/history.rs:51
+msgid "transactions"
+msgstr "Transaktionen"
+
+#: src/history.rs:91
+msgid "History not available"
+msgstr "Verlauf nicht verfügbar"
+
+#: src/packagekit.rs:55
+msgid "Low"
+msgstr "Gering"
+
+#: src/packagekit.rs:56
+msgid "Enhancement"
+msgstr "Verbesserung"
+
+#: src/packagekit.rs:57
+msgid "Normal"
+msgstr "Normal"
+
+#: src/packagekit.rs:58
+msgid "Bugfix"
+msgstr "Fehlerbehebung"
+
+#: src/packagekit.rs:59
+msgid "Important"
+msgstr "Wichtig"
+
+#: src/packagekit.rs:60
+msgid "Security"
+msgstr "Sicherheit"
+
+#: src/packagekit.rs:61
+msgid "Critical"
+msgstr "Kritisch"
+
+#: src/packagekit.rs:529 src/packagekit.rs:563
+msgid "Installed"
+msgstr "Installiert"
+
+#: src/packagekit.rs:532 src/packagekit.rs:564
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: src/packagekit.rs:536
+msgid "Purged"
+msgstr "Gelöscht"
+
+#: src/packagekit.rs:538 src/packagekit.rs:565
+msgid "Removed"
+msgstr "Entfernt"
+
+#: src/packagekit.rs:566
+msgid "Remote added"
+msgstr "Remote hinzugefügt"
+
+#: src/settings.rs:29
+msgid "Software sources"
+msgstr "Software-Quellen"
+
+#: src/settings.rs:32
+msgid "Show Flathub apps in the catalogue"
+msgstr "Flathub-Apps im Katalog anzeigen"
+
+#: src/settings.rs:63 src/settings.rs:298
+msgid "Sources"
+msgstr "Quellen"
+
+#: src/settings.rs:64
+msgid "View and edit APT sources"
+msgstr "APT-Quellen anzeigen und bearbeiten"
+
+#: src/settings.rs:162
+msgid "Actions"
+msgstr "Aktionen"
+
+#: src/settings.rs:164
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/settings.rs:174
+msgid "✓ marked"
+msgstr "✓ markiert"
+
+#: src/settings.rs:178
+msgid "Apply"
+msgstr "Übernehmen"
+
+#: src/settings.rs:199
+msgid "✓ saved"
+msgstr "✓ gespeichert"
+
+#: src/settings.rs:209
+msgid "APT sources"
+msgstr "APT-Quellen"
+
+#: src/settings.rs:235
+msgid "New source (.sources)"
+msgstr "Neue Quelle (.sources)"
+
+#: src/settings.rs:242
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: src/settings.rs:253
+msgid "✓ pending"
+msgstr "✓ wartet"
+
+#: src/settings.rs:258
+msgid "Apply changes"
+msgstr "Änderungen anwenden"
+
+#: src/settings.rs:271
+msgid "✓ applied"
+msgstr "✓ Angewendet"
+
+#: src/settings.rs:272
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#: src/settings.rs:292 src/window.rs:355
+msgid "Close"
+msgstr "Beenden"
+
+#: src/updates.rs:50
+msgid "Select all"
+msgstr "Alle auswählen"
+
+#: src/updates.rs:51
+msgid "Install selected"
+msgstr "Ausgewählte installieren"
+
+#: src/updates.rs:76
+msgid "No update selected"
+msgstr "Kein Update ausgewählt"
+
+#: src/updates.rs:99
+msgid "Package"
+msgstr "Paket"
+
+#: src/updates.rs:104
+msgid "Severity"
+msgstr "Schweregrad"
+
+#: src/updates.rs:245
+msgid "1 update"
+msgid_plural "%d updates"
+msgstr[0] "1 Update"
+msgstr[1] "%d Updates"
+
+#: src/updates.rs:261
+msgid "No changelog available."
+msgstr "Keine Änderungsbeschreibung verfügbar."
+
+#: src/updates.rs:271
+msgid "Details"
+msgstr "Details"
+
+#: src/updates.rs:273
+msgid "Details could not be loaded: %s"
+msgstr "Details konnten nicht geladen werden: %s"
+
+#: src/updates.rs:281
+msgid "Installing … %d %%"
+msgstr "Installiere … %d %%"
+
+#: src/updates.rs:288
+msgid "Installing: %s"
+msgstr "Installiere: %s"
+
+#: src/updates.rs:296
+msgid ""
+"Installed: %s — PackageKit automatically installed required dependencies."
+msgstr ""
+"Installiert: %s — PackageKit hat benötigte Abhängigkeiten automatisch "
+"mitinstalliert."
+
+#: src/updates.rs:299 src/window.rs:359
+msgid "Installation failed: %s"
+msgstr "Installation fehlgeschlagen: %s"
+
+#: src/welcome.rs:20 src/welcome.rs:74
+msgid "Checking update status …"
+msgstr "Update-Status wird ermittelt …"
+
+#: src/welcome.rs:29 src/window.rs:122 src/window.rs:123 src/window.rs:137
+msgid "Ragnar Software"
+msgstr "Ragnar Software"
+
+#: src/welcome.rs:30
+msgid "System updates and software management"
+msgstr "Systemupdates und Software-Verwaltung"
+
+#: src/welcome.rs:51
+msgid "The system is up to date."
+msgstr "Das System ist aktuell."
+
+#: src/welcome.rs:53
+msgid "1 update available"
+msgid_plural "%d updates available"
+msgstr[0] "1 Update verfügbar"
+msgstr[1] "%d Updates verfügbar"
+
+#: src/welcome.rs:67
+msgid "Failed to check status: %s"
+msgstr "Statusabfrage fehlgeschlagen: %s"
+
+#: src/window.rs:97
+msgid "Welcome"
+msgstr "Willkommen"
+
+#: src/window.rs:98
+msgid "Updates"
+msgstr "Updates"
+
+#: src/window.rs:101
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/window.rs:185
+msgid "Installing …"
+msgstr "Installiere …"
+
+#: src/window.rs:202
+msgid "No additional dependencies."
+msgstr "Keine zusätzlichen Abhängigkeiten."
+
+msgid "Beta"
+msgstr "Beta"
+
+msgid "Development preview — some features may be incomplete."
+msgstr "Entwicklungsvorabversion — einige Funktionen sind noch unvollständig."
+
+#: src/window.rs:204
+msgid "The following updates will be installed:"
+msgstr "Die folgenden Aktualisierungen werden installiert:"
+
+msgid "The following will also be installed:"
+msgstr "Zusätzlich werden installiert:"
+
+#: src/window.rs:207
+msgid "Install updates?"
+msgstr "Updates installieren?"
+
+#: src/window.rs:210
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/window.rs:260
+msgid "Working …"
+msgstr "Arbeite …"
+
+#: src/window.rs:273
+msgid "Package management"
+msgstr "Paketverwaltung"
+
+#: src/window.rs:315
+msgid "Install package"
+msgstr "Paket installieren"
+
+#: src/window.rs:341
+msgid "Transaction running …"
+msgstr "Transaktion läuft …"
+
+#: src/window.rs:358
+msgid "Installation finished."
+msgstr "Installation abgeschlossen."
+
+#: src/packagekit.rs
+msgid "Downloading"
+msgstr "Lädt herunter"
+
+#: src/packagekit.rs
+msgid "Updating"
+msgstr "Aktualisiert"
+
+#: src/packagekit.rs
+msgid "Installing"
+msgstr "Installiert"
+
+#: src/packagekit.rs
+msgid "Removing"
+msgstr "Entfernt"
+
+#: src/packagekit.rs
+msgid "Cleaning up"
+msgstr "Räumt auf"
+
+#: src/packagekit.rs
+msgid "Obsoleting"
+msgstr "Ersetzt"
+
+#: src/packagekit.rs
+msgid "Reinstalling"
+msgstr "Installiert neu"
+
+#: src/packagekit.rs
+msgid "Downgrading"
+msgstr "Stuft zurück"
+
+#: src/packagekit.rs
+msgid "Preparing"
+msgstr "Bereitet vor"
+
+#: src/packagekit.rs
+msgid "Decompressing"
+msgstr "Entpackt"
+
+#: src/packagekit.rs
+msgid "Package '%s' not found"
+msgstr "Paket '%s' wurde nicht gefunden"
+
+#: src/packagekit.rs
+msgid "Package '%s' is not installed"
+msgstr "Paket '%s' ist nicht installiert"

@@ -1,0 +1,23 @@
+[package]
+name = "ragnar-screenlock"
+version = "0.1.0"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Screen lock and idle orchestration service for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# gio/glib only: D-Bus service, GSettings readers, GLib main loop —
+# headless daemon, no GUI toolkit needed.
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto, swayidle, gtklock, wlopm"
+assets = [
+    ["target/release/ragnar-screenlock", "usr/bin/ragnar-screenlock", "755"],
+    ["data/org.lieraos.ragnar.Screenlock.desktop", "etc/xdg/autostart/", "644"],
+]

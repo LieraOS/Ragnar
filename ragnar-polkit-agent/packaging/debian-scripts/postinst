@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+# Safety net: polkit-agent-helper-1 must be setuid root or PAM
+# authentication fails instantly. Some images/tools strip suid
+# bits — restore it if missing.
+if [ -f /usr/lib/polkit-1/polkit-agent-helper-1 ] && [ ! -u /usr/lib/polkit-1/polkit-agent-helper-1 ]; then
+    chmod u+s /usr/lib/polkit-1/polkit-agent-helper-1
+fi

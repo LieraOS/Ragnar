@@ -1,0 +1,29 @@
+[package]
+name = "ragnar-polkit-agent"
+version = "0.1.7"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Polkit authentication agent for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# GUI framework: GTK4 + libadwaita, matching ragnar-settings
+gtk4 = { version = "0.9", features = ["v4_10"] }
+libadwaita = { version = "0.7", features = ["v1_7"] }
+
+# Localization (gettext; msgids are German, po/en.po for English)
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+# The agent needs a running polkitd to register with; the helper
+# binary lives in libpolkit-agent-1-0's package (pulled via $auto).
+depends = "$auto, polkitd"
+maintainer-scripts = "packaging/debian-scripts/"
+assets = [
+    ["target/release/ragnar-polkit-agent", "usr/libexec/ragnar-desktop/ragnar-polkit-agent", "755"],
+    ["data/org.lieraos.ragnar.Polkit.desktop", "etc/xdg/autostart/", "644"],
+    ["target/locale/en/LC_MESSAGES/ragnar-polkit-agent.mo", "usr/share/locale/en/LC_MESSAGES/ragnar-polkit-agent.mo", "644"],
+]

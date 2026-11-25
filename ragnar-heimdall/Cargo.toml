@@ -1,0 +1,44 @@
+[package]
+name = "ragnar-heimdall"
+version = "1.2.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+description = "Native network control center for the Ragnar desktop (LieraOS)"
+
+[dependencies]
+gtk4 = { version = "0.9", features = ["v4_10"] }
+libadwaita = { version = "0.7", features = ["v1_7"] }
+gettext-rs = "0.7"
+anyhow = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+zbus = { version = "4", default-features = false, features = ["blocking", "async-io"] }
+dirs = "5.0"
+ksni = { version = "0.3.7", default-features = false, features = ["blocking", "async-io"] }
+
+[[bin]]
+name = "ragnar-heimdall-helper"
+path = "src/bin/ragnar-heimdall-helper/main.rs"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "net"
+priority = "optional"
+depends = "$auto, iwd, polkitd, pkexec, systemd, ufw"
+# Feature tools — apt installs them automatically with the package,
+# but Heimdall degrades to "skipped" checks when they are absent,
+# so nothing must hard-depend on them (dpkg -i cannot fetch).
+recommends = "iputils-ping, iputils-tracepath, curl, iw, rfkill, wireguard-tools, openvpn"
+assets = [
+    ["target/release/ragnar-heimdall", "usr/bin/ragnar-heimdall", "755"],
+    ["target/release/ragnar-heimdall-indicator", "usr/bin/ragnar-heimdall-indicator", "755"],
+    ["data/ragnar-heimdall-indicator.desktop", "etc/xdg/autostart/", "644"],
+    ["data/org.lieraos.ragnar.Heimdall.desktop", "usr/share/applications/", "644"],
+    ["target/release/ragnar-heimdall-helper", "usr/lib/ragnar-heimdall/ragnar-heimdall-helper", "755"],
+    ["data/org.lieraos.ragnar.Heimdall.policy", "usr/share/polkit-1/actions/", "644"],
+    ["target/locale/de/LC_MESSAGES/ragnar-heimdall.mo", "usr/share/locale/de/LC_MESSAGES/ragnar-heimdall.mo", "644"],
+]

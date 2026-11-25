@@ -1,0 +1,49 @@
+#!/usr/bin/make -f
+export DH_VERBOSE = 1
+export LC_ALL=C.UTF-8
+export DEB_BUILD_MAINT_OPTIONS = hardening=+bindnow
+
+ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
+	SUBSTVARSREC = -Vdist:Recommends="nemo"
+	SUBSTVARSSUG = -Vdist:Suggests="ragnar-desktop-view"
+else
+	SUBSTVARSREC = -Vdist:Recommends="ragnar-desktop-view"
+	SUBSTVARSSUG = -Vdist:Suggests="gnome-terminal, nautilus"
+endif
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	# gsd-components-excluded: DiskUtilityNotify ships no binary in Debian
+	# (gsd-disk-utility-notify lives in gnome-disk-utility, which LieraOS does
+	# not install). Keeping it in the session's RequiredComponents makes
+	# gnome-session abort the whole desktop startup when its autostart
+	# .desktop file is absent - a black screen with only the compositor up.
+	dh_auto_configure -- --prefix=/usr -Dgsd-components-excluded=DiskUtilityNotify
+
+override_dh_gencontrol:
+	dh_gencontrol -- $(SUBSTVARSREC) $(SUBSTVARSSUG)
+
+override_dh_auto_install:
+	dh_auto_install
+	# Build the 17 session-critical Rust components from the sibling
+	# directories (monorepo root = parent of this source tree) and
+	# stage their files into the ragnar-core bundle.
+	debian/stage-components.sh "$(CURDIR)/.." debian/ragnar-core
+ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo ubuntu),ubuntu)
+	dh_install -pragnar-desktop debian/15_ragnar-desktop-ubuntu.gschema.override /usr/share/glib-2.0/schemas/
+endif
+ifeq ($(shell dpkg-vendor --is Debian && echo yes),yes)
+	dh_install -pragnar-desktop debian/15_ragnar-desktop-debian.gschema.override /usr/share/glib-2.0/schemas/
+endif
+
+override_dh_installchangelogs:
+	dh_installchangelogs
+
+override_dh_fixperms:
+	dh_fixperms
+	if [ -d debian/ragnar-core/usr/libexec/ragnar-desktop/labwc_bridge ]; then \
+			find debian/ragnar-core/usr/libexec/ragnar-desktop/labwc_bridge \
+				-type f -name '*.py' -exec chmod 0644 {} +; \
+	fi

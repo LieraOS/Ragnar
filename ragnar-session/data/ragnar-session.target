@@ -1,0 +1,11 @@
+[Unit]
+Description=Ragnar graphical session
+Documentation=man:systemd.special(7)
+
+Wants=graphical-session.target
+Wants=graphical-session-pre.target
+After=graphical-session-pre.target
+
+Wants=xdg-desktop-autostart.target
+
+CollectMode=inactive-or-failed

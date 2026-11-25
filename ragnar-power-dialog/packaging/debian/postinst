@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        # Rebuild the compiled schema cache so the new
+        # org.lieraos.ragnar.session schema is picked up
+        # immediately by the dialog and Ragnar Settings.
+        glib-compile-schemas /usr/share/glib-2.0/schemas
+        ;;
+esac
+
+exit 0

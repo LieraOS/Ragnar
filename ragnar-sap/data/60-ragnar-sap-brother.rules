@@ -1,0 +1,5 @@
+# Brother USB scanners/MFPs are absent from libsane's own udev rules,
+# so their device nodes fall back to the printer group (lp) and the
+# brscan backends cannot open them. Tag them for the active session
+# and the scanner group instead.
+ACTION=="add|bind", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="04f9", TAG+="uaccess", GROUP="scanner", MODE="0660"

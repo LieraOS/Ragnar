@@ -1,0 +1,25 @@
+[package]
+name = "ragnar-software"
+version = "0.1.0"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Ragnar Software — updates and package management for the Ragnar desktop"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+gtk4 = { version = "0.9", features = ["v4_10"] }
+# libadwaita v1_7: ToolbarView / NavigationSplitView like ragnar-settings
+libadwaita = { version = "0.7", features = ["v1_7"] }
+gio = "0.20"
+glib = "0.20"
+# PackageKit lives on the system bus; blocking client on a worker
+# thread keeps the GTK main loop free of D-Bus waits.
+zbus = { version = "5", features = ["blocking"] }
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+flate2 = "1.0"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "admin"
+priority = "optional"
+depends = "$auto, packagekit"

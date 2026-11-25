@@ -1,0 +1,13 @@
+Package: ragnar-backgrounds
+Version: 1.0-2
+Architecture: all
+Maintainer: Jörg Schröder <projekt@lieraos.local>
+Installed-Size: 4000
+Section: graphics
+Priority: optional
+Homepage: https://github.com/LieraOS
+Description: Background images for the Ragnar desktop
+ Default set of desktop background images for Ragnar, the
+ Wayland desktop environment of LiEra OS. The images are
+ registered through gnome-background-properties and appear in
+ the appearance section of ragnar-settings.

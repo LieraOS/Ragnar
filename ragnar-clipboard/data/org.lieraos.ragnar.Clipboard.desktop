@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Clipboard
+Comment=Clipboard history daemon for the Ragnar desktop
+Exec=/usr/bin/ragnar-clipboard daemon
+TryExec=/usr/bin/ragnar-clipboard
+OnlyShowIn=Ragnar
+X-GNOME-Autostart-enabled=true
+X-Ragnar-Component=core

@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    remove|purge)
+        # Drop the compiled schema cache entry again.
+        glib-compile-schemas /usr/share/glib-2.0/schemas || true
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,44 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-screenshot 0.1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de\n"
+
+msgid "Screenshot"
+msgstr "Bildschirmfoto"
+
+msgid "All monitors"
+msgstr "Alle Monitore"
+
+msgid "Area selection"
+msgstr "Bereich wählen"
+
+msgid "Mode"
+msgstr "Modus"
+
+msgid "Show pointer"
+msgstr "Mauszeiger anzeigen"
+
+msgid "Play sound"
+msgstr "Ton abspielen"
+
+msgid "Delay (s)"
+msgstr "Verzögerung (s)"
+
+msgid "Take screenshot"
+msgstr "Bildschirmfoto aufnehmen"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Copy to clipboard"
+msgstr "In Zwischenablage"
+
+msgid "Retake"
+msgstr "Erneut"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Click the window you want to capture"
+msgstr "Klicken Sie das Fenster an, von dem ein Bildschirmfoto erstellt werden soll"

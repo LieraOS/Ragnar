@@ -1,0 +1,54 @@
+# English translations for ragnar-greeter.
+# Copyright (C) Jörg Schröder
+# SPDX-License-Identifier: GPL-3.0-or-later
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-greeter 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-12 00:00+0100\n"
+"PO-Revision-Date: 2026-02-12 00:00+0100\n"
+"Last-Translator: Jörg Schröder\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Benutzer"
+msgstr "User"
+
+msgid "Benutzername"
+msgstr "Username"
+
+msgid "Passwort"
+msgstr "Password"
+
+msgid "Sitzung"
+msgstr "Session"
+
+msgid "Anmelden"
+msgstr "Sign in"
+
+msgid "Anmeldung läuft…"
+msgstr "Signing in…"
+
+msgid "Anmeldung fehlgeschlagen"
+msgstr "Sign-in failed"
+
+msgid "Automatische Anmeldung"
+msgstr "Automatic sign-in"
+
+msgid "Vorschau: Anmeldung würde an LightDM gehen"
+msgstr "Preview: sign-in would go to LightDM"
+
+msgid "Bereitschaft"
+msgstr "Suspend"
+
+msgid "Ruhezustand"
+msgstr "Hibernate"
+
+msgid "Neustart"
+msgstr "Restart"
+
+msgid "Herunterfahren"
+msgstr "Shut down"

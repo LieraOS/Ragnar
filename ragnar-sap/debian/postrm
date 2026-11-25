@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+# Drop the decoder symlinks we created in postinst (only ours, i.e.
+# symlinks that point into /usr/lib64).
+for link in /usr/lib/x86_64-linux-gnu/libbrscandec*.so*; do
+    [ -L "$link" ] || continue
+    case "$(readlink "$link")" in
+        /usr/lib64/*) rm -f "$link" ;;
+    esac
+done
+command -v ldconfig >/dev/null 2>&1 && ldconfig || true
+if command -v udevadm >/dev/null 2>&1; then
+    udevadm control --reload-rules || true
+fi
+#DEBHELPER#
+exit 0

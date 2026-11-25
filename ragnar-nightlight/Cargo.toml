@@ -1,0 +1,23 @@
+[package]
+name = "ragnar-nightlight"
+version = "0.1.1"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Night light (gammastep) manager for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# gio/glib only: GSettings watch + INI rewrite + process spawn —
+# headless daemon, no D-Bus surface needed.
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto, gammastep"
+assets = [
+    ["target/release/ragnar-nightlight", "usr/bin/ragnar-nightlight", "755"],
+    ["data/org.lieraos.ragnar.NightLight.desktop", "etc/xdg/autostart/", "644"],
+]

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Ragnar
+Comment=This session logs you into the Ragnar Desktop using labwc as the window manager
+Exec=@bindir@/startragnarlabwc
+Icon=
+Type=Application
+DesktopNames=Ragnar

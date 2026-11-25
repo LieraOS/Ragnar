@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Screenshot Dialog
+Comment=Screenshot interface
+Icon=ragnar-screenshot
+Exec=@libexecdir@/ragnar-screenshot-dialog
+TryExec=@libexecdir@/ragnar-screenshot-dialog
+OnlyShowIn=Ragnar;
+NoDisplay=true
+X-GNOME-AutoRestart=true
+X-GNOME-Autostart-Delay=5

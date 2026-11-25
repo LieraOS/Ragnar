@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Ragnar Greeter
+Comment=Animated LIERA greeter for LightDM
+Exec=/usr/bin/ragnar-greeter
+Type=Application
+X-Greeter-Show-Indicators=false

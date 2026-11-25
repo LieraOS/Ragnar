@@ -1,0 +1,54 @@
+[package]
+name = "ragnar-settings"
+version = "1.0.14"
+edition = "2021"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+description = "Native settings hub for the Ragnar desktop (LieraOS)"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+[dependencies]
+# GUI framework: GTK4 + libadwaita (v1_5 for ToolbarView/NavigationView)
+gtk4 = { version = "0.9", features = ["v4_10"] }
+libadwaita = { version = "0.7", features = ["v1_7"] }
+
+# Localization (gettext, de/en/es/fr)
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+
+# Shared cloud-credential store (sibling crate)
+liera-secrets = { path = "../liera-secrets" }
+ragnar-shared = { path = "../ragnar-shared" }
+zbus = { version = "5", features = ["blocking", "async-io"] }
+gdk-pixbuf = "0.20"
+async-channel = "2"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Platform paths
+dirs = "5.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/ragnar-settings", "usr/bin/", "755"],
+    ["data/org.lieraos.ragnar.Settings.desktop", "usr/share/applications/", "644"],
+    ["target/locale/de/LC_MESSAGES/ragnar-settings.mo", "usr/share/locale/de/LC_MESSAGES/", "644"],
+]

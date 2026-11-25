@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar Keyring
+Comment=Starts gnome-keyring-daemon and applies the Ragnar unlock policy
+Exec=/usr/libexec/ragnar-keyring
+Terminal=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

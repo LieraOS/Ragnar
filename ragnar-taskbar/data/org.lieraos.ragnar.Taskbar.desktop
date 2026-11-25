@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar Taskbar
+Comment=Wayland taskbar for the Ragnar desktop
+Exec=/usr/bin/ragnar-taskbar
+Terminal=false
+NoDisplay=true
+X-GNOME-AutoRestart=true

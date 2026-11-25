@@ -1,0 +1,27 @@
+[package]
+name = "ragnar-osd"
+version = "0.1.2"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "On-screen display overlay for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# GTK4 + layer shell for the overlay window; gio for the session bus,
+# file monitors and the pactl watcher child process.
+gtk4 = { version = "0.9", features = ["v4_10"] }
+gtk4-layer-shell = "0.5"
+gio = "0.20"
+glib = "0.20"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+# pactl (pulseaudio-utils) talks to PipeWire's compat layer and is the
+# volume event source for the built-in watcher.
+depends = "$auto, pulseaudio-utils"
+assets = [
+    ["target/release/ragnar-osd", "usr/bin/ragnar-osd", "755"],
+    ["data/org.lieraos.ragnar.OSD.desktop", "etc/xdg/autostart/", "644"],
+]

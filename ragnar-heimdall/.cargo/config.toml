@@ -1,0 +1,2 @@
+[env]
+GETTEXT_SYSTEM = "1"

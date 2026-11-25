@@ -1,0 +1,9 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar Screenlock
+Comment=Screen lock and idle orchestration for the Ragnar desktop
+Exec=/usr/bin/ragnar-screenlock
+Terminal=false
+NoDisplay=true
+X-GNOME-AutoRestart=false

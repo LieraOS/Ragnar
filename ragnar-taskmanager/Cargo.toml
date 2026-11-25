@@ -1,0 +1,23 @@
+[package]
+name = "ragnar-taskmanager"
+version = "0.1.0"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Ragnar Task Manager — processes, performance and services for the Ragnar desktop"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+gtk4 = { version = "0.9", features = ["v4_10"] }
+libadwaita = { version = "0.7", features = ["v1_7"] }
+gio = "0.20"
+glib = "0.20"
+async-channel = "2"
+zbus = { version = "5", features = ["blocking"] }
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+libc = "0.2"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "utils"
+priority = "optional"
+depends = "$auto, systemd"

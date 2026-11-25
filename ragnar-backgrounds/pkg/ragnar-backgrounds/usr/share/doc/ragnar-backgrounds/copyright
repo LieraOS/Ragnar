@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ragnar-backgrounds
+Upstream-Contact: Jörg Schröder <projekt@lieraos.local>
+
+Files: *
+Copyright: 2026, Jörg Schröder, LieraOS Project
+License: GPL-3.0-or-later
+ On Debian systems, the complete text of the GNU General Public
+ License version 3 can be found in
+ /usr/share/common-licenses/GPL-3.

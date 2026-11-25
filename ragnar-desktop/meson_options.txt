@@ -1,0 +1,6 @@
+option('gsd-components', type: 'array', description: 'gnome-settings-daemon components (legacy, unused)', value: [])
+option('gsd-components-excluded', type: 'array', description: 'Excluded gsd components (legacy, unused)', value: [])
+option('gsd-libexecdir', type: 'string', description: 'gnome-settings-daemon libexecdir (legacy)')
+option('labwc-bindir', type: 'string', description: 'Directory containing the labwc binary')
+option('ragnar-session-libexecdir', type: 'string', description: 'Directory containing ragnar-session executables')
+option('xdp-libexecdir', type: 'string', description: 'Directory containing xdg-desktop-portal executables')

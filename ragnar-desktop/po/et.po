@@ -1,0 +1,2083 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# vaba <vaba@riseup.net>, 2023
+# kaurman <kaurman@outlook.com>, 2025
+# Priit Jõerüüt <transifex@joeruut.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 15:27+0300\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2026\n"
+"Language-Team: Estonian (https://app.transifex.com/buddiesofragnar/teams/129844/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "Muud"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr "Tarvikud"
+
+msgid "Education"
+msgstr "Haridus"
+
+msgid "Games"
+msgstr "Mängud"
+
+msgid "Graphics"
+msgstr "Graafika"
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "Office"
+msgstr "Kontor"
+
+msgid "Programming"
+msgstr "Programmeerimine"
+
+msgid "Science"
+msgstr "Teadus"
+
+msgid "Sound & Video"
+msgstr "Audio ja video"
+
+msgid "System Tools"
+msgstr "Süsteemi tööriistad"
+
+msgid "Universal Access"
+msgstr "Universaalne ligipääs"
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr "Uus kategooria"
+
+msgid "Log out"
+msgstr "Logi välja"
+
+msgid "Restart device"
+msgstr "Taaskäivita seade"
+
+#: src/daemon/endsession.ui:47
+msgid "Power Off"
+msgstr "Lülita välja"
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr "Lugemata teatised"
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] ""
+"Sel ajal, kui kasutasid rakendust täisekraanivaates, saabus sulle %d teade."
+msgstr[1] ""
+"Ajal, kui kasutasid üht rakendust täisekraanivaates, saabus sulle %d teadet."
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr "Kuva teated"
+
+msgid "Caps Lock is on"
+msgstr "Caps Lock on sees"
+
+msgid "Caps Lock is off"
+msgstr "Caps Lock on väljas"
+
+msgid "Num Lock is on"
+msgstr "Numbrilukk on sees"
+
+msgid "Num Lock is off"
+msgstr "Numbrilukk on väljas"
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "Kofeiinilaks on sisse lülitatud"
+
+msgid "Turned off Caffeine Boost"
+msgstr "Kofeiinilaks on välja lülitatud"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] "Lülitub minuti pärast välja"
+msgstr[1] "Lülitub %d minuti pärast välja"
+
+msgid "Authentication failed"
+msgstr "Autentimine ebaõnnestus"
+
+msgid "Group:"
+msgstr "Grupp:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr "_Lukusta"
+
+msgid "L_og Out"
+msgstr "L_ogi välja"
+
+msgid "_Suspend"
+msgstr "_Uinak"
+
+msgid "_Hibernate"
+msgstr "_Talveuni"
+
+msgid "_Reboot"
+msgstr "_Taaskäivita"
+
+msgid "Shut_down"
+msgstr "Lülita _välja"
+
+msgid "This system does not support hibernation."
+msgstr "See süsteem ei toeta talveunerežiimi."
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:3
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:3
+msgid "Ragnar Screenshot"
+msgstr "Ragnar kuvatõmmis"
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr "Tee kuvatõmmis tervest ekraanist"
+
+msgid "Screenshot active window"
+msgstr "Tee kuvatõmmis aktiivsest aknast"
+
+msgid "Screenshot selected area"
+msgstr "Tee kuvatõmmis valitud alast"
+
+#. translate
+msgid "Cancel screenshot"
+msgstr "Tühista kuvatõmmis"
+
+msgid "Save screenshot to the selected directory"
+msgstr "Salvesta kuvatõmmis valitud kausta"
+
+msgid "Copy screenshot to the clipboard"
+msgstr "Kopeeri kuvatõmmis lõikelauale"
+
+msgid "Open screenshot in default application"
+msgstr "Ava kuvatõmmis vaikerakenduses"
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr "Muu..."
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr "Ava kaust"
+
+#: src/daemon/endsession.ui:92 src/dialogs/polkit/dialog.ui:321
+msgid "Cancel"
+msgstr "Katkesta"
+
+msgid "Open"
+msgstr "Ava"
+
+msgid "Files to send"
+msgstr "Saadetavad failid"
+
+msgid "_Cancel"
+msgstr "_Katkesta"
+
+msgid "_Open"
+msgstr "_Ava"
+
+msgid "Send Files via Bluetooth"
+msgstr "Saada failid Bluetoothiga"
+
+msgid "Send files to device…"
+msgstr "Saada failid seadmesse…"
+
+msgid "Rejected file"
+msgstr "Sa keeldusid faili vastuvõtmisest"
+
+#, c-format
+msgid "File already exists: %s"
+msgstr "Fail on juba olemas: %s"
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr "Fail on vastuvõtmisel"
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr "„%s“ seade soovib sulle saata faili: %s %s"
+
+msgid "Accept"
+msgstr "Nõustu"
+
+msgid "Reject"
+msgstr "Keeldu"
+
+msgid "File name"
+msgstr "Failinimi"
+
+msgid "Transfer rate"
+msgstr "Edastuskiirus"
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr "Sulge"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr "<b>Edastuskiirus:</b> %s / s"
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr "%s / %s: aega jäänud: %s"
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] "%u tund"
+msgstr[1] "%u tundi"
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] "%u minut"
+msgstr[1] "%u minutit"
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] "%u sekund"
+msgstr[1] "%u sekundit"
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d sekund"
+msgstr[1] "%d sekundit"
+
+msgid "Send"
+msgstr "Saada"
+
+msgid "Speaker"
+msgstr "Kõlar"
+
+msgid "Controller"
+msgstr "Kontroller"
+
+msgid "Keyboard"
+msgstr "Klahviatuur"
+
+msgid "Mouse"
+msgstr "Hiir"
+
+msgid "Tablet"
+msgstr "Graafikalaud"
+
+msgid "Touchpad"
+msgstr "Puuteplaat"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Bluetooth File Transfer"
+msgstr "Failiedastus Bluetoothiga"
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr "<b>Saatja</b>: %s"
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr "<b>Saaja</b>: %s"
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr "<b>Failinim</b>: %s"
+
+msgid "File transfer failed"
+msgstr "Faili edastamine ei õnnestunud"
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr "Fail „%s“ pole vastu võetud seadmest „%s“"
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr "Fail „%s“ pole vastu võetud seadmest „%s“: %s"
+
+msgid "File transferred successfully"
+msgstr "Faili teisaldamine õnnestus"
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr "Salvestasin „%s“ faili asukohta „%s“"
+
+msgid "From"
+msgstr "Saatja"
+
+msgid "To"
+msgstr "Saaja"
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr "Proovime luua ühendust seadmega %s…"
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr "Ühendust seadmega „%s“ ei õnnestunud luua"
+
+msgid "The file has not been transferred."
+msgstr "Fail ei ole teisaldatud"
+
+msgid "Retry"
+msgstr "Proovi uuesti"
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr "Ootame nõustumist seadmes „%s“…"
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr "„%s“ teisaldamine ei õnnestunud"
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr "„%s“ katkestas teisaldamise või keeldus sellest."
+
+msgid "Select a Bluetooth device to send files to"
+msgstr "Vali Bluetoothi seade, kuhu tahad faile saata"
+
+msgid "Discovering…"
+msgstr "Tuvastame…"
+
+msgid "<b>No devices found</b>"
+msgstr "<b>Seadmeid ei leidu</b>"
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr ""
+"Palun kontrolli, et sinu soovitud seadmed on nähtavad ja paardumiseks "
+"valmis."
+
+msgid "Available Devices"
+msgstr "Saadavalolevad seadmed"
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "Töölaud on kofeiinilaksu all"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:2
+msgid "Ragnar Desktop Settings"
+msgstr "Ragnar töölaua seadistused"
+
+msgid "System Settings"
+msgstr "Süsteemi seadistused"
+
+msgid "Power"
+msgstr "Toide"
+
+msgid "Set menu icon from file"
+msgstr "Määra menüüikoon failist"
+
+msgid "Image files"
+msgstr "Pildifailid"
+
+msgid "Any file"
+msgstr "Suvaline fail"
+
+msgid "Set icon"
+msgstr "Määra ikoon"
+
+msgid "Favorites"
+msgstr "Lemmikud"
+
+msgid "All"
+msgstr "Kõik"
+
+msgid "Remove from favorites"
+msgstr "Eemalda lemmikute seast"
+
+msgid "Add to favorites"
+msgstr "Lisa lemmikuks"
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "Vabandust, elemente ei leitud"
+
+msgid "Timer (minutes)"
+msgstr "Taimer (minutit)"
+
+msgid "System time and date settings"
+msgstr "Süsteemi kella ja kuupäeva muutmine"
+
+msgid "Unfavorite"
+msgstr "Pole lemmik"
+
+msgid "Favorite"
+msgstr "Lemmik"
+
+msgid "Close all windows"
+msgstr "Sulge kõik aknad"
+
+msgid "Launch new instance"
+msgstr "Käivita uus eksemplar"
+
+msgid "Minimize"
+msgstr "Minimeeri"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr "Teisalda siia töölauale: %s"
+
+msgid "Unmaximize"
+msgstr "Tühista maksimeerimine"
+
+msgid "Maximize"
+msgstr "Maksimeeri"
+
+msgid "Close window"
+msgstr "Sulge aken"
+
+msgid "Show window controls"
+msgstr "Näita akna juhtnuppe"
+
+msgid "Caps lock is active"
+msgstr "Caps Lock on aktiivne"
+
+msgid "Caps lock is not active"
+msgstr "Caps Lock ei ole aktiivne"
+
+msgid "Num lock is active"
+msgstr "Numbrilukk on aktiivne"
+
+msgid "Num lock is not active"
+msgstr "Numbrilukk ei ole aktiivne"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] "%u lugemata teavitus"
+msgstr[1] "%u lugemata teavitust"
+
+msgid "No unread notifications"
+msgstr "Lugemata märguandeid pole"
+
+msgid "Volume is in use by other processes"
+msgstr "Teine protsess kasutab andmeruumi"
+
+msgid "Operation aborted"
+msgstr "Operatsioon katkestati"
+
+msgid "Type your password"
+msgstr "Sisesta oma kasutajanimi"
+
+msgid "Removable devices"
+msgstr "Eemaldatavad seadmed"
+
+msgid "Local volumes"
+msgstr "Lokaalsed köited"
+
+msgid "Network folders"
+msgstr "Võrgukaustad"
+
+msgid "Eject"
+msgstr "Väljasta"
+
+msgid "Unmount"
+msgstr "Ühenda lahti"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "Ava „%s“"
+
+msgid "You can now safely remove"
+msgstr "Nüüd saate seda ohutult eemaldada"
+
+msgid "Unknown Device"
+msgstr "Tundmatu seade"
+
+msgid "Error while ejecting device"
+msgstr "Tõrge andmekandja väljastamisel"
+
+msgid "Error while unmounting volume"
+msgstr "Tõrge failisüsteemi lahtihaakmisel"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:4
+msgid "Places"
+msgstr "Kohad"
+
+msgid "Nothing to display right now"
+msgstr "Hetkel pole midagi kuvada"
+
+msgid "Mount some drives"
+msgstr "Ühenda mõned kettad"
+
+msgid "Enable more sections"
+msgstr "Luba rohkem jaotisi"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "Haagi ja ava „%s“"
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr "Selle andmeruumi avamiseks sisesta krüptimise salasõna"
+
+msgid "The password you entered is incorrect"
+msgstr "Sisestatud salasõna on vale"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr "Selle köite ühendamisel ilmnes tundmatu viga"
+
+msgid "Toggle the desktop"
+msgstr "Näita töölauda või peida töölaud"
+
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+msgid "Bluetooth Settings"
+msgstr "Bluetoothi seadistused"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr "Lülita Bluetooth sisse/välja"
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr "Lennurežiim on kasutusel."
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr "Kui lennurežiim on kasutusel, siis Bluetooth on välja lülitatud."
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr "Ühtegi paardunud Bluetoothi seadet ei leidu."
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr "Seadme paardumiseks ava Bluetoothi seadistuste vaade."
+
+msgid "Send file"
+msgstr "Saada fail"
+
+msgid "Disconnect"
+msgstr "Katkesta ühendus"
+
+msgid "Disconnecting…"
+msgstr "Ühendus on katkestamisel…"
+
+msgid "Connecting…"
+msgstr "Ühendus on loomisel…"
+
+msgid "Failed to disconnect"
+msgstr "Ühenduse katkestamine ei õnnestunud"
+
+msgid "Failed to connect"
+msgstr "Ühenduse loomine ei õnnestunud"
+
+msgid "Connected"
+msgstr "Ühendatud"
+
+msgid "Disconnected"
+msgstr "Ühendus on katkestatud"
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr "<b>Failinimi</b>: %s"
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr "Võtan vastu… %s of %s"
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr "Saadan… %s of %s"
+
+msgid "Battery fully charged."
+msgstr "Aku on täielikult laetud."
+
+msgid "Unknown"
+msgstr "Tundmatu"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "Aku laeb"
+
+msgid "Battery remaining"
+msgstr "Akut jäänud"
+
+msgid "Performance Mode"
+msgstr "Jõudlusrežiim"
+
+msgid "Power Saver"
+msgstr "Energiasääst"
+
+msgid "Balanced"
+msgstr "Tasakaalustatud"
+
+msgid "Performance"
+msgstr "Jõudlus"
+
+msgid "Power settings"
+msgstr "Toiteseadistused"
+
+#: src/panel/applets/trash/trash_applet.c:228
+#: src/panel/applets/trash/trash_item_row.c:332
+#: src/panel/applets/trash/trash_item_row.c:363
+msgid "Trash Error"
+msgstr "Prügikasti viga"
+
+#: src/panel/applets/trash/trash_item_row.c:155
+msgid "Permanently delete this item"
+msgstr "Kustuta see objekt lõplikult"
+
+#: src/panel/applets/trash/trash_item_row.c:162
+msgid "Are you sure you want to delete this item?"
+msgstr "Kas oled kindel, et soovid selle objekti kustutada?"
+
+#: src/panel/applets/trash/trash_item_row.c:168
+#: src/panel/applets/trash/trash_popover.c:320
+msgid "No"
+msgstr "Ei"
+
+#: src/panel/applets/trash/trash_item_row.c:169
+#: src/panel/applets/trash/trash_popover.c:321
+msgid "Yes"
+msgstr "Jah"
+
+#: src/panel/applets/trash/trash_item_row.c:333
+#, c-format
+msgid "Unable to delete '%s': %s"
+msgstr "„%s“ kustutamine ei õnnestu: %s"
+
+#: src/panel/applets/trash/trash_item_row.c:364
+#, c-format
+msgid "Unable to restore '%s': %s"
+msgstr "„%s“ taastamine ei õnnestu: %s"
+
+#: src/panel/applets/trash/trash_popover.c:119
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:4
+msgid "Trash Bin"
+msgstr "Prügikast"
+
+#: src/panel/applets/trash/trash_popover.c:125
+msgid "Settings"
+msgstr "Seadistused"
+
+#. Header label
+#. Switcher to show or hide a shortcut to Trash
+#: src/panel/applets/trash/trash_popover.c:274
+msgid "Trash"
+msgstr "Prügikast"
+
+#: src/panel/applets/trash/trash_popover.c:283
+msgid "Trash Applet Settings"
+msgstr "Prügikasti rakendi seadistused"
+
+#: src/panel/applets/trash/trash_popover.c:300
+msgid "Restore"
+msgstr "Taasta"
+
+#: src/panel/applets/trash/trash_popover.c:301
+msgid "Restore selected items"
+msgstr "Taasta valitud objektid"
+
+#: src/panel/applets/trash/trash_popover.c:303
+msgid "Empty"
+msgstr "Tühi"
+
+#: src/panel/applets/trash/trash_popover.c:304
+msgid "Empty the trash bin"
+msgstr "Tühjenda prügikast"
+
+#: src/panel/applets/trash/trash_popover.c:311
+msgid "Are you sure you want to empty the trash bin?"
+msgstr "Kas oled kindel, et soovid prügikasti tühjendada?"
+
+#. User Menu Creation
+msgid "User"
+msgstr "Kasutaja"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "Lukusta"
+
+msgid "Suspend"
+msgstr "Uinak"
+
+msgid "Hibernate"
+msgstr "Talveuni"
+
+#: src/daemon/endsession.ui:124
+msgid "Restart"
+msgstr "Taaskäivita"
+
+#: src/daemon/endsession.ui:142
+msgid "Shutdown"
+msgstr "Seiska"
+
+#: src/daemon/endsession.ui:106
+msgid "Logout"
+msgstr "Logi välja"
+
+msgid "Rename"
+msgstr "Nimeta ümber"
+
+msgid "Remove"
+msgstr "Eemaldamine"
+
+msgid "Not able to create new workspaces"
+msgstr "Uut töölauda pole võimalik luua"
+
+msgid "Create a new workspace"
+msgstr "Loo uus töölaud"
+
+msgid "Untitled"
+msgstr "Pealkirjata"
+
+msgid "No description"
+msgstr "Kirjeldus puudub"
+
+msgid "running"
+msgstr "töötab"
+
+msgid "Applications"
+msgstr "Rakendused"
+
+msgid "Add"
+msgstr "Lisa"
+
+msgid "Command"
+msgstr "Käsklus"
+
+msgid "An entry with that title already exists"
+msgstr "Selle pealkirjaga kirje on juba olemas"
+
+msgid "Title"
+msgstr "Nimetus"
+
+msgid "Required"
+msgstr "Nõutav"
+
+msgid "Description"
+msgstr "Kirjeldus"
+
+msgid "Optional"
+msgstr "Valikuline"
+
+msgid "Autostart"
+msgstr "Automaatkäivitus"
+
+msgid "Autostart apps"
+msgstr "Rakenduste automaatne käivitamine"
+
+msgid "Add Application"
+msgstr "Lisa rakendus"
+
+msgid "Add Command"
+msgstr "Lisa käsk"
+
+msgid "Desktop"
+msgstr "Töölaud"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "Töölaua ikoonid"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr "Saad määrata, kas soovid ikoone töölaual."
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr "Aktiivsed haakepunktid"
+
+msgid "Show all active mounts on the desktop."
+msgstr "Kuva töölaual kõik aktiivsed haakepunktid."
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "Kodukaust"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "Lisa töölauale kodukausta ikoon."
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "Lisa töölauale prügikasti ikoon."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr "Ikooni suurus"
+
+msgid "Set the desired size of icons on the desktop."
+msgstr "Määra ikoonide soovitud suurus töölaual."
+
+msgid "Number of virtual desktops"
+msgstr "Virtuaalsete töölaudade arv"
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr ""
+"Virtuaalsete töölaudade/tööruumide arv, mis luuakse automaatselt "
+"käivitamisel."
+
+msgid "Single"
+msgstr "Üks klõps"
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr "Topeltklõps"
+
+msgid "Click Policy"
+msgstr "Klõpsimise viis"
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr ""
+"Klõpsimise viis määrab, kas avame või käivitame objektid ühe või "
+"topeltklõpsuga."
+
+msgid "Normal"
+msgstr "Tavaline"
+
+#. Small
+msgid "Small"
+msgstr "Väike"
+
+#. Large
+msgid "Large"
+msgstr "Suur"
+
+#. Massive
+msgid "Massive"
+msgstr "Massiivne"
+
+msgid "Displays"
+msgstr "Ekraanid"
+
+msgid "Connected Monitors"
+msgstr "Ühendatud monitorid"
+
+msgid "Panel Placement"
+msgstr "Paneelide asetus"
+
+msgid ""
+"Select which monitor should be the primary display for panel placement."
+msgstr "Vali monitor, kus peaks põhilised paneelid kuvatama."
+
+msgid "Use Automatic Selection"
+msgstr "Kasuta automaatset valikut"
+
+msgid "Clear Primary Monitor"
+msgstr "Eemalda põhimonitor"
+
+msgid "Remove manual primary monitor selection."
+msgstr "Eemalda käsitsi määratud põhimonitor."
+
+msgid "Fallback Monitors"
+msgstr "Tagavaramonitorid"
+
+msgid "Order used when primary is disconnected"
+msgstr "Kasutuse järjestus põhimonitori lahtiühendamisel"
+
+msgid "No monitors detected"
+msgstr "Ühtegi monitori ei õnnestunud tuvastada"
+
+msgid "No fallback monitors configured"
+msgstr "Ühtegi tagavaramonitori pole seadistatud"
+
+msgid "Primary"
+msgstr "Põhiline"
+
+msgid "Unknown model"
+msgstr "Tundmatu mudel"
+
+msgid "Set as Primary"
+msgstr "Määra põhimonitoriks"
+
+msgid "(last known)"
+msgstr "(viimati teadaolev)"
+
+msgid "No cached information"
+msgstr "Puhverdatud teavet ei leidu"
+
+msgid "Fonts"
+msgstr "Fondid"
+
+msgid "Window Titles"
+msgstr "Akende pealkirjad"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "Määra rakenduste tiitliribadel kasutatav font."
+
+msgid "Documents"
+msgstr "Dokumendid"
+
+msgid "Set the display font used by for documents."
+msgstr "Määra dokumentide jaoks kasutatav kuvafont."
+
+msgid "Interface"
+msgstr "Kasutajaliides"
+
+msgid "Set the primary font used by application controls."
+msgstr "Määra rakenduse juhtelementide peamine font."
+
+msgid "Monospace"
+msgstr "Monospace"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr ""
+"Määra fikseeritud laiusega font, mida teksti domineerivad rakendused "
+"kasutavad."
+
+msgid "Text scaling"
+msgstr "Teksti skaleerimine"
+
+msgid "Set the text scaling factor."
+msgstr "Määra teksti skaleerimise tegur."
+
+msgid "Full"
+msgstr "Täielik"
+
+msgid "Medium"
+msgstr "Keskmine"
+
+msgid "Slight"
+msgstr "Õrn"
+
+msgid "None"
+msgstr "Ei joondata"
+
+msgid "Hinting"
+msgstr "Varjundamine"
+
+msgid "Set the type of hinting to use."
+msgstr "Määra kasutatav tüüp."
+
+msgid "Subpixel (for LCD screens)"
+msgstr "Subpiksel (LCD-ekraanide jaoks)"
+
+msgid "Standard (grayscale)"
+msgstr "Standard (halliskaalas)"
+
+msgid "Antialiasing"
+msgstr "Sakisilumine"
+
+msgid "Set the type of antialiasing to use."
+msgstr "Määra kasutatava antialiasi tüüp."
+
+msgid "Appearance"
+msgstr "Välimus"
+
+msgid "Panels"
+msgstr "Paneelid"
+
+msgid "Session"
+msgstr "Sessioon"
+
+msgid "Create new panel"
+msgstr "Lisa uus paneel"
+
+msgid "Applets"
+msgstr "Rakendid"
+
+msgid "Remove Panel"
+msgstr "Eemalda paneel"
+
+msgid "Remove this panel from the screen"
+msgstr "Eemalda see paneel ekraanilt"
+
+msgid "Top Dock"
+msgstr "Ülemine dokk"
+
+msgid "Right Dock"
+msgstr "Parem dokk"
+
+msgid "Left Dock"
+msgstr "Vasak dokk"
+
+msgid "Bottom Dock"
+msgstr "Alumine dokk"
+
+msgid "Top Panel"
+msgstr "Ülemine paneel"
+
+msgid "Right Panel"
+msgstr "Parem paneel"
+
+msgid "Left Panel"
+msgstr "Vasak paneel"
+
+msgid "Bottom Panel"
+msgstr "Alumine paneel"
+
+msgid "Top"
+msgstr "Üleval"
+
+msgid "Right"
+msgstr "Paremal"
+
+msgid "Left"
+msgstr "Vasakul"
+
+msgid "Bottom"
+msgstr "All"
+
+msgid "Always"
+msgstr "Alati"
+
+msgid "Dynamic"
+msgstr "Dünaamiline"
+
+msgid "Automatic"
+msgstr "Automaatne"
+
+msgid "Intelligent"
+msgstr "Nutikalt"
+
+msgid "Never"
+msgstr "Mitte kunagi"
+
+msgid "Position"
+msgstr "Positsioon"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "Määra ekraani serv, kuhu see paneel jääb"
+
+msgid "Size"
+msgstr "Suurus"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr ""
+"Määra selle paneeli suurus (laius või kõrgus, olenevalt orientatsioonist)"
+
+msgid "Spacing"
+msgstr "Vaheruum"
+
+msgid "Set the spacing between applets for this panel"
+msgstr "Määra selle paneeli jaoks rakendite vaheline kaugus"
+
+msgid "Automatically hide"
+msgstr "Automaatne peitmine"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr ""
+"Kui see on seadistatud, peidab see paneel kuvamise eest, et maksimeerida "
+"ekraani omadusi"
+
+msgid "Transparency"
+msgstr "Läbipaistvus"
+
+msgid "Control when this panel should have a solid background"
+msgstr "Määra, millal sellel paneelil peab olema kindel taust"
+
+msgid "Shadow"
+msgstr "Vari"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr ""
+"Lisab dekoratiivse varju, mis sobib ideaalselt läbipaistmatute paneelide "
+"jaoks"
+
+msgid "Stylize regions"
+msgstr "Stiliseeri piirkondi"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr ""
+"Lisab paneelile vihje, nii et paneeli iga kolme põhipiirkonna kujundus võib "
+"olla erinev."
+
+msgid "Dock mode"
+msgstr "Dokirežiim"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr ""
+"Dokirežiimis kasutab paneel võimalikult vähe ruumi, vabastades väärtuslikku "
+"ekraani"
+
+msgid "Applet Settings"
+msgstr "Rakendi seadistused"
+
+msgid "Add applet"
+msgstr "Lisa rakend"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "Vali sellele paneelile lisamiseks uus rakend"
+
+msgid "No settings available"
+msgstr "Pole seadistatav"
+
+msgid "Start"
+msgstr "Alguses"
+
+msgid "Center"
+msgstr "Keskel"
+
+msgid "End"
+msgstr "Lõpus"
+
+msgid "Confirm panel removal"
+msgstr "Kinnita paneeli eemaldamine"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr ""
+"Kas tõesti soovid selle paneeli eemaldada? Seda toimingut ei saa tagasi "
+"võtta."
+
+msgid "Remove panel"
+msgstr "Eemalda paneel"
+
+msgid "Keep panel"
+msgstr "Hoia alles"
+
+msgid "Confirm applet removal"
+msgstr "Kinnita rakendi eemaldamine"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr ""
+"Kas soovid tõesti selle rakendi eemaldada? Seda toimingut ei saa tagasi "
+"võtta."
+
+msgid "Don't ask me again"
+msgstr "Ära minult enam küsi"
+
+msgid "Remove applet"
+msgstr "Eemalda rakend"
+
+msgid "Keep applet"
+msgstr "Hoia see alles"
+
+msgid "Confirm widget removal"
+msgstr "Kinnita vidina eemaldamine"
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr ""
+"Kas tõesti soovid selle vidina eemaldada? Seda toimingut ei saa tagasi "
+"võtta."
+
+msgid "Built-in"
+msgstr "Sisseehitatud"
+
+msgid "Choose a plugin"
+msgstr "Vali pistikprogramm"
+
+msgid "No description."
+msgstr "Kirjeldust pole."
+
+#, c-format
+msgid "by %s"
+msgstr "%s poolt"
+
+msgid "No authors listed"
+msgstr "Autoreid pole loetletud"
+
+msgctxt "Raven"
+msgid "Widgets"
+msgstr "Vidinad"
+
+msgid "Set Raven position"
+msgstr "Määra Raveni asend"
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr ""
+"Määra, kummal ekraanipoolel Raven avaneb. Kui see on seatud väärtusele "
+"Automaatne, avaneb Raven seal, kus asub tema emapaneel."
+
+msgid "Set notification sort order"
+msgstr "Määra märguannete sortimise järjekord"
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr ""
+"Määra, kas märguandeid sorteeritakse vanimast uusimani või uusimast "
+"vanimani."
+
+msgid "Widget Settings"
+msgstr "Vidina seadistused"
+
+msgid "Add widget"
+msgstr "Lisa vidin"
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr "Vali vidinate vaatesse lisamiseks uus vidin"
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr ""
+"Vidina eksemplari loomine ebaõnnestus. Pistikprogrammi mootor ei leidnud "
+"selle pistikprogrammi kohta teavet."
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr ""
+"Vidina eksemplari loomine ebaõnnestus. Pluginamootoril ei õnnestunud "
+"pluginat kettalt laadida."
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+"Vidina eksemplari loomine ebaõnnestus. Pistikprogramm toetab sätteid, kuid ei paigalda samanimelist seadistusskeemi.\n"
+"\n"
+"Skeemi nimi peaks olema identne mooduli nimega, kuid ilma laiendita ja (Pythoni puhul) alakriipsud asendatakse punktidega."
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr "Vidina eksemplari loomine nurjus tundmatu vea tõttu."
+
+msgid "Style"
+msgstr "Stiil"
+
+msgctxt "Styling"
+msgid "Widgets"
+msgstr "Vidinad"
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "Määra aknakaunistuste ja juhtnuppude välimus"
+
+msgid "Icons"
+msgstr "Ikoonid"
+
+msgid "Set the globally used icon theme"
+msgstr "Määra globaalselt kasutatav ikoonikomplekt"
+
+msgid "Cursors"
+msgstr "Kursorid"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "Määra globaalselt kasutatav hiirekursori teema"
+
+msgid "Notification Position"
+msgstr "Teavitamise positsioon"
+
+msgid "Set the location for notification popups"
+msgstr "Määra teavitusakende asukoht"
+
+msgid "Dark theme"
+msgstr "Tume kujundus"
+
+msgid "Built-in theme"
+msgstr "Sisseehitatud kujundus"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr ""
+"Kui see on lubatud, sürjutab sisseehitatud kujundus töölauakomponentide "
+"stiili"
+
+msgid "Animations"
+msgstr "Animatsioonid"
+
+msgid "Control whether windows and controls use animations"
+msgstr "Saad juhtida, kas aknad ja juhtelemendid kasutavad animatsioone"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr "Kasuta kujundust"
+
+msgid "Labwc Compositor Theme"
+msgstr "Labwc komposiitori kujundus"
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme"
+msgstr "Sürjuta Labwc komposiitori kujundus sõltumatult töölaua kujundusest"
+
+msgid "Top Left"
+msgstr "Üleval vasakul"
+
+msgid "Bottom Left"
+msgstr "All vasakul"
+
+msgid "Bottom Right"
+msgstr "Paremalt alumine"
+
+msgid "Top Right"
+msgstr "Üleval paremal"
+
+msgid "Windows"
+msgstr "Aknad"
+
+msgid "Button layout"
+msgstr "Nuppude paigutus"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "Muuda rakenduste tiitliribade nuppude paigutust."
+
+msgid "Center new windows on screen"
+msgstr "Joonda aken ekraani keskele"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "Joonda äsja käivitatud aknad praegusele ekraanile."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr "Keela öövalgusrežiim, kui aknad on täisekraanil"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr ""
+"Keelab öövalguse režiimi, kui aken on täisekraanil. Täisekraanilt lahkumisel"
+" lubatakse režiim taas."
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr "Peata märguanded, kui aknad on täisekraanil"
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr ""
+"Takistab märguannete ilmumist, kui aken on täisekraanil. Täisekraanilt "
+"lahkumisel lubatakse märguanded taas."
+
+msgid "Automatic tiling"
+msgstr "Automaatne paanimine"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr ""
+"Aknad paanitakse automaatselt, kui lohistada ekraani ülaossa või "
+"kaugematesse nurkadesse."
+
+msgid "Window focus mode"
+msgstr "Aknafookuse režiim"
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr ""
+"Vali akna fookuse haaramise viis: klõpsimine; lohvakas (ilma akende "
+"tõstmiseta); hiirega (akende tõstmisega)"
+
+msgid "Show all windows in tab switcher"
+msgstr "Kuva kõik aknad vahelehtede vahetajas"
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr ""
+"Kõik vahelehed kuvatakse vahekaartide vahetajas olenemata kasutatavast "
+"tööruumist/tööruumist."
+
+msgid "Right (standard)"
+msgstr "Parem (tavaline)"
+
+msgid "Click"
+msgstr "Klõpsimine"
+
+msgid "Sloppy"
+msgstr "Lohvakas"
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:4
+msgid "Notifications"
+msgstr "Teavitused"
+
+msgid "No widgets added."
+msgstr "Vidinaid ei leitud."
+
+msgid "Nothing to see here"
+msgstr "Rohkem pole siin midagi"
+
+msgid "No new notifications"
+msgstr "Uusi teateid ei ole"
+
+msgid "Oldest to newest"
+msgstr "Vanimast uusimani"
+
+msgid "Newest to oldest"
+msgstr "Uusimast vanimani"
+
+msgid "No apps are currently playing audio."
+msgstr "Ükski rakendus ei esita praegu heli."
+
+msgid "Play some music"
+msgstr "Mängi muusikat"
+
+msgid "Unknown Title"
+msgstr "Pealkiri teadmata"
+
+msgid "Unknown Artist"
+msgstr "Tundmatu esitaja"
+
+msgid "Unknown Album"
+msgstr "Tundmatu album"
+
+#, c-format
+msgid "Playing - %s"
+msgstr "Mängib – %s"
+
+#, c-format
+msgid "Paused - %s"
+msgstr "Peatatud – %s"
+
+msgid "No apps are playing audio."
+msgstr "Ükski rakendus ei esita heli."
+
+msgid "Apps"
+msgstr "Rakendused"
+
+msgid "Devices"
+msgstr "Seadmed"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:4
+msgid "Usage Monitor"
+msgstr "Kasutusmonitor"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Swap"
+msgstr "Saaleala"
+
+#: src/daemon/endsession.ui:71
+msgid "Are you sure you want to end your session?"
+msgstr "Kas oled kindel, et soovid oma sessiooni lõpetada?"
+
+#: src/dialogs/polkit/dialog.ui:12 src/dialogs/polkit/dialog.ui:49
+msgid "Authentication Required"
+msgstr "Vajalik on autentimine"
+
+#: src/dialogs/polkit/dialog.ui:71
+msgid "Password:"
+msgstr "Salasõna:"
+
+#: src/dialogs/polkit/dialog.ui:103
+msgid "Username:"
+msgstr "Kasutajanimi:"
+
+#: src/dialogs/polkit/dialog.ui:131
+msgid "Authentication is required"
+msgstr "Vajalik on autentimine"
+
+#: src/dialogs/polkit/dialog.ui:184
+msgid "Details"
+msgstr "Üksikasjad"
+
+#: src/dialogs/polkit/dialog.ui:224
+msgid "Action:"
+msgstr "Tegevus:"
+
+#: src/dialogs/polkit/dialog.ui:259
+msgid "ID:"
+msgstr "Tunnus:"
+
+#: src/dialogs/polkit/dialog.ui:335
+msgid "Authenticate"
+msgstr "Autentimine"
+
+#: src/dialogs/screenshot/aftershot.ui:48
+msgid "Name:"
+msgstr "Nimi:"
+
+#: src/dialogs/screenshot/aftershot.ui:85
+msgid "Folder:"
+msgstr "Kaust:"
+
+#: src/dialogs/screenshot/screenshothome.ui:35
+msgid "Delay in seconds"
+msgstr "Viivitus sekundites"
+
+#: src/dialogs/screenshot/screenshothome.ui:91
+msgid "Show Pointer"
+msgstr "Näita kursorit"
+
+#: src/dialogs/screenshot/screenshothome.ui:141
+msgid "Play sound when capturing"
+msgstr "Esita jäädvustamisel heli"
+
+#: src/panel/applets/ragnar-menu/settings.ui:23
+msgid "Show Menu Label"
+msgstr "Kuva menüü silt"
+
+#: src/panel/applets/ragnar-menu/settings.ui:48
+msgid "Menu Label"
+msgstr "Menüü silt"
+
+#: src/panel/applets/ragnar-menu/settings.ui:72
+msgid "Use Default Menu Icon"
+msgstr "Vaikeikoon"
+
+#: src/panel/applets/ragnar-menu/settings.ui:97
+msgid "Menu Icon"
+msgstr "Menüü ikoon"
+
+#: src/panel/applets/ragnar-menu/settings.ui:148
+msgid "Compact Mode"
+msgstr "Kompaktne vaaterežiim"
+
+#: src/panel/applets/ragnar-menu/settings.ui:172
+msgid "Show Headers"
+msgstr "Kuva päised"
+
+#: src/panel/applets/ragnar-menu/settings.ui:196
+msgid "Roll-over mouse"
+msgstr "Ülelendlev hiir"
+
+#: src/panel/applets/ragnar-menu/settings.ui:221
+msgid "Show settings items"
+msgstr "Kuva seadistuste üksused"
+
+#: src/panel/applets/caffeine/settings.ui:23
+msgid "Enable notification"
+msgstr "Luba märguanne"
+
+#: src/panel/applets/caffeine/settings.ui:35
+msgid "Maximize brightness"
+msgstr "Maksimeeri heledust"
+
+#: src/panel/applets/caffeine/settings.ui:47
+msgid "Brightness Level"
+msgstr "Heleduse tase"
+
+#: src/panel/applets/clock/settings.ui:15
+msgid "Show date"
+msgstr "Näita kuupäeva"
+
+#: src/panel/applets/clock/settings.ui:38
+msgid "Show seconds"
+msgstr "Näita sekundeid"
+
+#: src/panel/applets/clock/settings.ui:61
+msgid "Use 24 hour time"
+msgstr "Kasuta 24-tunnist aega"
+
+#: src/panel/applets/clock/settings.ui:84
+msgid "Custom Format"
+msgstr "Kohandatud vorming"
+
+#: src/panel/applets/clock/settings.ui:107
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr "%H:%M:%S %d.%m.%Y"
+
+#: src/panel/applets/clock/settings.ui:120
+msgid "Custom Timezone"
+msgstr "Kohandatud ajavööndi valik"
+
+#: src/panel/applets/clock/settings.ui:143
+msgid "UTC"
+msgstr "UTC"
+
+#: src/panel/applets/icon-tasklist/settings.ui:15
+msgid "Show all windows on click"
+msgstr "Kuva kõik aknad klõpsamisel"
+
+#: src/panel/applets/icon-tasklist/settings.ui:39
+msgid "Only show favorited"
+msgstr "Näita ainult lemmikuid"
+
+#: src/panel/applets/icon-tasklist/settings.ui:63
+msgid "Lock icons"
+msgstr "Lukusta ikoonid"
+
+#: src/panel/applets/icon-tasklist/settings.ui:88
+msgid "Restrict to Workspace"
+msgstr "Piira töölauaga"
+
+#: src/panel/applets/icon-tasklist/settings.ui:112
+msgid "Middle click to launch new window"
+msgstr "Uue akna avamiseks klõpsa keskmist nuppu"
+
+#: src/panel/applets/icon-tasklist/settings.ui:136
+msgid "Require a double-click to launch new window"
+msgstr "Uue akna käivitamiseks pead tegema topeltklõpsu"
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:28
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:4
+msgid "Keyboard Layout"
+msgstr "Klahvistiku paigutus"
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:44
+msgid "Keyboard Layout Settings"
+msgstr "Klahvistiku paigutuse seadistused"
+
+#: src/panel/applets/night-light/indicator_window.ui:37
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:4
+msgid "Night Light"
+msgstr "Öövalgustus"
+
+#: src/panel/applets/night-light/indicator_window.ui:85
+msgid "Temperature"
+msgstr "Temperatuur"
+
+#: src/panel/applets/night-light/indicator_window.ui:110
+msgid "Schedule"
+msgstr "Ajakava"
+
+#: src/panel/applets/night-light/indicator_window.ui:124
+msgid "Sunset to Sunrise"
+msgstr "Päikeseloojangust päikesetõusuni"
+
+#: src/panel/applets/night-light/indicator_window.ui:125
+msgid "Manual"
+msgstr "Käsitsi"
+
+#: src/panel/applets/night-light/indicator_window.ui:144
+msgid "Display Settings"
+msgstr "Ekraani seadistused"
+
+#: src/panel/applets/places-indicator/settings.ui:19
+msgid "Show label"
+msgstr "Pealdise näitamine"
+
+#: src/panel/applets/places-indicator/settings.ui:55
+msgid "Show places"
+msgstr "Kohtade näitamine"
+
+#: src/panel/applets/places-indicator/settings.ui:79
+msgid "Show network folders"
+msgstr "Kuva võrgukaustad"
+
+#: src/panel/applets/places-indicator/settings.ui:103
+msgid "Show removable drives"
+msgstr "Kuva irdkettad"
+
+#: src/panel/applets/places-indicator/settings.ui:127
+msgid "Always expand places"
+msgstr "Laienda alati kohti"
+
+#: src/panel/applets/spacer/settings.ui:21
+msgid "Spacer size"
+msgstr "Eraldaja suurus"
+
+#: src/panel/applets/status/settings.ui:22
+#: src/panel/applets/tray/settings.ui:22
+msgid "Icon Spacing"
+msgstr "Ikoonide vahe"
+
+#: src/panel/applets/status/settings.ui:48
+msgid "Show battery percentage"
+msgstr "Näita aku protsenti"
+
+#: src/panel/applets/tasklist/settings.ui:16
+msgid "Show button icons"
+msgstr "Näita nuppudel ikoone"
+
+#: src/panel/applets/tasklist/settings.ui:41
+msgid "Show button labels"
+msgstr "Näita nuppudel silte"
+
+#: src/panel/applets/trash/settings.ui:16
+msgid "Sort Mode"
+msgstr "Järjestusviis"
+
+#: src/panel/applets/trash/settings.ui:28
+msgid "Sort by type"
+msgstr "Järjesta tüübi alusel"
+
+#: src/panel/applets/trash/settings.ui:43
+msgid "Sort alphabetically"
+msgstr "Järjesta tähestikuliselt"
+
+#: src/panel/applets/trash/settings.ui:58
+msgid "Sort reverse alphabetically"
+msgstr "Järjesta tähestikuliselt tagurpidi"
+
+#: src/panel/applets/trash/settings.ui:73
+msgid "Sort by date ascending"
+msgstr "Järjesta kuupäeva alusel kasvavalt"
+
+#: src/panel/applets/trash/settings.ui:88
+msgid "Sort by date descending"
+msgstr "Järjesta kuupäeva alusel kahanevalt"
+
+#: src/panel/applets/tray/settings.ui:48
+msgid "Scale icons with panel size"
+msgstr "Muuda ikoonide suurust koos paneeliga"
+
+#: src/panel/applets/workspaces/settings.ui:17
+msgid "\"Add\" button visibility"
+msgstr "„Lisa“ nupu nähtavus"
+
+#: src/panel/applets/workspaces/settings.ui:31
+msgid "Item Size Multiplier"
+msgstr "Suurendustegur"
+
+#: src/panel/applets/workspaces/settings.ui:45
+msgid "Don't show"
+msgstr "Ära näita"
+
+#: src/panel/applets/workspaces/settings.ui:46
+msgid "Show on mouseover"
+msgstr "Kuva hiirekursoril"
+
+#: src/panel/applets/workspaces/settings.ui:47
+msgid "Always show"
+msgstr "Näita alati"
+
+#: src/panel/applets/workspaces/settings.ui:65
+msgid "0.5x"
+msgstr "0,5x"
+
+#: src/panel/applets/workspaces/settings.ui:66
+msgid "0.75x"
+msgstr "0.75x"
+
+#: src/panel/applets/workspaces/settings.ui:67
+msgid "1.0x"
+msgstr "1.0x"
+
+#: src/panel/applets/workspaces/settings.ui:68
+msgid "1.5x"
+msgstr "1.5x"
+
+#: src/panel/applets/workspaces/settings.ui:69
+msgid "2.0x"
+msgstr "2.0x"
+
+#: src/raven/widgets/calendar/settings.ui:17
+msgid "Show Week Numbers"
+msgstr "Näita nädalanumbreid"
+
+#: src/raven/widgets/calendar/settings.ui:43
+msgid "Show Day Names"
+msgstr "Näita päevade nimesid"
+
+#: src/raven/widgets/sound-input/settings.ui:17
+#: src/raven/widgets/sound-output/settings.ui:17
+msgid "Allow Volume Overdrive"
+msgstr "Luba helivaljuse ülempiiri ületamist"
+
+#: src/raven/widgets/usage-monitor/settings.ui:17
+msgid "Show Swap Usage"
+msgstr "Näita saaleala kasutust"
+
+#: src/daemon/ragnar-daemon.desktop.in:3
+msgid "Ragnar Background Services"
+msgstr "Ragnar taustateenused"
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:4
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:4
+msgid "Ragnar screenshot app"
+msgstr "Ragnar kuvatõmmise rakendus"
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:8
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:8
+msgid "Screenshot;Snip;"
+msgstr "Screenshot;Snip;ekraanitõmmis;kuvatõmmis;"
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:3
+msgid "Ragnar PolicyKit UI"
+msgstr "Ragnar PolicyKiti kasutajaliides"
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:4
+msgid "Ragnar PolicyKit Authorisation UI"
+msgstr "Ragnar PolicyKiti autentimise kasutajaliides"
+
+#: src/dialogs/screenshot/ragnar-screenshot-dialog.desktop.in.in:3
+msgid "Ragnar Screenshot UI"
+msgstr "Ragnar ekraanitõmmise kasutajaliides"
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:4
+msgid "Ragnar Menu"
+msgstr "Ragnar menüü"
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:5
+msgid "Search for and start up applications."
+msgstr "Otsi rakendusi ja käivita need."
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:4
+msgid "Caffeine"
+msgstr "Kofeiinilaks"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:5
+msgid "Prevent the system and screen from sleeping."
+msgstr "Väldi süsteemi ja ekraani uinumist."
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:4
+msgid "Clock"
+msgstr "Kell"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:5
+msgid "A digital clock with a customizable format."
+msgstr "Kohandatava formaadiga digitaalkell."
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:4
+msgid "Icon Task List"
+msgstr "Tegumiloend ikoonidena"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:5
+msgid "A configurable application task list."
+msgstr "Konfigureeritav rakenduste ülesannete loend."
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:5
+msgid "Indicates which keyboard layout is currently in use."
+msgstr "Näitab, milline klaviatuuripaigutus on hetkel kasutusel."
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:4
+msgid "Lock Keys Indicator"
+msgstr "Lukustusklahvide indikaator"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:5
+msgid "Show status of lock keys."
+msgstr "Näita lukustusklahvide olekut."
+
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:5
+msgid "Toggle and modify Night Light settings."
+msgstr "Lülita ja muuda öövalguse seadistusi."
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:5
+msgid "Open the Raven notifications view."
+msgstr "Ava Raveni teavituste vaade."
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:5
+msgid "Show drives and favorite folders."
+msgstr "Kuva draivid ja lemmikkaustad."
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:4
+msgid "Raven Trigger"
+msgstr "Raveni päästik"
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:5
+msgid "Open the Raven sidebar."
+msgstr "Ava Raveni külgriba."
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:4
+msgid "Separator"
+msgstr "Eraldaja"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:5
+msgid "Visual separator between applets."
+msgstr "Rakendite vaheline visuaalne eraldaja."
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:4
+msgid "Show Desktop Button"
+msgstr "Töölaua kuvamise nupp"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:5
+msgid "A button that toggles visibility of the desktop."
+msgstr "Nupp, mis lülitab töölaua nähtavuse sisse."
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:4
+msgid "Spacer"
+msgstr "Eraldaja"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:5
+msgid "Adjustable spacer to put between other applets."
+msgstr "Reguleeritav vahetükk teiste rakendite vahele panemiseks."
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:4
+msgid "Status Indicator"
+msgstr "Olekuindikaator"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:5
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr "Kuva süsteemi olekunäidikud, nagu heli, aku ja Bluetooth."
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:4
+msgid "Task List"
+msgstr "Tegumiloend"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:5
+msgid "An application task list with icons and labels."
+msgstr "Rakenduse ülesannete loend ikoonide ja siltidega."
+
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:5
+msgid "Manage your trash from the Ragnar panel"
+msgstr "Halda oma prügikasti Ragnar paneelilt"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:4
+msgid "System Tray"
+msgstr "Süsteemisalv"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:5
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr ""
+"Süsteemisalv, kus on kasutusel Freedesktopi  olekuteadete (Freedesktop "
+"Status Notifier) spetsifikatsioon."
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:4
+msgid "User Indicator"
+msgstr "Kasutaja indikaator"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:5
+msgid "Opens the power dialog."
+msgstr "Avab toitehalduse vaate."
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:4
+msgid "Workspace Switcher"
+msgstr "Töölaudade vahetaja"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:5
+msgid "Display workspaces and switch between them."
+msgstr "Kuva töölaudasid ja vaheta nende vahel."
+
+#: src/panel/ragnar-desktop-settings.desktop.in:3
+msgid "Change desktop appearance and behavior"
+msgstr "Muuda töölaua välimust ja käitumist"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:12
+msgid "Preferences;Settings;"
+msgstr "Preferences;Settings;eelistused;seadistused;seaded;sätted;"
+
+#: src/panel/ragnar-panel.desktop.in:3
+msgid "Ragnar Panel"
+msgstr "Ragnar paneel"
+
+#: src/panel/ragnar-panel.desktop.in:4
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr ""
+"Käivita teisi rakendusi ja paku erinevaid tarvikuid akende haldamiseks, "
+"kellaaja kuvamiseks jne."
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:4
+msgid "Calendar"
+msgstr "Kalender"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:5
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr ""
+"Lihtne kuuvaatega kalender, kasutades sisseehitatud vidinat Gtk.Calendar. "
+"Vaikimisi näitab kalender praegust kuupäeva."
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:4
+msgid "Media Controls"
+msgstr "Meedia juhtelemendid"
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:5
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+"See vidin kasutab Mpris API-t, et kuvada aktiivselt mängivat meediumit koos "
+"metaandmete ja taasesituse juhtelementidega, toetades heli ja videot."
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:4
+msgid "Sound Input"
+msgstr "Heli sisend"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:5
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr ""
+"Võimaldab reguleerida helisisendi helitugevust ja kuvab saadaolevate "
+"helisisendseadmete loendi."
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:4
+msgid "Sound Output"
+msgstr "Heli väljund"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:5
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr ""
+"Võimaldab globaalset ja rakendusepõhist heliväljundi helitugevust "
+"reguleerida ning kuvab saadaolevate heliväljundseadmete loendi."
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:5
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr ""
+"Süsteemi ressursside kasutamise vaade tulpdiagrammi kujul. Hõlmab vaikimisi "
+"protsessori, RAM-i ja vahetusfunktsiooni kasutamist."
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:2
+msgid "Ragnar Desktop (magpie)"
+msgstr "Ragnar töölaud (magpie)"
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:3
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr "See sessioon logib sind Ragnar töölauale, kus aknahalduriks on magpie"
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:2
+msgid "Network (Ragnar Desktop)"
+msgstr "Võrk (Ragnar töölaud)"
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:3
+msgid "Manage your network connections"
+msgstr "Halda oma võrguühendusi"
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:3
+msgid "Ragnar Power Dialog"
+msgstr "Ragnar toitehalduse vaade"
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:4
+msgid "A button dialog to lock the screen, reboot, shutdown, etc."
+msgstr ""
+"Nuppude vaade, mille valikute hulgas on ekraani  lukustamine, arvuti "
+"seiskamine ja uuesti käivitamine, jmt."
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:3
+msgid "Ragnar Screenshot Dialog"
+msgstr "Ragnar ekraanitõmmise vaade"
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:4
+msgid "Screenshot interface"
+msgstr "Ekraanitõmmise kasutajaliides"
+
+#: src/session/ragnar-desktop.desktop.in.in:3
+#: src/session/ragnar-desktop.session.desktop.in.in:2
+msgid "Ragnar Desktop"
+msgstr "Ragnar töölaud"
+
+#: src/session/ragnar-desktop.desktop.in.in:4
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr "See sessioon logib sind Ragnar töölauale, kus aknahalduriks on labwc"
+

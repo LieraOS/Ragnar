@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Eye
+Name[en]=Ragnar Eye
+Comment=Schneller Bildbetrachter
+Comment[en]=Fast image viewer
+Exec=ragnar-eye %F
+Icon=org.lieraos.ragnar.Eye
+Terminal=false
+Categories=Graphics;Viewer;
+MimeType=image/png;image/jpeg;image/gif;image/webp;image/tiff;image/bmp;image/x-tga;image/x-icon;image/x-portable-pixmap;image/x-portable-anymap;image/qoi;image/vnd-ms.dds;image/x-exr;image/vnd.radiance;image/x-psd;image/x-krita;image/openraster;image/x-canon-cr2;image/x-canon-cr3;image/x-nikon-nef;image/x-sony-arw;image/x-adobe-dng;image/heic;image/heif;image/avif;image/jxl;image/vnd.djvu;image/fits;application/postscript;application/pdf+ai;

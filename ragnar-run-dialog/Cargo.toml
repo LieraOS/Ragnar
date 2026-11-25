@@ -1,0 +1,35 @@
+[package]
+name = "ragnar-run-dialog"
+version = "0.1.0"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Launcher overlay (Alt+F2) for the Ragnar desktop (Liera)"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+# GUI framework: GTK4 + libadwaita, matching the other Ragnar tools
+gtk4 = { version = "0.9", features = ["v4_10"] }
+libadwaita = { version = "0.7", features = ["v1_7"] }
+
+# Wayland layer-shell for the krunner-style overlay surface
+gtk4-layer-shell = "0.5"
+
+# Localization (gettext; msgids are German, po/en.po for English)
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+
+# Platform paths (~/.config for the user CSS override)
+dirs = "5.0"
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+# The legacy legacy binary shipped inside ragnar-core lives at the same
+# path; declaring Replaces lets dpkg hand the file over to this package.
+depends = "$auto"
+replaces = "ragnar-core"
+assets = [
+    ["target/release/ragnar-run-dialog", "usr/bin/ragnar-run-dialog", "755"],
+    ["data/run-dialog.css", "usr/share/ragnar-run-dialog/", "644"],
+    ["target/locale/en/LC_MESSAGES/ragnar-run-dialog.mo", "usr/share/locale/en/LC_MESSAGES/ragnar-run-dialog.mo", "644"],
+]

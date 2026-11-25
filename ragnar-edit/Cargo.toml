@@ -1,0 +1,20 @@
+[package]
+name = "ragnar-edit"
+version = "0.1.0"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+license = "GPL-3.0-or-later"
+description = "Ragnar Edit — native Wayland text editor for the Ragnar desktop"
+
+[dependencies]
+gtk4 = { version = "0.9", features = ["v4_10"] }
+libadwaita = { version = "0.7", features = ["v1_7"] }
+gio = "0.20"
+glib = "0.20"
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+flate2 = "1"
+pangocairo = "0.20"
+
+[profile.release]
+opt-level = 3
+lto = true

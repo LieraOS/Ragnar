@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar SAP
+Name[de]=Ragnar SAP
+GenericName=Scanner and Printer
+GenericName[de]=Scanner und Drucker
+Comment=Scan and print workflows for the Ragnar desktop
+Comment[de]=Scan- und Druck-Workflows für den Ragnar-Desktop
+Exec=ragnar-sap
+Icon=scanner
+Terminal=false
+Categories=Office;Graphics;Scanning;
+Keywords=scan;print;scanner;printer;pdf;scannen;drucken;
+StartupNotify=true

@@ -1,0 +1,12 @@
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.A11ySettings.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.Datetime.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.Housekeeping.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.Power.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.PrintNotifications.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.Rfkill.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.Sharing.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.Smartcard.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.Sound.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.UsbProtection.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.SettingsDaemon.Wwan.desktop
+remove-on-upgrade /etc/xdg/autostart/org.lieraos.ragnar.ScreenshotDialog.desktop

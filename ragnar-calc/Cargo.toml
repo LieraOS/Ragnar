@@ -1,0 +1,17 @@
+[package]
+name = "ragnar-calc"
+version = "0.1.0"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Ragnar calculator — standard and scientific modes, GTK4"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+gtk4 = "0.9"
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"

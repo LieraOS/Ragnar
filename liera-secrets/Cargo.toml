@@ -1,0 +1,18 @@
+[package]
+name = "liera-secrets"
+version = "0.1.0"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Shared cloud-credential store for LieraOS apps (freedesktop Secret Service)"
+
+[dependencies]
+dbus-secret-service = { version = "4.1.0", features = ["crypto-rust"] }
+serde = { version = "1", features = ["derive"] }
+
+[[bin]]
+name = "liera-secrets"
+path = "src/main.rs"
+
+[lib]
+name = "liera_secrets"
+path = "src/lib.rs"

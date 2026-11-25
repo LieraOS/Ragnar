@@ -1,0 +1,2035 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ragnar-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026
+# Joshua Strobl <joshua.strobl@outlook.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-desktop 10.10.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 15:27+0300\n"
+"PO-Revision-Date: 2022-01-02 09:45+0000\n"
+"Last-Translator: Joshua Strobl <joshua.strobl@outlook.com>, 2026\n"
+"Language-Team: Georgian (https://app.transifex.com/buddiesofragnar/teams/129844/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#. Create our misc category, but don't add it to the list until it actually
+#. has apps in it
+msgid "Other"
+msgstr "სხვა"
+
+#. * Add our categories, adhearing to the Freedesktop Menu spec.
+#. *
+#. * Inclusions and exclusions are sourced from multiple places,
+#. * including the UbuntuRagnar fork of applications-menu, gnome-menus,
+#. * the Freedeskop Menus spec, and by ourselves.
+msgid "Accessories"
+msgstr "აქსესუარები"
+
+msgid "Education"
+msgstr "განათლება"
+
+msgid "Games"
+msgstr "თამაშები"
+
+msgid "Graphics"
+msgstr "გრაფიკა"
+
+msgid "Internet"
+msgstr "ინტერნეტი"
+
+msgid "Office"
+msgstr "ოფისი"
+
+msgid "Programming"
+msgstr "პროგრამირება"
+
+msgid "Science"
+msgstr "მეცნიერება"
+
+msgid "Sound & Video"
+msgstr "ხმა და ვიდეო"
+
+msgid "System Tools"
+msgstr "სისტემური ხელსაწყოები"
+
+msgid "Universal Access"
+msgstr "უნივერსალური წვდომა"
+
+#. Make sure we have a default name
+msgid "New Category"
+msgstr "ახალი კატეგორია"
+
+msgid "Log out"
+msgstr "გასვლა"
+
+msgid "Restart device"
+msgstr "მოწყობილობის გადატვირთვა"
+
+#: src/daemon/endsession.ui:47
+msgid "Power Off"
+msgstr "გამორთვა"
+
+#. Do nothing if there were no held notifications
+#. translators: This is the title of a notification that is shown after
+#. notifications have been blocked because an application was in fullscreen
+#. mode
+msgid "Unread Notifications"
+msgstr "წაუკითხავი გაფრთხილებები"
+
+#, c-format
+msgid "You received %d notification while an application was fullscreened."
+msgid_plural ""
+"You received %d notifications while an application was fullscreened."
+msgstr[0] ""
+msgstr[1] ""
+
+#. No existing ref, make a new notification
+#. translators: Text for a button on the notification to open Raven to the
+#. notifications view
+msgid "View Notifications"
+msgstr "გაფრთხილებების ნახვა"
+
+msgid "Caps Lock is on"
+msgstr "CapsLock ჩართულია"
+
+msgid "Caps Lock is off"
+msgstr "Caps Lock გამორთულია"
+
+msgid "Num Lock is on"
+msgstr "Num Lock ჩართულია"
+
+msgid "Num Lock is off"
+msgstr "Num Lock გამორთულია"
+
+#. Should show a notification
+msgid "Turned on Caffeine Boost"
+msgstr "„Caffeine Boost“ ჩაირთო"
+
+msgid "Turned off Caffeine Boost"
+msgstr "„Caffeine Boost“ გამოირთო"
+
+#, c-format
+msgid "Will turn off in a minute"
+msgid_plural "Will turn off in %d minutes"
+msgstr[0] "გამოირთვება ერთ წუთში"
+msgstr[1] "გამოირთვება %d წუთში"
+
+msgid "Authentication failed"
+msgstr "ავთენტიკაცია ჩავარდა"
+
+msgid "Group:"
+msgstr "ჯგუფი:"
+
+#. Create our buttons
+msgid "_Lock"
+msgstr "_დაბლოკვა"
+
+msgid "L_og Out"
+msgstr "_გასვლა"
+
+msgid "_Suspend"
+msgstr "_ძილი"
+
+msgid "_Hibernate"
+msgstr "_პროგრამული ძილი"
+
+msgid "_Reboot"
+msgstr "_გადატვირთვა"
+
+msgid "Shut_down"
+msgstr "გა_მორთვა"
+
+msgid "This system does not support hibernation."
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:3
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:3
+msgid "Ragnar Screenshot"
+msgstr "Ragnar-ის ეკრანის ანაბეჭდი"
+
+#. Translators: be as brief as possible; popovers are cut off if broader than
+#. the window
+msgid "Screenshot entire screen"
+msgstr ""
+
+msgid "Screenshot active window"
+msgstr ""
+
+msgid "Screenshot selected area"
+msgstr ""
+
+#. translate
+msgid "Cancel screenshot"
+msgstr ""
+
+msgid "Save screenshot to the selected directory"
+msgstr ""
+
+msgid "Copy screenshot to the clipboard"
+msgstr ""
+
+msgid "Open screenshot in default application"
+msgstr ""
+
+#. Other -> call Filebrowser (path = null)
+#. 'Other' is about setting a custom directory on a dropdown list
+msgid "Other..."
+msgstr "სხვა..."
+
+#. Hide the AfterShot window while the file chooser is open
+#. set custom dir to found dir
+msgid "Open Folder"
+msgstr "საქაღალდის გახსნა"
+
+#: src/daemon/endsession.ui:92 src/dialogs/polkit/dialog.ui:321
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Open"
+msgstr "გახსნა"
+
+msgid "Files to send"
+msgstr "გასაგზავნი ფაილები"
+
+msgid "_Cancel"
+msgstr "გაუ_ქმება"
+
+msgid "_Open"
+msgstr "_გახსნა"
+
+msgid "Send Files via Bluetooth"
+msgstr "ფაილების ბლუთუზით გადაცემა"
+
+msgid "Send files to device…"
+msgstr "ფაილების გაგზავნა მოწყობილობაზე…"
+
+msgid "Rejected file"
+msgstr "ფაილი უარყოფილია"
+
+#, c-format
+msgid "File already exists: %s"
+msgstr "ფაილი უკვე არსებობს: %s"
+
+#. Create a notification prompting the user what to do
+msgid "Receiving file"
+msgstr "ფალის მიღება"
+
+#, c-format
+msgid "Device '%s' wants to send a file: %s %s"
+msgstr ""
+
+msgid "Accept"
+msgstr "დასტური"
+
+msgid "Reject"
+msgstr "უარყოფა"
+
+msgid "File name"
+msgstr "ფაილის სახელი"
+
+msgid "Transfer rate"
+msgstr "გადაცემის სიჩქარე"
+
+#. Now add the dialog buttons
+msgid "Close"
+msgstr "დახურვა"
+
+#, c-format
+msgid "<b>Transfer rate:</b> %s / s"
+msgstr "<b>გადაცემის სიჩქარე:</b> %s / წმ"
+
+#, c-format
+msgid "%s / %s: Time remaining: %s"
+msgstr "%s / %s: დარჩენილი დრო: %s"
+
+#, c-format
+msgid "%u hour"
+msgid_plural "%u hours"
+msgstr[0] "%u საათი"
+msgstr[1] "%u საათი"
+
+#, c-format
+msgid "%u minute"
+msgid_plural "%u minutes"
+msgstr[0] "%u წუთი"
+msgstr[1] "%u წუთი"
+
+#, c-format
+msgid "%u second"
+msgid_plural "%u seconds"
+msgstr[0] "%u წამი"
+msgstr[1] "%u წამი"
+
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d წმ"
+msgstr[1] "%d წმ"
+
+msgid "Send"
+msgstr "გაგზავნა"
+
+msgid "Speaker"
+msgstr "დინამიკი"
+
+msgid "Controller"
+msgstr "კონტროლერი"
+
+msgid "Keyboard"
+msgstr "კლავიატურა"
+
+msgid "Mouse"
+msgstr "თაგუნა"
+
+msgid "Tablet"
+msgstr "ტაბლეტი"
+
+msgid "Touchpad"
+msgstr "თაჩპედი"
+
+msgid "Phone"
+msgstr "ტელეფონი"
+
+msgid "Bluetooth File Transfer"
+msgstr "ბლუთუზით ფაილის გადაცემა"
+
+#. Update the labels
+#, c-format
+msgid "<b>From</b>: %s"
+msgstr "<b>ვისგან</b>: %s"
+
+#, c-format
+msgid "<b>To</b>: %s"
+msgstr "<b>ვის</b>: %s"
+
+#, c-format
+msgid "<b>File name</b>: %s"
+msgstr "<b>ფაილის სახელი</b>: %s"
+
+msgid "File transfer failed"
+msgstr "ფაილის მიმოცვლის შეცდომა"
+
+#, c-format
+msgid "File '%s' not received from %s"
+msgstr ""
+
+#, c-format
+msgid "File '%s' from %s not received: %s"
+msgstr ""
+
+msgid "File transferred successfully"
+msgstr "ფაილის გადაცემა წარმატებულია"
+
+#, c-format
+msgid "Saved file from %s to '%s'"
+msgstr ""
+
+msgid "From"
+msgstr "ვისგან"
+
+msgid "To"
+msgstr "ვის"
+
+#, c-format
+msgid "Trying to connect to %s…"
+msgstr ""
+
+#, c-format
+msgid "Connecting to '%s' failed"
+msgstr ""
+
+msgid "The file has not been transferred."
+msgstr ""
+
+msgid "Retry"
+msgstr "თავიდან ცდა"
+
+#, c-format
+msgid "Waiting for acceptance on %s…"
+msgstr ""
+
+#, c-format
+msgid "Transferring '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "The transfer was interrupted or declined by %s."
+msgstr ""
+
+msgid "Select a Bluetooth device to send files to"
+msgstr ""
+
+msgid "Discovering…"
+msgstr "აღმოჩენა…"
+
+msgid "<b>No devices found</b>"
+msgstr ""
+
+msgid "Ensure that your devices are visable and ready for pairing"
+msgstr ""
+
+msgid "Available Devices"
+msgstr "ხელმისაწვდომი მოწყობილობები"
+
+#. Caffeine Notification
+#. Prepare label widget
+msgid "Caffeine Mode"
+msgstr "„Caffeine“ რეჟიმი"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:2
+msgid "Ragnar Desktop Settings"
+msgstr "„Ragnar Desktop“-ის მორგება"
+
+msgid "System Settings"
+msgstr "სისტემის მორგება"
+
+msgid "Power"
+msgstr "კვება"
+
+msgid "Set menu icon from file"
+msgstr "მენიუს ხატულის დაყენება ფაილიდან"
+
+msgid "Image files"
+msgstr "გამოსახულების ფაილები"
+
+msgid "Any file"
+msgstr "ნებისმიერი ფაილი"
+
+msgid "Set icon"
+msgstr "ხატულის დაყენება"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "All"
+msgstr "ყველა"
+
+msgid "Remove from favorites"
+msgstr ""
+
+msgid "Add to favorites"
+msgstr ""
+
+#. placeholder in case of no results
+msgid "Sorry, no items found"
+msgstr "ვერაფერი მოიძებნა"
+
+msgid "Timer (minutes)"
+msgstr "წამზომი (წუთებში)"
+
+msgid "System time and date settings"
+msgstr "სისტემის დროისა და თარიღის პარამეტრების მორგება"
+
+msgid "Unfavorite"
+msgstr "რჩეულებიდან წაშლა"
+
+msgid "Favorite"
+msgstr "რჩეული"
+
+msgid "Close all windows"
+msgstr "ყველა ფანჯრის დახურვა"
+
+msgid "Launch new instance"
+msgstr "ახალი გაშვებული ასლის გაშვება"
+
+msgid "Minimize"
+msgstr "ჩაკეცვა"
+
+#. Translators: This is used for buttons to move applications to another
+#. Workspace
+#, c-format
+msgid "Move to %s"
+msgstr ""
+
+msgid "Unmaximize"
+msgstr "საწყის ზომაზე დაბრუნება"
+
+msgid "Maximize"
+msgstr "გაშლა"
+
+msgid "Close window"
+msgstr "ფანჯრის დახურვა"
+
+msgid "Show window controls"
+msgstr ""
+
+msgid "Caps lock is active"
+msgstr "„Caps lock\" ჩართულია"
+
+msgid "Caps lock is not active"
+msgstr "„Caps lock“ ჩართული  არაა"
+
+msgid "Num lock is active"
+msgstr "„Num lock“ ჩართულია"
+
+msgid "Num lock is not active"
+msgstr "„Num lock“ ჩართული არაა"
+
+#, c-format
+msgid "%u unread notification"
+msgid_plural "%u unread notifications"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "No unread notifications"
+msgstr "წაუკითხავი შეტყობინებები არ არის"
+
+msgid "Volume is in use by other processes"
+msgstr "ტომი სხვა პროცესების მიერ გამოიყენება"
+
+msgid "Operation aborted"
+msgstr "ოპერაცია გაუქმდა"
+
+msgid "Type your password"
+msgstr "შეიყვანეთ თქვენი პაროლი"
+
+msgid "Removable devices"
+msgstr "მოხსნადი მოწყობილობები"
+
+msgid "Local volumes"
+msgstr "ლოკალური ტომები"
+
+msgid "Network folders"
+msgstr "ქსელური საქაღალდეები"
+
+msgid "Eject"
+msgstr "გამოღება"
+
+msgid "Unmount"
+msgstr "მოხსნა"
+
+#, c-format
+msgid "Open \"%s\""
+msgstr "\"%s\"-ის გახსნა"
+
+msgid "You can now safely remove"
+msgstr "ახლა შესაძლებელია მოწყობილობის უსაფრთხოდ გამოერთება"
+
+msgid "Unknown Device"
+msgstr "უცნობი მოწყობილობა"
+
+msgid "Error while ejecting device"
+msgstr "შეცდომა მოწყობილობის გამოღებისას"
+
+msgid "Error while unmounting volume"
+msgstr "შეცდომა ტომის მოხსნისას"
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:4
+msgid "Places"
+msgstr "მდებარეობები"
+
+msgid "Nothing to display right now"
+msgstr "ამ მომენტისთვის საჩვენებელი არაფერია"
+
+msgid "Mount some drives"
+msgstr "მიამაგრეთ დისკები"
+
+msgid "Enable more sections"
+msgstr "მეტი სექციების ჩართვა"
+
+#, c-format
+msgid "Mount and open \"%s\""
+msgstr "\"%s\"-ის მიმაგრება და გახსნა"
+
+msgid "Enter the encryption passphrase to unlock this volume"
+msgstr "ამ ტომის განბლოკვისთვის შეიყვანეთ დაშიფვრის საკვანძო ფრაზა"
+
+msgid "The password you entered is incorrect"
+msgstr "შეყვანილი პაროლი არასწორია"
+
+msgid "An unknown error occurred while attempting to mount this volume"
+msgstr "უცნობი პრობლემა ამ ტომის მიმაგრების მცდელობისას"
+
+msgid "Toggle the desktop"
+msgstr "სამუშაო მაგიდის გადართვა"
+
+msgid "Bluetooth"
+msgstr "ბლუთუზი"
+
+msgid "Bluetooth Settings"
+msgstr "ბლუთუზის მორგება"
+
+#. Bluetooth switch
+msgid "Turn Bluetooth on or off"
+msgstr ""
+
+#. Update the tray icon and placeholder text
+#. Airplane mode is on, so Bluetooth is disabled
+msgid "Airplane mode is on."
+msgstr ""
+
+msgid "Bluetooth is disabled while airplane mode is on."
+msgstr ""
+
+#. Airplane mode is off, so Bluetooth is enabled
+msgid "No paired Bluetooth devices found."
+msgstr ""
+
+msgid "Visit Bluetooth settings to pair a device."
+msgstr ""
+
+msgid "Send file"
+msgstr "ფაილის გაგზავნა"
+
+msgid "Disconnect"
+msgstr "გათიშვა"
+
+msgid "Disconnecting…"
+msgstr "მიმდინარეობს გათიშვა…"
+
+msgid "Connecting…"
+msgstr "დაკავშირება…"
+
+msgid "Failed to disconnect"
+msgstr ""
+
+msgid "Failed to connect"
+msgstr "კავშირის შეცდომა"
+
+msgid "Connected"
+msgstr "დაკავშირებულია"
+
+msgid "Disconnected"
+msgstr "გათიშულია"
+
+#, c-format
+msgid "<b>Filename</b>: %s"
+msgstr "<b>ფაილის სახელი</b>: %s"
+
+#, c-format
+msgid "Receiving… %s of %s"
+msgstr "მიღება… %s %s-დან"
+
+#, c-format
+msgid "Sending… %s of %s"
+msgstr "გაგზავნა… %s %s-დან"
+
+msgid "Battery fully charged."
+msgstr "ელემენტი სრულად დაიტენა."
+
+msgid "Unknown"
+msgstr "უცნობი"
+
+#. Set inner charging duration to hours:minutes
+msgid "Battery charging"
+msgstr "ელემენტი იტენება"
+
+msgid "Battery remaining"
+msgstr "დარჩენილი ელემენტი"
+
+msgid "Performance Mode"
+msgstr ""
+
+msgid "Power Saver"
+msgstr "ელემენტის შენახვის რეჟიმი"
+
+msgid "Balanced"
+msgstr "დაბალანსებული"
+
+msgid "Performance"
+msgstr "წარმადობა"
+
+msgid "Power settings"
+msgstr "კვების პარამეტრები"
+
+#: src/panel/applets/trash/trash_applet.c:228
+#: src/panel/applets/trash/trash_item_row.c:332
+#: src/panel/applets/trash/trash_item_row.c:363
+msgid "Trash Error"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:155
+msgid "Permanently delete this item"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:162
+msgid "Are you sure you want to delete this item?"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:168
+#: src/panel/applets/trash/trash_popover.c:320
+msgid "No"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:169
+#: src/panel/applets/trash/trash_popover.c:321
+msgid "Yes"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:333
+#, c-format
+msgid "Unable to delete '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_item_row.c:364
+#, c-format
+msgid "Unable to restore '%s': %s"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:119
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:4
+msgid "Trash Bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:125
+msgid "Settings"
+msgstr "მორგება"
+
+#. Header label
+#. Switcher to show or hide a shortcut to Trash
+#: src/panel/applets/trash/trash_popover.c:274
+msgid "Trash"
+msgstr "ნაგვის ყუთი"
+
+#: src/panel/applets/trash/trash_popover.c:283
+msgid "Trash Applet Settings"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:300
+msgid "Restore"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:301
+msgid "Restore selected items"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:303
+msgid "Empty"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:304
+msgid "Empty the trash bin"
+msgstr ""
+
+#: src/panel/applets/trash/trash_popover.c:311
+msgid "Are you sure you want to empty the trash bin?"
+msgstr ""
+
+#. User Menu Creation
+msgid "User"
+msgstr "მომხმარებელი"
+
+#. Default to "User" and symbolic icon
+#. The rest
+msgid "Lock"
+msgstr "დაბლოკვა"
+
+msgid "Suspend"
+msgstr "ძილი"
+
+msgid "Hibernate"
+msgstr "პროგრამული ძილი"
+
+#: src/daemon/endsession.ui:124
+msgid "Restart"
+msgstr "გადატვირთვა"
+
+#: src/daemon/endsession.ui:142
+msgid "Shutdown"
+msgstr "გამორთვა"
+
+#: src/daemon/endsession.ui:106
+msgid "Logout"
+msgstr "გასვლა"
+
+msgid "Rename"
+msgstr "გადარქმევა"
+
+msgid "Remove"
+msgstr "წაშლა"
+
+msgid "Not able to create new workspaces"
+msgstr ""
+
+msgid "Create a new workspace"
+msgstr ""
+
+msgid "Untitled"
+msgstr "უსახელო"
+
+msgid "No description"
+msgstr "აღწერის გარეშე"
+
+msgid "running"
+msgstr "გაშვებულია"
+
+msgid "Applications"
+msgstr "აპლიკაციები"
+
+msgid "Add"
+msgstr "დამატება"
+
+msgid "Command"
+msgstr "ბრძანება"
+
+msgid "An entry with that title already exists"
+msgstr "ბმული ამ სათაურით უკვე არსებობს"
+
+msgid "Title"
+msgstr "სათაური"
+
+msgid "Required"
+msgstr "აუცილებელია"
+
+msgid "Description"
+msgstr "აღწერა"
+
+msgid "Optional"
+msgstr "არასავალდებულო"
+
+msgid "Autostart"
+msgstr "ავტოსტარტი"
+
+msgid "Autostart apps"
+msgstr "ავტომატურად გაშვებული აპები"
+
+msgid "Add Application"
+msgstr "აპლიკაციის დამატება"
+
+msgid "Add Command"
+msgstr "ბრძანების დამატება"
+
+msgid "Desktop"
+msgstr "სამუშაო მაგიდა"
+
+#. Ragnar native implementation
+#. Get the settings for Ragnar Desktop View
+#. Update our switches on change
+#. Desktop Folder
+#. Get the settings for DesktopType
+#. Update our switches on change
+#. Nemo
+#. Update our switches on change
+#. Using some desktop type, set up some universal options then implementation-
+#. specific
+#. Universal show
+msgid "Desktop Icons"
+msgstr "სამუშაო მაგიდის ხატულები"
+
+msgid "Control whether to allow icons on the desktop."
+msgstr ""
+
+#. DesktopFolder doesn't support fancy options like showing home folder,
+#. trash, or active mounts
+#. DesktopType is the only one that doesn't support showing mounts
+#. Switcher to show or hide active mounts
+msgid "Active Mounts"
+msgstr ""
+
+msgid "Show all active mounts on the desktop."
+msgstr ""
+
+#. Switcher to show or hide our Home folder
+msgid "Home directory"
+msgstr "საწყისი საქაღალდე"
+
+msgid "Add a shortcut to your home directory on the desktop."
+msgstr "სამუშაო მაგიდაზე თქვენი საწყისი საქაღალდის მალსახმობის დამატება."
+
+msgid "Add a shortcut to the Trash directory on the desktop."
+msgstr "„ნაგვის ყუთის“ მალსახმობის დამატება სამუშაო მაგიდაზე."
+
+#. DesktopType doesn't support icon size changing. Nemo might but needs
+#. validation.
+#. Click Policy combo box
+#. Icon Size combo box
+msgid "Icon Size"
+msgstr "ხატულების ზომა"
+
+msgid "Set the desired size of icons on the desktop."
+msgstr ""
+
+msgid "Number of virtual desktops"
+msgstr ""
+
+msgid ""
+"Number of virtual desktops / workspaces to create automatically on startup."
+msgstr ""
+
+msgid "Single"
+msgstr "ერთი"
+
+#. If the click policy is to double click
+msgid "Double"
+msgstr "ორმაგი"
+
+msgid "Click Policy"
+msgstr "დაწკაპუნების პოლიტიკა"
+
+msgid ""
+"Click Policy determines if we should open items on a single or double click."
+msgstr ""
+
+msgid "Normal"
+msgstr "ნორმალური"
+
+#. Small
+msgid "Small"
+msgstr "პატარა"
+
+#. Large
+msgid "Large"
+msgstr "დიდი"
+
+#. Massive
+msgid "Massive"
+msgstr "მასიური"
+
+msgid "Displays"
+msgstr ""
+
+msgid "Connected Monitors"
+msgstr ""
+
+msgid "Panel Placement"
+msgstr ""
+
+msgid ""
+"Select which monitor should be the primary display for panel placement."
+msgstr ""
+
+msgid "Use Automatic Selection"
+msgstr ""
+
+msgid "Clear Primary Monitor"
+msgstr ""
+
+msgid "Remove manual primary monitor selection."
+msgstr ""
+
+msgid "Fallback Monitors"
+msgstr ""
+
+msgid "Order used when primary is disconnected"
+msgstr ""
+
+msgid "No monitors detected"
+msgstr ""
+
+msgid "No fallback monitors configured"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Unknown model"
+msgstr ""
+
+msgid "Set as Primary"
+msgstr ""
+
+msgid "(last known)"
+msgstr ""
+
+msgid "No cached information"
+msgstr ""
+
+msgid "Fonts"
+msgstr "ფონტები"
+
+msgid "Window Titles"
+msgstr "ფანჯრის სათაურები"
+
+msgid "Set the font used in the titlebars of applications."
+msgstr "დააყენეთ აპლიკაციების სათაურის ზოლში გამოყენებული ფონტი."
+
+msgid "Documents"
+msgstr "დოკუმენტები"
+
+msgid "Set the display font used by for documents."
+msgstr "დოკუმენტების საჩვენებელი ფონტის დაყენება."
+
+msgid "Interface"
+msgstr "ინტერფეისი"
+
+msgid "Set the primary font used by application controls."
+msgstr ""
+"დააყენე მთავარი ფონტი რომელიც გამოყენებული იქნება აპლიკაციის კონტროლში."
+
+msgid "Monospace"
+msgstr "ერთსიგანიანი"
+
+msgid "Set the fixed-width font used by text dominant applications."
+msgstr "უცვლელი-სიგანის ფონტის დაყენება ტექსტური აპლიკაციებისთვის."
+
+msgid "Text scaling"
+msgstr "ტექსტის მასშტაბი"
+
+msgid "Set the text scaling factor."
+msgstr "დააყენე ტექსტის მასშტაბის ფაქტორი."
+
+msgid "Full"
+msgstr "სრული"
+
+msgid "Medium"
+msgstr "საშუალო"
+
+msgid "Slight"
+msgstr "ოდნავ"
+
+msgid "None"
+msgstr "არაფერი"
+
+msgid "Hinting"
+msgstr "მომრგვალება"
+
+msgid "Set the type of hinting to use."
+msgstr ""
+
+msgid "Subpixel (for LCD screens)"
+msgstr "ქვეპიქსელი (LDC ეკრანებისთვის)"
+
+msgid "Standard (grayscale)"
+msgstr "სტანდარტული (ნაცრისფერი)"
+
+msgid "Antialiasing"
+msgstr "მომრგვალება"
+
+msgid "Set the type of antialiasing to use."
+msgstr ""
+
+msgid "Appearance"
+msgstr "გარეგნობა"
+
+msgid "Panels"
+msgstr "პანელები"
+
+msgid "Session"
+msgstr "სესია"
+
+msgid "Create new panel"
+msgstr "ახალი პანელის შექმნა"
+
+msgid "Applets"
+msgstr "აპლეტი"
+
+msgid "Remove Panel"
+msgstr "პანელის წაშლა"
+
+msgid "Remove this panel from the screen"
+msgstr "ამ პანელის ეკრანიდან წაშლა"
+
+msgid "Top Dock"
+msgstr "ზემო „დოკი“"
+
+msgid "Right Dock"
+msgstr "მარჯვენა „დოკი“"
+
+msgid "Left Dock"
+msgstr "მარცხენა „დოკი“"
+
+msgid "Bottom Dock"
+msgstr "ქვედა „დოკი“"
+
+msgid "Top Panel"
+msgstr "ზედა პანელი"
+
+msgid "Right Panel"
+msgstr "მარჯვენა პანელი"
+
+msgid "Left Panel"
+msgstr "მარცხენა პანელი"
+
+msgid "Bottom Panel"
+msgstr "ქვედა პანელი"
+
+msgid "Top"
+msgstr "თავში"
+
+msgid "Right"
+msgstr "მარჯვენა"
+
+msgid "Left"
+msgstr "მარცხენა"
+
+msgid "Bottom"
+msgstr "ბოლოში"
+
+msgid "Always"
+msgstr "ყოველთვის"
+
+msgid "Dynamic"
+msgstr "დინამიკური"
+
+msgid "Automatic"
+msgstr "ავტომატური"
+
+msgid "Intelligent"
+msgstr "ინტელექტუალური"
+
+msgid "Never"
+msgstr "არასდროს"
+
+msgid "Position"
+msgstr "მდებარეობა"
+
+msgid "Set the edge of the screen that this panel will stay on"
+msgstr "პანელის დასატოვებელი ეკრანის კუთხის დაყენება"
+
+msgid "Size"
+msgstr "ზომა"
+
+msgid "Set the size (width or height, depending on orientation) of this panel"
+msgstr "პანელის ზომის დაყენება (სიგანე ან სიმაღლე, გააჩნია ორიენტაციას)"
+
+msgid "Spacing"
+msgstr "დაშორება"
+
+msgid "Set the spacing between applets for this panel"
+msgstr ""
+
+msgid "Automatically hide"
+msgstr "ავტომატურად დამალვა"
+
+msgid "When set, this panel will hide from view to maximize screen estate"
+msgstr ""
+"მითითების შემთვევაში, ეს პანელი დაიმალება ეკრანიდან ფანჯრის სრულად გადიდების"
+" მიზნით"
+
+msgid "Transparency"
+msgstr "გამჭვირვალობა"
+
+msgid "Control when this panel should have a solid background"
+msgstr "კონტროლი, როდის ექნება ამ პანელს ერთგვაროვანი ფონი"
+
+msgid "Shadow"
+msgstr "ჩრდილი"
+
+msgid "Adds a decorative drop-shadow, ideal for opaque panels"
+msgstr ""
+"დაამატებს დეკორაციულ დაცემულ ჩრდილს, რომელიც იდეალურია გაუმჭვირვალე "
+"პანელებისთვის"
+
+msgid "Stylize regions"
+msgstr "რეგიონების სტილიზაცია"
+
+msgid ""
+"Adds a hint to the panel so that each of the panel's three main areas may be"
+" themed differently."
+msgstr ""
+"ამატებს მინიშნებას პანელს, ამის მიხედვით ყოველ პანელის სამ მთავარ არეალს "
+"შეიძლება ქონდეს სხვადასხვა თემა."
+
+msgid "Dock mode"
+msgstr "მიმაგრების რეჟიმი"
+
+msgid ""
+"When in dock mode, the panel will use the minimal amount of space possible, "
+"freeing up valuable screen estate"
+msgstr ""
+"„დოკის“ რეჟიმში, პანელი გამოიყენებს მინიმალურ მოცულობას და გაათავისუფლებს "
+"ადგილს ეკრანზე"
+
+msgid "Applet Settings"
+msgstr "აპლეტის მორგება"
+
+msgid "Add applet"
+msgstr "აპლეტის დამატება"
+
+msgid "Choose a new applet to add to this panel"
+msgstr "აირჩიეთ ახალი აპლეტი ამ პანელზე დასამატებლად"
+
+msgid "No settings available"
+msgstr "პარამეტრები ხელმისაწვდომი არაა"
+
+msgid "Start"
+msgstr "დასაწყისი"
+
+msgid "Center"
+msgstr "ცენტრი"
+
+msgid "End"
+msgstr "დასასრული"
+
+msgid "Confirm panel removal"
+msgstr "დაადასტურე პანელის წაშლა"
+
+msgid "Do you really want to remove this panel? This action cannot be undone."
+msgstr "ნამდვილად გსურთ ამ პანელის წაშლა? ეს ქმედება შეუქცევადია."
+
+msgid "Remove panel"
+msgstr "პანელის წაშლა"
+
+msgid "Keep panel"
+msgstr "პანელის დატოვება"
+
+msgid "Confirm applet removal"
+msgstr "დაადასტურე აპლეტის წაშლა"
+
+msgid ""
+"Do you really want to remove this applet? This action cannot be undone."
+msgstr "ნამდვილად გსურთ ამ აპლეტის წაშლა? ეს ქმედება შეუქცევადია."
+
+msgid "Don't ask me again"
+msgstr "აღარ მკითხო"
+
+msgid "Remove applet"
+msgstr "აპლეტის წაშლა"
+
+msgid "Keep applet"
+msgstr "აპლეტის დატოვება"
+
+msgid "Confirm widget removal"
+msgstr ""
+
+msgid ""
+"Do you really want to remove this widget? This action cannot be undone."
+msgstr ""
+
+msgid "Built-in"
+msgstr "ჩაშენებული"
+
+msgid "Choose a plugin"
+msgstr "არჩიეთ დამატება"
+
+msgid "No description."
+msgstr "აღწერის გარეშე."
+
+#, c-format
+msgid "by %s"
+msgstr "ავტორი: %s"
+
+msgid "No authors listed"
+msgstr "ავტორი მითითებული არაა"
+
+msgctxt "Raven"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set Raven position"
+msgstr ""
+
+msgid ""
+"Set which side of the screen Raven will open on. If set to Automatic, Raven "
+"will open where its parent panel is."
+msgstr ""
+
+msgid "Set notification sort order"
+msgstr ""
+
+msgid ""
+"Set whether notifications are sorted from oldest to newest, or newest to "
+"oldest."
+msgstr ""
+
+msgid "Widget Settings"
+msgstr "ვიჯეტის მორგება"
+
+msgid "Add widget"
+msgstr "ვიჯეტის დამატება"
+
+msgid "Choose a new widget to add to the Widgets view"
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine could not find info "
+"for this plugin."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin engine failed to load the "
+"plugin from the disk."
+msgstr ""
+
+msgid ""
+"Failed to create the widget instance. The plugin supports settings, but does not install a settings schema with the same name.\n"
+"\n"
+"The schema name should be identical to the module name, but with no extension and (in the case of Python) the underscores replaced with periods."
+msgstr ""
+
+msgid "Failed to create the widget instance due to an unknown failure."
+msgstr ""
+
+msgid "Style"
+msgstr "სტილი"
+
+msgctxt "Styling"
+msgid "Widgets"
+msgstr ""
+
+msgid "Set the appearance of window decorations and controls"
+msgstr "ფანჯრის დეკორაციებისა და კონტროლების გარეგნობის დაყენება"
+
+msgid "Icons"
+msgstr "ხატულები"
+
+msgid "Set the globally used icon theme"
+msgstr "გლობალურად გამოყენებული ხატულების თემის დაყენება"
+
+msgid "Cursors"
+msgstr "კურსორები"
+
+msgid "Set the globally used mouse cursor theme"
+msgstr "გლობალურად გამოყენებული თაგუნას კურსორის თემის დაყენება"
+
+msgid "Notification Position"
+msgstr "გაფრთხილებების მდებარეობა"
+
+msgid "Set the location for notification popups"
+msgstr "გაფრთხილების მხტუნარების მდებარეობის დაყენება"
+
+msgid "Dark theme"
+msgstr "ბნელი თემა"
+
+msgid "Built-in theme"
+msgstr "ჩაშენებული თემა"
+
+msgid ""
+"When enabled, the built-in theme will override the desktop component styling"
+msgstr ""
+"როცა ჩართულია, ჩაშენებული თემა სამუშაო მაგიდის კომპონენტის სტილებს "
+"გადაფარავს"
+
+msgid "Animations"
+msgstr "ანიმაციები"
+
+msgid "Control whether windows and controls use animations"
+msgstr "დაემატოს თუ არა ანიმაცია ფანჯრებზე და კონტროლებზე"
+
+#. Get display name for theme
+msgid "Use theme"
+msgstr ""
+
+msgid "Labwc Compositor Theme"
+msgstr ""
+
+msgid ""
+"Override the labwc compositor theme independently from the desktop theme"
+msgstr ""
+
+msgid "Top Left"
+msgstr "ზედა მარცხენა"
+
+msgid "Bottom Left"
+msgstr "ქვედა მარცხენა"
+
+msgid "Bottom Right"
+msgstr "ქვედა მარჯვენა"
+
+msgid "Top Right"
+msgstr "ზედა მარჯვენა"
+
+msgid "Windows"
+msgstr "ფანჯრები"
+
+msgid "Button layout"
+msgstr "ღილაკების განლაგება"
+
+msgid "Change the layout of buttons in application titlebars."
+msgstr "ღილაკების განლაგების შეცვლა აპლიკაციების სათაურებში."
+
+msgid "Center new windows on screen"
+msgstr "დაცენტრე ახალი ფანჯარა ეკრანზე"
+
+msgid "Center newly launched windows on the current screen."
+msgstr "ახალი ფანჯრების მიმდინარე ეკრანის ცენტრში გახსნა."
+
+msgid "Disable Night Light mode when windows are fullscreen"
+msgstr "„ღამის ნათების“ რეჟიმის გამორთვა, როცა ფანჯარა მთელ ეკრანზეა"
+
+msgid ""
+"Disables Night Light mode when a window is fullscreen. Re-enables when "
+"leaving fullscreen."
+msgstr ""
+"გამორთავს ღამის განათების რეჟიმს, როცა ფანჯარა მთელ ეკრანზეა გაშლილი. "
+"ჩართავს, როცა ჩვეულ რეჟიმში დაბრუნდება."
+
+msgid "Pause notifications when windows are fullscreen"
+msgstr ""
+
+msgid ""
+"Prevents notifications from appearing when a window is fullscreen. Unpauses "
+"when leaving fullscreen."
+msgstr ""
+
+msgid "Automatic tiling"
+msgstr "ავტომატურად დასათაურება"
+
+msgid ""
+"Windows will automatically tile when dragged into the top of the screen or "
+"the far corners."
+msgstr ""
+"ფანჯრები ავტომატურად დაპატარავდება მათი ეკრანის ზედა მხარეს ან კუთხეებთან "
+"მიტანისას."
+
+msgid "Window focus mode"
+msgstr "ფანჯრის ფოკუსის რეჟიმი"
+
+msgid ""
+"Choose how windows receive focus: click to focus; sloppy to focus without "
+"raising windows; mouse to focus with raising."
+msgstr ""
+
+msgid "Show all windows in tab switcher"
+msgstr ""
+
+msgid ""
+"All tabs will be displayed in tab switcher regardless of the workspace in "
+"use."
+msgstr ""
+
+msgid "Right (standard)"
+msgstr "მარჯვნივ (სტანდარტული)"
+
+msgid "Click"
+msgstr "წკაპი"
+
+msgid "Sloppy"
+msgstr "სველი"
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:4
+msgid "Notifications"
+msgstr "გაფრთხილებები"
+
+msgid "No widgets added."
+msgstr ""
+
+msgid "Nothing to see here"
+msgstr "აქ სანახავი არაფერია"
+
+msgid "No new notifications"
+msgstr "ახალი შეტყობინებები არ არის"
+
+msgid "Oldest to newest"
+msgstr ""
+
+msgid "Newest to oldest"
+msgstr ""
+
+msgid "No apps are currently playing audio."
+msgstr "ამჟამად აპლიკაციები აუდიოს არ უკრავენ."
+
+msgid "Play some music"
+msgstr "მუსიკის დაკვრა"
+
+msgid "Unknown Title"
+msgstr "უცნობი სათაური"
+
+msgid "Unknown Artist"
+msgstr "უცნობი შემსრულებელი"
+
+msgid "Unknown Album"
+msgstr "უცნობი ალბომი"
+
+#, c-format
+msgid "Playing - %s"
+msgstr "დაკვრა: %s"
+
+#, c-format
+msgid "Paused - %s"
+msgstr ""
+
+msgid "No apps are playing audio."
+msgstr "ამჟამად აპლიკაციები აუდიოს არ უკრავენ."
+
+msgid "Apps"
+msgstr "აპები"
+
+msgid "Devices"
+msgstr "მოწყობილობა"
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:4
+msgid "Usage Monitor"
+msgstr "გამოყენების მონიტორინგი"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Swap"
+msgstr "სვოპი"
+
+#: src/daemon/endsession.ui:71
+msgid "Are you sure you want to end your session?"
+msgstr "ნამდვილად გსურთ თქვენი სესიის დასრულება?"
+
+#: src/dialogs/polkit/dialog.ui:12 src/dialogs/polkit/dialog.ui:49
+msgid "Authentication Required"
+msgstr "საჭროა ავთენტიკაცია"
+
+#: src/dialogs/polkit/dialog.ui:71
+msgid "Password:"
+msgstr "პაროლი:"
+
+#: src/dialogs/polkit/dialog.ui:103
+msgid "Username:"
+msgstr "მომხმარებელი:"
+
+#: src/dialogs/polkit/dialog.ui:131
+msgid "Authentication is required"
+msgstr "აუცილებელია ავთენტიკაცია"
+
+#: src/dialogs/polkit/dialog.ui:184
+msgid "Details"
+msgstr "დეტალები"
+
+#: src/dialogs/polkit/dialog.ui:224
+msgid "Action:"
+msgstr "ქმედება:"
+
+#: src/dialogs/polkit/dialog.ui:259
+msgid "ID:"
+msgstr "ID:"
+
+#: src/dialogs/polkit/dialog.ui:335
+msgid "Authenticate"
+msgstr "ავთენტიკაცია"
+
+#: src/dialogs/screenshot/aftershot.ui:48
+msgid "Name:"
+msgstr "სახელი:"
+
+#: src/dialogs/screenshot/aftershot.ui:85
+msgid "Folder:"
+msgstr "საქაღალდე:"
+
+#: src/dialogs/screenshot/screenshothome.ui:35
+msgid "Delay in seconds"
+msgstr "დაყოვნების დრო წამებში"
+
+#: src/dialogs/screenshot/screenshothome.ui:91
+msgid "Show Pointer"
+msgstr "კურსორის ჩვენება"
+
+#: src/dialogs/screenshot/screenshothome.ui:141
+msgid "Play sound when capturing"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui:23
+msgid "Show Menu Label"
+msgstr "მენიუს ჭდის ჩვენება"
+
+#: src/panel/applets/ragnar-menu/settings.ui:48
+msgid "Menu Label"
+msgstr "მენიუს ჭდე"
+
+#: src/panel/applets/ragnar-menu/settings.ui:72
+msgid "Use Default Menu Icon"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/settings.ui:97
+msgid "Menu Icon"
+msgstr "მენიუს ხატულა"
+
+#: src/panel/applets/ragnar-menu/settings.ui:148
+msgid "Compact Mode"
+msgstr "კომპაქტური რეჟიმი"
+
+#: src/panel/applets/ragnar-menu/settings.ui:172
+msgid "Show Headers"
+msgstr "თავსართების ჩვენება"
+
+#: src/panel/applets/ragnar-menu/settings.ui:196
+msgid "Roll-over mouse"
+msgstr "გადაატარე თაგუნა"
+
+#: src/panel/applets/ragnar-menu/settings.ui:221
+msgid "Show settings items"
+msgstr ""
+
+#: src/panel/applets/caffeine/settings.ui:23
+msgid "Enable notification"
+msgstr "გაფრთხილების ჩართვა"
+
+#: src/panel/applets/caffeine/settings.ui:35
+msgid "Maximize brightness"
+msgstr "მაქსიმალური სიკაშკაშე"
+
+#: src/panel/applets/caffeine/settings.ui:47
+msgid "Brightness Level"
+msgstr "სიკაშკაშის დონე"
+
+#: src/panel/applets/clock/settings.ui:15
+msgid "Show date"
+msgstr "თარიღის ჩვენება"
+
+#: src/panel/applets/clock/settings.ui:38
+msgid "Show seconds"
+msgstr "წამების ჩვენება"
+
+#: src/panel/applets/clock/settings.ui:61
+msgid "Use 24 hour time"
+msgstr "24 საათიანი ფორმატის გამოყენება"
+
+#: src/panel/applets/clock/settings.ui:84
+msgid "Custom Format"
+msgstr "მომხმარებლის ფორმატი"
+
+#: src/panel/applets/clock/settings.ui:107
+msgid "%H:%M:%S %d.%m.%Y"
+msgstr "%H:%M:%S %d.%m.%Y"
+
+#: src/panel/applets/clock/settings.ui:120
+msgid "Custom Timezone"
+msgstr "მომხმარებლის დროის სარტყელი"
+
+#: src/panel/applets/clock/settings.ui:143
+msgid "UTC"
+msgstr "UTC"
+
+#: src/panel/applets/icon-tasklist/settings.ui:15
+msgid "Show all windows on click"
+msgstr "დაწკაპუნებაზე ყველა ფანჯრის ჩვენება"
+
+#: src/panel/applets/icon-tasklist/settings.ui:39
+msgid "Only show favorited"
+msgstr "მხოლოდ რჩეულებში ჩამატებულების ჩვენება"
+
+#: src/panel/applets/icon-tasklist/settings.ui:63
+msgid "Lock icons"
+msgstr "ხატულების დაბლოკვა"
+
+#: src/panel/applets/icon-tasklist/settings.ui:88
+msgid "Restrict to Workspace"
+msgstr "შეზღუდვა სამუშაო სივრცეზე"
+
+#: src/panel/applets/icon-tasklist/settings.ui:112
+msgid "Middle click to launch new window"
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/settings.ui:136
+msgid "Require a double-click to launch new window"
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:28
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:4
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/keyboard-header.ui:44
+msgid "Keyboard Layout Settings"
+msgstr ""
+
+#: src/panel/applets/night-light/indicator_window.ui:37
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:4
+msgid "Night Light"
+msgstr "ღამის სინათლე"
+
+#: src/panel/applets/night-light/indicator_window.ui:85
+msgid "Temperature"
+msgstr "ტემპერატურა"
+
+#: src/panel/applets/night-light/indicator_window.ui:110
+msgid "Schedule"
+msgstr "განრიგი"
+
+#: src/panel/applets/night-light/indicator_window.ui:124
+msgid "Sunset to Sunrise"
+msgstr "დაისიდან აისამდე"
+
+#: src/panel/applets/night-light/indicator_window.ui:125
+msgid "Manual"
+msgstr "ხელით"
+
+#: src/panel/applets/night-light/indicator_window.ui:144
+msgid "Display Settings"
+msgstr "ეკრანის მორგება"
+
+#: src/panel/applets/places-indicator/settings.ui:19
+msgid "Show label"
+msgstr "ჭდის ჩვენება"
+
+#: src/panel/applets/places-indicator/settings.ui:55
+msgid "Show places"
+msgstr "მდებარეობების ჩვენება"
+
+#: src/panel/applets/places-indicator/settings.ui:79
+msgid "Show network folders"
+msgstr "ქსელური საქაღალდეების ჩვენება"
+
+#: src/panel/applets/places-indicator/settings.ui:103
+msgid "Show removable drives"
+msgstr "მოხსნადი დისკების ჩვენება"
+
+#: src/panel/applets/places-indicator/settings.ui:127
+msgid "Always expand places"
+msgstr "ყოველთვის გააფართოვე მდებარეობები"
+
+#: src/panel/applets/spacer/settings.ui:21
+msgid "Spacer size"
+msgstr "გამოსატოვებლის ზომა"
+
+#: src/panel/applets/status/settings.ui:22
+#: src/panel/applets/tray/settings.ui:22
+msgid "Icon Spacing"
+msgstr "ხატულას ინტერვალი"
+
+#: src/panel/applets/status/settings.ui:48
+msgid "Show battery percentage"
+msgstr "ელემენტის პროცენტულობის ჩვენება"
+
+#: src/panel/applets/tasklist/settings.ui:16
+msgid "Show button icons"
+msgstr "ღილაკის ხატულების ჩვენება"
+
+#: src/panel/applets/tasklist/settings.ui:41
+msgid "Show button labels"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:16
+msgid "Sort Mode"
+msgstr "დალაგების რეჟიმი"
+
+#: src/panel/applets/trash/settings.ui:28
+msgid "Sort by type"
+msgstr "ტიპის მიხედვით დალაგება"
+
+#: src/panel/applets/trash/settings.ui:43
+msgid "Sort alphabetically"
+msgstr "ანბანის მიხედვით დალაგება"
+
+#: src/panel/applets/trash/settings.ui:58
+msgid "Sort reverse alphabetically"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:73
+msgid "Sort by date ascending"
+msgstr ""
+
+#: src/panel/applets/trash/settings.ui:88
+msgid "Sort by date descending"
+msgstr ""
+
+#: src/panel/applets/tray/settings.ui:48
+msgid "Scale icons with panel size"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:17
+msgid "\"Add\" button visibility"
+msgstr "„დამატების“ ღილაკის ხილვადობა"
+
+#: src/panel/applets/workspaces/settings.ui:31
+msgid "Item Size Multiplier"
+msgstr ""
+
+#: src/panel/applets/workspaces/settings.ui:45
+msgid "Don't show"
+msgstr "არ მაჩვენო"
+
+#: src/panel/applets/workspaces/settings.ui:46
+msgid "Show on mouseover"
+msgstr "თაგუნას გადატარებისას ჩვენება"
+
+#: src/panel/applets/workspaces/settings.ui:47
+msgid "Always show"
+msgstr "ყოველთვის ჩვენება"
+
+#: src/panel/applets/workspaces/settings.ui:65
+msgid "0.5x"
+msgstr "0.5x"
+
+#: src/panel/applets/workspaces/settings.ui:66
+msgid "0.75x"
+msgstr "0.75x"
+
+#: src/panel/applets/workspaces/settings.ui:67
+msgid "1.0x"
+msgstr "1.0x"
+
+#: src/panel/applets/workspaces/settings.ui:68
+msgid "1.5x"
+msgstr "1.5x"
+
+#: src/panel/applets/workspaces/settings.ui:69
+msgid "2.0x"
+msgstr "2.0x"
+
+#: src/raven/widgets/calendar/settings.ui:17
+msgid "Show Week Numbers"
+msgstr "კვირის რიცხვების ჩვენება"
+
+#: src/raven/widgets/calendar/settings.ui:43
+msgid "Show Day Names"
+msgstr "დღის სახელების ჩვენება"
+
+#: src/raven/widgets/sound-input/settings.ui:17
+#: src/raven/widgets/sound-output/settings.ui:17
+msgid "Allow Volume Overdrive"
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/settings.ui:17
+msgid "Show Swap Usage"
+msgstr ""
+
+#: src/daemon/ragnar-daemon.desktop.in:3
+msgid "Ragnar Background Services"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:4
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:4
+msgid "Ragnar screenshot app"
+msgstr ""
+
+#: src/daemon/org.lieraos.ragnar.Screenshot.desktop.in:8
+#: src/dialogs/screenshot/ragnar-screenshot.desktop.in:8
+msgid "Screenshot;Snip;"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:3
+msgid "Ragnar PolicyKit UI"
+msgstr ""
+
+#: src/dialogs/polkit/ragnar-polkit.desktop.in.in:4
+msgid "Ragnar PolicyKit Authorisation UI"
+msgstr ""
+
+#: src/dialogs/screenshot/ragnar-screenshot-dialog.desktop.in.in:3
+msgid "Ragnar Screenshot UI"
+msgstr ""
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:4
+msgid "Ragnar Menu"
+msgstr "„Ragnar Menu“"
+
+#: src/panel/applets/ragnar-menu/RagnarMenu.plugin.desktop.in:5
+msgid "Search for and start up applications."
+msgstr ""
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:4
+msgid "Caffeine"
+msgstr "„Caffeine“"
+
+#: src/panel/applets/caffeine/CaffeineApplet.plugin.desktop.in:5
+msgid "Prevent the system and screen from sleeping."
+msgstr ""
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:4
+msgid "Clock"
+msgstr "საათი"
+
+#: src/panel/applets/clock/ClockApplet.plugin.desktop.in:5
+msgid "A digital clock with a customizable format."
+msgstr ""
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:4
+msgid "Icon Task List"
+msgstr "აიკონ თასქის ჩამონათვალი"
+
+#: src/panel/applets/icon-tasklist/IconTasklistApplet.plugin.desktop.in:5
+msgid "A configurable application task list."
+msgstr ""
+
+#: src/panel/applets/keyboard-layout/KeyboardLayoutApplet.plugin.desktop.in:5
+msgid "Indicates which keyboard layout is currently in use."
+msgstr ""
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:4
+msgid "Lock Keys Indicator"
+msgstr "კლავიშის დაბლოკვის მიმათითებელი"
+
+#: src/panel/applets/lock-keys/LockKeysApplet.plugin.desktop.in:5
+msgid "Show status of lock keys."
+msgstr ""
+
+#: src/panel/applets/night-light/NightLight.plugin.desktop.in:5
+msgid "Toggle and modify Night Light settings."
+msgstr ""
+
+#: src/panel/applets/notifications/NotificationsApplet.plugin.desktop.in:5
+msgid "Open the Raven notifications view."
+msgstr ""
+
+#: src/panel/applets/places-indicator/PlacesIndicator.plugin.desktop.in:5
+msgid "Show drives and favorite folders."
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:4
+msgid "Raven Trigger"
+msgstr ""
+
+#: src/panel/applets/raven-trigger/RavenTriggerApplet.plugin.desktop.in:5
+msgid "Open the Raven sidebar."
+msgstr ""
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:4
+msgid "Separator"
+msgstr "გამყოფი"
+
+#: src/panel/applets/separator/SeparatorApplet.plugin.desktop.in:5
+msgid "Visual separator between applets."
+msgstr ""
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:4
+msgid "Show Desktop Button"
+msgstr "მაჩვენე დესკტოპის ღილაკი"
+
+#: src/panel/applets/show-desktop/ShowDesktopApplet.plugin.desktop.in:5
+msgid "A button that toggles visibility of the desktop."
+msgstr ""
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:4
+msgid "Spacer"
+msgstr "„Spacer“"
+
+#: src/panel/applets/spacer/SpacerApplet.plugin.desktop.in:5
+msgid "Adjustable spacer to put between other applets."
+msgstr ""
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:4
+msgid "Status Indicator"
+msgstr "სტატუსის ინდიკატორი"
+
+#: src/panel/applets/status/StatusApplet.plugin.desktop.in:5
+msgid "Show system status indicators, like sound, battery, and Bluetooth."
+msgstr ""
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:4
+msgid "Task List"
+msgstr "თასქ ჩამონათვალი"
+
+#: src/panel/applets/tasklist/TasklistApplet.plugin.desktop.in:5
+msgid "An application task list with icons and labels."
+msgstr ""
+
+#: src/panel/applets/trash/TrashApplet.plugin.desktop.in:5
+msgid "Manage your trash from the Ragnar panel"
+msgstr ""
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:4
+msgid "System Tray"
+msgstr "„System Tray“"
+
+#: src/panel/applets/tray/TrayApplet.plugin.desktop.in:5
+msgid ""
+"System tray implementing the Freedesktop Status Notifier specification."
+msgstr ""
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:4
+msgid "User Indicator"
+msgstr "მომხმარებლების მიმათითებელი"
+
+#: src/panel/applets/user-indicator/UserIndicator.plugin.desktop.in:5
+msgid "Opens the power dialog."
+msgstr ""
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:4
+msgid "Workspace Switcher"
+msgstr "სამუშაო მდებარეობის შემცვლელი"
+
+#: src/panel/applets/workspaces/WorkspacesApplet.plugin.desktop.in:5
+msgid "Display workspaces and switch between them."
+msgstr ""
+
+#: src/panel/ragnar-desktop-settings.desktop.in:3
+msgid "Change desktop appearance and behavior"
+msgstr "სამუშაო მაგიდის გარეგნობისა და ქცევის შეცვლა"
+
+#: src/panel/ragnar-desktop-settings.desktop.in:12
+msgid "Preferences;Settings;"
+msgstr ""
+
+#: src/panel/ragnar-panel.desktop.in:3
+msgid "Ragnar Panel"
+msgstr "“Ragnar”-ის პანელი"
+
+#: src/panel/ragnar-panel.desktop.in:4
+msgid ""
+"Launch other applications and provide various utilities to manage windows, "
+"show the time, etc."
+msgstr ""
+"ჩართე სხვა აპლიკაციები და მაჩვენე გარკვეული უტილიტები ფანჯრის კონტროლისთვის,"
+" დროის ჩვენებისთვის და ა.შ."
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:4
+msgid "Calendar"
+msgstr "კალენდარი"
+
+#: src/raven/widgets/calendar/Calendar.plugin.desktop.in:5
+msgid ""
+"A simple calendar with a month view, using the built-in Gtk.Calendar widget."
+" The calendar shows the current date by default."
+msgstr ""
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:4
+msgid "Media Controls"
+msgstr "მედიის კონტროლი"
+
+#: src/raven/widgets/media-controls/MediaControls.plugin.desktop.in:5
+msgid ""
+"This widget uses the Mpris API to show actively playing media with metadata "
+"and playback controls, with support for audio and video."
+msgstr ""
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:4
+msgid "Sound Input"
+msgstr "ხმის შეყვანა"
+
+#: src/raven/widgets/sound-input/SoundInput.plugin.desktop.in:5
+msgid ""
+"Allows adjustment of audio input volume, and displays a list of available "
+"audio input devices."
+msgstr ""
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:4
+msgid "Sound Output"
+msgstr "ხმის გამოტანა"
+
+#: src/raven/widgets/sound-output/SoundOutput.plugin.desktop.in:5
+msgid ""
+"Allows global and per-app audio output volume control, and displays a list "
+"of available audio output devices."
+msgstr ""
+
+#: src/raven/widgets/usage-monitor/UsageMonitor.plugin.desktop.in:5
+msgid ""
+"A view for system resource usage in bar graph form. Includes CPU, RAM, and "
+"Swap usage by default."
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:2
+msgid "Ragnar Desktop (magpie)"
+msgstr ""
+
+#: src/session/ragnar-desktop-magpie.desktop.in.in:3
+msgid ""
+"This session logs you into the Ragnar Desktop using magpie as the window "
+"manager"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:2
+msgid "Network (Ragnar Desktop)"
+msgstr ""
+
+#: src/session/ragnar-desktop-nm-applet.desktop.in:3
+msgid "Manage your network connections"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:3
+msgid "Ragnar Power Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-powerdialog.desktop.in.in:4
+msgid "A button dialog to lock the screen, reboot, shutdown, etc."
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:3
+msgid "Ragnar Screenshot Dialog"
+msgstr ""
+
+#: src/session/ragnar-desktop-screenshotdialog.desktop.in.in:4
+msgid "Screenshot interface"
+msgstr ""
+
+#: src/session/ragnar-desktop.desktop.in.in:3
+#: src/session/ragnar-desktop.session.desktop.in.in:2
+msgid "Ragnar Desktop"
+msgstr "Ragnar Desktop"
+
+#: src/session/ragnar-desktop.desktop.in.in:4
+msgid ""
+"This session logs you into the Ragnar Desktop using labwc as the window "
+"manager"
+msgstr ""
+

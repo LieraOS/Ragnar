@@ -1,0 +1,20 @@
+[package]
+name = "ragnar-clipboard"
+version = "0.1.0"
+authors = ["Jörg Schröder", "LieraOS Project <projekt@lieraos.local>"]
+edition = "2021"
+description = "Ragnar clipboard manager — Wayland data-control daemon, persistent history and picker"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+wl-clipboard-rs = "0.9"
+gtk4 = "0.9"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+gettext-rs = { version = "0.7", features = ["gettext-system"] }
+
+[package.metadata.deb]
+maintainer = "Jörg Schröder <projekt@lieraos.local>"
+section = "x11"
+priority = "optional"
+depends = "$auto"

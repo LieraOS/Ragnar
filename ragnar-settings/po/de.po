@@ -1,0 +1,3374 @@
+# German translation for ragnar-settings
+# Copyright (C) 2026 LieraOS Project
+# This file is distributed under the same license as ragnar-settings
+# (GPL-3.0-or-later).
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-settings 1.0.12\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-25 04:26+0100\n"
+"PO-Revision-Date: 2026-11-19 00:06+0100\n"
+"Last-Translator: LieraOS Project\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/backup/mod.rs:79
+msgid "Save configuration backup"
+msgstr "Konfigurationssicherung speichern"
+
+#: src/backup/mod.rs:94
+msgid "Choose a configuration backup"
+msgstr "Konfigurationssicherung auswählen"
+
+#: src/backup/mod.rs:167
+msgid "Backup written."
+msgstr "Sicherung geschrieben."
+
+#: src/backup/mod.rs:169
+msgid "entries saved"
+msgstr "Einträge gesichert"
+
+#: src/backup/mod.rs:172
+msgid "Backup failed — could not write the archive."
+msgstr "Sicherung fehlgeschlagen — das Archiv konnte nicht geschrieben werden."
+
+#: src/backup/mod.rs:195
+msgid "Not a valid Ragnar configuration backup."
+msgstr "Keine gültige Ragnar-Konfigurationssicherung."
+
+#: src/backup/mod.rs:239
+msgid "System settings restored."
+msgstr "Systemeinstellungen wiederhergestellt."
+
+#: src/backup/mod.rs:240
+msgid "System settings skipped (authentication cancelled or failed)."
+msgstr ""
+"Systemeinstellungen übersprungen (Authentifizierung abgebrochen oder "
+"fehlgeschlagen)."
+
+#: src/backup/mod.rs:249
+msgid "Restore finished."
+msgstr "Wiederherstellung abgeschlossen."
+
+#: src/backup/mod.rs:251
+msgid "entries applied"
+msgstr "Einträge angewendet"
+
+#: src/backup/mod.rs:258
+msgid "Log out and back in for all changes to take effect."
+msgstr "Bitte ab- und wieder anmelden, damit alle Änderungen wirken."
+
+#: src/backup/mod.rs:331
+msgid "Backup"
+msgstr "Sicherung"
+
+#: src/backup/mod.rs:333
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: src/backup/mod.rs:337
+msgid "OK"
+msgstr "OK"
+
+#: src/panels/about.rs:59
+msgid "Operating system"
+msgstr "Betriebssystem"
+
+#: src/panels/about.rs:60
+msgid "Ragnar version"
+msgstr "Ragnar-Version"
+
+#: src/panels/about.rs:61
+msgid "Kernel"
+msgstr "Kernel"
+
+#: src/panels/about.rs:62
+msgid "CPU"
+msgstr "CPU"
+
+#: src/panels/about.rs:63
+msgid "GPU"
+msgstr "GPU"
+
+#: src/panels/about.rs:64
+msgid "Memory"
+msgstr "Arbeitsspeicher"
+
+#: src/panels/about.rs:65
+msgid "Desktop"
+msgstr "Arbeitsumgebung"
+
+#: src/panels/about.rs:66
+msgid "Session"
+msgstr "Sitzung"
+
+#: src/panels/about.rs:67
+msgid "Hostname"
+msgstr "Rechnername"
+
+#: src/panels/about.rs:68
+msgid "Uptime"
+msgstr "Laufzeit"
+
+#: src/panels/about.rs:82 src/panels/about.rs:95 src/panels/about.rs:112
+#: src/panels/about.rs:117 src/panels/about.rs:123 src/panels/about.rs:147
+#: src/panels/about.rs:154 src/panels/about.rs:166 src/panels/display/gpu.rs:99
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: src/panels/about.rs:186
+msgid "The story of LieraOS"
+msgstr "Die Geschichte von LieraOS"
+
+#: src/panels/about.rs:214
+msgid ""
+"More than thirty years ago it began with the classic distributions: SuSE, "
+"Red Hat, Mandrake — tried them all, none stayed. Ubuntu was fine for a "
+"while, until GNOME 3. After years of wandering I landed on Debian — and "
+"stayed. Yet one question never let go: why did Debian, the foundation of so "
+"many distributions, always stand on the sidelines itself?"
+msgstr ""
+"Vor über dreißig Jahren begann alles mit den klassischen Distributionen: "
+"SuSE, Red Hat, Mandrake — alle ausprobiert, keine blieb. Ubuntu gefiel eine "
+"Zeit lang, bis GNOME 3 kam. Nach Jahren des Wanderns landete ich bei Debian "
+"— und blieb. Doch eine Frage ließ mich nie los: Warum stand Debian als "
+"Fundament so vieler Distributionen selbst immer am Rand?"
+
+#: src/panels/about.rs:215
+msgid ""
+"In my view it came down to the update philosophy. So I first built an entire "
+"system from scratch — my own package manager, no base at all. It worked, but "
+"it was too much for one person alone. Then I returned to Debian — not "
+"because Debian was bad, quite the opposite: I still like Debian today, and "
+"countless distributions rightly build upon it. I began shaping Debian into "
+"what I wanted: a good mix of stability and modern software, fit for gaming "
+"too, without giving up current drivers. Small changes here, my own programs "
+"there — tools that work the way they should, instead of needing two programs "
+"for one task."
+msgstr ""
+"Meiner Meinung nach lag es an der Update-Philosophie. Also baute ich zuerst "
+"ein komplett eigenes System von Grund auf — eigenen Paketmanager, ohne jede "
+"Basis. Es funktionierte, aber für einen Menschen allein war es zu groß. Dann "
+"kehrte ich zu Debian zurück — nicht weil Debian schlecht wäre, im Gegenteil: "
+"Ich mag Debian bis heute, und unzählige Distributionen bauen zu Recht darauf "
+"auf. Ich begann, Debian zu dem zu formen, was ich wollte: eine gute Mischung "
+"aus Stabilität und moderner Software, die auch zum Spielen taugt, ohne auf "
+"aktuelle Treiber verzichten zu müssen. Kleine Änderungen hier, eigene "
+"Programme dort — Werkzeuge, die so funktionieren, wie sie sollten, statt "
+"zwei Programme für eine Aufgabe zu brauchen."
+
+#: src/panels/about.rs:216
+msgid ""
+"That became a distribution: Liera — from Swedish, \"ally\", at its core a "
+"Debian derivative. And because my own programs had long grown beyond a mere "
+"distribution, LieraOS came to be — the entire open source world around "
+"Liera: the distribution, the desktop, the tools. The OS does not stand for "
+"\"Operating System\" but for Open Source. Everything is licensed under the "
+"GPL."
+msgstr ""
+"Daraus wurde eine Distribution: Liera — aus dem Schwedischen, „Verbündeter“, "
+"im Kern ein Debian-Derivat. Und weil die eigenen Programme längst mehr waren "
+"als eine Distribution allein, entstand LieraOS — die gesamte Open-Source-"
+"Welt rund um Liera: die Distribution, der Desktop, die Werkzeuge. Das OS "
+"steht dabei nicht für „Operating System“, sondern für Open Source. Alles "
+"steht unter der GPL."
+
+#: src/panels/about.rs:217
+msgid ""
+"The tools' names followed the Norse world that Liera belongs to: Ragnar, the "
+"desktop. Odin, the compositor — still in the making, yet written in Rust "
+"like nearly all of LieraOS; the name was pure consequence, for just as Odin "
+"laid down the order of things in the myths, the compositor lays down how "
+"everything appears. Valkyrie, the file manager — a name that simply belonged "
+"to this world. Heimdall, guardian of the Bifröst — here guardian of the "
+"network. Skald, the poet and singer of the Norse world — here for sound and "
+"music. Raven, the messenger who brings word — as ravens always have."
+msgstr ""
+"Die Namen der Werkzeuge folgten der nordischen Welt, zu der Liera selbst "
+"gehört: Ragnar, der Desktop. Odin, der Kompositor — noch im Werden, doch in "
+"Rust geschrieben wie fast die gesamte LieraOS-Software; der Name war reine "
+"Konsequenz, denn so wie Odin in der Mythologie die Ordnung vorgab, gibt der "
+"Kompositor vor, wie alles erscheint. Valkyrie, der Dateimanager — ein Name, "
+"der einfach zu dieser Welt gehörte. Heimdall, der Wächter des Bifröst — hier "
+"der Wächter des Netzwerks. Skald, der Dichter und Sänger der nordischen Welt "
+"— hier für Klang und Musik. Raven, der Bote, der Nachrichten bringt — so wie "
+"Raben es seit jeher tun."
+
+#: src/panels/about.rs:218
+msgid ""
+"And when the twilight of the gods comes, every error shall be counted and "
+"shown."
+msgstr ""
+"Und wenn die Götterdämmerung kommt, werden alle Fehler gezählt und gezeigt."
+
+#: src/panels/accessibility.rs:32 src/registry/entries.rs:63
+msgid "Accessibility"
+msgstr "Barrierefreiheit"
+
+#: src/panels/accessibility.rs:35
+msgid "Text"
+msgstr "Text"
+
+#: src/panels/accessibility.rs:42 src/panels/display/canvas.rs:132
+msgid "Display"
+msgstr "Anzeige"
+
+#: src/panels/accessibility.rs:52
+msgid "Experimental"
+msgstr "Experimentell"
+
+#: src/panels/accessibility.rs:56
+msgid "On-screen keyboard"
+msgstr "Bildschirmtastatur"
+
+#: src/panels/accessibility.rs:57
+msgid "Virtual keyboard for touchscreens."
+msgstr "Virtuelle Tastatur für Touchscreens."
+
+#: src/panels/accessibility.rs:62
+msgid "Screen reader"
+msgstr "Screenreader"
+
+#: src/panels/accessibility.rs:63
+msgid "Reads screen contents aloud."
+msgstr "Liest Bildschirminhalte laut vor."
+
+#: src/panels/accessibility.rs:72
+msgid "Open Software"
+msgstr "Software öffnen"
+
+#: src/panels/accessibility.rs:78
+msgid "Install tools"
+msgstr "Werkzeuge installieren"
+
+#: src/panels/accessibility.rs:79
+msgid "On-screen keyboards and screen readers can be installed via Software."
+msgstr ""
+"Bildschirmtastaturen und Screenreader können über Software installiert "
+"werden."
+
+#: src/panels/accessibility.rs:87
+msgid "Some apps need to be restarted before changes apply everywhere."
+msgstr ""
+"Einige Anwendungen müssen neu gestartet werden, bevor Änderungen überall "
+"wirken."
+
+#: src/panels/accessibility.rs:98
+msgid "Default (100%)"
+msgstr "Standard (100 %)"
+
+#: src/panels/accessibility.rs:99
+msgid "Large (125%)"
+msgstr "Groß (125 %)"
+
+#: src/panels/accessibility.rs:100
+msgid "Larger (150%)"
+msgstr "Größer (150 %)"
+
+#: src/panels/accessibility.rs:101
+msgid "Largest (200%)"
+msgstr "Am größten (200 %)"
+
+#: src/panels/accessibility.rs:123 src/panels/accessibility.rs:129
+msgid "Text size"
+msgstr "Textgröße"
+
+#: src/panels/accessibility.rs:124
+msgid "Makes text larger in apps. Some apps need to be restarted."
+msgstr ""
+"Vergrößert Text in Anwendungen. Einige Anwendungen müssen neu gestartet "
+"werden."
+
+#: src/panels/accessibility.rs:130 src/panels/accessibility.rs:156
+msgid "Unavailable: the desktop settings service is not installed."
+msgstr ""
+"Nicht verfügbar: Der Dienst für Arbeitsumgebungs-Einstellungen ist nicht "
+"installiert."
+
+#: src/panels/accessibility.rs:149 src/panels/accessibility.rs:155
+msgid "Reduce animations"
+msgstr "Animationen reduzieren"
+
+#: src/panels/accessibility.rs:150
+msgid "Turns off window and menu animations."
+msgstr "Schaltet Fenster- und Menüanimationen aus."
+
+#: src/panels/accessibility.rs:175 src/panels/accessibility.rs:181
+msgid "High contrast"
+msgstr "Hoher Kontrast"
+
+#: src/panels/accessibility.rs:176
+msgid "Stronger colours and outlines for better readability."
+msgstr "Stärkere Farben und Umrisse für bessere Lesbarkeit."
+
+#: src/panels/accessibility.rs:182 src/panels/accessibility.rs:219
+msgid "Unavailable: the accessibility settings service is not installed."
+msgstr ""
+"Nicht verfügbar: Der Barrierefreiheits-Einstellungsdienst ist nicht "
+"installiert."
+
+#: src/panels/accessibility.rs:205
+msgid "Not installed — can be installed via Software."
+msgstr "Nicht installiert — über Software installierbar."
+
+#: src/panels/cloud.rs:26
+msgid "Cloud accounts"
+msgstr "Cloud-Konten"
+
+#: src/panels/cloud.rs:34
+msgid ""
+"Accounts stored here are used by Raven (calendar sync) and other LieraOS "
+"applications (e.g. WebDAV mounts)."
+msgstr ""
+"Hier hinterlegte Konten werden von Raven (Kalendersynchronisation) und "
+"anderen LieraOS-Anwendungen (z. B. WebDAV-Einhängungen) genutzt."
+
+#: src/panels/cloud.rs:50
+msgid "Add account"
+msgstr "Konto hinzufügen"
+
+#: src/panels/cloud.rs:71
+msgid "No cloud accounts configured"
+msgstr "Keine Cloud-Konten eingerichtet"
+
+#: src/panels/cloud.rs:95
+msgid "Remove account"
+msgstr "Konto entfernen"
+
+#: src/panels/cloud.rs:109
+msgid "Add cloud account"
+msgstr "Cloud-Konto hinzufügen"
+
+#: src/panels/cloud.rs:127
+msgid "Service name (e.g. nextcloud)"
+msgstr "Dienstname (z. B. nextcloud)"
+
+#: src/panels/cloud.rs:130
+msgid "Server URL (WebDAV/CalDAV)"
+msgstr "Server-URL (WebDAV/CalDAV)"
+
+#: src/panels/cloud.rs:133
+msgid "User name"
+msgstr "Benutzername"
+
+#: src/panels/cloud.rs:136 src/panels/users/mod.rs:172
+msgid "Password"
+msgstr "Passwort"
+
+#: src/panels/cloud.rs:147 src/panels/shortcuts/dialog.rs:299
+#: src/panels/users/groups.rs:151 src/panels/users/mod.rs:281
+#: src/panels/windowrules/dialog.rs:320
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/panels/cloud.rs:148 src/panels/users/mod.rs:135
+msgid "Save"
+msgstr "Speichern"
+
+#: src/panels/datetime.rs:27 src/registry/entries.rs:31
+msgid "Date & Time"
+msgstr "Datum und Uhrzeit"
+
+#: src/panels/datetime.rs:62
+msgid "Automatic date & time"
+msgstr "Datum und Uhrzeit automatisch"
+
+#: src/panels/datetime.rs:63
+msgid "Sync via network time servers"
+msgstr "Über Zeitserver im Netz synchronisieren"
+
+#: src/panels/datetime.rs:82
+msgid "Time zone"
+msgstr "Zeitzone"
+
+#: src/panels/datetime.rs:83
+msgid "Region/city for local time"
+msgstr "Region/Stadt für die Ortszeit"
+
+#: src/panels/datetime.rs:88
+msgid "Set manually…"
+msgstr "Manuell einstellen …"
+
+#: src/panels/datetime.rs:92
+msgid "Manual date & time"
+msgstr "Datum und Uhrzeit manuell"
+
+#: src/panels/datetime.rs:93
+msgid "Only when automatic sync is off"
+msgstr "Nur wenn die automatische Synchronisation aus ist"
+
+#: src/panels/datetime.rs:224
+msgid "Set date & time"
+msgstr "Datum und Uhrzeit setzen"
+
+#: src/panels/datetime.rs:260 src/panels/display/controls.rs:101
+#: src/panels/display/gpu.rs:174 src/panels/display/gpu.rs:209
+#: src/panels/display/gpu.rs:237 src/panels/shortcuts/dialog.rs:301
+#: src/panels/users/groups.rs:152 src/panels/windowrules/dialog.rs:322
+msgid "Apply"
+msgstr "Anwenden"
+
+#: src/panels/default_apps.rs:19
+msgid "Web browser"
+msgstr "Webbrowser"
+
+#: src/panels/default_apps.rs:22
+msgid "Email"
+msgstr "E-Mail"
+
+#: src/panels/default_apps.rs:23
+msgid "Calendar"
+msgstr "Kalender"
+
+#: src/panels/default_apps.rs:24
+msgid "File manager"
+msgstr "Dateiverwaltung"
+
+#: src/panels/default_apps.rs:25
+msgid "Text editor"
+msgstr "Texteditor"
+
+#: src/panels/default_apps.rs:26
+msgid "Archive manager"
+msgstr "Archivverwaltung"
+
+#: src/panels/default_apps.rs:27
+msgid "Image viewer"
+msgstr "Bildbetrachter"
+
+#: src/panels/default_apps.rs:28
+msgid "Video player"
+msgstr "Videowiedergabe"
+
+#: src/panels/default_apps.rs:29
+msgid "Music player"
+msgstr "Musikwiedergabe"
+
+#: src/panels/default_apps.rs:30
+msgid "PDF viewer"
+msgstr "PDF-Betrachter"
+
+#: src/panels/default_apps.rs:41
+msgid "Default Apps"
+msgstr "Standardanwendungen"
+
+#: src/panels/desktop.rs:72
+msgid "Open With…"
+msgstr "Öffnen mit …"
+
+#: src/panels/desktop.rs:73
+msgid "Open in Terminal"
+msgstr "Im Terminal öffnen"
+
+#: src/panels/desktop.rs:74
+msgid "Rename…"
+msgstr "Umbenennen …"
+
+#: src/panels/desktop.rs:82
+msgid "Desktop icons"
+msgstr "Symbole auf der Arbeitsoberfläche"
+
+#: src/panels/desktop.rs:91
+msgid "Delete permanently"
+msgstr "Endgültig löschen"
+
+#: src/panels/desktop.rs:92
+msgid "Asks for confirmation, then removes the item for good."
+msgstr "Fragt nach und entfernt das Element dann endgültig."
+
+#: src/panels/desktop.rs:96
+msgid "Move to trash"
+msgstr "In den Papierkorb verschieben"
+
+#: src/panels/desktop.rs:97
+msgid "Keeps deleted items in the trash so they can be restored."
+msgstr ""
+"Behält gelöschte Elemente im Papierkorb, damit sie wiederhergestellt werden "
+"können."
+
+#: src/panels/desktop.rs:141
+msgid "Entries in the icon menu"
+msgstr "Einträge im Symbolmenü"
+
+#: src/panels/desktop.rs:160 src/panels/autostart/mod.rs:45
+msgid "Autostart"
+msgstr "Autostart"
+
+#: src/panels/desktop.rs:176
+msgid ""
+"Disabled entries are hidden per user — the system file is never modified."
+msgstr ""
+"Deaktivierte Einträge werden pro Benutzer ausgeblendet — die Systemdatei "
+"wird nie verändert."
+
+#: src/panels/language.rs:48 src/registry/entries.rs:47
+msgid "Region & Language"
+msgstr "Region und Sprache"
+
+#: src/panels/language.rs:73
+msgid "Language"
+msgstr "Sprache"
+
+#: src/panels/language.rs:74
+msgid "Menus, dialogs and messages"
+msgstr "Menüs, Dialoge und Meldungen"
+
+#: src/panels/language.rs:82
+msgid "Formats"
+msgstr "Formate"
+
+#: src/panels/language.rs:83
+msgid "Date, numbers and measurement units"
+msgstr "Datum, Zahlen und Maßeinheiten"
+
+#: src/panels/language.rs:92
+msgid "Console keymap"
+msgstr "Konsolen-Tastaturbelegung"
+
+#: src/panels/language.rs:94 src/panels/input/mod.rs:314
+msgid "Keyboard layout"
+msgstr "Tastaturbelegung"
+
+#: src/panels/language.rs:95
+msgid "change under Mouse & Keyboard"
+msgstr "unter Maus und Tastatur ändern"
+
+#: src/panels/language.rs:101
+msgid ""
+"Changes apply system-wide after the next login. Locale writes require admin "
+"authentication."
+msgstr ""
+"Änderungen gelten systemweit nach der nächsten Anmeldung. Locale-"
+"Schreibzugriffe erfordern Administratorrechte."
+
+#: src/panels/media.rs:30 src/panels/notifications.rs:187
+#: src/registry/entries.rs:316
+msgid "Removable media"
+msgstr "Wechselmedien"
+
+#: src/panels/media.rs:41
+msgid "Connected devices"
+msgstr "Angeschlossene Geräte"
+
+#: src/panels/media.rs:78
+msgid ""
+"Automount changes apply immediately — devices already mounted stay mounted "
+"until removed."
+msgstr ""
+"Automount-Änderungen wirken sofort — bereits eingehängte Geräte bleiben bis "
+"zum Entfernen eingehängt."
+
+#: src/panels/media.rs:108 src/panels/media.rs:115
+msgid "Automatically mount removable media"
+msgstr "Wechselmedien automatisch einhängen"
+
+#: src/panels/media.rs:109
+msgid "Mount USB drives and discs as soon as they are plugged in"
+msgstr ""
+"USB-Laufwerke und Datenträger einhängen, sobald sie angeschlossen werden"
+
+#: src/panels/media.rs:117
+msgid ""
+"Unavailable: the org.lieraos.ragnar.automount schema is not installed on "
+"this system."
+msgstr ""
+"Nicht verfügbar: Das Schema org.lieraos.ragnar.automount ist auf diesem "
+"System nicht installiert."
+
+#: src/panels/media.rs:144
+msgid "No removable devices connected"
+msgstr "Keine Wechselmedien angeschlossen"
+
+#: src/panels/media.rs:179
+msgid "Eject"
+msgstr "Auswerfen"
+
+#: src/panels/media.rs:181
+msgid "Unmount"
+msgstr "Aushängen"
+
+#: src/panels/notifications.rs:40 src/panels/sounds.rs:105
+#: src/registry/entries.rs:196
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+#: src/panels/notifications.rs:58
+msgid "Show notifications"
+msgstr "Benachrichtigungen anzeigen"
+
+#: src/panels/notifications.rs:59
+msgid "Slide in alerts on the right edge of the screen"
+msgstr "Meldungen am rechten Bildschirmrand einblenden"
+
+#: src/panels/notifications.rs:73 src/panels/osd.rs:64
+msgid "Show for"
+msgstr "Anzeigen für"
+
+#: src/panels/notifications.rs:74 src/panels/osd.rs:65
+msgid "seconds"
+msgstr "Sekunden"
+
+#: src/panels/notifications.rs:99
+msgid "Show on monitor"
+msgstr "Auf Monitor anzeigen"
+
+#: src/panels/notifications.rs:100
+msgid "\"all\" shows the alert on every screen"
+msgstr "\"all\" zeigt die Meldung auf jedem Bildschirm"
+
+#: src/panels/notifications.rs:109
+msgid "Top left"
+msgstr "Oben links"
+
+#: src/panels/notifications.rs:110
+msgid "Top right"
+msgstr "Oben rechts"
+
+#: src/panels/notifications.rs:113
+msgid "Bottom left"
+msgstr "Unten links"
+
+#: src/panels/notifications.rs:117
+msgid "Bottom right"
+msgstr "Unten rechts"
+
+#: src/panels/notifications.rs:134
+msgid "Position"
+msgstr "Position"
+
+#: src/panels/notifications.rs:135
+msgid "Which screen corner notifications slide into"
+msgstr "In welche Bildschirmecke Benachrichtigungen gleiten"
+
+#: src/panels/notifications.rs:143
+msgid "Immediately"
+msgstr "Sofort"
+
+#: src/panels/notifications.rs:144
+msgid "For 1 day"
+msgstr "Einen Tag"
+
+#: src/panels/notifications.rs:145
+msgid "For 3 days"
+msgstr "Drei Tage"
+
+#: src/panels/notifications.rs:146
+msgid "For 1 week"
+msgstr "Eine Woche"
+
+#: src/panels/notifications.rs:147
+msgid "For 2 weeks"
+msgstr "Zwei Wochen"
+
+#: src/panels/notifications.rs:148
+msgid "Forever"
+msgstr "Dauerhaft"
+
+#: src/panels/notifications.rs:165
+msgid "Keep history"
+msgstr "Verlauf aufbewahren"
+
+#: src/panels/notifications.rs:166
+msgid "How long past notifications stay in Raven's list"
+msgstr "Wie lange vergangene Benachrichtigungen in Ravens Liste bleiben"
+
+#: src/panels/notifications.rs:175
+msgid "Events"
+msgstr "Ereignisse"
+
+#: src/panels/notifications.rs:188
+msgid "Notify when drives are connected, mounted or removed"
+msgstr ""
+"Benachrichtigen, wenn Laufwerke angeschlossen, eingehängt oder entfernt "
+"werden"
+
+#: src/panels/notifications.rs:201 src/panels/notifications.rs:243
+#: src/registry/entries.rs:270
+msgid "System updates"
+msgstr "Systemaktualisierungen"
+
+#: src/panels/notifications.rs:202
+msgid "Check periodically for pending package upgrades"
+msgstr "Regelmäßig auf ausstehende Paketaktualisierungen prüfen"
+
+#: src/panels/notifications.rs:216
+msgid "Check every"
+msgstr "Prüfen alle"
+
+#: src/panels/notifications.rs:217
+msgid "minutes between update checks"
+msgstr "Minuten zwischen den Prüfungen"
+
+#: src/panels/notifications.rs:227
+msgid "Colours"
+msgstr "Farben"
+
+#: src/panels/notifications.rs:233 src/panels/windowrules/dialog.rs:35
+msgid "Default"
+msgstr "Standard"
+
+#: src/panels/notifications.rs:234
+msgid "Notifications without a special category"
+msgstr "Benachrichtigungen ohne besondere Kategorie"
+
+#: src/panels/notifications.rs:238
+msgid "Drives & mounts"
+msgstr "Laufwerke und Einhängepunkte"
+
+#: src/panels/notifications.rs:239
+msgid "Removable media connect, mount and removal"
+msgstr "Anschließen, Einhängen und Entfernen von Wechselmedien"
+
+#: src/panels/notifications.rs:244
+msgid "Pending package upgrades"
+msgstr "Ausstehende Paketaktualisierungen"
+
+#: src/panels/notifications.rs:248
+msgid "Appointments"
+msgstr "Termine"
+
+#: src/panels/notifications.rs:249
+msgid "Calendar reminders fired by Raven"
+msgstr "Terminerinnerungen von Raven"
+
+#: src/panels/notifications.rs:269
+msgid ""
+"Notification sound lives in System Sounds; history and appointment reminders "
+"are handled by Raven itself."
+msgstr ""
+"Der Benachrichtigungsklang liegt bei den Systemklängen; Verlauf und "
+"Terminerinnerungen verwaltet Raven selbst."
+
+#: src/panels/notifications.rs:299
+msgid "Reset to default colour"
+msgstr "Auf Standardfarbe zurücksetzen"
+
+#: src/panels/osd.rs:35
+msgid "On-Screen Display"
+msgstr "Bildschirmeinblendung"
+
+#: src/panels/osd.rs:49
+msgid "Show on-screen display"
+msgstr "Bildschirmeinblendung anzeigen"
+
+#: src/panels/osd.rs:50
+msgid "Volume and brightness overlay at the bottom edge"
+msgstr "Lautstärke- und Helligkeitseinblendung am unteren Rand"
+
+#: src/panels/osd.rs:79
+msgid "Size"
+msgstr "Größe"
+
+#: src/panels/osd.rs:80
+msgid "percent"
+msgstr "Prozent"
+
+#: src/panels/placeholder.rs:21
+msgid "Coming soon"
+msgstr "Demnächst"
+
+#: src/panels/placeholder.rs:25
+msgid "This settings area is not implemented yet"
+msgstr "Dieser Einstellungsbereich ist noch nicht umgesetzt"
+
+#: src/panels/power.rs:33
+msgid "Power profile"
+msgstr "Energieprofil"
+
+#: src/panels/power.rs:38
+msgid "Not available"
+msgstr "Nicht verfügbar"
+
+#: src/panels/power.rs:39
+msgid ""
+"No power-profile service is installed (power-profiles-daemon or tuned-ppd)."
+msgstr ""
+"Kein Energieprofil-Dienst installiert (power-profiles-daemon oder tuned-ppd)."
+
+#: src/panels/power.rs:65
+msgid "Screen & sleep"
+msgstr "Bildschirm und Bereitschaft"
+
+#: src/panels/power.rs:68
+msgid "Blank screen after"
+msgstr "Bildschirm abschalten nach"
+
+#: src/panels/power.rs:80
+msgid "Suspend on AC power"
+msgstr "Bereitschaft im Netzbetrieb"
+
+#: src/panels/power.rs:84
+msgid "Suspend on battery"
+msgstr "Bereitschaft im Akkubetrieb"
+
+#: src/panels/power.rs:97
+msgid "Power dialog"
+msgstr "Ausschaltdialog"
+
+#: src/panels/power.rs:100
+msgid "Lock screen"
+msgstr "Bildschirm sperren"
+
+#: src/panels/power.rs:101
+msgid "Log out"
+msgstr "Abmelden"
+
+#: src/panels/power.rs:102
+msgid "Suspend"
+msgstr "Bereitschaft"
+
+#: src/panels/power.rs:103
+msgid "Hibernate"
+msgstr "Ruhezustand"
+
+#: src/panels/power.rs:104
+msgid "Restart"
+msgstr "Neu starten"
+
+#: src/panels/power.rs:105
+msgid "Shut down"
+msgstr "Herunterfahren"
+
+#: src/panels/power.rs:115
+msgid "Battery"
+msgstr "Akku"
+
+#: src/panels/power.rs:205
+msgid "Power saver"
+msgstr "Energiesparmodus"
+
+#: src/panels/power.rs:206
+msgid "Lower performance, longer battery life"
+msgstr "Geringere Leistung, längere Akkulaufzeit"
+
+#: src/panels/power.rs:209
+msgid "Balanced"
+msgstr "Ausgewogen"
+
+#: src/panels/power.rs:210
+msgid "Standard performance and power usage"
+msgstr "Standardleistung und -verbrauch"
+
+#: src/panels/power.rs:213
+msgid "Performance"
+msgstr "Leistung"
+
+#: src/panels/power.rs:214
+msgid "Highest performance, higher power draw"
+msgstr "Höchste Leistung, höherer Stromverbrauch"
+
+#: src/panels/power.rs:238
+msgid "Charge level"
+msgstr "Ladestand"
+
+#: src/panels/power.rs:242
+msgid "State"
+msgstr "Zustand"
+
+#: src/panels/power.rs:244
+msgid "Charging"
+msgstr "Wird geladen"
+
+#: src/panels/power.rs:245
+msgid "Discharging"
+msgstr "Wird entladen"
+
+#: src/panels/power.rs:246
+msgid "Fully charged"
+msgstr "Vollständig geladen"
+
+#: src/panels/power.rs:251
+msgid "Time remaining"
+msgstr "Verbleibende Zeit"
+
+#: src/panels/power.rs:254
+msgid "Time to full"
+msgstr "Zeit bis voll"
+
+#: src/panels/power.rs:257
+msgid "Battery health"
+msgstr "Akkuzustand"
+
+#: src/panels/power.rs:309
+msgid "Unavailable: the settings service is not installed."
+msgstr "Nicht verfügbar: Der Einstellungsdienst ist nicht installiert."
+
+#: src/panels/privacy.rs:24 src/registry/entries.rs:405
+msgid "Privacy"
+msgstr "Privatsphäre"
+
+#: src/panels/privacy.rs:43
+msgid "Screen lock"
+msgstr "Bildschirmsperre"
+
+#: src/panels/privacy.rs:45
+msgid ""
+"Require a password when the session goes idle. Off: moving the mouse brings "
+"the screen back without unlocking."
+msgstr ""
+"Passwort verlangen, wenn die Sitzung inaktiv wird. Aus: Mausbewegung holt "
+"den Bildschirm ohne Entsperren zurück."
+
+#: src/panels/privacy.rs:72
+msgid "Lock after"
+msgstr "Sperren nach"
+
+#: src/panels/privacy.rs:74
+msgid "Delay between the screen going blank and the lock appearing"
+msgstr "Verzögerung zwischen Bildschirmabschaltung und Sperre"
+
+#: src/panels/privacy.rs:83
+msgid ""
+"Suspending also locks the screen (handled by the session lock service). "
+"Location services are not installed on this system."
+msgstr ""
+"Bereitschaft sperrt auch den Bildschirm (übernimmt der Sitzungssperr-"
+"Dienst). Ortungsdienste sind auf diesem System nicht installiert."
+
+#: src/panels/privacy.rs:109
+msgid "Automatic keyring unlock"
+msgstr "Schlüsselbund automatisch entsperren"
+
+#: src/panels/privacy.rs:111
+msgid ""
+"Unlock the login keyring without a password prompt                   "
+"(required for autologin). The keyring then stores                   secrets "
+"unencrypted — off: enter your password once                   per session "
+"instead."
+msgstr ""
+"Den Anmeldeschlüsselbund ohne Passwortabfrage entsperren (für die "
+"automatische Anmeldung erforderlich). Der Schlüsselbund speichert "
+"Zugangsdaten dann unverschlüsselt — aus: stattdessen einmal pro Sitzung das "
+"Passwort eingeben."
+
+#: src/panels/sounds.rs:40
+msgid "Device connected"
+msgstr "Gerät angeschlossen"
+
+#: src/panels/sounds.rs:41
+msgid "Device removed"
+msgstr "Gerät entfernt"
+
+#: src/panels/sounds.rs:42
+msgid "Volume changed"
+msgstr "Lautstärke geändert"
+
+#: src/panels/sounds.rs:56
+msgid "General"
+msgstr "Allgemein"
+
+#: src/panels/sounds.rs:61
+msgid "Event sounds enabled"
+msgstr "Ereignisklänge aktiviert"
+
+#: src/panels/sounds.rs:75
+msgid "Sound theme"
+msgstr "Klangschema"
+
+#: src/panels/sounds.rs:95
+msgid "Open LieraAudio"
+msgstr "LieraAudio öffnen"
+
+#: src/panels/sounds.rs:115
+msgid "Notification sound"
+msgstr "Benachrichtigungsklang"
+
+#: src/panels/sounds.rs:134
+msgid "Event sounds"
+msgstr "Ereignisklänge"
+
+#: src/panels/sounds.rs:217
+msgid "Preview"
+msgstr "Vorschau"
+
+#: src/panels/storage.rs:64 src/registry/entries.rs:362
+msgid "Storage"
+msgstr "Speicher"
+
+#: src/panels/storage.rs:80
+msgid "Removable devices"
+msgstr "Wechseldatenträger"
+
+#: src/panels/storage.rs:130
+msgid "used"
+msgstr "belegt"
+
+#: src/panels/storage.rs:132
+msgid "total"
+msgstr "gesamt"
+
+#: src/panels/storage.rs:134
+msgid "full"
+msgstr "voll"
+
+#: src/registry/catalog.rs:24 src/panels/appearance/style.rs:28
+msgid "System"
+msgstr "System"
+
+#: src/registry/catalog.rs:28
+msgid "Personalization"
+msgstr "Personalisierung"
+
+#: src/registry/catalog.rs:32
+msgid "Network and Internet"
+msgstr "Netzwerk und Internet"
+
+#: src/registry/catalog.rs:36
+msgid "Programs"
+msgstr "Programme"
+
+#: src/registry/catalog.rs:40
+msgid "Devices"
+msgstr "Geräte"
+
+#: src/registry/catalog.rs:44
+msgid "Accounts and Security"
+msgstr "Konten und Sicherheit"
+
+#: src/registry/entries.rs:16
+msgid "About this system"
+msgstr "Über dieses System"
+
+#: src/registry/entries.rs:17
+msgid "Hardware, operating system and Ragnar version"
+msgstr "Hardware, Betriebssystem und Ragnar-Version"
+
+#: src/registry/entries.rs:23
+msgid "info"
+msgstr "info"
+
+#: src/registry/entries.rs:24
+msgid "hardware"
+msgstr "hardware"
+
+#: src/registry/entries.rs:25
+msgid "version"
+msgstr "version"
+
+#: src/registry/entries.rs:26
+msgid "os"
+msgstr "betriebssystem"
+
+#: src/registry/entries.rs:32
+msgid "Timezone, NTP and clock settings"
+msgstr "Zeitzone, NTP und Uhreneinstellungen"
+
+#: src/registry/entries.rs:38
+msgid "time"
+msgstr "zeit"
+
+#: src/registry/entries.rs:39
+msgid "date"
+msgstr "datum"
+
+#: src/registry/entries.rs:40
+msgid "timezone"
+msgstr "zeitzone"
+
+#: src/registry/entries.rs:41
+msgid "ntp"
+msgstr "ntp"
+
+#: src/registry/entries.rs:42
+msgid "clock"
+msgstr "uhr"
+
+#: src/registry/entries.rs:48
+msgid "System language and formats"
+msgstr "Systemsprache und Formate"
+
+#: src/registry/entries.rs:54
+msgid "language"
+msgstr "sprache"
+
+#: src/registry/entries.rs:55
+msgid "locale"
+msgstr "locale"
+
+#: src/registry/entries.rs:56
+msgid "region"
+msgstr "region"
+
+#: src/registry/entries.rs:57
+msgid "german"
+msgstr "deutsch"
+
+#: src/registry/entries.rs:58
+msgid "english"
+msgstr "englisch"
+
+#: src/registry/entries.rs:64
+msgid "Text size and contrast options"
+msgstr "Textgröße und Kontrastoptionen"
+
+#: src/registry/entries.rs:70
+msgid "accessibility"
+msgstr "barrierefreiheit"
+
+#: src/registry/entries.rs:71
+msgid "font size"
+msgstr "schriftgröße"
+
+#: src/registry/entries.rs:72
+msgid "contrast"
+msgstr "kontrast"
+
+#: src/registry/entries.rs:77
+msgid "Sound"
+msgstr "Klang"
+
+#: src/registry/entries.rs:78
+msgid "Volume, devices and effects"
+msgstr "Lautstärke, Geräte und Effekte"
+
+#: src/registry/entries.rs:84
+msgid "audio"
+msgstr "audio"
+
+#: src/registry/entries.rs:85
+msgid "volume"
+msgstr "lautstärke"
+
+#: src/registry/entries.rs:86
+msgid "microphone"
+msgstr "mikrofon"
+
+#: src/registry/entries.rs:87
+msgid "lieraaudio"
+msgstr "lieraaudio"
+
+#: src/registry/entries.rs:92
+msgid "Displays"
+msgstr "Bildschirme"
+
+#: src/registry/entries.rs:93
+msgid "Resolution, arrangement and scaling"
+msgstr "Auflösung, Anordnung und Skalierung"
+
+#: src/registry/entries.rs:98
+msgid "monitor"
+msgstr "monitor"
+
+#: src/registry/entries.rs:98
+msgid "resolution"
+msgstr "auflösung"
+
+#: src/registry/entries.rs:98
+msgid "screen"
+msgstr "bildschirm"
+
+#: src/registry/entries.rs:102 src/panels/nightlight/mod.rs:57
+#: src/panels/nightlight/mod.rs:107
+msgid "Night light"
+msgstr "Nachtlicht"
+
+#: src/registry/entries.rs:103
+msgid "Warmer colors at night"
+msgstr "Wärmere Farben in der Nacht"
+
+#: src/registry/entries.rs:109
+msgid "night"
+msgstr "nacht"
+
+#: src/registry/entries.rs:110
+msgid "blue light"
+msgstr "blaulicht"
+
+#: src/registry/entries.rs:111
+msgid "gamma"
+msgstr "gamma"
+
+#: src/registry/entries.rs:112
+msgid "color temperature"
+msgstr "farbtemperatur"
+
+#: src/registry/entries.rs:117 src/panels/compositor/mod.rs:26
+msgid "Compositor"
+msgstr "Compositor"
+
+#: src/registry/entries.rs:118
+msgid "Experimental — window decoration, focus and layout"
+msgstr "Experimentell — Fensterdekoration, Fokus und Layout"
+
+#: src/registry/entries.rs:124 src/registry/entries.rs:140
+msgid "window"
+msgstr "fenster"
+
+#: src/registry/entries.rs:125
+msgid "decoration"
+msgstr "dekoration"
+
+#: src/registry/entries.rs:126
+msgid "focus"
+msgstr "fokus"
+
+#: src/registry/entries.rs:127
+msgid "gap"
+msgstr "abstand"
+
+#: src/registry/entries.rs:128
+msgid "compositor"
+msgstr "compositor"
+
+#: src/registry/entries.rs:133 src/panels/windowrules/mod.rs:161
+msgid "Window rules"
+msgstr "Fensterregeln"
+
+#: src/registry/entries.rs:134
+msgid "Experimental — per-window state, placement and decoration"
+msgstr "Experimentell — Zustand, Platzierung und Dekoration pro Fenster"
+
+#: src/registry/entries.rs:141
+msgid "rule"
+msgstr "Regel"
+
+#: src/registry/entries.rs:142
+msgid "always on top"
+msgstr "immer im Vordergrund"
+
+#: src/registry/entries.rs:143 src/panels/windowrules/mod.rs:56
+msgid "workspace"
+msgstr "Arbeitsfläche"
+
+#: src/registry/entries.rs:144
+msgid "match"
+msgstr "Übereinstimmung"
+
+#: src/registry/entries.rs:149 src/panels/autostart/mod.rs:43
+msgid "Autostart & environment"
+msgstr "Autostart & Umgebung"
+
+#: src/registry/entries.rs:150
+msgid "Programs at login and session variables"
+msgstr "Programme beim Anmelden und Sitzungsvariablen"
+
+#: src/registry/entries.rs:156 src/registry/entries.rs:190
+msgid "autostart"
+msgstr "Autostart"
+
+#: src/registry/entries.rs:157
+msgid "login"
+msgstr "Anmeldung"
+
+#: src/registry/entries.rs:158
+msgid "startup"
+msgstr "Startprogramm"
+
+#: src/registry/entries.rs:159
+msgid "environment"
+msgstr "Umgebung"
+
+#: src/registry/entries.rs:160
+msgid "variable"
+msgstr "Variable"
+
+#: src/registry/entries.rs:166 src/panels/appearance/root.rs:37
+msgid "Appearance"
+msgstr "Erscheinungsbild"
+
+#: src/registry/entries.rs:167
+msgid "Wallpaper, themes and icons"
+msgstr "Hintergrundbild, Designs und Symbole"
+
+#: src/registry/entries.rs:173
+msgid "background"
+msgstr "hintergrund"
+
+#: src/registry/entries.rs:174
+msgid "wallpaper"
+msgstr "hintergrundbild"
+
+#: src/registry/entries.rs:175 src/registry/entries.rs:233
+msgid "theme"
+msgstr "design"
+
+#: src/registry/entries.rs:176
+msgid "icons"
+msgstr "symbole"
+
+#: src/registry/entries.rs:181
+msgid "Panel and desktop"
+msgstr "Leiste und Arbeitsfläche"
+
+#: src/registry/entries.rs:182
+msgid "Panel layout, applets and autostart"
+msgstr "Leistenlayout, Applets und Autostart"
+
+#: src/registry/entries.rs:188 src/registry/entries.rs:219
+msgid "panel"
+msgstr "leiste"
+
+#: src/registry/entries.rs:189 src/registry/entries.rs:221
+msgid "applet"
+msgstr "applet"
+
+#: src/registry/entries.rs:191 src/registry/entries.rs:218
+msgid "taskbar"
+msgstr "taskleiste"
+
+#: src/registry/entries.rs:197
+msgid "Notification display, duration and monitor"
+msgstr "Benachrichtigungsanzeige, Dauer und Monitor"
+
+#: src/registry/entries.rs:203
+msgid "notification"
+msgstr "benachrichtigung"
+
+#: src/registry/entries.rs:204
+msgid "raven"
+msgstr "raven"
+
+#: src/registry/entries.rs:205
+msgid "alert"
+msgstr "meldung"
+
+#: src/registry/entries.rs:206
+msgid "popup"
+msgstr "popup"
+
+#: src/registry/entries.rs:211
+msgid "Taskbar"
+msgstr "Taskleiste"
+
+#: src/registry/entries.rs:212
+msgid "Panel layout, applets and workspaces"
+msgstr "Leistenlayout, Applets und Arbeitsflächen"
+
+#: src/registry/entries.rs:220
+msgid "bar"
+msgstr "leiste"
+
+#: src/registry/entries.rs:222
+msgid "dock"
+msgstr "dock"
+
+#: src/registry/entries.rs:227
+msgid "System sounds"
+msgstr "Systemklänge"
+
+#: src/registry/entries.rs:228
+msgid "Sound themes for system events"
+msgstr "Klangschemata für Systemereignisse"
+
+#: src/registry/entries.rs:233
+msgid "bell"
+msgstr "glocke"
+
+#: src/registry/entries.rs:233
+msgid "notification sound"
+msgstr "benachrichtigungsklang"
+
+#: src/registry/entries.rs:238
+msgid "Network and Bluetooth"
+msgstr "Netzwerk und Bluetooth"
+
+#: src/registry/entries.rs:239
+msgid "Connections, Wi-Fi and Bluetooth devices"
+msgstr "Verbindungen, WLAN- und Bluetooth-Geräte"
+
+#: src/registry/entries.rs:245
+msgid "wifi"
+msgstr "wlan"
+
+#: src/registry/entries.rs:246
+msgid "ethernet"
+msgstr "ethernet"
+
+#: src/registry/entries.rs:247
+msgid "bluetooth"
+msgstr "bluetooth"
+
+#: src/registry/entries.rs:248
+msgid "ragnar-heimdall"
+msgstr "ragnar-heimdall"
+
+#: src/registry/entries.rs:254
+msgid "Software"
+msgstr "Software"
+
+#: src/registry/entries.rs:255
+msgid "Install and remove applications"
+msgstr "Anwendungen installieren und entfernen"
+
+#: src/registry/entries.rs:261
+msgid "install"
+msgstr "installieren"
+
+#: src/registry/entries.rs:262
+msgid "remove"
+msgstr "entfernen"
+
+#: src/registry/entries.rs:263
+msgid "apps"
+msgstr "anwendungen"
+
+#: src/registry/entries.rs:264 src/registry/entries.rs:279
+msgid "packages"
+msgstr "pakete"
+
+#: src/registry/entries.rs:265
+msgid "ragnar-software"
+msgstr "ragnar-software"
+
+#: src/registry/entries.rs:271
+msgid "Check for and install updates"
+msgstr "Aktualisierungen suchen und installieren"
+
+#: src/registry/entries.rs:277
+msgid "update"
+msgstr "aktualisierung"
+
+#: src/registry/entries.rs:278
+msgid "upgrade"
+msgstr "upgrade"
+
+#: src/registry/entries.rs:280
+msgid "apt"
+msgstr "apt"
+
+#: src/registry/entries.rs:285
+msgid "Default applications"
+msgstr "Standardanwendungen"
+
+#: src/registry/entries.rs:286
+msgid "Which app opens which file type"
+msgstr "Welche Anwendung welchen Dateityp öffnet"
+
+#: src/registry/entries.rs:292
+msgid "mime"
+msgstr "mime"
+
+#: src/registry/entries.rs:293
+msgid "default"
+msgstr "standard"
+
+#: src/registry/entries.rs:294
+msgid "browser"
+msgstr "browser"
+
+#: src/registry/entries.rs:295
+msgid "filetype"
+msgstr "dateityp"
+
+#: src/registry/entries.rs:301 src/panels/shortcuts/mod.rs:228
+msgid "Keyboard shortcuts"
+msgstr "Tastenkürzel"
+
+#: src/registry/entries.rs:302
+msgid "Global key bindings"
+msgstr "Globale Tastenzuweisungen"
+
+#: src/registry/entries.rs:308
+msgid "shortcut"
+msgstr "kürzel"
+
+#: src/registry/entries.rs:309
+msgid "hotkey"
+msgstr "hotkey"
+
+#: src/registry/entries.rs:310
+msgid "keybinding"
+msgstr "tastenzuweisung"
+
+#: src/registry/entries.rs:311
+msgid "keys"
+msgstr "tasten"
+
+#: src/registry/entries.rs:317
+msgid "Automount and media handling"
+msgstr "Automatisches Einhängen und Medienverwaltung"
+
+#: src/registry/entries.rs:323
+msgid "usb"
+msgstr "usb"
+
+#: src/registry/entries.rs:324
+msgid "automount"
+msgstr "automatisch einhängen"
+
+#: src/registry/entries.rs:325
+msgid "removable"
+msgstr "wechselmedium"
+
+#: src/registry/entries.rs:326
+msgid "media"
+msgstr "medien"
+
+#: src/registry/entries.rs:331
+msgid "Mouse & Keyboard"
+msgstr "Maus und Tastatur"
+
+#: src/registry/entries.rs:332
+msgid "Pointer speed, scrolling and layout"
+msgstr "Zeigergeschwindigkeit, Scrollen und Belegung"
+
+#: src/registry/entries.rs:338
+msgid "mouse"
+msgstr "maus"
+
+#: src/registry/entries.rs:339
+msgid "keyboard"
+msgstr "tastatur"
+
+#: src/registry/entries.rs:340
+msgid "touchpad"
+msgstr "touchpad"
+
+#: src/registry/entries.rs:341
+msgid "scroll"
+msgstr "scrollen"
+
+#: src/registry/entries.rs:342
+msgid "layout"
+msgstr "belegung"
+
+#: src/registry/entries.rs:347 src/panels/display/gpu.rs:105
+msgid "Power"
+msgstr "Energie"
+
+#: src/registry/entries.rs:348
+msgid "Power profile and battery status"
+msgstr "Energieprofil und Akkustand"
+
+#: src/registry/entries.rs:354
+msgid "power"
+msgstr "energie"
+
+#: src/registry/entries.rs:355
+msgid "battery"
+msgstr "akku"
+
+#: src/registry/entries.rs:356
+msgid "energy"
+msgstr "energie"
+
+#: src/registry/entries.rs:357
+msgid "profile"
+msgstr "profil"
+
+#: src/registry/entries.rs:363
+msgid "Disks and free space"
+msgstr "Laufwerke und freier Speicher"
+
+#: src/registry/entries.rs:369
+msgid "disk"
+msgstr "laufwerk"
+
+#: src/registry/entries.rs:370
+msgid "storage"
+msgstr "speicher"
+
+#: src/registry/entries.rs:371
+msgid "space"
+msgstr "platz"
+
+#: src/registry/entries.rs:372
+msgid "drive"
+msgstr "laufwerk"
+
+#: src/registry/entries.rs:377 src/panels/printers/mod.rs:28
+#: src/panels/printers/mod.rs:34
+msgid "Printers"
+msgstr "Drucker"
+
+#: src/registry/entries.rs:378
+msgid "Manage printers and PDF output"
+msgstr "Drucker und PDF-Ausgabe verwalten"
+
+#: src/registry/entries.rs:383
+msgid "print"
+msgstr "drucken"
+
+#: src/registry/entries.rs:383
+msgid "cups"
+msgstr "cups"
+
+#: src/registry/entries.rs:388
+msgid "Cloud"
+msgstr "Cloud"
+
+#: src/registry/entries.rs:389
+msgid "Cloud accounts for calendar sync and WebDAV"
+msgstr "Cloud-Konten für Kalendersynchronisation und WebDAV"
+
+#: src/registry/entries.rs:395
+msgid "cloud"
+msgstr "cloud"
+
+#: src/registry/entries.rs:396
+msgid "nextcloud"
+msgstr "nextcloud"
+
+#: src/registry/entries.rs:397
+msgid "owncloud"
+msgstr "owncloud"
+
+#: src/registry/entries.rs:398
+msgid "webdav"
+msgstr "webdav"
+
+#: src/registry/entries.rs:399
+msgid "caldav"
+msgstr "caldav"
+
+#: src/registry/entries.rs:400
+msgid "sync"
+msgstr "synchronisation"
+
+#: src/registry/entries.rs:406
+msgid "Lock screen and location options"
+msgstr "Bildschirmsperre und Standortoptionen"
+
+#: src/registry/entries.rs:412
+msgid "privacy"
+msgstr "privatsphäre"
+
+#: src/registry/entries.rs:413
+msgid "lock"
+msgstr "sperren"
+
+#: src/registry/entries.rs:414
+msgid "location"
+msgstr "standort"
+
+#: src/registry/entries.rs:415
+msgid "screen lock"
+msgstr "bildschirmsperre"
+
+#: src/registry/entries.rs:420
+msgid "User accounts"
+msgstr "Benutzerkonten"
+
+#: src/registry/entries.rs:421
+msgid "Users, passwords and permissions"
+msgstr "Benutzer, Passwörter und Berechtigungen"
+
+#: src/registry/entries.rs:426
+msgid "password"
+msgstr "passwort"
+
+#: src/registry/entries.rs:426
+msgid "account"
+msgstr "konto"
+
+#: src/registry/entries.rs:426
+msgid "admin"
+msgstr "admin"
+
+#: src/ui/window.rs:49
+msgid "Back"
+msgstr "Zurück"
+
+#: src/ui/window.rs:53
+msgid "Search settings"
+msgstr "Einstellungen durchsuchen"
+
+#: src/ui/window.rs:69
+msgid "Advanced settings"
+msgstr "Erweiterte Einstellungen"
+
+#: src/ui/window.rs:86
+msgid "Back up configuration…"
+msgstr "Konfiguration sichern …"
+
+#: src/ui/window.rs:87
+msgid "Restore configuration…"
+msgstr "Konfiguration wiederherstellen …"
+
+#: src/panels/appearance/cursor.rs:41
+msgid "Cursor size"
+msgstr "Zeigergröße"
+
+#: src/panels/appearance/cursor.rs:56
+msgid "Install cursor theme from file…"
+msgstr "Zeigerdesign aus Datei installieren …"
+
+#: src/panels/appearance/cursor.rs:64
+msgid "Choose cursor theme archive"
+msgstr "Zeigerdesign-Archiv wählen"
+
+#: src/panels/appearance/cursor.rs:70 src/panels/appearance/icons.rs:52
+#: src/panels/appearance/themes.rs:64
+msgid "Installed. Select it above."
+msgstr "Installiert. Oben auswählen."
+
+#: src/panels/appearance/cursor.rs:72 src/panels/appearance/icons.rs:54
+#: src/panels/appearance/themes.rs:65
+msgid "Install failed"
+msgstr "Installation fehlgeschlagen"
+
+#: src/panels/appearance/fonts.rs:16
+msgid "Standard (grayscale)"
+msgstr "Standard (Graustufen)"
+
+#: src/panels/appearance/fonts.rs:17
+msgid "Subpixel (LCD)"
+msgstr "Subpixel (LCD)"
+
+#: src/panels/appearance/fonts.rs:18 src/panels/appearance/fonts.rs:25
+#: src/panels/input/mod.rs:149 src/panels/input/mod.rs:160
+#: src/panels/windowrules/dialog.rs:37
+msgid "None"
+msgstr "Keine"
+
+#: src/panels/appearance/fonts.rs:22
+msgid "Slight"
+msgstr "Leicht"
+
+#: src/panels/appearance/fonts.rs:23
+msgid "Medium"
+msgstr "Mittel"
+
+#: src/panels/appearance/fonts.rs:24
+msgid "Full"
+msgstr "Voll"
+
+#: src/panels/appearance/fonts.rs:35
+msgid "Interface font"
+msgstr "Oberflächenschrift"
+
+#: src/panels/appearance/fonts.rs:38
+msgid "Document font"
+msgstr "Dokumentschrift"
+
+#: src/panels/appearance/fonts.rs:43
+msgid "Monospace font"
+msgstr "Nichtproportionale Schrift"
+
+#: src/panels/appearance/fonts.rs:49
+msgid "Text size factor"
+msgstr "Textgrößenfaktor"
+
+#: src/panels/appearance/fonts.rs:66
+msgid "Antialiasing"
+msgstr "Kantenglättung"
+
+#: src/panels/appearance/fonts.rs:72
+msgid "Hinting"
+msgstr "Hinting"
+
+#: src/panels/appearance/icons.rs:38
+msgid "Install icon theme from file…"
+msgstr "Symboldesign aus Datei installieren …"
+
+#: src/panels/appearance/icons.rs:46
+msgid "Choose icon theme archive"
+msgstr "Symboldesign-Archiv wählen"
+
+#: src/panels/appearance/root.rs:18
+msgid "Style & Colors"
+msgstr "Stil und Farben"
+
+#: src/panels/appearance/root.rs:19
+msgid "GTK Theme"
+msgstr "GTK-Design"
+
+#: src/panels/appearance/root.rs:20
+msgid "Icon Theme"
+msgstr "Symbol-Design"
+
+#: src/panels/appearance/root.rs:21
+msgid "Cursor"
+msgstr "Mauszeiger"
+
+#: src/panels/appearance/root.rs:22
+msgid "Fonts"
+msgstr "Schriften"
+
+#: src/panels/appearance/root.rs:23
+msgid "Wallpaper"
+msgstr "Hintergrundbild"
+
+#: src/panels/appearance/root.rs:81
+msgid "‹ Back"
+msgstr "‹ Zurück"
+
+#: src/panels/appearance/style.rs:17
+msgid "Blue"
+msgstr "Blau"
+
+#: src/panels/appearance/style.rs:18
+msgid "Teal"
+msgstr "Türkis"
+
+#: src/panels/appearance/style.rs:19
+msgid "Green"
+msgstr "Grün"
+
+#: src/panels/appearance/style.rs:20
+msgid "Yellow"
+msgstr "Gelb"
+
+#: src/panels/appearance/style.rs:21
+msgid "Orange"
+msgstr "Orange"
+
+#: src/panels/appearance/style.rs:22
+msgid "Red"
+msgstr "Rot"
+
+#: src/panels/appearance/style.rs:23
+msgid "Pink"
+msgstr "Rosa"
+
+#: src/panels/appearance/style.rs:24
+msgid "Purple"
+msgstr "Violett"
+
+#: src/panels/appearance/style.rs:25
+msgid "Slate"
+msgstr "Schiefer"
+
+#: src/panels/appearance/style.rs:28
+msgid "Dark"
+msgstr "Dunkel"
+
+#: src/panels/appearance/style.rs:28
+msgid "Light"
+msgstr "Hell"
+
+#: src/panels/appearance/style.rs:39
+msgid "Mode"
+msgstr "Modus"
+
+#: src/panels/appearance/style.rs:56
+msgid "Accent color"
+msgstr "Akzentfarbe"
+
+#: src/panels/appearance/style.rs:88
+msgid "Custom accent"
+msgstr "Eigene Akzentfarbe"
+
+#: src/panels/appearance/style.rs:106
+msgid ""
+"Custom accents apply to GTK4 apps; the palette presets also style libadwaita "
+"apps."
+msgstr ""
+"Eigene Akzentfarben gelten für GTK4-Anwendungen; die Paletten-Vorgaben "
+"gestalten auch libadwaita-Anwendungen."
+
+#: src/panels/appearance/themes.rs:39
+msgid ""
+"Installs .tar/.tar.gz/.tar.xz theme archives into ~/.local/share/themes."
+msgstr ""
+"Installiert .tar/.tar.gz/.tar.xz-Designarchive nach ~/.local/share/themes."
+
+#: src/panels/appearance/themes.rs:50
+msgid "Install theme from file…"
+msgstr "Design aus Datei installieren …"
+
+#: src/panels/appearance/themes.rs:57
+msgid "Choose theme archive"
+msgstr "Design-Archiv wählen"
+
+#: src/panels/appearance/wallpaper.rs:42
+msgid "Apply to:"
+msgstr "Anwenden auf:"
+
+#: src/panels/appearance/wallpaper.rs:43
+msgid "All monitors"
+msgstr "Alle Monitore"
+
+#: src/panels/appearance/wallpaper.rs:47
+msgid "Use default for this monitor"
+msgstr "Standard für diesen Monitor verwenden"
+
+#: src/panels/appearance/wallpaper.rs:91
+msgid "Choose image file…"
+msgstr "Bilddatei wählen …"
+
+#: src/panels/appearance/wallpaper.rs:100
+msgid "Choose wallpaper image"
+msgstr "Hintergrundbild wählen"
+
+#: src/panels/appearance/wallpaper.rs:102
+msgid "Images"
+msgstr "Bilder"
+
+#: src/panels/autostart/env.rs:56
+msgid "Managed by the desktop session"
+msgstr "Von der Desktop-Sitzung verwaltet"
+
+#: src/panels/autostart/env.rs:85
+msgid "Remove variable"
+msgstr "Variable entfernen"
+
+#: src/panels/autostart/env.rs:123
+msgid "NAME"
+msgstr "NAME"
+
+#: src/panels/autostart/env.rs:127
+msgid "value"
+msgstr "Wert"
+
+#: src/panels/autostart/env.rs:132
+msgid "Add variable"
+msgstr "Variable hinzufügen"
+
+#: src/panels/autostart/env.rs:139
+msgid "New variable"
+msgstr "Neue Variable"
+
+#: src/panels/autostart/mod.rs:48
+msgid ""
+"Commands run once at the next login — editing here does not start them now."
+msgstr ""
+"Befehle laufen einmal bei der nächsten Anmeldung — hier Bearbeiten startet "
+"sie nicht jetzt."
+
+#: src/panels/autostart/mod.rs:53
+msgid "Environment"
+msgstr "Umgebung"
+
+#: src/panels/autostart/mod.rs:56
+msgid ""
+"Variables apply to applications started after the change. Locked entries are "
+"maintained by the desktop session and would be overwritten."
+msgstr ""
+"Variablen gelten für Anwendungen, die nach der Änderung starten. Gesperrte "
+"Einträge werden von der Desktop-Sitzung gepflegt und würden überschrieben."
+
+#: src/panels/autostart/programs.rs:42
+msgid "No autostart entries yet."
+msgstr "Noch keine Autostart-Einträge."
+
+#: src/panels/autostart/programs.rs:70
+msgid "Remove entry"
+msgstr "Eintrag entfernen"
+
+#: src/panels/autostart/programs.rs:109
+msgid "Command to run at login, e.g. firefox"
+msgstr "Beim Anmelden auszuführender Befehl, z. B. firefox"
+
+#: src/panels/autostart/programs.rs:114
+msgid "Add entry"
+msgstr "Eintrag hinzufügen"
+
+#: src/panels/autostart/programs.rs:120
+msgid "New entry"
+msgstr "Neuer Eintrag"
+
+#: src/panels/compositor/decoration.rs:19 src/panels/windowrules/dialog.rs:36
+msgid "Compositor-drawn"
+msgstr "Vom Compositor gezeichnet"
+
+#: src/panels/compositor/decoration.rs:20
+msgid "App-drawn"
+msgstr "Von der App gezeichnet"
+
+#: src/panels/compositor/decoration.rs:34
+msgid "Icon left, minimize, maximize, close"
+msgstr "Symbol links, minimieren, maximieren, schließen"
+
+#: src/panels/compositor/decoration.rs:39
+msgid "Icon left, minimize, close"
+msgstr "Symbol links, minimieren, schließen"
+
+#: src/panels/compositor/decoration.rs:44
+msgid "All buttons on the left"
+msgstr "Alle Schaltflächen links"
+
+#: src/panels/compositor/decoration.rs:46
+msgid "Close only"
+msgstr "Nur Schließen"
+
+#: src/panels/compositor/decoration.rs:51
+msgid "Window decoration"
+msgstr "Fensterdekoration"
+
+#: src/panels/compositor/decoration.rs:56
+msgid "Window titlebars"
+msgstr "Fenster-Titelleisten"
+
+#: src/panels/compositor/decoration.rs:57
+msgid "Whether the compositor or each app draws the titlebar."
+msgstr "Ob der Compositor oder die Anwendung die Titelleiste zeichnet."
+
+#: src/panels/compositor/decoration.rs:65
+msgid "Corner radius"
+msgstr "Eckenradius"
+
+#: src/panels/compositor/decoration.rs:66
+msgid "Rounded window corners, in pixels. 0 draws sharp corners."
+msgstr "Abgerundete Fensterecken in Pixeln. 0 zeichnet scharfe Ecken."
+
+#: src/panels/compositor/decoration.rs:74
+msgid "Drop shadows"
+msgstr "Fensterschatten"
+
+#: src/panels/compositor/decoration.rs:75
+msgid "Draw a soft shadow around windows."
+msgstr "Zeichnet einen weichen Schatten um Fenster."
+
+#: src/panels/compositor/decoration.rs:82
+msgid "Keep window border"
+msgstr "Fensterrahmen beibehalten"
+
+#: src/panels/compositor/decoration.rs:83
+msgid "Show a thin border even on undecorated windows."
+msgstr "Zeigt auch bei Fenstern ohne Dekoration einen dünnen Rahmen."
+
+#: src/panels/compositor/decoration.rs:96
+msgid "Titlebar font"
+msgstr "Titelleisten-Schrift"
+
+#: src/panels/compositor/decoration.rs:97
+msgid "Font family used for window titles."
+msgstr "Schriftfamilie für Fenstertitel."
+
+#: src/panels/compositor/decoration.rs:105
+msgid ""
+"These apply to windows the compositor decorates — X11 apps and apps that ask "
+"for it. Apps that draw their own titlebar (GTK4 and most native apps) are "
+"not affected."
+msgstr ""
+"Gilt für Fenster, die der Compositor dekoriert — X11-Anwendungen und "
+"Anwendungen, die es anfordern. Anwendungen, die ihre Titelleiste selbst "
+"zeichnen (GTK4 und die meisten nativen Apps), bleiben unberührt."
+
+#: src/panels/compositor/decoration.rs:141
+msgid "Titlebar layout"
+msgstr "Titelleisten-Layout"
+
+#: src/panels/compositor/decoration.rs:142
+msgid "Button order and sides in the window titlebar."
+msgstr "Reihenfolge und Seiten der Schaltflächen in der Titelleiste."
+
+#: src/panels/compositor/future.rs:20
+msgid "Backdrop blur"
+msgstr "Hintergrundunschärfe"
+
+#: src/panels/compositor/future.rs:21
+msgid "Window animations"
+msgstr "Fensteranimationen"
+
+#: src/panels/compositor/future.rs:22
+msgid "Tiling layouts"
+msgstr "Kachel-Layouts"
+
+#: src/panels/compositor/future.rs:23
+msgid "Touchpad workspace gestures"
+msgstr "Touchpad-Gesten für Arbeitsflächen"
+
+#: src/panels/compositor/future.rs:24
+msgid "Window groups (tabs)"
+msgstr "Fenstergruppen (Tabs)"
+
+#: src/panels/compositor/future.rs:25
+msgid "Scratchpad workspace"
+msgstr "Scratchpad-Arbeitsfläche"
+
+#: src/panels/compositor/future.rs:26
+msgid "Monitor mirroring"
+msgstr "Monitor-Spiegelung"
+
+#: src/panels/compositor/future.rs:31
+msgid "Coming with the native compositor"
+msgstr "Kommt mit dem Ragnar-Compositor"
+
+#: src/panels/compositor/future.rs:38
+msgid ""
+"These controls are already placed so nothing needs to be re-arranged later. "
+"They unlock automatically as soon as the compositor provides them."
+msgstr ""
+"Diese Einstellungen sind bereits angelegt, damit später nichts umgebaut "
+"werden muss. Sie werden automatisch freigeschaltet, sobald der Compositor "
+"sie bereitstellt."
+
+#: src/panels/compositor/layout.rs:20
+msgid "Off"
+msgstr "Aus"
+
+#: src/panels/compositor/layout.rs:20
+msgid "On"
+msgstr "Ein"
+
+#: src/panels/compositor/layout.rs:24 src/panels/shortcuts/dialog.rs:69
+#: src/panels/windowrules/dialog.rs:30
+msgid "Center"
+msgstr "Mitte"
+
+#: src/panels/compositor/layout.rs:25
+msgid "Under the cursor"
+msgstr "Unter dem Mauszeiger"
+
+#: src/panels/compositor/layout.rs:26
+msgid "Automatic"
+msgstr "Automatisch"
+
+#: src/panels/compositor/layout.rs:27
+msgid "Cascade"
+msgstr "Kaskadiert"
+
+#: src/panels/compositor/layout.rs:32
+msgid "Layout & behaviour"
+msgstr "Layout & Verhalten"
+
+#: src/panels/compositor/layout.rs:38
+msgid "Window gap"
+msgstr "Fensterabstand"
+
+#: src/panels/compositor/layout.rs:39
+msgid "Space kept between tiled windows, in pixels."
+msgstr "Abstand zwischen gekachelten Fenstern in Pixeln."
+
+#: src/panels/compositor/layout.rs:47
+msgid "Work-area margin: top"
+msgstr "Arbeitsflächen-Rand: oben"
+
+#: src/panels/compositor/layout.rs:48
+msgid "Pixels reserved at the top edge (e.g. for a dock)."
+msgstr "Am oberen Rand reservierte Pixel (z. B. für ein Dock)."
+
+#: src/panels/compositor/layout.rs:56
+msgid "Work-area margin: bottom"
+msgstr "Arbeitsflächen-Rand: unten"
+
+#: src/panels/compositor/layout.rs:57
+msgid "Pixels reserved at the bottom edge."
+msgstr "Am unteren Rand reservierte Pixel."
+
+#: src/panels/compositor/layout.rs:65
+msgid "Work-area margin: left"
+msgstr "Arbeitsflächen-Rand: links"
+
+#: src/panels/compositor/layout.rs:66
+msgid "Pixels reserved at the left edge."
+msgstr "Am linken Rand reservierte Pixel."
+
+#: src/panels/compositor/layout.rs:74
+msgid "Work-area margin: right"
+msgstr "Arbeitsflächen-Rand: rechts"
+
+#: src/panels/compositor/layout.rs:75
+msgid "Pixels reserved at the right edge."
+msgstr "Am rechten Rand reservierte Pixel."
+
+#: src/panels/compositor/layout.rs:83
+msgid ""
+"Margins shrink the usable screen area — windows and panels respect them when "
+"tiling or maximizing."
+msgstr ""
+"Ränder verkleinern die nutzbare Bildschirmfläche — Fenster und Leisten "
+"beachten sie beim Kacheln und Maximieren."
+
+#: src/panels/compositor/layout.rs:110 src/panels/compositor/layout.rs:129
+msgid "Workspace"
+msgstr "Arbeitsfläche"
+
+#: src/panels/compositor/layout.rs:152
+msgid "Number of workspaces"
+msgstr "Anzahl der Arbeitsflächen"
+
+#: src/panels/compositor/layout.rs:153
+msgid "How many virtual desktops exist."
+msgstr "Wie viele virtuelle Arbeitsflächen existieren."
+
+#: src/panels/compositor/layout.rs:161
+msgid "Workspace popup time"
+msgstr "Anzeigedauer des Arbeitsflächen-Hinweises"
+
+#: src/panels/compositor/layout.rs:162
+msgid "Milliseconds the workspace switch hint stays on screen."
+msgstr "Millisekunden, die der Wechselhinweis sichtbar bleibt."
+
+#: src/panels/compositor/layout.rs:171
+msgid ""
+"Names show in the workspace switcher. Empty fields keep their generated name."
+msgstr ""
+"Namen erscheinen im Arbeitsflächen-Wechsler. Leere Felder behalten ihren "
+"erzeugten Namen."
+
+#: src/panels/compositor/layout.rs:179
+msgid "Focus follows mouse"
+msgstr "Fokus folgt der Maus"
+
+#: src/panels/compositor/layout.rs:180
+msgid "Focus the window under the pointer without clicking."
+msgstr "Fokussiert das Fenster unter dem Zeiger ohne Klick."
+
+#: src/panels/compositor/layout.rs:188
+msgid "Raise on focus"
+msgstr "Bei Fokus in den Vordergrund"
+
+#: src/panels/compositor/layout.rs:189
+msgid "Bring the focused window to the front."
+msgstr "Holt das fokussierte Fenster nach vorn."
+
+#: src/panels/compositor/layout.rs:196
+msgid "Raise delay"
+msgstr "Anhebeverzögerung"
+
+#: src/panels/compositor/layout.rs:197
+msgid "Milliseconds before a focused window is raised."
+msgstr "Millisekunden, bevor ein fokussiertes Fenster angehoben wird."
+
+#: src/panels/compositor/layout.rs:209
+msgid "Snap distance: windows"
+msgstr "Einrastabstand: Fenster"
+
+#: src/panels/compositor/layout.rs:210
+msgid "Pixels before a dragged window snaps to another window."
+msgstr "Pixel, bevor ein gezogenes Fenster an einem anderen einrastet."
+
+#: src/panels/compositor/layout.rs:218
+msgid "Snap distance: screen edges"
+msgstr "Einrastabstand: Bildschirmränder"
+
+#: src/panels/compositor/layout.rs:219
+msgid "Pixels before a dragged window snaps to a screen edge."
+msgstr "Pixel, bevor ein gezogenes Fenster an einem Bildschirmrand einrastet."
+
+#: src/panels/compositor/layout.rs:227
+msgid "Top edge maximizes"
+msgstr "Oberer Rand maximiert"
+
+#: src/panels/compositor/layout.rs:228
+msgid "Dragging a window to the top edge maximizes it."
+msgstr "Ein Fenster an den oberen Rand zu ziehen maximiert es."
+
+#: src/panels/compositor/layout.rs:235
+msgid "New window placement"
+msgstr "Platzierung neuer Fenster"
+
+#: src/panels/compositor/layout.rs:236
+msgid "Where new windows appear on screen."
+msgstr "Wo neue Fenster auf dem Bildschirm erscheinen."
+
+#: src/panels/compositor/layout.rs:244
+msgid "Allow tearing"
+msgstr "Tearing erlauben"
+
+#: src/panels/compositor/layout.rs:245
+msgid "Fullscreen applications may bypass vsync for lower latency."
+msgstr "Vollbild-Anwendungen dürfen VSync für geringere Latenz umgehen."
+
+#: src/panels/compositor/mod.rs:32
+msgid "Experimental — not every option is confirmed on all applications yet"
+msgstr ""
+"Experimentell — noch nicht alle Einstellungen sind auf jeder Anwendung "
+"bestätigt"
+
+#: src/panels/compositor/mod.rs:40
+msgid ""
+"Every change applies immediately — no restart or re-login needed. Controls "
+"the running compositor cannot provide are shown locked."
+msgstr ""
+"Jede Änderung gilt sofort — kein Neustart und keine Neuanmeldung nötig. "
+"Einstellungen, die der laufende Compositor nicht bietet, werden gesperrt "
+"angezeigt."
+
+#: src/panels/compositor/widgets.rs:165
+msgid "Not configurable yet — support is on the way."
+msgstr "Noch nicht einstellbar — Unterstützung ist unterwegs."
+
+#: src/panels/compositor/widgets.rs:167
+msgid "Requires the Ragnar compositor."
+msgstr "Erfordert den Ragnar-Compositor."
+
+#: src/panels/display/canvas.rs:139
+msgid "Drag monitors to arrange them. Click to select."
+msgstr "Monitore zum Anordnen ziehen. Zum Auswählen anklicken."
+
+#: src/panels/display/canvas.rs:149
+msgid "Monitor Arrangement"
+msgstr "Monitoranordnung"
+
+#: src/panels/display/canvas.rs:158
+msgid "No monitors detected — is ragnar-display-svc running?"
+msgstr "Keine Monitore gefunden — läuft ragnar-display-svc?"
+
+#: src/panels/display/controls.rs:23
+msgid "Start ragnar-display-svc to configure displays."
+msgstr "ragnar-display-svc starten, um Bildschirme einzurichten."
+
+#: src/panels/display/controls.rs:38
+msgid "Monitor"
+msgstr "Monitor"
+
+#: src/panels/display/controls.rs:57
+msgid "Primary Monitor"
+msgstr "Hauptmonitor"
+
+#: src/panels/display/controls.rs:82
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/panels/display/gpu.rs:101
+msgid "Vendor"
+msgstr "Hersteller"
+
+#: src/panels/display/gpu.rs:102
+msgid "Driver"
+msgstr "Treiber"
+
+#: src/panels/display/gpu.rs:104
+msgid "Temperature"
+msgstr "Temperatur"
+
+#: src/panels/display/gpu.rs:106
+msgid "Fan"
+msgstr "Lüfter"
+
+#: src/panels/display/gpu.rs:107
+msgid "Clocks"
+msgstr "Takte"
+
+#: src/panels/display/gpu.rs:160
+msgid "Power Limit"
+msgstr "Leistungsgrenze"
+
+#: src/panels/display/gpu.rs:194
+msgid "Lock GPU Clock"
+msgstr "GPU-Takt sperren"
+
+#: src/panels/display/gpu.rs:206
+msgid "0 = unlocked (free boost)"
+msgstr "0 = entsperrt (freier Boost)"
+
+#: src/panels/display/gpu.rs:228
+msgid "Fan Speed"
+msgstr "Lüfterdrehzahl"
+
+#: src/panels/display/mode_controls.rs:37
+msgid "Normal"
+msgstr "Normal"
+
+#: src/panels/display/mode_controls.rs:37
+msgid "90°"
+msgstr "90°"
+
+#: src/panels/display/mode_controls.rs:37
+msgid "180°"
+msgstr "180°"
+
+#: src/panels/display/mode_controls.rs:37
+msgid "270°"
+msgstr "270°"
+
+#: src/panels/display/mode_controls.rs:51 src/panels/printers/cups.rs:244
+#: src/panels/printers/scanner.rs:227
+msgid "Resolution"
+msgstr "Auflösung"
+
+#: src/panels/display/mode_controls.rs:52
+msgid "Refresh Rate"
+msgstr "Bildwiederholrate"
+
+#: src/panels/display/mode_controls.rs:53
+msgid "Scale"
+msgstr "Skalierung"
+
+#: src/panels/display/mode_controls.rs:54
+msgid "Rotation"
+msgstr "Drehung"
+
+#: src/panels/display/mode_controls.rs:55
+msgid "Adaptive Sync"
+msgstr "Adaptive Sync"
+
+#: src/panels/display/revert_dialog.rs:26
+msgid "Keep these display settings?"
+msgstr "Diese Bildschirmeinstellungen behalten?"
+
+#: src/panels/display/revert_dialog.rs:42
+#: src/panels/display/revert_dialog.rs:97
+#, rust-format
+msgid "Reverting in {} second…"
+msgid_plural "Reverting in {} seconds…"
+msgstr[0] "Rücksetzen in {} Sekunde …"
+msgstr[1] "Rücksetzen in {} Sekunden …"
+
+#: src/panels/display/revert_dialog.rs:49
+msgid "Keep"
+msgstr "Behalten"
+
+#: src/panels/display/revert_dialog.rs:51
+msgid "Revert"
+msgstr "Zurücksetzen"
+
+#: src/panels/input/mod.rs:52
+msgid "Mouse"
+msgstr "Maus"
+
+#: src/panels/input/mod.rs:54 src/panels/input/mod.rs:107
+msgid "Natural scrolling"
+msgstr "Natürliches Scrollen"
+
+#: src/panels/input/mod.rs:59
+msgid "Left-handed"
+msgstr "Linkshänder"
+
+#: src/panels/input/mod.rs:64 src/panels/input/mod.rs:117
+msgid "Pointer speed"
+msgstr "Zeigergeschwindigkeit"
+
+#: src/panels/input/mod.rs:72
+msgid "Acceleration profile"
+msgstr "Beschleunigungsprofil"
+
+#: src/panels/input/mod.rs:78
+msgid "Middle button emulation"
+msgstr "Emulation der mittleren Taste"
+
+#: src/panels/input/mod.rs:84
+msgid "Double-click speed (ms)"
+msgstr "Doppelklick-Zeit (ms)"
+
+#: src/panels/input/mod.rs:92
+msgid "Scroll speed factor"
+msgstr "Scroll-Geschwindigkeitsfaktor"
+
+#: src/panels/input/mod.rs:104
+msgid "Touchpad"
+msgstr "Touchpad"
+
+#: src/panels/input/mod.rs:105
+msgid "Tap to click"
+msgstr "Tippen zum Klicken"
+
+#: src/panels/input/mod.rs:112
+msgid "Disable while typing"
+msgstr "Beim Tippen deaktivieren"
+
+#: src/panels/input/mod.rs:126
+msgid "Tap and drag"
+msgstr "Tippen und Ziehen"
+
+#: src/panels/input/mod.rs:130
+msgid "Drag lock"
+msgstr "Ziehsperre"
+
+#: src/panels/input/mod.rs:132
+msgid "Three-finger drag"
+msgstr "Drei-Finger-Ziehen"
+
+#: src/panels/input/mod.rs:137
+msgid "Tap button mapping"
+msgstr "Tastenzuordnung bei Tippen"
+
+#: src/panels/input/mod.rs:143
+msgid "Click method"
+msgstr "Klickmethode"
+
+#: src/panels/input/mod.rs:147
+msgid "Clickfinger"
+msgstr "Clickfinger"
+
+#: src/panels/input/mod.rs:148
+msgid "Button areas"
+msgstr "Tastenflächen"
+
+#: src/panels/input/mod.rs:153
+msgid "Scroll method"
+msgstr "Scroll-Methode"
+
+#: src/panels/input/mod.rs:157
+msgid "Two-finger"
+msgstr "Zwei-Finger"
+
+#: src/panels/input/mod.rs:158
+msgid "Edge"
+msgstr "Kante"
+
+#: src/panels/input/mod.rs:159
+msgid "On button down"
+msgstr "Bei gedrückter Taste"
+
+#: src/panels/input/mod.rs:168
+msgid "Keyboard"
+msgstr "Tastatur"
+
+#: src/panels/input/mod.rs:171
+msgid "Repeat rate"
+msgstr "Wiederholrate"
+
+#: src/panels/input/mod.rs:179
+msgid "Repeat delay (ms)"
+msgstr "Wiederholverzögerung (ms)"
+
+#: src/panels/input/mod.rs:187
+msgid "Num lock on login"
+msgstr "Num-Taste bei der Anmeldung"
+
+#: src/panels/input/mod.rs:194
+msgid "Remember layout per window"
+msgstr "Tastaturlayout pro Fenster merken"
+
+#: src/panels/input/mod.rs:197
+msgid "Per window"
+msgstr "Pro Fenster"
+
+#: src/panels/input/mod.rs:197
+msgid "Global"
+msgstr "Global"
+
+#: src/panels/input/mod.rs:204
+msgid "Test your keyboard here…"
+msgstr "Tastatur hier testen …"
+
+#: src/panels/input/mod.rs:210
+msgid ""
+"Changes are written to the compositor configuration and applied immediately."
+msgstr ""
+"Änderungen werden in die Compositor-Konfiguration geschrieben und sofort "
+"angewendet."
+
+#: src/panels/nightlight/mod.rs:61
+msgid "Night light settings are unavailable on this system."
+msgstr "Nachtlicht-Einstellungen sind auf diesem System nicht verfügbar."
+
+#: src/panels/nightlight/mod.rs:109
+msgid "Makes the screen warmer in the evening to reduce eye strain"
+msgstr "Macht den Bildschirm abends wärmer, um die Augen zu schonen"
+
+#: src/panels/nightlight/mod.rs:111
+msgid "Night light needs the gammastep package."
+msgstr "Nachtlicht benötigt das Paket gammastep."
+
+#: src/panels/nightlight/mod.rs:130
+msgid "Every evening"
+msgstr "Jeden Abend"
+
+#: src/panels/nightlight/mod.rs:130
+msgid "All the time"
+msgstr "Dauerhaft"
+
+#: src/panels/nightlight/mod.rs:136
+msgid "Schedule"
+msgstr "Zeitplan"
+
+#: src/panels/nightlight/mod.rs:137
+msgid "When the warmer colour should be active"
+msgstr "Wann die wärmere Farbe aktiv sein soll"
+
+#: src/panels/nightlight/mod.rs:149
+msgid "From"
+msgstr "Von"
+
+#: src/panels/nightlight/mod.rs:150
+msgid "Time the screen starts getting warmer"
+msgstr "Zeitpunkt, ab dem der Bildschirm wärmer wird"
+
+#: src/panels/nightlight/mod.rs:163
+msgid "Until"
+msgstr "Bis"
+
+#: src/panels/nightlight/mod.rs:164
+msgid "Time the screen returns to normal"
+msgstr "Zeitpunkt, ab dem der Bildschirm wieder normal wird"
+
+#: src/panels/nightlight/mod.rs:177
+msgid "Cooler"
+msgstr "Kühler"
+
+#: src/panels/nightlight/mod.rs:177
+msgid "Warmer"
+msgstr "Wärmer"
+
+#: src/panels/nightlight/mod.rs:189
+msgid "Warmth"
+msgstr "Wärme"
+
+#: src/panels/nightlight/mod.rs:190
+msgid "How warm the screen colour gets"
+msgstr "Wie warm die Bildschirmfarbe wird"
+
+#: src/panels/nightlight/mod.rs:272
+msgid ""
+"Changes apply a moment after you stop adjusting. Without a location service "
+"the panel offers fixed times instead of sunset tracking."
+msgstr ""
+"Änderungen wirken kurz nach dem Loslassen. Ohne Ortungsdienst bietet das "
+"Panel feste Zeiten statt Sonnenstandsverfolgung."
+
+#: src/panels/printers/cups.rs:64
+msgid "No printers configured"
+msgstr "Keine Drucker eingerichtet"
+
+#: src/panels/printers/cups.rs:81
+msgid "Set default"
+msgstr "Als Standard festlegen"
+
+#: src/panels/printers/cups.rs:92
+msgid "Remove printer"
+msgstr "Drucker entfernen"
+
+#: src/panels/printers/cups.rs:102
+msgid "Default printer"
+msgstr "Standarddrucker"
+
+#: src/panels/printers/cups.rs:113
+msgid "No adjustable options reported by the driver"
+msgstr "Der Treiber meldet keine einstellbaren Optionen"
+
+#: src/panels/printers/cups.rs:130
+msgid "All options"
+msgstr "Alle Optionen"
+
+#: src/panels/printers/cups.rs:148
+msgid "Output folder"
+msgstr "Ausgabeordner"
+
+#: src/panels/printers/cups.rs:149
+msgid "System-wide — set in /etc/cups/cups-pdf.conf"
+msgstr "Systemweit — gesetzt in /etc/cups/cups-pdf.conf"
+
+#: src/panels/printers/cups.rs:243
+msgid "Paper size"
+msgstr "Papiergröße"
+
+#: src/panels/printers/cups.rs:245
+msgid "Print quality"
+msgstr "Druckqualität"
+
+#: src/panels/printers/cups.rs:246
+msgid "Color model"
+msgstr "Farbmodell"
+
+#: src/panels/printers/cups.rs:247
+msgid "Output mode"
+msgstr "Ausgabemodus"
+
+#: src/panels/printers/cups.rs:248
+msgid "Duplex"
+msgstr "Duplex"
+
+#: src/panels/printers/cups.rs:249
+msgid "Paper tray"
+msgstr "Papierfach"
+
+#: src/panels/printers/cups.rs:250
+msgid "Media type"
+msgstr "Medientyp"
+
+#: src/panels/printers/cups.rs:251
+msgid "PDF version"
+msgstr "PDF-Version"
+
+#: src/panels/printers/mod.rs:39
+msgid ""
+"Printers are set up through their drivers — this list shows what is already "
+"configured."
+msgstr ""
+"Drucker werden über ihre Treiber eingerichtet — diese Liste zeigt, was "
+"bereits konfiguriert ist."
+
+#: src/panels/printers/mod.rs:49
+msgid "Defaults"
+msgstr "Voreinstellungen"
+
+#: src/panels/printers/mod.rs:54
+msgid "PDF printer"
+msgstr "PDF-Drucker"
+
+#: src/panels/printers/mod.rs:58
+msgid "Scanners"
+msgstr "Scanner"
+
+#: src/panels/printers/mod.rs:61
+msgid "Scan defaults are stored per device and used by Ragnar SAP."
+msgstr "Scan-Voreinstellungen werden pro Gerät gespeichert und von Ragnar SAP verwendet."
+
+#: src/panels/printers/scanner.rs:33
+msgid "No scanners found"
+msgstr "Keine Scanner gefunden"
+
+#: src/panels/printers/scanner.rs:34
+msgid "scanimage reports no SANE devices"
+msgstr "scanimage meldet keine SANE-Geräte"
+
+#: src/panels/printers/scanner.rs:42
+msgid "Device"
+msgstr "Gerät"
+
+#: src/panels/printers/scanner.rs:57
+msgid "Save defaults"
+msgstr "Voreinstellungen speichern"
+
+#: src/panels/printers/scanner.rs:228
+msgid "Color mode"
+msgstr "Farbmodus"
+
+#: src/panels/printers/scanner.rs:229
+msgid "Source"
+msgstr "Quelle"
+
+#: src/panels/shortcuts/dialog.rs:35
+msgid "Run a command"
+msgstr "Befehl ausführen"
+
+#: src/panels/shortcuts/dialog.rs:36 src/panels/shortcuts/mod.rs:61
+msgid "Close window"
+msgstr "Fenster schließen"
+
+#: src/panels/shortcuts/dialog.rs:37 src/panels/shortcuts/mod.rs:62
+msgid "Force-close window"
+msgstr "Fenster zwangsschließen"
+
+#: src/panels/shortcuts/dialog.rs:38 src/panels/shortcuts/mod.rs:63
+msgid "Minimize window"
+msgstr "Fenster minimieren"
+
+#: src/panels/shortcuts/dialog.rs:39 src/panels/shortcuts/mod.rs:64
+msgid "Toggle maximize"
+msgstr "Maximieren umschalten"
+
+#: src/panels/shortcuts/dialog.rs:40 src/panels/shortcuts/mod.rs:65
+msgid "Toggle fullscreen"
+msgstr "Vollbild umschalten"
+
+#: src/panels/shortcuts/dialog.rs:41
+msgid "Snap window to edge"
+msgstr "Fenster an Kante einrasten"
+
+#: src/panels/shortcuts/dialog.rs:42 src/panels/shortcuts/mod.rs:75
+msgid "Go to workspace"
+msgstr "Zur Arbeitsfläche wechseln"
+
+#: src/panels/shortcuts/dialog.rs:45 src/panels/shortcuts/mod.rs:80
+msgid "Move window to workspace"
+msgstr "Fenster auf Arbeitsfläche verschieben"
+
+#: src/panels/shortcuts/dialog.rs:48 src/panels/shortcuts/mod.rs:83
+msgid "Next window"
+msgstr "Nächstes Fenster"
+
+#: src/panels/shortcuts/dialog.rs:49 src/panels/shortcuts/mod.rs:84
+msgid "Previous window"
+msgstr "Vorheriges Fenster"
+
+#: src/panels/shortcuts/dialog.rs:50 src/panels/shortcuts/mod.rs:85
+msgid "Show desktop menu"
+msgstr "Schreibtisch-Menü zeigen"
+
+#: src/panels/shortcuts/dialog.rs:51 src/panels/shortcuts/mod.rs:86
+msgid "Show/hide desktop"
+msgstr "Schreibtisch zeigen/verbergen"
+
+#: src/panels/shortcuts/dialog.rs:54 src/panels/shortcuts/mod.rs:87
+msgid "Reload compositor configuration"
+msgstr "Compositor-Konfiguration neu laden"
+
+#: src/panels/shortcuts/dialog.rs:61 src/panels/windowrules/dialog.rs:22
+msgid "Left half"
+msgstr "Linke Hälfte"
+
+#: src/panels/shortcuts/dialog.rs:62 src/panels/windowrules/dialog.rs:23
+msgid "Right half"
+msgstr "Rechte Hälfte"
+
+#: src/panels/shortcuts/dialog.rs:63 src/panels/windowrules/dialog.rs:24
+msgid "Top half"
+msgstr "Obere Hälfte"
+
+#: src/panels/shortcuts/dialog.rs:64 src/panels/windowrules/dialog.rs:25
+msgid "Bottom half"
+msgstr "Untere Hälfte"
+
+#: src/panels/shortcuts/dialog.rs:65 src/panels/windowrules/dialog.rs:26
+msgid "Top left quarter"
+msgstr "Viertel oben links"
+
+#: src/panels/shortcuts/dialog.rs:66 src/panels/windowrules/dialog.rs:27
+msgid "Top right quarter"
+msgstr "Viertel oben rechts"
+
+#: src/panels/shortcuts/dialog.rs:67 src/panels/windowrules/dialog.rs:28
+msgid "Bottom left quarter"
+msgstr "Viertel unten links"
+
+#: src/panels/shortcuts/dialog.rs:68 src/panels/windowrules/dialog.rs:29
+msgid "Bottom right quarter"
+msgstr "Viertel unten rechts"
+
+#: src/panels/shortcuts/dialog.rs:156
+msgid "Command to run, e.g. firefox"
+msgstr "Auszuführender Befehl, z. B. firefox"
+
+#: src/panels/shortcuts/dialog.rs:184
+msgid "Switch to it as well"
+msgstr "Zur Arbeitsfläche wechseln"
+
+#: src/panels/shortcuts/dialog.rs:197
+msgid "Menu name, e.g. root-menu"
+msgstr "Menüname, z. B. root-menu"
+
+#: src/panels/shortcuts/dialog.rs:222 src/panels/shortcuts/mod.rs:181
+msgid "Edit shortcut"
+msgstr "Kürzel bearbeiten"
+
+#: src/panels/shortcuts/dialog.rs:224
+msgid "Add shortcut"
+msgstr "Kürzel hinzufügen"
+
+#: src/panels/shortcuts/dialog.rs:238 src/panels/shortcuts/dialog.rs:329
+msgid "Press shortcut…"
+msgstr "Kürzel drücken…"
+
+#: src/panels/shortcuts/dialog.rs:250
+msgid "Keep action"
+msgstr "Aktion beibehalten"
+
+#: src/panels/shortcuts/dialog.rs:261
+msgid "Action"
+msgstr "Aktion"
+
+#: src/panels/shortcuts/dialog.rs:303
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: src/panels/shortcuts/mod.rs:57
+msgid "more actions"
+msgstr "weitere Aktionen"
+
+#: src/panels/shortcuts/mod.rs:69 src/panels/windowrules/dialog.rs:242
+msgid "Snap to"
+msgstr "Einrasten an"
+
+#: src/panels/shortcuts/mod.rs:88
+msgid "(no action)"
+msgstr "(keine Aktion)"
+
+#: src/panels/shortcuts/mod.rs:97
+msgid "Media: Play/Pause"
+msgstr "Medien: Wiedergabe/Pause"
+
+#: src/panels/shortcuts/mod.rs:98
+msgid "Media: Play"
+msgstr "Medien: Wiedergabe"
+
+#: src/panels/shortcuts/mod.rs:99
+msgid "Media: Next track"
+msgstr "Medien: Nächster Titel"
+
+#: src/panels/shortcuts/mod.rs:100
+msgid "Media: Previous track"
+msgstr "Medien: Vorheriger Titel"
+
+#: src/panels/shortcuts/mod.rs:101
+msgid "Media: Stop"
+msgstr "Medien: Stopp"
+
+#: src/panels/shortcuts/mod.rs:102
+msgid "Show application menu"
+msgstr "Anwendungsmenü anzeigen"
+
+#: src/panels/shortcuts/mod.rs:103
+msgid "Take a screenshot"
+msgstr "Bildschirmfoto aufnehmen"
+
+#: src/panels/shortcuts/mod.rs:104
+msgid "Show power dialog"
+msgstr "Ausschaltdialog anzeigen"
+
+#: src/panels/shortcuts/mod.rs:105 src/panels/shortcuts/mod.rs:106
+msgid "Lock the screen"
+msgstr "Bildschirm sperren"
+
+#: src/panels/shortcuts/mod.rs:172
+msgid "Managed by the desktop session — configure via keybinding settings"
+msgstr ""
+"Von der Desktop-Sitzung verwaltet — über die Tastenkürzel-Einstellungen "
+"konfigurieren"
+
+#: src/panels/shortcuts/mod.rs:182
+msgid "Delete shortcut"
+msgstr "Kürzel löschen"
+
+#: src/panels/shortcuts/mod.rs:231
+msgid "Session shortcuts"
+msgstr "Sitzungs-Kürzel"
+
+#: src/panels/shortcuts/mod.rs:233
+msgid "Provided and managed by the desktop session — shown here for reference."
+msgstr ""
+"Von der Desktop-Sitzung bereitgestellt und verwaltet — hier nur zur Ansicht."
+
+#: src/panels/shortcuts/mod.rs:242
+msgid "Shortcuts"
+msgstr "Kürzel"
+
+#: src/panels/shortcuts/mod.rs:258
+msgid "Changes apply immediately — press the shortcut right away to try it."
+msgstr "Änderungen gelten sofort — das Kürzel direkt ausprobieren."
+
+#: src/panels/shortcuts/mod.rs:263
+msgid "Add shortcut…"
+msgstr "Kürzel hinzufügen…"
+
+#: src/panels/updates/apt.rs:118
+msgid "today at"
+msgstr "heute um"
+
+#: src/panels/updates/apt.rs:120
+msgid "yesterday at"
+msgstr "gestern um"
+
+#: src/panels/updates/mod.rs:26
+msgid "Updates"
+msgstr "Aktualisierungen"
+
+#: src/panels/updates/mod.rs:30 src/panels/updates/mod.rs:157
+msgid "Checking for updates…"
+msgstr "Suche nach Aktualisierungen …"
+
+#: src/panels/updates/mod.rs:38
+msgid "Last checked: —"
+msgstr "Zuletzt geprüft: —"
+
+#: src/panels/updates/mod.rs:44
+msgid "Check for updates"
+msgstr "Nach Aktualisierungen suchen"
+
+#: src/panels/updates/mod.rs:46
+msgid "Install updates"
+msgstr "Aktualisierungen installieren"
+
+#: src/panels/updates/mod.rs:50
+msgid "Opens a terminal window that shows the progress"
+msgstr "Öffnet ein Terminalfenster mit dem Fortschritt"
+
+#: src/panels/updates/mod.rs:70
+msgid "Automatic updates"
+msgstr "Automatische Aktualisierungen"
+
+#: src/panels/updates/mod.rs:77
+msgid ""
+"Automatic updates only install packages from Debian. Other sources on this "
+"computer are never touched."
+msgstr ""
+"Automatische Aktualisierungen installieren nur Pakete aus Debian. Andere "
+"Quellen auf diesem Rechner werden nie angefasst."
+
+#: src/panels/updates/mod.rs:109
+msgid "Could not check for updates: "
+msgstr "Aktualisierungen konnten nicht geprüft werden: "
+
+#: src/panels/updates/mod.rs:169
+msgid "Your system is up to date"
+msgstr "Das System ist aktuell"
+
+#: src/panels/updates/mod.rs:171
+msgid "updates available"
+msgstr "Aktualisierungen verfügbar"
+
+#: src/panels/updates/mod.rs:175
+msgid "Could not check for updates"
+msgstr "Aktualisierungen konnten nicht geprüft werden"
+
+#: src/panels/updates/mod.rs:179
+msgid "Last checked"
+msgstr "Zuletzt geprüft"
+
+#: src/panels/updates/mod.rs:180
+msgid "Last checked: never"
+msgstr "Zuletzt geprüft: nie"
+
+#: src/panels/updates/mod.rs:217
+msgid "Could not change automatic updates: "
+msgstr "Automatische Aktualisierungen konnten nicht geändert werden: "
+
+#: src/panels/updates/mod.rs:225 src/panels/updates/mod.rs:256
+msgid "Install updates automatically"
+msgstr "Aktualisierungen automatisch installieren"
+
+#: src/panels/updates/mod.rs:227
+msgid ""
+"Keeps your system up to date in the background. Only packages from Debian "
+"are installed — third-party sources such as Brave or VS Code are never "
+"touched automatically."
+msgstr ""
+"Hält das System im Hintergrund aktuell. Nur Pakete aus Debian werden "
+"installiert — Fremdquellen wie Brave oder VS Code werden nie automatisch "
+"angefasst."
+
+#: src/panels/updates/mod.rs:237
+msgid "Install"
+msgstr "Installieren"
+
+#: src/panels/updates/mod.rs:250
+msgid "Could not install the update service: "
+msgstr "Der Aktualisierungsdienst konnte nicht installiert werden: "
+
+#: src/panels/updates/mod.rs:257
+msgid "Automatic updates need the 'unattended-upgrades' package."
+msgstr ""
+"Automatische Aktualisierungen benötigen das Paket „unattended-upgrades“."
+
+#: src/panels/users/groups.rs:114
+msgid "Edit groups"
+msgstr "Gruppen bearbeiten"
+
+#: src/panels/users/groups.rs:142
+msgid "Group changes take effect at the next login."
+msgstr "Gruppenänderungen werden bei der nächsten Anmeldung wirksam."
+
+#: src/panels/users/mod.rs:51
+msgid "Change picture…"
+msgstr "Bild ändern …"
+
+#: src/panels/users/mod.rs:82
+msgid "Choose account picture"
+msgstr "Kontobild wählen"
+
+#: src/panels/users/mod.rs:114
+msgid "Administrator"
+msgstr "Administrator"
+
+#: src/panels/users/mod.rs:116
+msgid "Standard user"
+msgstr "Standardbenutzer"
+
+#: src/panels/users/mod.rs:129
+msgid "Full name"
+msgstr "Vollständiger Name"
+
+#: src/panels/users/mod.rs:150
+msgid "Automatic login"
+msgstr "Automatische Anmeldung"
+
+#: src/panels/users/mod.rs:160
+msgid ""
+"LightDM logs this user in without asking for a password. Requires admin "
+"authentication to change."
+msgstr ""
+"LightDM meldet diesen Benutzer ohne Passwortabfrage an. Zum Ändern sind "
+"Administratorrechte erforderlich."
+
+#: src/panels/users/mod.rs:173
+msgid "Change password…"
+msgstr "Passwort ändern …"
+
+#: src/panels/users/mod.rs:187
+msgid "Groups"
+msgstr "Gruppen"
+
+#: src/panels/users/mod.rs:188
+msgid "Edit groups…"
+msgstr "Gruppen bearbeiten …"
+
+#: src/panels/users/mod.rs:258
+msgid "Change password"
+msgstr "Passwort ändern"
+
+#: src/panels/users/mod.rs:270
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: src/panels/users/mod.rs:272
+msgid "Repeat password"
+msgstr "Passwort wiederholen"
+
+#: src/panels/users/mod.rs:282
+msgid "Change"
+msgstr "Ändern"
+
+#: src/panels/users/mod.rs:295
+msgid "Password too short"
+msgstr "Passwort zu kurz"
+
+#: src/panels/users/mod.rs:299
+msgid "Passwords do not match"
+msgstr "Passwörter stimmen nicht überein"
+
+#: src/panels/users/mod.rs:308
+msgid "Failed to set password"
+msgstr "Passwort konnte nicht gesetzt werden"
+
+#: src/panels/windowrules/dialog.rs:21
+msgid "Don't snap"
+msgstr "Nicht einrasten"
+
+#: src/panels/windowrules/dialog.rs:148 src/panels/windowrules/mod.rs:126
+msgid "Edit rule"
+msgstr "Regel bearbeiten"
+
+#: src/panels/windowrules/dialog.rs:150
+msgid "New window rule"
+msgstr "Neue Fensterregel"
+
+#: src/panels/windowrules/dialog.rs:169
+msgid "Match"
+msgstr "Übereinstimmung"
+
+#: src/panels/windowrules/dialog.rs:173
+msgid "App identifier"
+msgstr "Anwendungs-Kennung"
+
+#: src/panels/windowrules/dialog.rs:174
+msgid ""
+"Application id, e.g. firefox or steam_app_*. Glob: * any text, ? one "
+"character."
+msgstr ""
+"Anwendungs-ID, z. B. firefox oder steam_app_*. Glob: * beliebiger Text, ? "
+"ein Zeichen."
+
+#: src/panels/windowrules/dialog.rs:179
+msgid "Window title"
+msgstr "Fenstertitel"
+
+#: src/panels/windowrules/dialog.rs:180
+msgid "Title pattern (optional). All given criteria must match."
+msgstr "Titelfilter (optional). Alle angegebenen Kriterien müssen zutreffen."
+
+#: src/panels/windowrules/dialog.rs:185
+msgid "Only the first matching window"
+msgstr "Nur das erste passende Fenster"
+
+#: src/panels/windowrules/dialog.rs:186
+msgid "Apply the rule once instead of to every matching window."
+msgstr "Die Regel nur einmal anwenden statt auf jedes passende Fenster."
+
+#: src/panels/windowrules/dialog.rs:193
+msgid "Window state"
+msgstr "Fensterzustand"
+
+#: src/panels/windowrules/dialog.rs:199
+msgid "Always on top"
+msgstr "Immer im Vordergrund"
+
+#: src/panels/windowrules/dialog.rs:200
+msgid "Keep the window above all others."
+msgstr "Hält das Fenster über allen anderen."
+
+#: src/panels/windowrules/dialog.rs:204
+msgid "Keep below"
+msgstr "Immer im Hintergrund"
+
+#: src/panels/windowrules/dialog.rs:205
+msgid "Keep the window below all others."
+msgstr "Hält das Fenster unter allen anderen."
+
+#: src/panels/windowrules/dialog.rs:209
+msgid "On all workspaces"
+msgstr "Auf allen Arbeitsflächen"
+
+#: src/panels/windowrules/dialog.rs:210
+msgid "Show the window on every workspace."
+msgstr "Zeigt das Fenster auf jeder Arbeitsfläche."
+
+#: src/panels/windowrules/dialog.rs:214
+msgid "Start maximized"
+msgstr "Maximiert starten"
+
+#: src/panels/windowrules/dialog.rs:215
+msgid "Open the window maximized."
+msgstr "Öffnet das Fenster maximiert."
+
+#: src/panels/windowrules/dialog.rs:219
+msgid "Start fullscreen"
+msgstr "Vollbild starten"
+
+#: src/panels/windowrules/dialog.rs:220
+msgid "Open the window fullscreen."
+msgstr "Öffnet das Fenster im Vollbild."
+
+#: src/panels/windowrules/dialog.rs:224
+msgid "Start minimized"
+msgstr "Minimiert starten"
+
+#: src/panels/windowrules/dialog.rs:225
+msgid "Open the window minimized."
+msgstr "Öffnet das Fenster minimiert."
+
+#: src/panels/windowrules/dialog.rs:235
+msgid "Placement"
+msgstr "Platzierung"
+
+#: src/panels/windowrules/dialog.rs:243
+msgid "Tile the window when it opens."
+msgstr "Das Fenster beim Öffnen kacheln."
+
+#: src/panels/windowrules/dialog.rs:251
+msgid "Center on screen"
+msgstr "Auf dem Bildschirm zentrieren"
+
+#: src/panels/windowrules/dialog.rs:252
+msgid "Place the window in the middle when it opens."
+msgstr "Das Fenster beim Öffnen mittig platzieren."
+
+#: src/panels/windowrules/dialog.rs:263
+msgid "Open on workspace"
+msgstr "Auf Arbeitsfläche öffnen"
+
+#: src/panels/windowrules/dialog.rs:264
+msgid "Workspace number to open the window on (0 = current)."
+msgstr ""
+"Nummer der Arbeitsfläche, auf der das Fenster geöffnet wird (0 = aktuelle)."
+
+#: src/panels/windowrules/dialog.rs:271
+msgid "Appearance & behaviour"
+msgstr "Aussehen & Verhalten"
+
+#: src/panels/windowrules/dialog.rs:275
+msgid "Titlebar"
+msgstr "Titelleiste"
+
+#: src/panels/windowrules/dialog.rs:276
+msgid "Override window decoration for matching windows."
+msgstr "Fensterdekoration für passende Fenster überschreiben."
+
+#: src/panels/windowrules/dialog.rs:284
+msgid "Hide from taskbar"
+msgstr "Aus der Taskleiste ausblenden"
+
+#: src/panels/windowrules/dialog.rs:285
+msgid "The window does not appear in panels and docks."
+msgstr "Das Fenster erscheint nicht in Leisten und Docks."
+
+#: src/panels/windowrules/dialog.rs:289
+msgid "Hide from window switcher"
+msgstr "Aus dem Fensterwechsler ausblenden"
+
+#: src/panels/windowrules/dialog.rs:290
+msgid "The window is skipped by the switcher."
+msgstr "Der Wechsler überspringt das Fenster."
+
+#: src/panels/windowrules/dialog.rs:294
+msgid "Block self-focus"
+msgstr "Eigenfokus blockieren"
+
+#: src/panels/windowrules/dialog.rs:295
+msgid "The window cannot activate itself."
+msgstr "Das Fenster kann sich nicht selbst aktivieren."
+
+#: src/panels/windowrules/dialog.rs:299
+msgid "Lock position"
+msgstr "Position sperren"
+
+#: src/panels/windowrules/dialog.rs:300
+msgid "The window cannot be moved or resized interactively."
+msgstr "Das Fenster kann nicht interaktiv bewegt oder skaliert werden."
+
+#: src/panels/windowrules/dialog.rs:324 src/panels/windowrules/mod.rs:185
+msgid "Add rule"
+msgstr "Regel hinzufügen"
+
+#: src/panels/windowrules/mod.rs:33
+msgid "on top"
+msgstr "im Vordergrund"
+
+#: src/panels/windowrules/mod.rs:38
+msgid "below"
+msgstr "im Hintergrund"
+
+#: src/panels/windowrules/mod.rs:43
+msgid "all workspaces"
+msgstr "alle Arbeitsflächen"
+
+#: src/panels/windowrules/mod.rs:45
+msgid "maximized"
+msgstr "maximiert"
+
+#: src/panels/windowrules/mod.rs:49
+msgid "fullscreen"
+msgstr "Vollbild"
+
+#: src/panels/windowrules/mod.rs:51
+msgid "minimized"
+msgstr "minimiert"
+
+#: src/panels/windowrules/mod.rs:53
+msgid "snap"
+msgstr "einrasten"
+
+#: src/panels/windowrules/mod.rs:59
+msgid "centered"
+msgstr "zentriert"
+
+#: src/panels/windowrules/mod.rs:62
+msgid "compositor titlebar"
+msgstr "Compositor-Titelleiste"
+
+#: src/panels/windowrules/mod.rs:63
+msgid "no titlebar"
+msgstr "keine Titelleiste"
+
+#: src/panels/windowrules/mod.rs:69
+msgid "no taskbar"
+msgstr "keine Taskleiste"
+
+#: src/panels/windowrules/mod.rs:74
+msgid "no switcher"
+msgstr "kein Wechsler"
+
+#: src/panels/windowrules/mod.rs:79
+msgid "locked position"
+msgstr "Position gesperrt"
+
+#: src/panels/windowrules/mod.rs:83
+msgid "custom actions"
+msgstr "eigene Aktionen"
+
+#: src/panels/windowrules/mod.rs:97
+msgid "Every window"
+msgstr "Jedes Fenster"
+
+#: src/panels/windowrules/mod.rs:117
+msgid "No rules yet — matching windows get compositor defaults."
+msgstr "Noch keine Regeln — passende Fenster erhalten Compositor-Standards."
+
+#: src/panels/windowrules/mod.rs:127
+msgid "Delete rule"
+msgstr "Regel löschen"
+
+#: src/panels/windowrules/mod.rs:163
+msgid ""
+"Rules give matching windows their own placement, state and decoration when "
+"they open. Changes apply immediately — no restart needed."
+msgstr ""
+"Regeln geben passenden Fenstern beim Öffnen eigene Platzierung, Zustand und "
+"Dekoration. Änderungen gelten sofort — kein Neustart nötig."
+
+#~ msgid "power-profiles-daemon is not installed on this system."
+#~ msgstr "power-profiles-daemon ist auf diesem System nicht installiert."
+
+#~ msgid "No program installed that would use it yet."
+#~ msgstr "Noch kein Programm installiert, das es nutzen würde."
+
+#~ msgid "Add printer"
+#~ msgstr "Drucker hinzufügen"
+
+#~ msgid "Printer name"
+#~ msgstr "Druckername"
+
+#~ msgid "No printers discovered"
+#~ msgstr "Keine Drucker gefunden"
+
+#~ msgid ""
+#~ "Printers are added driverless (IPP Everywhere). Network printers need to "
+#~ "be reachable on the network."
+#~ msgstr ""
+#~ "Drucker werden treiberlos hinzugefügt (IPP Everywhere). Netzwerkdrucker "
+#~ "müssen im Netz erreichbar sein."
+
+#~ msgid "Coming soon — managed by a dedicated app"
+#~ msgstr "Demnächst — wird von einer eigenen Anwendung verwaltet"
+
+#~ msgid "Add and manage printers"
+#~ msgstr "Drucker hinzufügen und verwalten"
+
+#~ msgid "Custom shortcuts"
+#~ msgstr "Eigene Kürzel"
+
+#~ msgid "Add…"
+#~ msgstr "Hinzufügen …"
+
+#~ msgid ""
+#~ "Custom bindings run a command on key press. They take effect immediately "
+#~ "after applying."
+#~ msgstr ""
+#~ "Eigene Tastenzuweisungen führen beim Drücken einen Befehl aus. Sie wirken "
+#~ "sofort nach dem Übernehmen."
+
+#~ msgid "Iconify, close"
+#~ msgstr "Minimieren, schließen"
+
+#~ msgid "Menu, iconify, maximize, close (left)"
+#~ msgstr "Menü, minimieren, maximieren, schließen (links)"

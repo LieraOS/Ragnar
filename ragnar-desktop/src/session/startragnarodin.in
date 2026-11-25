@@ -1,0 +1,19 @@
+#!/bin/sh
+# Ragnar desktop session on the Odin compositor.
+#
+# Reuses the standard ragnar session bootstrap — dbus session,
+# toolkit env, XDG_DATA_DIRS for ragnar's desktop files, config
+# seeding, VT-wait workaround — through the documented
+# RAGNAR_SESSION_COMPOSITOR override hook that makes alternative
+# compositors selectable without touching the ragnar script.
+#
+# Desktop identity must exist BEFORE the compositor imports the
+# environment into systemd — OnlyShowIn=Ragnar autostart units,
+# portals and session scripts all read it from there. Odin only
+# passes it through; the session owns the name.
+XDG_CURRENT_DESKTOP="Ragnar"
+XDG_SESSION_DESKTOP="Ragnar"
+export XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
+RAGNAR_SESSION_COMPOSITOR="@bindir@/startodin ${1:-ragnar-desktop}"
+export RAGNAR_SESSION_COMPOSITOR
+exec @bindir@/startragnarlabwc

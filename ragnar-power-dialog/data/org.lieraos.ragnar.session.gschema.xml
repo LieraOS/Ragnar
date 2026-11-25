@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <!-- Session/power-dialog visibility switches. ragnar-power-dialog
+       reads these keys; Ragnar Settings (Power panel) writes them. -->
+  <schema id="org.lieraos.ragnar.session" path="/org/lieraos/ragnar/session/">
+    <key name="show-lock" type="b">
+      <default>true</default>
+      <summary>Show "Lock screen" in the power dialog</summary>
+    </key>
+    <key name="show-logout" type="b">
+      <default>true</default>
+      <summary>Show "Log out" in the power dialog</summary>
+    </key>
+    <key name="show-suspend" type="b">
+      <default>true</default>
+      <summary>Show "Suspend" in the power dialog</summary>
+    </key>
+    <key name="show-hibernate" type="b">
+      <default>true</default>
+      <summary>Show "Hibernate" in the power dialog</summary>
+    </key>
+    <key name="show-reboot" type="b">
+      <default>true</default>
+      <summary>Show "Restart" in the power dialog</summary>
+    </key>
+    <key name="show-shutdown" type="b">
+      <default>true</default>
+      <summary>Show "Shut down" in the power dialog</summary>
+    </key>
+  </schema>
+</schemalist>

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+RAGNAR_VERSION="@PACKAGE_VERSION@"
+
+if [ "$1" = "--version" ]; then
+    echo "ragnar-desktop $RAGNAR_VERSION"
+    echo "Copyright © LieraOS Project"
+    exit 0
+fi
+
+if [ -z "${XDG_CURRENT_DESKTOP:-}" ] || ! printf %s "$XDG_CURRENT_DESKTOP" | grep -qi 'ragnar'; then
+  XDG_CURRENT_DESKTOP=Ragnar
+  export XDG_CURRENT_DESKTOP
+fi
+
+export RAGNAR_SESSION_VERSION=${RAGNAR_VERSION}
+
+# Wait until the server starts before launching the session
+compositor="@ragnar_session_libexecdir@/ragnar-session-compositor-ready"
+if command -v "$compositor" > /dev/null 2>&1 && "$compositor"; then
+  # Portal frontend AND GTK backend are both started here -- after
+  # the compositor is ready -- so no GTK client blocks on D-Bus
+  # activation timeouts during session startup. Starting the GTK
+  # backend before a display exists hangs it for the full activation
+  # timeout, which is why it must not run earlier.
+  @xdp_libexecdir@/xdg-desktop-portal &
+  @xdp_libexecdir@/xdg-desktop-portal-gtk &
+@oo7_daemon@
+  exec ragnar-session --builtin --session=org.lieraos.ragnar.Desktop $*
+fi

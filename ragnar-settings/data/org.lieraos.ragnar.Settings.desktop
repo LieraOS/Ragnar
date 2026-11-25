@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Ragnar Settings
+Comment=System settings for Ragnar Desktop (display, audio, network, and more)
+Exec=ragnar-settings
+Icon=preferences-system
+Terminal=false
+Categories=Settings;
+Keywords=settings;control;panel;system;display;
+StartupNotify=true

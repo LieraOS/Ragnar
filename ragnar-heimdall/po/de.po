@@ -1,0 +1,849 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ragnar-heimdall 1.0\n"
+"PO-Revision-Date: 2026-10-30 12:00+0100\n"
+"Last-Translator: LieraOS\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Address/mask (e.g. 192.168.1.10/24)"
+msgstr "Adresse/Maske (z.B. 192.168.1.10/24)"
+
+msgid "Add route"
+msgstr "Route hinzufügen"
+
+msgid "Add route…"
+msgstr "Route hinzufügen…"
+
+msgid "Add rule"
+msgstr "Regel hinzufügen"
+
+msgid "all checks passed"
+msgstr "alle Prüfungen bestanden"
+
+msgid "Allow"
+msgstr "Erlauben"
+
+msgid "Allow (recommended)"
+msgstr "Erlauben (empfohlen)"
+
+msgid "(any)"
+msgstr "(beliebig)"
+
+msgid "Apply"
+msgstr "Anwenden"
+
+msgid "Automatic (DHCP)"
+msgstr "Automatisch (DHCP)"
+
+msgid "Back to automatic (DHCP)"
+msgstr "Zurück zu automatisch (DHCP)"
+
+msgid "Block"
+msgstr "Blockieren"
+
+msgid "Block (deny connections)"
+msgstr "Blockieren (Verbindungen ablehnen)"
+
+msgid "Blocked"
+msgstr "Blockiert"
+
+msgid "Block (recommended)"
+msgstr "Blockieren (empfohlen)"
+
+msgid "Blocks unwanted incoming connections."
+msgstr "Blockiert unerwünschte eingehende Verbindungen."
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Checks"
+msgstr "Prüfungen"
+
+msgid "Configure IPv4…"
+msgstr "IPv4 konfigurieren…"
+
+msgid "Connect"
+msgstr "Verbinden"
+
+msgid "Connect automatically at boot"
+msgstr "Beim Start automatisch verbinden"
+
+msgid "connected"
+msgstr "verbunden"
+
+msgid "Connected"
+msgstr "Verbunden"
+
+msgid "Connecting to"
+msgstr "Verbinde mit"
+
+msgid "Connections"
+msgstr "Verbindungen"
+
+msgid "Connectivity"
+msgstr "Verbindung"
+
+msgid "Connect to"
+msgstr "Verbinden mit"
+
+msgid "Could not read interface state"
+msgstr "Schnittstellenstatus konnte nicht gelesen werden"
+
+msgid "Current DNS server"
+msgstr "Aktiver DNS-Server"
+
+msgid "Custom servers"
+msgstr "Eigene Server"
+
+msgid "Default behavior"
+msgstr "Standardverhalten"
+
+msgid "Default route"
+msgstr "Standardroute"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete profile"
+msgstr "Profil löschen"
+
+msgid "Delete route"
+msgstr "Route löschen"
+
+msgid "Delete route?"
+msgstr "Route löschen?"
+
+msgid "Delete VPN profile?"
+msgstr "VPN-Profil löschen?"
+
+msgid "Destination"
+msgstr "Ziel"
+
+msgid "disconnected"
+msgstr "getrennt"
+
+msgid "Disconnect from"
+msgstr "Trennen von"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "DNS over TLS"
+msgstr "DNS über TLS"
+
+msgid "DNSSEC validation"
+msgstr "DNSSEC-Validierung"
+
+msgid "DNS Servers"
+msgstr "DNS-Server"
+
+msgid "DNS state could not be read"
+msgstr "DNS-Status konnte nicht gelesen werden"
+
+msgid "Down"
+msgstr "Inaktiv"
+
+msgid "Encrypt DNS traffic (needs a resolver that supports it)."
+msgstr "DNS-Verkehr verschlüsseln (Resolver muss es unterstützen)."
+
+msgid "Execute all selected checks"
+msgstr "Alle ausgewählten Prüfungen ausführen"
+
+msgid "fail"
+msgstr "Fehler"
+
+msgid "Firewall"
+msgstr "Firewall"
+
+msgid "Firewall protection"
+msgstr "Firewall-Schutz"
+
+msgid "Firewall status could not be read"
+msgstr "Firewall-Status konnte nicht gelesen werden"
+
+msgid "Flush DNS cache"
+msgstr "DNS-Zwischenspeicher leeren"
+
+msgid "Forget saved network"
+msgstr "Gespeichertes Netzwerk vergessen"
+
+msgid "from"
+msgstr "von"
+
+msgid "From (optional)"
+msgstr "Von (optional)"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Gateway (optional)"
+msgstr "Gateway (optional)"
+
+msgid "Global DNS settings"
+msgstr "Globale DNS-Einstellungen"
+
+msgid "Hostname"
+msgstr "Hostname"
+
+msgid "Import"
+msgstr "Importieren"
+
+msgid "Import OpenVPN profile…"
+msgstr "OpenVPN-Profil importieren…"
+
+msgid "Import WireGuard profile…"
+msgstr "WireGuard-Profil importieren…"
+
+msgid "incoming"
+msgstr "eingehend"
+
+msgid "Incoming connections"
+msgstr "Eingehende Verbindungen"
+
+msgid "Interface enabled"
+msgstr "Schnittstelle aktiviert"
+
+msgid "Interface (optional)"
+msgstr "Schnittstelle (optional)"
+
+msgid "Interfaces"
+msgstr "Schnittstellen"
+
+msgid "Interfaces Up"
+msgstr "Schnittstellen aktiv"
+
+msgid "IPv4 configuration"
+msgstr "IPv4-Konfiguration"
+
+msgid "Kernel-managed broadcast routes — shown for completeness."
+msgstr "Kernel-verwaltete Broadcast-Routen — zur Vollständigkeit angezeigt."
+
+msgid "Last 3 octets only"
+msgstr "Nur letzte 3 Oktette"
+
+msgid "Heimdall"
+msgstr "Heimdall"
+
+msgid "LLMNR"
+msgstr "LLMNR"
+
+msgid "lookup table"
+msgstr "Nachschlagetabelle"
+
+msgid "MAC Address"
+msgstr "MAC-Adresse"
+
+msgid "MAC address randomization"
+msgstr "MAC-Adressen-Zufallsgenerierung"
+
+msgid "mDNS"
+msgstr "mDNS"
+
+msgid "Method"
+msgstr "Methode"
+
+msgid "Metric (optional)"
+msgstr "Metrik (optional)"
+
+msgid "MTU"
+msgstr "MTU"
+
+msgid "Name the"
+msgstr "Benenne das"
+
+msgid "Network"
+msgstr "Netzwerk"
+
+msgid "Network Interfaces"
+msgstr "Netzwerkschnittstellen"
+
+msgid "Network Status"
+msgstr "Netzwerkstatus"
+
+msgid "(no addresses returned)"
+msgstr "(keine Adressen zurückgegeben)"
+
+msgid "No default route"
+msgstr "Keine Standardroute"
+
+msgid "No DNS servers configured"
+msgstr "Keine DNS-Server konfiguriert"
+
+msgid "no IP"
+msgstr "keine IP"
+
+msgid "(none answering)"
+msgstr "(keiner antwortet)"
+
+msgid "None configured"
+msgstr "Keine konfiguriert"
+
+msgid "No ports configured"
+msgstr "Keine Ports konfiguriert"
+
+msgid "Not supported by this resolved build."
+msgstr "Von diesem resolved-Build nicht unterstützt."
+
+msgid "No VPN backend installed"
+msgstr "Kein VPN-Backend installiert"
+
+msgid "No VPN profiles yet"
+msgstr "Noch keine VPN-Profile"
+
+msgid "Offline"
+msgstr "Offline"
+
+msgid "Off — use the hardware address"
+msgstr "Aus — Hardware-Adresse verwenden"
+
+msgid "Once — one random address per boot"
+msgstr "Einmal — eine Zufallsadresse pro Start"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Open"
+msgstr "Offen"
+
+msgid "Open (allow connections)"
+msgstr "Öffnen (Verbindungen erlauben)"
+
+msgid "Open Heimdall"
+msgstr "Heimdall öffnen"
+
+msgid "Open or close a port"
+msgstr "Port öffnen oder schließen"
+
+msgid "Open or close a port…"
+msgstr "Port öffnen oder schließen…"
+
+msgid "outgoing"
+msgstr "ausgehend"
+
+msgid "Outgoing connections"
+msgstr "Ausgehende Verbindungen"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Per network — same random address per SSID"
+msgstr "Pro Netzwerk — gleiche Zufallsadresse pro SSID"
+
+msgid "Policy rules"
+msgstr "Richtlinienregeln"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Ports and rules"
+msgstr "Ports und Regeln"
+
+msgid "problem(s) found"
+msgstr "Problem(e) gefunden"
+
+msgid "Profile name"
+msgstr "Profilname"
+
+msgid "Protocol"
+msgstr "Protokoll"
+
+msgid "Querying…"
+msgstr "Frage ab…"
+
+msgid "Randomization range"
+msgstr "Zufallsbereich"
+
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+msgid "Remove rule"
+msgstr "Regel entfernen"
+
+msgid "Resolve local hostnames on the LAN."
+msgstr "Lokale Hostnamen im LAN auflösen."
+
+msgid "Resolve .local names (Bonjour/Avahi style)."
+msgstr ".local-Namen auflösen (Bonjour/Avahi-Stil)."
+
+msgid "Resolver"
+msgstr "Resolver"
+
+msgid "Resolvers"
+msgstr "Resolver"
+
+msgid "Result"
+msgstr "Ergebnis"
+
+msgid "Routing"
+msgstr "Routing"
+
+msgid "Routing table"
+msgstr "Routing-Tabelle"
+
+msgid "Routing table (main)"
+msgstr "Routing-Tabelle (main)"
+
+msgid "Run diagnostics"
+msgstr "Diagnose starten"
+
+msgid "Scan again"
+msgstr "Erneut suchen"
+
+msgid "Scan failed"
+msgstr "Suche fehlgeschlagen"
+
+msgid "Scan for Networks"
+msgstr "Nach Netzwerken suchen"
+
+msgid "Scanning…"
+msgstr "Suche…"
+
+msgid "Search domains"
+msgstr "Suchdomains"
+
+msgid "Secured"
+msgstr "Gesichert"
+
+msgid "Select a network to connect."
+msgstr "Netzwerk zum Verbinden auswählen."
+
+msgid "Set DNS servers"
+msgstr "DNS-Server setzen"
+
+msgid "Set DNS servers…"
+msgstr "DNS-Server setzen…"
+
+msgid "skipped"
+msgstr "übersprungen"
+
+msgid "starts at boot"
+msgstr "startet beim Hochfahren"
+
+msgid "Static"
+msgstr "Statisch"
+
+msgid "Switches the wireless card on or off."
+msgstr "Schaltet die WLAN-Karte ein oder aus."
+
+msgid "systemd-resolved is not installed"
+msgstr "systemd-resolved ist nicht installiert"
+
+msgid "Test resolution"
+msgstr "Auflösung testen"
+
+msgid "The config file is deleted permanently."
+msgstr "Die Konfigurationsdatei wird endgültig gelöscht."
+
+msgid "This removes"
+msgstr "Dies entfernt"
+
+msgid "This removes the route to"
+msgstr "Dies entfernt die Route zu"
+
+msgid "Tools"
+msgstr "Werkzeuge"
+
+msgid "Transferred"
+msgstr "Übertragen"
+
+msgid "Type a name and press Enter"
+msgstr "Namen eingeben und Enter drücken"
+
+msgid "UFW is not installed"
+msgstr "UFW ist nicht installiert"
+
+msgid "Unknown"
+msgstr "Unbekannt"
+
+msgid "Up"
+msgstr "Aktiv"
+
+msgid "Used for all lookups"
+msgstr "Für alle Abfragen verwendet"
+
+msgid "Verify DNS answers cryptographically."
+msgstr "DNS-Antworten kryptografisch verifizieren."
+
+msgid "VPN"
+msgstr "VPN"
+
+msgid "VPN profiles"
+msgstr "VPN-Profile"
+
+msgid "warn"
+msgstr "Warnung"
+
+msgid "warning(s)"
+msgstr "Warnung(en)"
+
+msgid "Whole address"
+msgstr "Ganze Adresse"
+
+msgid "Wi-Fi Networks"
+msgstr "WLAN-Netzwerke"
+
+msgid "Wi-Fi Options"
+msgstr "WLAN-Optionen"
+
+msgid "Wi-Fi radio"
+msgstr "WLAN-Funk"
+
+msgid "Wired"
+msgstr "Kabelgebunden"
+
+msgid "Working…"
+msgstr "Arbeite…"
+
+msgid "Recommended for desktop PCs: block incoming, allow outgoing. Established connections stay unaffected."
+msgstr "Empfohlen für Desktop-PCs: eingehende Verbindungen blockieren, ausgehende erlauben. Bestehende Verbindungen bleiben davon unberührt."
+
+msgid "Advanced"
+msgstr "Erweitert"
+
+msgid "Expert controls"
+msgstr "Experten-Einstellungen"
+
+msgid "Numbered rules, reordering and the full UFW rule syntax."
+msgstr "Nummerierte Regeln, Umsortieren und die volle UFW-Regelsyntax."
+
+msgid "Add advanced rule…"
+msgstr "Erweiterte Regel hinzufügen …"
+
+msgid "Move up"
+msgstr "Nach oben verschieben"
+
+msgid "Move down"
+msgstr "Nach unten verschieben"
+
+msgid "Edit rule"
+msgstr "Regel bearbeiten"
+
+msgid "Advanced rule"
+msgstr "Erweiterte Regel"
+
+msgid "Direction"
+msgstr "Richtung"
+
+msgid "To address (optional)"
+msgstr "Zieladresse (optional)"
+
+msgid "Insert position (optional)"
+msgstr "Einfügeposition (optional)"
+
+msgid "Comment (optional)"
+msgstr "Kommentar (optional)"
+
+msgid "Log matching packets"
+msgstr "Treffer protokollieren"
+
+msgid "Port (optional)"
+msgstr "Port (optional)"
+
+msgid "Always ask for passphrase"
+msgstr "Immer nach Passwort fragen"
+
+msgid "Automatic"
+msgstr "Automatisch"
+
+msgid "Connect automatically"
+msgstr "Automatisch verbinden"
+
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+msgid "DNS (comma-separated)"
+msgstr "DNS (durch Kommas getrennt)"
+
+msgid "Enabled"
+msgstr "Aktiviert"
+
+msgid "General"
+msgstr "Allgemein"
+
+msgid "Hidden network"
+msgstr "Verborgenes Netzwerk"
+
+msgid "IPv4 (this network)"
+msgstr "IPv4 (dieses Netzwerk)"
+
+msgid "IPv6"
+msgstr "IPv6"
+
+msgid "Loading profile…"
+msgstr "Profil wird geladen …"
+
+msgid "Netmask"
+msgstr "Netzmaske"
+
+msgid "Network properties"
+msgstr "Netzwerk-Eigenschaften"
+
+msgid "Passphrase"
+msgstr "Passphrase"
+
+msgid "Properties…"
+msgstr "Eigenschaften …"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Security"
+msgstr "Sicherheit"
+msgid "IPv6 enabled"
+msgstr "IPv6 aktiviert"
+
+msgid "Enabled — waiting for cable"
+msgstr "Aktiviert — wartet auf Kabel"
+
+msgid "Driver"
+msgstr "Treiber"
+
+msgid "Link speed"
+msgstr "Verbindungsgeschwindigkeit"
+
+msgid "Received / sent"
+msgstr "Empfangen / Gesendet"
+
+msgid "DNS servers (comma-separated, optional)"
+msgstr "DNS-Server (kommagetrennt, optional)"
+
+msgid "MTU (optional)"
+msgstr "MTU (optional)"
+
+msgid "Route priority"
+msgstr "Routen-Priorität"
+
+msgid "Preferred"
+msgstr "Bevorzugt"
+
+msgid "Fallback"
+msgstr "Ausweichverbindung"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Name (e.g. vlan10, br0, bond0)"
+msgstr "Name (z. B. vlan10, br0, bond0)"
+
+msgid "Parent interface"
+msgstr "Übergeordnete Schnittstelle"
+
+msgid "VLAN ID (1–4094)"
+msgstr "VLAN-ID (1–4094)"
+
+msgid "Bond mode"
+msgstr "Bond-Modus"
+
+msgid "Member interfaces"
+msgstr "Mitglieds-Schnittstellen"
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Create virtual interface…"
+msgstr "Virtuelle Schnittstelle erstellen…"
+
+msgid "Remove virtual interface"
+msgstr "Virtuelle Schnittstelle entfernen"
+
+msgid "Virtual interface"
+msgstr "Virtuelle Schnittstelle"
+
+msgid "Remove virtual interface?"
+msgstr "Virtuelle Schnittstelle entfernen?"
+
+msgid "This deletes"
+msgstr "Dies entfernt"
+
+msgid "attached member links are released."
+msgstr "angehängte Mitglieds-Schnittstellen werden freigegeben."
+
+msgid "Create VLANs, bridges and bonds for advanced setups."
+msgstr "VLANs, Bridges und Bonds für fortgeschrittene Konfigurationen erstellen."
+msgid "Automatic (fastest link first)"
+msgstr "Automatisch (schnellste Verbindung zuerst)"
+
+msgid "Prefer wired (LAN)"
+msgstr "Kabelgebunden bevorzugen (LAN)"
+
+msgid "Prefer Wi-Fi"
+msgstr "WLAN bevorzugen"
+
+msgid "Connection preference"
+msgstr "Verbindungs-Priorität"
+
+msgid "Which link should be used first when several are up. Wired is usually faster and more stable."
+msgstr "Welche Verbindung zuerst genutzt wird, wenn mehrere aktiv sind. Kabelgebunden ist meist schneller und stabiler."
+
+msgid "Custom per-interface priorities active — choosing a preset overrides them."
+msgstr "Eigene Prioritäten pro Schnittstelle aktiv — ein Profil überschreibt sie."
+msgid "Quick diagnosis"
+msgstr "Schnelldiagnose"
+
+msgid "Runs the essential checks: links, addresses, gateway, DNS, services, Wi-Fi and internet speed."
+msgstr "Führt die wichtigsten Prüfungen aus: Verbindungen, Adressen, Gateway, DNS, Dienste, WLAN und Internetgeschwindigkeit."
+
+msgid "Run quick diagnosis"
+msgstr "Schnelldiagnose starten"
+
+msgid "Standard checks"
+msgstr "Standard-Prüfungen"
+
+msgid "Expert checks"
+msgstr "Experten-Prüfungen"
+
+msgid "Deep-dive diagnostics for experienced users: portals, IPv6, path/MTU, neighbors, listeners, VPN, DNS and radio details."
+msgstr "Tiefen-Diagnose für erfahrene Benutzer: Portale, IPv6, Pfad/MTU, Nachbarn, offene Ports, VPN, DNS und Funkdetails."
+
+msgid "Run selected diagnostics"
+msgstr "Ausgewählte Diagnose starten"
+
+msgid "Execute all enabled checks"
+msgstr "Alle aktivierten Prüfungen ausführen"
+
+msgid "Save report…"
+msgstr "Bericht speichern…"
+
+msgid "Export the last diagnosis as markdown"
+msgstr "Letzte Diagnose als Markdown exportieren"
+
+msgid "Save diagnosis report"
+msgstr "Diagnosebericht speichern"
+
+msgid "Links and addresses"
+msgstr "Verbindungen und Adressen"
+
+msgid "Interface states and all assigned IP addresses"
+msgstr "Schnittstellen-Zustände und alle vergebenen IP-Adressen"
+
+msgid "Routing and gateway"
+msgstr "Routing und Gateway"
+
+msgid "Default route and gateway reachability"
+msgstr "Standardroute und Gateway-Erreichbarkeit"
+
+msgid "Configured nameservers and live resolution test"
+msgstr "Konfigurierte Nameserver und Live-Auflösungstest"
+
+msgid "networkd, iwd and ufw unit states"
+msgstr "Zustände von networkd, iwd und ufw"
+
+msgid "Radio state and current association"
+msgstr "Funkzustand und aktuelle Verbindung"
+
+msgid "Internet and speed"
+msgstr "Internet und Geschwindigkeit"
+
+msgid "External IP, latency, download and upload throughput"
+msgstr "Externe IP, Latenz, Download- und Upload-Durchsatz"
+
+msgid "Captive portal"
+msgstr "Captive Portal"
+
+msgid "Detect hotel/hotspot login pages intercepting traffic"
+msgstr "Anmelde-Portale von Hotels/Hotspots erkennen, die den Verkehr abfangen"
+
+msgid "IPv6 connectivity"
+msgstr "IPv6-Erreichbarkeit"
+
+msgid "v6 default route and external reachability"
+msgstr "IPv6-Standardroute und externe Erreichbarkeit"
+
+msgid "Path analysis and MTU"
+msgstr "Pfadanalyse und MTU"
+
+msgid "tracepath hops and path-MTU probing"
+msgstr "Tracepath-Hops und Path-MTU-Messung"
+
+msgid "Time synchronisation"
+msgstr "Zeitsynchronisation"
+
+msgid "NTP state — a skewed clock breaks TLS"
+msgstr "NTP-Zustand — eine falsche Uhrzeit bricht TLS"
+
+msgid "Neighbor table"
+msgstr "Nachbartabelle"
+
+msgid "ARP/NDP cache health — L2 trouble on the LAN"
+msgstr "Zustand des ARP/NDP-Caches — L2-Probleme im LAN"
+
+msgid "Listening sockets"
+msgstr "Lauschende Sockets"
+
+msgid "Ports this machine exposes to the network"
+msgstr "Ports, die dieses Gerät im Netz öffnet"
+
+msgid "VPN state"
+msgstr "VPN-Zustand"
+
+msgid "WireGuard peers and tun/tap devices"
+msgstr "WireGuard-Peers und tun/tap-Geräte"
+
+msgid "DNS depth"
+msgstr "DNS-Tiefe"
+
+msgid "Resolver posture and query latency"
+msgstr "Resolver-Einstellungen und Abfragelatenz"
+
+msgid "Wi-Fi depth"
+msgstr "WLAN-Tiefe"
+
+msgid "BSSID, channel, bitrate and signal via iw"
+msgstr "BSSID, Kanal, Bitrate und Signalstärke via iw"
+
+msgid "portal probe"
+msgstr "Portal-Prüfung"
+
+msgid "portal check"
+msgstr "Portal-Prüfung"
+
+msgid "default route"
+msgstr "Standardroute"
+
+msgid "external reachability"
+msgstr "Externe Erreichbarkeit"
+
+msgid "path MTU"
+msgstr "Pfad-MTU"
+
+msgid "neighbor table"
+msgstr "Nachbartabelle"
+
+msgid "unresolvable peer"
+msgstr "Nicht auflösbarer Teilnehmer"
+
+msgid "listening sockets"
+msgstr "Lauschende Sockets"
+
+msgid "resolver posture"
+msgstr "Resolver-Einstellungen"
+
+msgid "query latency"
+msgstr "Abfragelatenz"
+msgid "EAP method"
+msgstr "EAP-Methode"
+
+msgid "Identity (outer)"
+msgstr "Identität (äußere)"
+
+msgid "Phase-2 method"
+msgstr "Phase-2-Methode"
+
+msgid "Username (inner)"
+msgstr "Benutzername (inner)"
+
+msgid "Password (inner)"
+msgstr "Passwort (inner)"
+
+msgid "CA certificate (optional path)"
+msgstr "CA-Zertifikat (optionaler Pfad)"
