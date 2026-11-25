@@ -4,8 +4,12 @@
 
 ## Offen
 
-- Bildersatz erweitern — derzeit nur lieraos-default.png und
-  lightdm.png plus Referenz auf das default.jpg aus
-  ragnar-core.
 - Klären, ob der LightDM-Login-Hintergrund in dieses Paket
   gehört statt ins live-build includes.chroot-Overlay.
+
+## Erledigt
+
+- Erster echter Bildersatz: `aurora-fjord.png` (neues Standard-
+  Hintergrundbild, ersetzt das alte grüne Artwork) +
+  `raven-fjord.png`, beide 4K, über gnome-background-properties
+  registriert — Paket ist keine leere Hülle mehr (1.0-3).
