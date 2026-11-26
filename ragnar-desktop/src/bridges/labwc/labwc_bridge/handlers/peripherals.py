@@ -127,6 +127,8 @@ class Peripherals:
             value = TOUCHPAD_HANDEDNESS.get(settings["left-handed"])
             # "mouse": the touchpad has no handedness of its own and takes the mouse's
             if value is None:
+                if self.settings.mouse is None:
+                    return
                 value = LabwcConfig.yes_no(
                     self.settings.mouse.get_boolean("left-handed")
                 )
@@ -134,7 +136,10 @@ class Peripherals:
             # The mouse's key is a plain boolean
             value = LabwcConfig.yes_no(settings["left-handed"])
             # A touchpad set to follow the mouse changes along with it
-            if self.settings.touchpad.get_string("left-handed") == "mouse":
+            if (
+                self.settings.touchpad is not None
+                and self.settings.touchpad.get_string("left-handed") == "mouse"
+            ):
                 self._find_or_create_device_setting(
                     "touchpad", "leftHanded"
                 ).text = value
@@ -195,16 +200,19 @@ class Peripherals:
 
     def sync_all(self) -> None:
         """Replays every mouse and touchpad key the bridge follows."""
-        for key in TOUCHPAD_KEYS:
-            self.changed(self.settings.touchpad, key)
+        if self.settings.touchpad:
+            for key in TOUCHPAD_KEYS:
+                self.changed(self.settings.touchpad, key)
 
-        for key in MOUSE_KEYS:
-            self.changed(self.settings.mouse, key)
+        if self.settings.mouse:
+            for key in MOUSE_KEYS:
+                self.changed(self.settings.mouse, key)
 
         # Sync scroll method settings
-        try:
-            self.scroll_method_changed(
-                self.settings.touchpad, "two-finger-scrolling-enabled"
-            )
-        except Exception as e:
-            log.warning(f"Could not sync scroll method: {e}")
+        if self.settings.touchpad:
+            try:
+                self.scroll_method_changed(
+                    self.settings.touchpad, "two-finger-scrolling-enabled"
+                )
+            except Exception as e:
+                log.warning(f"Could not sync scroll method: {e}")

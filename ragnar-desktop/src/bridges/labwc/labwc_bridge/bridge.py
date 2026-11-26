@@ -83,42 +83,63 @@ class Bridge:
     def _connect(self) -> None:
         settings = self.settings
 
-        settings.panel.connect("changed", self.appearance.panel_changed)
+        # Schemas that are not installed leave their attribute as None
+        if settings.panel:
+            settings.panel.connect("changed", self.appearance.panel_changed)
 
         # Every key in these three schemas is a shortcut
-        settings.media_keys.connect("changed", self.keybinds.changed)
-        settings.wm_keybindings.connect("changed", self.keybinds.changed)
-        settings.mutter_keybindings.connect("changed", self.keybinds.changed)
+        if settings.media_keys:
+            settings.media_keys.connect("changed", self.keybinds.changed)
+        if settings.wm_keybindings:
+            settings.wm_keybindings.connect("changed", self.keybinds.changed)
+        if settings.mutter_keybindings:
+            settings.mutter_keybindings.connect("changed", self.keybinds.changed)
 
         # ragnar-wm and mutter mix shortcuts with other settings; each handler ignores keys that are not its own
-        settings.ragnar_wm.connect("changed", self.window_manager.ragnar_wm_changed)
-        settings.ragnar_wm.connect("changed", self.keybinds.changed)
-        settings.mutter.connect("changed", self.window_manager.mutter_changed)
-        settings.mutter.connect("changed", self.keybinds.changed)
+        if settings.ragnar_wm:
+            settings.ragnar_wm.connect(
+                "changed", self.window_manager.ragnar_wm_changed
+            )
+            settings.ragnar_wm.connect("changed", self.keybinds.changed)
+        if settings.mutter:
+            settings.mutter.connect(
+                "changed", self.window_manager.mutter_changed
+            )
+            settings.mutter.connect("changed", self.keybinds.changed)
 
-        settings.wm_preferences.connect(
-            "changed", self.window_manager.wm_preferences_changed
-        )
+        if settings.wm_preferences:
+            settings.wm_preferences.connect(
+                "changed", self.window_manager.wm_preferences_changed
+            )
 
         # Likewise: theme keys go to rc.xml, cursor keys to the environment file
-        settings.interface.connect("changed", self.appearance.interface_changed)
-        settings.interface.connect("changed", self.environment.interface_changed)
+        if settings.interface:
+            settings.interface.connect(
+                "changed", self.appearance.interface_changed
+            )
+            settings.interface.connect(
+                "changed", self.environment.interface_changed
+            )
 
-        settings.input_sources.connect(
-            "changed", self.environment.input_sources_changed
-        )
+        if settings.input_sources:
+            settings.input_sources.connect(
+                "changed", self.environment.input_sources_changed
+            )
 
-        settings.mouse.connect("changed", self.peripherals.changed)
-        settings.touchpad.connect("changed", self.peripherals.changed)
+        if settings.mouse:
+            settings.mouse.connect("changed", self.peripherals.changed)
+        if settings.touchpad:
+            settings.touchpad.connect("changed", self.peripherals.changed)
 
-        # GNOME has two booleans where labwc has one scrollMethod, so both keys share a handler
-        settings.touchpad.connect(
-            "changed::two-finger-scrolling-enabled",
-            self.peripherals.scroll_method_changed,
-        )
-        settings.touchpad.connect(
-            "changed::edge-scrolling-enabled", self.peripherals.scroll_method_changed
-        )
+            # GNOME has two booleans where labwc has one scrollMethod, so both keys share a handler
+            settings.touchpad.connect(
+                "changed::two-finger-scrolling-enabled",
+                self.peripherals.scroll_method_changed,
+            )
+            settings.touchpad.connect(
+                "changed::edge-scrolling-enabled",
+                self.peripherals.scroll_method_changed,
+            )
 
     def sync_all(self) -> None:
         # Dozens of keys are replayed here; the batch turns that into one write and one labwc reload

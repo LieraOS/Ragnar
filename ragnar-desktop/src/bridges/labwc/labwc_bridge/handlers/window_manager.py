@@ -191,7 +191,12 @@ class WindowManager:
             SLOPPY = "sloppy"
             MOUSE = "mouse"
 
-        focus_mode = self.settings.ragnar_wm["window-focus-mode"]
+        # Without the ragnar-wm schema labwc keeps its default click-to-focus
+        focus_mode = (
+            self.settings.ragnar_wm["window-focus-mode"]
+            if self.settings.ragnar_wm is not None
+            else Mode.CLICK
+        )
 
         # sloppy and mouse both focus under the pointer; only mouse also raises the window
         bridge.text = self.config.yes_no(focus_mode != Mode.CLICK)
@@ -203,15 +208,17 @@ class WindowManager:
 
         bridgeraise.text = self.config.yes_no(focus_mode == Mode.MOUSE)
 
-        auto_raise_delay = self.settings.wm_preferences["auto-raise-delay"]
+        # The raise delay lives in another schema that may not be installed
+        if self.settings.wm_preferences is not None:
+            auto_raise_delay = self.settings.wm_preferences["auto-raise-delay"]
 
-        # Not in the shipped rc.xml, so it is created the first time round
-        bridgeraisedelay = focus.find("raiseOnFocusDelay")
+            # Not in the shipped rc.xml, so it is created the first time round
+            bridgeraisedelay = focus.find("raiseOnFocusDelay")
 
-        if bridgeraisedelay is None:
-            bridgeraisedelay = Et.SubElement(focus, "raiseOnFocusDelay")
+            if bridgeraisedelay is None:
+                bridgeraisedelay = Et.SubElement(focus, "raiseOnFocusDelay")
 
-        bridgeraisedelay.text = str(auto_raise_delay)
+            bridgeraisedelay.text = str(auto_raise_delay)
 
         return True
 
@@ -222,11 +229,17 @@ class WindowManager:
             "show-all-windows-tabswitcher",
             "edge-tiling",
         }
-        for key in ragnar_wm_keys:
-            self.ragnar_wm_changed(self.settings.ragnar_wm, key)
+        if self.settings.ragnar_wm:
+            for key in ragnar_wm_keys:
+                self.ragnar_wm_changed(self.settings.ragnar_wm, key)
 
-        self.mutter_changed(self.settings.mutter, "center-new-windows")
-        self.wm_preferences_changed(self.settings.wm_preferences, "titlebar-font")
-        self.wm_preferences_changed(self.settings.wm_preferences, "button-layout")
-        self.wm_preferences_changed(self.settings.wm_preferences, "num-workspaces")
-        self.wm_preferences_changed(self.settings.wm_preferences, "auto-raise-delay")
+        if self.settings.mutter:
+            self.mutter_changed(self.settings.mutter, "center-new-windows")
+        if self.settings.wm_preferences:
+            for key in (
+                "titlebar-font",
+                "button-layout",
+                "num-workspaces",
+                "auto-raise-delay",
+            ):
+                self.wm_preferences_changed(self.settings.wm_preferences, key)

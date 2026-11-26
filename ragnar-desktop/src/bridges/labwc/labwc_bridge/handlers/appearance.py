@@ -79,6 +79,8 @@ class Appearance:
 
     def sync_all(self) -> None:
         """Replays the theme and panel keys the bridge follows."""
-        self.interface_changed(self.settings.interface, "gtk-theme")
-        self.interface_changed(self.settings.interface, "icon-theme")
-        self.panel_changed(self.settings.panel, "notification-position")
+        if self.settings.interface:
+            self.interface_changed(self.settings.interface, "gtk-theme")
+            self.interface_changed(self.settings.interface, "icon-theme")
+        if self.settings.panel:
+            self.panel_changed(self.settings.panel, "notification-position")

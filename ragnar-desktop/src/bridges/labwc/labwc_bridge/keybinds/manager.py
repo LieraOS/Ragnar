@@ -197,6 +197,10 @@ class Keybinds:
 
     def custom_changed(self, settings: Gio.Settings, customkeypath: str | None) -> None:
         """Reconciles rc.xml's custom keybinds with the user's custom shortcuts and follows each for edits."""
+        # Custom shortcuts cannot exist without the media-keys schema listing them
+        if self.settings.media_keys is None:
+            return
+
         keyboard = self._keyboard()
         if keyboard is None:
             return

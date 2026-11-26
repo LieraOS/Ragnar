@@ -13,4 +13,5 @@ usr/share/gnome-session
 usr/share/icons
 usr/share/locale
 usr/share/wayland-sessions/ragnar-desktop.desktop
+usr/share/wayland-sessions/ragnar-odin.desktop
 usr/share/xdg-desktop-portal/ragnar-portals.conf
