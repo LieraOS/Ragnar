@@ -1,3 +1,25 @@
+ragnar-desktop (1.0-45) forky; urgency=medium
+
+  * new autostart entry grants the local root user access to the
+    session display (xhost +SI:localuser:root) — pkexec-launched
+    applications like gparted can now open their windows under
+    XWayland; Debian ships gparted with its xhost workaround
+    disabled, so without this they abort with "cannot open display"
+
+ -- LieraOS Project <projekt@lieraos.local>  Wed, 26 Nov 2025 10:45:00 +0100
+
+ragnar-desktop (1.0-44) forky; urgency=medium
+
+  * labwc-bridge no longer aborts on systems without the mutter /
+    settings-daemon gsettings schemas: every schema is looked up
+    before use and missing ones leave the affected handler idle
+    instead of killing the daemon (SIGABRT on live media)
+  * ship ragnar-odin.desktop in wayland-sessions — the greeter now
+    offers "Ragnar (Odin, experimental)"; the default session
+    stays labwc-based Ragnar, experimental is opt-in only
+
+ -- LieraOS Project <projekt@lieraos.local>  Wed, 26 Nov 2025 09:30:00 +0100
+
 ragnar-desktop (1.0-43) forky; urgency=medium
 
   * ragnar-view 0.1.1 in the core bundle: desktop icon captions

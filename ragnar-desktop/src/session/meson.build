@@ -209,6 +209,13 @@ i18n.merge_file(
 )
 
 
+# root display access for pkexec-launched apps (gparted & co.) under XWayland
+install_data(
+    'org.lieraos.ragnar.XhostRoot.desktop',
+    install_dir: xdg_appdir,
+)
+
+
 # install gnome-settings-daemon desktop files to ensure they autostart
 
 foreach component: ragnar_session_324_components

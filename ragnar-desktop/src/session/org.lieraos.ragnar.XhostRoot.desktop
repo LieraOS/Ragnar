@@ -1,0 +1,8 @@
+[Desktop Entry]
+OnlyShowIn=Ragnar;
+Type=Application
+Name=Ragnar root display access
+Comment=Grants the local root user access to the session display so pkexec-launched applications (e.g. gparted) can open their windows under XWayland
+Exec=xhost +SI:localuser:root
+Terminal=false
+NoDisplay=true
