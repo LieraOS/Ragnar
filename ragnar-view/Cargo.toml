@@ -23,3 +23,8 @@ maintainer = "Jörg Schröder <projekt@lieraos.local>"
 section = "x11"
 priority = "optional"
 depends = "$auto"
+assets = [
+    ["target/release/ragnar-view", "usr/bin/ragnar-view", "755"],
+    ["data/org.lieraos.ragnar.View.desktop", "etc/xdg/autostart/", "644"],
+    ["data/org.lieraos.ragnar.view.gschema.xml", "usr/share/glib-2.0/schemas/", "644"],
+]
