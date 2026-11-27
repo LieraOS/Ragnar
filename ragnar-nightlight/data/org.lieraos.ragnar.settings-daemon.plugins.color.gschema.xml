@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <!-- Night-light settings. ragnar-nightlight watches these keys and
+       rewrites the gammastep config on every change; Ragnar Settings
+       (Night Light panel) writes them.
+       Mirrors the subset of the former gsd color schema that Ragnar
+       actually consumes. -->
+  <schema id="org.lieraos.ragnar.settings-daemon.plugins.color" path="/org/lieraos/ragnar/settings-daemon/plugins/color/">
+    <key name="night-light-enabled" type="b">
+      <default>false</default>
+      <summary>Night light enabled</summary>
+    </key>
+    <key name="night-light-temperature" type="u">
+      <default>4000</default>
+      <summary>Night light colour temperature in Kelvin</summary>
+    </key>
+    <key name="night-light-schedule-automatic" type="b">
+      <default>true</default>
+      <summary>Follow the sun schedule instead of manual times</summary>
+    </key>
+    <key name="night-light-schedule-from" type="d">
+      <default>20.0</default>
+      <summary>Manual schedule start, hours since midnight (fractional)</summary>
+    </key>
+    <key name="night-light-schedule-to" type="d">
+      <default>6.0</default>
+      <summary>Manual schedule end, hours since midnight (fractional)</summary>
+    </key>
+    <key name="night-light-last-coordinates" type="(dd)">
+      <default>(0.0, 0.0)</default>
+      <summary>Last known coordinates for the sun schedule</summary>
+    </key>
+  </schema>
+</schemalist>

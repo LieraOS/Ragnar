@@ -337,9 +337,9 @@ fn choice_row(title: &str, schema: &str, key: &str, opts: &[(i64, &str)]) -> gtk
 }
 
 /// Suspend-timeout row — sets type=suspend/nothing + timeout secs.
-/// The gsd-power schema only exists when gnome-settings-daemon is
-/// installed; without it the row is skipped entirely (no consumer
-/// would read the keys anyway).
+/// The power schema is Ragnar-owned (org.lieraos.ragnar.*) and ships
+/// with ragnar-core; when it is somehow absent the row is skipped
+/// entirely (no consumer would read the keys anyway).
 fn suspend_row(title: &str, rail: &str) -> Option<gtk4::ListBoxRow> {
     const OPTS: &[(i64, &str)] = &[
         (0, "Never"),
@@ -348,7 +348,7 @@ fn suspend_row(title: &str, rail: &str) -> Option<gtk4::ListBoxRow> {
         (3600, "1 hour"),
         (7200, "2 hours"),
     ];
-    let schema = "org.gnome.settings-daemon.plugins.power";
+    let schema = "org.lieraos.ragnar.settings-daemon.plugins.power";
     let tkey = format!("sleep-inactive-{rail}-timeout");
     let ykey = format!("sleep-inactive-{rail}-type");
     let s = common::schema_lookup(schema, &tkey)?;

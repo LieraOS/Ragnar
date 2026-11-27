@@ -94,6 +94,7 @@ install_file "$ROOT/ragnar-status-notifier/data/org.lieraos.ragnar.StatusNotifie
 # ---------------- ragnar-screenlock ----------------
 install_file "$ROOT/ragnar-screenlock/target/release/ragnar-screenlock" usr/bin/ragnar-screenlock 755
 install_file "$ROOT/ragnar-screenlock/data/org.lieraos.ragnar.Screenlock.desktop" etc/xdg/autostart/org.lieraos.ragnar.Screenlock.desktop 644
+install_file "$ROOT/ragnar-screenlock/data/org.lieraos.ragnar.settings-daemon.plugins.power.gschema.xml" usr/share/glib-2.0/schemas/org.lieraos.ragnar.settings-daemon.plugins.power.gschema.xml 644
 
 # ---------------- ragnar-polkit-agent ----------------
 install_file "$ROOT/ragnar-polkit-agent/target/release/ragnar-polkit-agent" usr/libexec/ragnar-desktop/ragnar-polkit-agent 755
@@ -119,6 +120,7 @@ install_file "$ROOT/ragnar-brightness-helper/target/release/ragnar-brightness-he
 # ---------------- ragnar-nightlight ----------------
 install_file "$ROOT/ragnar-nightlight/target/release/ragnar-nightlight" usr/bin/ragnar-nightlight 755
 install_file "$ROOT/ragnar-nightlight/data/org.lieraos.ragnar.NightLight.desktop" etc/xdg/autostart/org.lieraos.ragnar.NightLight.desktop 644
+install_file "$ROOT/ragnar-nightlight/data/org.lieraos.ragnar.settings-daemon.plugins.color.gschema.xml" usr/share/glib-2.0/schemas/org.lieraos.ragnar.settings-daemon.plugins.color.gschema.xml 644
 
 # ---------------- ragnar-osd ----------------
 install_file "$ROOT/ragnar-osd/target/release/ragnar-osd" usr/bin/ragnar-osd 755

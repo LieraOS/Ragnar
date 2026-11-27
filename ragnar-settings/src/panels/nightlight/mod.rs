@@ -4,9 +4,9 @@
 // Copyright (C) 2026 LieraOS Project
 //
 // Beginner-facing colour-temperature settings written to the
-// standard org.gnome.settings-daemon.plugins.color keys — consumed
-// by the standalone ragnar-nightlight service, which owns
-// gammastep. The panel is pure UI: no config files, no process
+// Ragnar-owned org.lieraos.ragnar.settings-daemon.plugins.color
+// keys — consumed by the standalone ragnar-nightlight service,
+// which owns gammastep. The panel is pure UI: no config files, no process
 // management. "All the time" is expressed as from == to == 0.0,
 // which the service maps to equal day/night temperatures. There is
 // deliberately no "sunset to sunrise" mode: no GeoClue service is
@@ -21,7 +21,7 @@ use std::rc::Rc;
 
 use super::common;
 
-const SCHEMA: &str = "org.gnome.settings-daemon.plugins.color";
+const SCHEMA: &str = "org.lieraos.ragnar.settings-daemon.plugins.color";
 
 /// Warmth slider bounds in Kelvin — never shown to the user.
 const TEMP_MIN: f64 = 3000.0;

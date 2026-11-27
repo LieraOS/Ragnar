@@ -3,21 +3,33 @@ use gio::prelude::*;
 // Copyright (C) Jörg Schröder
 // ragnar-screenlock — GSettings readers
 //
-// The legacy daemon read the same schemas; keep them so existing
-// settings (set via gsettings or the old control center) keep
-// working unchanged.
+// Power keys live in the Ragnar-owned schema
+// org.lieraos.ragnar.settings-daemon.plugins.power (shipped by
+// ragnar-core). The org.gnome.desktop.* schemas come from
+// gsettings-desktop-schemas, the cross-desktop standard base.
+// Every schema open is guarded: a missing schema yields the
+// documented defaults instead of aborting the daemon.
 
 
 use gio::Settings;
 
-/// Power schema: idle dimming and suspend timers.
-const SCHEMA_POWER: &str = "org.gnome.settings-daemon.plugins.power";
+/// Power schema: idle dimming and suspend timers (Ragnar-owned).
+const SCHEMA_POWER: &str = "org.lieraos.ragnar.settings-daemon.plugins.power";
 /// Session schema: global idle delay.
 const SCHEMA_SESSION: &str = "org.gnome.desktop.session";
 /// Screensaver schema: lock after idle and the wallpaper used by swaylock.
 const SCHEMA_SAVER: &str = "org.gnome.desktop.screensaver";
 /// Lockdown schema: admin kill-switch for the lock screen.
 const SCHEMA_LOCKDOWN: &str = "org.gnome.desktop.lockdown";
+
+/// Open a schema when it is installed — `Settings::new` on a missing
+/// schema is a fatal glib error, so absence must degrade to
+/// defaults, never crash the session's lock path.
+fn open(schema: &str) -> Option<Settings> {
+    gio::SettingsSchemaSource::default()
+        .and_then(|src| src.lookup(schema, true))
+        .map(|_| Settings::new(schema))
+}
 
 /// One settings snapshot for the idle rebuild; every key is read in
 /// one place so the idle builder stays declarative.
@@ -44,32 +56,52 @@ pub struct ScreenlockSettings {
     pub picture_uri: String,
 }
 
-/// Reads every relevant key once and returns the snapshot.
+/// Reads every relevant key once and returns the snapshot. Missing
+/// schemas fall back to the defaults the schema files document, so a
+/// broken install degrades to a working (if plainly timed) lock.
 pub fn snapshot() -> ScreenlockSettings {
-    let power = Settings::new(SCHEMA_POWER);
-    let session = Settings::new(SCHEMA_SESSION);
-    let saver = Settings::new(SCHEMA_SAVER);
-    let lockdown = Settings::new(SCHEMA_LOCKDOWN);
+    let power = open(SCHEMA_POWER);
+    let session = open(SCHEMA_SESSION);
+    let saver = open(SCHEMA_SAVER);
+    let lockdown = open(SCHEMA_LOCKDOWN);
     ScreenlockSettings {
-        idle_delay: session.uint("idle-delay"),
-        lock_delay: saver.uint("lock-delay"),
-        lock_enabled: saver.boolean("lock-enabled"),
-        disable_lock_screen: lockdown.boolean("disable-lock-screen"),
-        idle_dim: power.boolean("idle-dim"),
-        idle_brightness: power.int("idle-brightness"),
-        sleep_ac_timeout: power.int("sleep-inactive-ac-timeout"),
-        sleep_ac_type: power.string("sleep-inactive-ac-type").to_string(),
-        sleep_bat_timeout: power.int("sleep-inactive-battery-timeout"),
-        sleep_bat_type: power.string("sleep-inactive-battery-type").to_string(),
-        picture_uri: saver.string("picture-uri").to_string(),
+        idle_delay: session.map_or(300, |s| s.uint("idle-delay")),
+        lock_delay: saver.as_ref().map_or(0, |s| s.uint("lock-delay")),
+        lock_enabled: saver
+            .as_ref()
+            .map_or(true, |s| s.boolean("lock-enabled")),
+        disable_lock_screen: lockdown.map_or(false, |s| s.boolean("disable-lock-screen")),
+        idle_dim: power.as_ref().map_or(true, |s| s.boolean("idle-dim")),
+        idle_brightness: power.as_ref().map_or(30, |s| s.int("idle-brightness")),
+        sleep_ac_timeout: power
+            .as_ref()
+            .map_or(3600, |s| s.int("sleep-inactive-ac-timeout")),
+        sleep_ac_type: power
+            .as_ref()
+            .map_or_else(|| "suspend".to_string(), |s| {
+                s.string("sleep-inactive-ac-type").to_string()
+            }),
+        sleep_bat_timeout: power
+            .as_ref()
+            .map_or(1200, |s| s.int("sleep-inactive-battery-timeout")),
+        sleep_bat_type: power
+            .as_ref()
+            .map_or_else(|| "suspend".to_string(), |s| {
+                s.string("sleep-inactive-battery-type").to_string()
+            }),
+        picture_uri: saver.map_or_else(String::new, |s| s.string("picture-uri").to_string()),
     }
 }
 
 /// Connects change notifications of every relevant key to `cb` —
-/// the idle manager re-runs its rebuild on any change.
+/// the idle manager re-runs its rebuild on any change. Missing
+/// schemas simply never fire.
 pub fn watch<F: Fn() + 'static>(cb: F) {
     let cb = std::rc::Rc::new(cb);
-    let fire = |s: &Settings, keys: &'static [&'static str]| {
+    let fire = |schema: &str, keys: &'static [&'static str]| {
+        let Some(s) = open(schema) else {
+            return;
+        };
         let cb = cb.clone();
         s.connect_changed(None, move |_, key| {
             if keys.contains(&key) {
@@ -78,7 +110,7 @@ pub fn watch<F: Fn() + 'static>(cb: F) {
         });
     };
     fire(
-        &Settings::new(SCHEMA_POWER),
+        SCHEMA_POWER,
         &[
             "sleep-inactive-ac-timeout",
             "sleep-inactive-ac-type",
@@ -88,10 +120,7 @@ pub fn watch<F: Fn() + 'static>(cb: F) {
             "idle-brightness",
         ],
     );
-    fire(&Settings::new(SCHEMA_SESSION), &["idle-delay"]);
-    fire(
-        &Settings::new(SCHEMA_SAVER),
-        &["lock-enabled", "lock-delay", "picture-uri"],
-    );
-    fire(&Settings::new(SCHEMA_LOCKDOWN), &["disable-lock-screen"]);
+    fire(SCHEMA_SESSION, &["idle-delay"]);
+    fire(SCHEMA_SAVER, &["lock-enabled", "lock-delay", "picture-uri"]);
+    fire(SCHEMA_LOCKDOWN, &["disable-lock-screen"]);
 }

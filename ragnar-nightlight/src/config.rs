@@ -2,15 +2,15 @@
 // Copyright (C) Jörg Schröder
 // ragnar-nightlight — GSettings → gammastep config translation
 //
-// Watches org.gnome.settings-daemon.plugins.color (the standard gsd
-// color schema Ragnar Settings writes) and rewrites
+// Watches org.lieraos.ragnar.settings-daemon.plugins.color (the
+// Ragnar-owned color schema Ragnar Settings writes) and rewrites
 // ~/.config/gammastep/ragnar_config.ini — ported 1:1 from the legacy
 // NightLightManager so existing settings keep working unchanged.
 
 use gio::prelude::*;
 use std::path::PathBuf;
 
-const SCHEMA: &str = "org.gnome.settings-daemon.plugins.color";
+const SCHEMA: &str = "org.lieraos.ragnar.settings-daemon.plugins.color";
 const LOCAL_NAME: &str = "ragnar_config.ini";
 const SEARCH_NAME: &str = "gammastep.config";
 

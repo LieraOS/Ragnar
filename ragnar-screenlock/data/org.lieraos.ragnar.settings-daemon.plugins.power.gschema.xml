@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <!-- Power/idle behaviour. ragnar-screenlock reads these keys;
+       Ragnar Settings (Power panel) writes them.
+       Mirrors the subset of the former gsd power schema that Ragnar
+       actually consumes — the *-type keys are plain strings here
+       ("nothing", "suspend", "hibernate", "shutdown"), not gsd's
+       GsdPowerActionType enum. -->
+  <schema id="org.lieraos.ragnar.settings-daemon.plugins.power" path="/org/lieraos/ragnar/settings-daemon/plugins/power/">
+    <key name="idle-dim" type="b">
+      <default>true</default>
+      <summary>Dim the screen while idle</summary>
+    </key>
+    <key name="idle-brightness" type="i">
+      <default>30</default>
+      <summary>Percentage to dim to when idle</summary>
+    </key>
+    <key name="sleep-inactive-ac-timeout" type="i">
+      <default>3600</default>
+      <summary>Seconds of inactivity on AC before the sleep action fires; 0 = never</summary>
+    </key>
+    <key name="sleep-inactive-ac-type" type="s">
+      <default>'suspend'</default>
+      <summary>Action taken on AC idle timeout (nothing, suspend, hibernate, shutdown)</summary>
+    </key>
+    <key name="sleep-inactive-battery-timeout" type="i">
+      <default>1200</default>
+      <summary>Seconds of inactivity on battery before the sleep action fires; 0 = never</summary>
+    </key>
+    <key name="sleep-inactive-battery-type" type="s">
+      <default>'suspend'</default>
+      <summary>Action taken on battery idle timeout (nothing, suspend, hibernate, shutdown)</summary>
+    </key>
+  </schema>
+</schemalist>

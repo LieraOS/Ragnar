@@ -56,8 +56,6 @@ const GSETTINGS_SCHEMAS: &[&str] = &[
     "org.gnome.desktop.background",
     "org.gnome.desktop.screensaver",
     "org.gnome.desktop.session",
-    "org.gnome.settings-daemon.plugins.color",
-    "org.gnome.settings-daemon.plugins.power",
 ];
 
 /// Every schema under this prefix is dumped too — new Ragnar

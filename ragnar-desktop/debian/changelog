@@ -1,3 +1,17 @@
+ragnar-desktop (1.0-46) forky; urgency=medium
+
+  * Ragnar-owned GSettings schemas for the settings-daemon keys:
+    org.lieraos.ragnar.settings-daemon.plugins.power (screenlock) and
+    org.lieraos.ragnar.settings-daemon.plugins.color (nightlight)
+    replace the org.gnome.settings-daemon.* schemas, which are only
+    shipped by the gnome-settings-daemon package — absent on Liera,
+    so ragnar-screenlock hit the fatal "schema not installed" path
+    and the idle-lock never came up. screenlock now also opens every
+    schema via a lookup guard and falls back to documented defaults
+    instead of aborting.
+
+ -- LieraOS Project <projekt@lieraos.local>  Thu, 27 Nov 2025 05:30:00 +0100
+
 ragnar-desktop (1.0-45) forky; urgency=medium
 
   * new autostart entry grants the local root user access to the
